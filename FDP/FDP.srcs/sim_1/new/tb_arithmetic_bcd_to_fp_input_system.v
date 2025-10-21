@@ -63,7 +63,7 @@ module tb_arithmetic_bcd_to_fp_input_system;
     integer fail_count;
     
     // DUT Instantiation
-    arithmetic_bcd_to_fp_input_system #(
+    bcd_to_fp_input_system #(
         .DIGIT_CAPACITY(8),
         .FIXED_FRAC_BITS(16)
     ) dut (

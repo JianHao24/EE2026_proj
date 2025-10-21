@@ -1,5 +1,42 @@
 Vivado Simulator 2018.2
 Time resolution is 1 ps
+=== FP to String Sequential Testbench ===
+
+--- Test:             Zero ---
+Input Q16.16: 0x00000000 (0.000000)
+Result: "0.0000  "
+
+--- Test:        One (1.0) ---
+Input Q16.16: 0x00010000 (1.000000)
+Result: "1.0000  "
+
+--- Test:       Five (5.0) ---
+Input Q16.16: 0x00050000 (5.000000)
+Result: "5.0000  "
+
+--- Test:       Ten (10.0) ---
+Input Q16.16: 0x000a0000 (10.000000)
+Result: "10.0000 "
+
+--- Test:      123 (123.0) ---
+Input Q16.16: 0x007b0000 (123.000000)
+-----------------------------------------
+  ? Conversion completed at time 575000
+  Expected: 3.140000
+  Actual:   3.139984
+  FP Value: 0x000323d6 (205782)
+  ? PASS - Within tolerance
+
+TEST 3: Enter negative number -5
+-----------------------------------------------------------------
+  ? Conversion completed at time 815000
+  Expected: -5.000000
+  Actual:   -5.000000
+  FP Value: 0xfffb0000 (-327680)
+  ? PASS - Within tolerance
+
+TEST 4: Enter negative decimal -12.5
+-----------------------------------------------------------------
 =================================================================
 Testbench for arithmetic_bcd_to_fp_input_system
 =================================================================
@@ -30,3 +67,65 @@ TEST 3: Enter negative number -5
 
 TEST 4: Enter negative decimal -12.5
 -----------------------------------------------------------------
+  ? Conversion completed at time 1175000
+  Expected: -12.500000
+  Actual:   -12.500000
+  FP Value: 0xfff38000 (-819200)
+  ? PASS - Within tolerance
+
+TEST 5: Test backspace (123 -> backspace -> 12)
+-----------------------------------------------------------------
+  Entered 123, now pressing backspace...
+  ? Conversion completed at time 1485000
+  Expected: 12.000000
+  Actual:   12.000000
+  FP Value: 0x000c0000 (786432)
+  ? PASS - Within tolerance
+
+TEST 6: Enter 0.5
+-----------------------------------------------------------------
+  ? Conversion completed at time 1775000
+  Expected: 0.500000
+  Actual:   0.500000
+  FP Value: 0x00008000 (32768)
+  ? PASS - Within tolerance
+
+TEST 7: Enter large number 9999
+-----------------------------------------------------------------
+  ? Conversion completed at time 2105000
+  Expected: 9999.000000
+  Actual:   9999.000000
+  FP Value: 0x270f0000 (655294464)
+  ? PASS - Within tolerance
+
+TEST 8: Enter 1.234
+-----------------------------------------------------------------
+  ? Conversion completed at time 2475000
+  Expected: 1.234000
+  Actual:   1.233994
+  FP Value: 0x00013be7 (80871)
+  ? PASS - Within tolerance
+
+TEST 9: Enter .75 (leading decimal)
+-----------------------------------------------------------------
+  ? Conversion completed at time 2765000
+  Expected: 0.750000
+  Actual:   0.749985
+  FP Value: 0x0000bfff (49151)
+  ? PASS - Within tolerance
+
+TEST 10: Verify has_decimal flag
+-----------------------------------------------------------------
+  ? has_decimal correctly 0 after digit
+  ? has_decimal correctly 1 after decimal
+
+=================================================================
+TEST SUMMARY
+=================================================================
+Total Tests: 11
+Passed:      11
+Failed:      0
+
+??? ALL TESTS PASSED! ???
+=================================================================
+$finish called at time : 3045 ns : File "C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sim_1/new/tb_arithmetic_bcd_to_fp_input_system.v" Line 410
