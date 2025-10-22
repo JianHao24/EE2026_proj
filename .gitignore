@@ -4,3 +4,6 @@ FDP/vivado.jou
 FDP/vivado.jou
 FDP/vivado_30860.backup.jou
 /FDP/FDP.sim
+*.jou
+*.log
+*.str
