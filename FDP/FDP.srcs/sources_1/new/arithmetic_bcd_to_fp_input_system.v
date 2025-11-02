@@ -21,7 +21,7 @@
 
 
 
-module arithmetic_bcd_to_fp_input_system #(
+module bcd_to_fp_input_system #(
     parameter DIGIT_CAPACITY = 8,      // number of input digits supported
     parameter FIXED_FRAC_BITS = 16     // fixed-point fractional precision
 )(
