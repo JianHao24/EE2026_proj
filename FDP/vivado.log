@@ -41,3 +41,8 @@ update_compile_order -fileset sources_1
 close [ open {C:/Users/wonge/OneDrive - National University of Singapore/Documents/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_result_display.v} w ]
 add_files {{C:/Users/wonge/OneDrive - National University of Singapore/Documents/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_result_display.v}}
 update_compile_order -fileset sources_1
+save_project_as localcopy {C:/Users/wonge/OneDrive - National University of Singapore/Documents/GitHub/EE2026_proj/localcopy} -force
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'C:/Users/wonge/OneDrive - National University of Singapore/Documents/GitHub/EE2026_proj/localcopy'
+exit
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 26 22:18:54 2025...
