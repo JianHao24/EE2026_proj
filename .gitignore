@@ -1,17 +1,28 @@
-/FDP/FDP.cache
-/FDP/FDP.sim/sim_1
-FDP/vivado.jou
-FDP/vivado.jou
-FDP/vivado_30860.backup.jou
-/FDP/FDP.sim
-FDP/FDP.cache/wt/gui_handlers.wdf
-FDP/FDP.cache/wt/project.wpc
-FDP/vivado.jou
-FDP/vivado.log
-FDP/vivado_30940.backup.jou
-FDP/vivado_30940.backup.log
-FDP/vivado_4412.backup.log
-FDP/FDP.cache/wt/webtalk_pa.xml
+# Vivado simulation files
+/FDP/FDP.sim/
+/FDP/FDP.cache/
+
+# Vivado run files
+/FDP/FDP.runs/
+
+# Vivado generated files
 *.jou
 *.log
 *.str
+*.backup.jou
+*.backup.log
+
+# Vivado GUI and project cache
+/FDP/FDP.cache/wt/
+
+# Vivado temporary files
+vivado*.backup.jou
+vivado*.backup.log
+vivado.jou
+vivado.log
+
+# Vivado other generated files
+*.wdb
+*.wcfg
+*.pb
+.Xil/
