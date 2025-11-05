@@ -1,0 +1,32 @@
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+=================================================================
+Testbench for arithmetic_bcd_to_fp_input_system
+=================================================================
+
+TEST 1: Enter integer 12
+-----------------------------------------------------------------
+  ? Conversion completed at time 245000
+  Expected: 12.000000
+  Actual:   12.000000
+  FP Value: 0x000c0000 (786432)
+  ? PASS - Within tolerance
+
+TEST 2: Enter decimal 3.14
+-----------------------------------------------------------------
+  ? Conversion completed at time 575000
+  Expected: 3.140000
+  Actual:   3.139984
+  FP Value: 0x000323d6 (205782)
+  ? PASS - Within tolerance
+
+TEST 3: Enter negative number -5
+-----------------------------------------------------------------
+  ? Conversion completed at time 815000
+  Expected: -5.000000
+  Actual:   -5.000000
+  FP Value: 0xfffb0000 (-327680)
+  ? PASS - Within tolerance
+
+TEST 4: Enter negative decimal -12.5
+-----------------------------------------------------------------

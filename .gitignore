@@ -12,3 +12,6 @@ FDP/vivado_30940.backup.jou
 FDP/vivado_30940.backup.log
 FDP/vivado_4412.backup.log
 FDP/FDP.cache/wt/webtalk_pa.xml
+*.jou
+*.log
+*.str

@@ -1,131 +1,202 @@
 Vivado Simulator 2018.2
 Time resolution is 1 ps
-=== FP to String Sequential Testbench ===
-
---- Test:             Zero ---
-Input Q16.16: 0x00000000 (0.000000)
-Result: "0.0000  "
-
---- Test:        One (1.0) ---
-Input Q16.16: 0x00010000 (1.000000)
-Result: "1.0000  "
-
---- Test:       Five (5.0) ---
-Input Q16.16: 0x00050000 (5.000000)
-Result: "5.0000  "
-
---- Test:       Ten (10.0) ---
-Input Q16.16: 0x000a0000 (10.000000)
-Result: "10.0000 "
-
---- Test:      123 (123.0) ---
-Input Q16.16: 0x007b0000 (123.000000)
------------------------------------------
-  ? Conversion completed at time 575000
-  Expected: 3.140000
-  Actual:   3.139984
-  FP Value: 0x000323d6 (205782)
-  ? PASS - Within tolerance
-
-TEST 3: Enter negative number -5
------------------------------------------------------------------
-  ? Conversion completed at time 815000
-  Expected: -5.000000
-  Actual:   -5.000000
-  FP Value: 0xfffb0000 (-327680)
-  ? PASS - Within tolerance
-
-TEST 4: Enter negative decimal -12.5
------------------------------------------------------------------
 =================================================================
-Testbench for arithmetic_bcd_to_fp_input_system
+Arithmetic Backend Optimized Testbench
 =================================================================
 
-TEST 1: Enter integer 12
+TEST 1: Addition - 10.5 + 5.25
 -----------------------------------------------------------------
-  ? Conversion completed at time 245000
-  Expected: 12.000000
-  Actual:   12.000000
-  FP Value: 0x000c0000 (786432)
-  ? PASS - Within tolerance
+  Test:              10.5 + 5.25 = 15.75
+    Expected: 15.7500 (0x000fc000)
+    Actual:   15.7500 (0x000fc000)
+    Error:    0.000000
+    ? PASS
 
-TEST 2: Enter decimal 3.14
+TEST 2: Subtraction - 20.0 - 7.5
 -----------------------------------------------------------------
-  ? Conversion completed at time 575000
-  Expected: 3.140000
-  Actual:   3.139984
-  FP Value: 0x000323d6 (205782)
-  ? PASS - Within tolerance
+  Test:                20.0 - 7.5 = 12.5
+    Expected: 12.5000 (0x000c8000)
+    Actual:   12.5000 (0x000c8000)
+    Error:    0.000000
+    ? PASS
 
-TEST 3: Enter negative number -5
+TEST 3: Multiplication - 4.0 * 2.5
 -----------------------------------------------------------------
-  ? Conversion completed at time 815000
-  Expected: -5.000000
-  Actual:   -5.000000
-  FP Value: 0xfffb0000 (-327680)
-  ? PASS - Within tolerance
+  Test:                 4.0 * 2.5 = 10.0
+    Expected: 10.0000 (0x000a0000)
+    Actual:   10.0000 (0x000a0000)
+    Error:    0.000000
+    ? PASS
 
-TEST 4: Enter negative decimal -12.5
+TEST 4: Division - 10.0 / 2.0
 -----------------------------------------------------------------
-  ? Conversion completed at time 1175000
-  Expected: -12.500000
-  Actual:   -12.500000
-  FP Value: 0xfff38000 (-819200)
-  ? PASS - Within tolerance
+  Test:                 10.0 / 2.0 = 5.0
+    Expected: 5.0000 (0x00050000)
+    Actual:   5.0000 (0x00050000)
+    Error:    0.000000
+    ? PASS
 
-TEST 5: Test backspace (123 -> backspace -> 12)
+TEST 5: Chain calculation - 5 + 3 - 2
 -----------------------------------------------------------------
-  Entered 123, now pressing backspace...
-  ? Conversion completed at time 1485000
-  Expected: 12.000000
-  Actual:   12.000000
-  FP Value: 0x000c0000 (786432)
-  ? PASS - Within tolerance
+  Test:                  (5 + 3) - 2 = 6
+    Expected: 6.0000 (0x00060000)
+    Actual:   6.0000 (0x00060000)
+    Error:    0.000000
+    ? PASS
 
-TEST 6: Enter 0.5
+TEST 6: Negative addition - (-5.5) + 3.2
 -----------------------------------------------------------------
-  ? Conversion completed at time 1775000
-  Expected: 0.500000
-  Actual:   0.500000
-  FP Value: 0x00008000 (32768)
-  ? PASS - Within tolerance
+  Test:                -5.5 + 3.2 = -2.3
+    Expected: -2.3000 (0xfffdb334)
+    Actual:   -2.3000 (0xfffdb333)
+    Error:    0.000003
+    ? PASS
 
-TEST 7: Enter large number 9999
+TEST 7: Decimal precision - 0.1 + 0.2
 -----------------------------------------------------------------
-  ? Conversion completed at time 2105000
-  Expected: 9999.000000
-  Actual:   9999.000000
-  FP Value: 0x270f0000 (655294464)
-  ? PASS - Within tolerance
+=================================================================
+Arithmetic Backend Optimized Testbench
+=================================================================
 
-TEST 8: Enter 1.234
+TEST 1: Addition - 10.5 + 5.25
 -----------------------------------------------------------------
-  ? Conversion completed at time 2475000
-  Expected: 1.234000
-  Actual:   1.233994
-  FP Value: 0x00013be7 (80871)
-  ? PASS - Within tolerance
+  Test:              10.5 + 5.25 = 15.75
+    Expected: 15.7500 (0x000fc000)
+    Actual:   15.7500 (0x000fc000)
+    Error:    0.000000
+    ? PASS
 
-TEST 9: Enter .75 (leading decimal)
+TEST 2: Subtraction - 20.0 - 7.5
 -----------------------------------------------------------------
-  ? Conversion completed at time 2765000
-  Expected: 0.750000
-  Actual:   0.749985
-  FP Value: 0x0000bfff (49151)
-  ? PASS - Within tolerance
+  Test:                20.0 - 7.5 = 12.5
+    Expected: 12.5000 (0x000c8000)
+    Actual:   12.5000 (0x000c8000)
+    Error:    0.000000
+    ? PASS
 
-TEST 10: Verify has_decimal flag
+TEST 3: Multiplication - 4.0 * 2.5
 -----------------------------------------------------------------
-  ? has_decimal correctly 0 after digit
-  ? has_decimal correctly 1 after decimal
+  Test:                 4.0 * 2.5 = 10.0
+    Expected: 10.0000 (0x000a0000)
+    Actual:   10.0000 (0x000a0000)
+    Error:    0.000000
+    ? PASS
+
+TEST 4: Division - 10.0 / 2.0
+-----------------------------------------------------------------
+  Test:                 10.0 / 2.0 = 5.0
+    Expected: 5.0000 (0x00050000)
+    Actual:   5.0000 (0x00050000)
+    Error:    0.000000
+    ? PASS
+
+TEST 5: Chain calculation - 5 + 3 - 2
+-----------------------------------------------------------------
+  Test:                  (5 + 3) - 2 = 6
+    Expected: 6.0000 (0x00060000)
+    Actual:   6.0000 (0x00060000)
+    Error:    0.000000
+    ? PASS
+
+TEST 6: Negative addition - (-5.5) + 3.2
+-----------------------------------------------------------------
+  Test:                -5.5 + 3.2 = -2.3
+    Expected: -2.3000 (0xfffdb334)
+    Actual:   -2.3000 (0xfffdb333)
+    Error:    0.000003
+    ? PASS
+
+TEST 7: Decimal precision - 0.1 + 0.2
+-----------------------------------------------------------------
+  Test:                  0.1 + 0.2 ? 0.3
+    Expected: 0.3000 (0x00004ccc)
+    Actual:   0.3000 (0x00004ccc)
+    Error:    0.000012
+    ? PASS
+
+TEST 8: Fractional multiply - 1.5 * 1.5
+-----------------------------------------------------------------
+  Test:                 1.5 * 1.5 = 2.25
+    Expected: 2.2500 (0x00024000)
+    Actual:   2.2500 (0x00024000)
+    Error:    0.000000
+    ? PASS
+
+TEST 9: Fractional divide - 7.5 / 2.5
+-----------------------------------------------------------------
+  Test:                  7.5 / 2.5 = 3.0
+    Expected: 3.0000 (0x00030000)
+    Actual:   3.0000 (0x00030000)
+    Error:    0.000000
+    ? PASS
+
+TEST 10: Division by zero - 10.0 / 0.0
+-----------------------------------------------------------------
+  ? PASS - Divide by zero detected correctly
+
+TEST 11: Large numbers - 1000.0 + 500.5
+-----------------------------------------------------------------
+  Test:          1000.0 + 500.5 = 1500.5
+    Expected: 1500.5000 (0x05dc8000)
+    Actual:   1500.5000 (0x05dc8000)
+    Error:    0.000000
+    ? PASS
+
+TEST 12: Zero addition - 0.0 + 5.0
+-----------------------------------------------------------------
+  Test:                  0.0 + 5.0 = 5.0
+    Expected: 5.0000 (0x00050000)
+    Actual:   5.0000 (0x00050000)
+    Error:    0.000000
+    ? PASS
+
+TEST 13: Multiply by zero - 10.0 * 0.0
+-----------------------------------------------------------------
+  Test:                 10.0 * 0.0 = 0.0
+    Expected: 0.0000 (0x00000000)
+    Actual:   0.0000 (0x00000000)
+    Error:    0.000000
+    ? PASS
+
+TEST 14: Negative multiply - (-2.0) * 3.0
+-----------------------------------------------------------------
+  Test:                -2.0 * 3.0 = -6.0
+    Expected: -6.0000 (0xfffa0000)
+    Actual:   -6.0000 (0xfffa0000)
+    Error:    0.000000
+    ? PASS
+
+TEST 15: Negative divide - (-10.0) / 2.0
+-----------------------------------------------------------------
+  Test:               -10.0 / 2.0 = -5.0
+    Expected: -5.0000 (0xfffb0000)
+    Actual:   -5.0000 (0xfffb0000)
+    Error:    0.000000
+    ? PASS
+
+TEST 16: Small decimals - 0.25 + 0.75
+-----------------------------------------------------------------
+  Test:                0.25 + 0.75 = 1.0
+    Expected: 1.0000 (0x00010000)
+    Actual:   1.0000 (0x00010000)
+    Error:    0.000000
+    ? PASS
+
+TEST 17: Complex chain - 10 * 2 / 4 + 5
+-----------------------------------------------------------------
+  Test:          ((10 * 2) / 4) + 5 = 10
+    Expected: 10.0000 (0x000a0000)
+    Actual:   10.0000 (0x000a0000)
+    Error:    0.000000
+    ? PASS
 
 =================================================================
 TEST SUMMARY
 =================================================================
-Total Tests: 11
-Passed:      11
+Total Tests: 17
+Passed:      17
 Failed:      0
 
 ??? ALL TESTS PASSED! ???
 =================================================================
-$finish called at time : 3045 ns : File "C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sim_1/new/tb_arithmetic_bcd_to_fp_input_system.v" Line 410
+$finish called at time : 2655 ns : File "C:/Users/cheon/Documents/GitHub/EE2026_proj/FDP/FDP.srcs/sim_1/new/tb_basic_calc_engine.v" Line 422
