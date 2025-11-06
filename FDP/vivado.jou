@@ -9,6 +9,6 @@
 # Log file: C:/Users/User/Downloads/EE2026_proj/FDP/vivado.log
 # Journal file: C:/Users/User/Downloads/EE2026_proj/FDP\vivado.jou
 #-----------------------------------------------------------
-start_gui
-open_project C:/Users/User/Downloads/EE2026_proj/FDP/FDP.xpr
+start_guiopen_project C:/Users/User/Downloads/EE2026_tocopy/FDP.xpr
+pr
 update_compile_order -fileset sources_1
