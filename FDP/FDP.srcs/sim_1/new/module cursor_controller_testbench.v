@@ -64,7 +64,7 @@ module cursor_controller_testbench;
         .clk(clk),
         .reset(reset),
         .btnC(btnC), .btnU(btnU), .btnD(btnD), .btnL(btnL), .btnR(btnR),
-        .is_operand_mode(is_operand_mode),
+        .waiting_operand(is_operand_mode),
         .cursor_row_keypad(cursor_row_keypad_new),
         .cursor_col_keypad(cursor_col_keypad_new),
         .cursor_row_operand(cursor_row_operand_new),

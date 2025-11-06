@@ -3,5 +3,7 @@
 Jun 14 2018
 20:41:02
 C:/Users/User/Downloads/EE2026_proj/FDP/FDP.sim/sim_1/behav/xsim/glbl.v,1529022455,verilog,,,,glbl,,,,,,,,
-C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sim_1/new/module cursor_controller_testbench.v,1762436562,verilog,,,,arithmetic_cursor_controller_original;cursor_controller_testbench,,,,,,,,
-C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v,1762439226,verilog,,C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sim_1/new/module cursor_controller_testbench.v,,arithmetic_cursor,,,,,,,,
+C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sim_1/new/module cursor_controller_testbench.v,1762451362,verilog,,,,arithmetic_cursor_controller_original;cursor_controller_testbench,,,,,,,,
+C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sim_1/new/tb_basic_calc_engine.v,1762365829,verilog,,,,tb_basic_calc_engine,,,,,,,,
+C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v,1762451887,verilog,,C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sim_1/new/module cursor_controller_testbench.v,,arithmetic_cursor,,,,,,,,
+C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v,1762450578,verilog,,C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sim_1/new/tb_basic_calc_engine.v,,basic_calculator_engine,,,,,,,,

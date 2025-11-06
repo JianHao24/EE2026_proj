@@ -24,7 +24,7 @@ module arithmetic_text_selector(
     input clk,
     input [12:0] pixel_index,
     input signed [31:0] computed_result,
-    input is_operand_mode,
+    input waiting_operand,
     input [31:0] bcd_value,
     input [3:0] decimal_pos,
     input [3:0] input_index,
@@ -57,7 +57,7 @@ module arithmetic_text_selector(
     
     // Mode-based text selection
     always @(*) begin
-        oled_data = is_operand_mode ? output_display_data : input_display_data;
+        oled_data = waiting_operand ? output_display_data : input_display_data;
     end
     
 endmodule

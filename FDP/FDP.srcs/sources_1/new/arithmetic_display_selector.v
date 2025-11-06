@@ -28,7 +28,7 @@ module arithmetic_display_selector(
     input [1:0]cursor_row_operand,
     input [1:0]cursor_col_operand,
     input has_decimal,
-    input is_operand_mode,
+    input waiting_operand,
     output reg [15:0]oled_data
     );
     
@@ -57,7 +57,7 @@ module arithmetic_display_selector(
     
     // Mode-based display selection
     always @(*) begin
-        oled_data = is_operand_mode ? operand_display_data : keypad_display_data;
+        oled_data = waiting_operand ? operand_display_data : keypad_display_data;
     end
     
 endmodule
