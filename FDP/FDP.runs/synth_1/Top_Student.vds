@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Thu Nov  6 23:04:45 2025
-# Process ID: 41840
+# Start of session at: Fri Nov  7 01:16:02 2025
+# Process ID: 9568
 # Current directory: C:/GitHub/EE2026_proj/FDP/FDP.runs/synth_1
 # Command line: vivado.exe -log Top_Student.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Top_Student.tcl
 # Log file: C:/GitHub/EE2026_proj/FDP/FDP.runs/synth_1/Top_Student.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 12432 
+INFO: Helper process launched with PID 46880 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 356.605 ; gain = 99.883
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 357.148 ; gain = 100.156
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'Top_Student' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/Top_Student.v:14]
 INFO: [Synth 8-6157] synthesizing module 'flexible_clock_divider' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/flexible_clock_divider.v:23]
@@ -79,8 +79,8 @@ WARNING: [Synth 8-693] zero replication count - replication ignored [C:/GitHub/E
 INFO: [Synth 8-6155] done synthesizing module 'Oled_Display' (2#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:36]
 INFO: [Synth 8-6157] synthesizing module 'arithmetic_module' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_mode.v:25]
 INFO: [Synth 8-6157] synthesizing module 'arithmetic_cursor' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:22]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:134]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:180]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:152]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:207]
 INFO: [Synth 8-6155] done synthesizing module 'arithmetic_cursor' (3#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:22]
 INFO: [Synth 8-6157] synthesizing module 'bcd_to_fp_input_system' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_bcd_to_fp_input_system.v:24]
 	Parameter DIGIT_CAPACITY bound to: 8 - type: integer 
@@ -115,17 +115,18 @@ WARNING: [Synth 8-6014] Unused sequential element temp_result_reg was removed.  
 INFO: [Synth 8-6155] done synthesizing module 'horner_fixedpoint_evaluator' (5#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/horner_fixedpoint_evaluator.v:25]
 INFO: [Synth 8-6155] done synthesizing module 'bcd_to_fp_input_system' (6#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_bcd_to_fp_input_system.v:24]
 INFO: [Synth 8-6157] synthesizing module 'basic_calculator_engine' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:22]
-	Parameter ST_IDLE bound to: 2'b00 
-	Parameter ST_COMPUTE bound to: 2'b01 
-	Parameter ST_DONE bound to: 2'b10 
 	Parameter OP_ADD bound to: 2'b00 
 	Parameter OP_SUB bound to: 2'b01 
 	Parameter OP_MUL bound to: 2'b10 
 	Parameter OP_DIV bound to: 2'b11 
-INFO: [Synth 8-155] case statement is not full and has no default [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:100]
-WARNING: [Synth 8-6014] Unused sequential element start_new_calc_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:94]
-WARNING: [Synth 8-6014] Unused sequential element temp_result_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:133]
-WARNING: [Synth 8-6014] Unused sequential element temp_wide_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:157]
+WARNING: [Synth 8-6090] variable 'overflow_detected' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:91]
+WARNING: [Synth 8-6090] variable 'overflow_detected' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:101]
+WARNING: [Synth 8-6090] variable 'overflow_detected' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:113]
+WARNING: [Synth 8-6090] variable 'overflow_detected' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:132]
+WARNING: [Synth 8-6014] Unused sequential element overflow_detected_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:62]
+WARNING: [Synth 8-6014] Unused sequential element calc_result_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:89]
+WARNING: [Synth 8-6014] Unused sequential element wide_temp_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
+WARNING: [Synth 8-6014] Unused sequential element scaled_dividend_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:128]
 INFO: [Synth 8-6155] done synthesizing module 'basic_calculator_engine' (7#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:22]
 INFO: [Synth 8-6157] synthesizing module 'arithmetic_display_selector' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_display_selector.v:23]
 INFO: [Synth 8-6157] synthesizing module 'arithmetic_keypad_display' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_keypad_display.v:23]
@@ -376,7 +377,7 @@ WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[2]
 WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[1]
 WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 425.496 ; gain = 168.773
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 426.391 ; gain = 169.398
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -389,10 +390,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 425.496 ; gain = 168.773
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 426.391 ; gain = 169.398
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 425.496 ; gain = 168.773
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 426.391 ; gain = 169.398
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -414,22 +415,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 780.195 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 781.172 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 780.195 ; gain = 523.473
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 781.172 ; gain = 524.180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 780.195 ; gain = 523.473
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 781.172 ; gain = 524.180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 780.195 ; gain = 523.473
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 781.172 ; gain = 524.180
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "output_clock0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Oled_Display'
@@ -461,15 +462,16 @@ INFO: [Synth 8-5544] ROM "sign_present" won't be mapped to Block RAM because add
 INFO: [Synth 8-5544] ROM "dot_present" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/horner_fixedpoint_evaluator.v:85]
 INFO: [Synth 8-802] inferred FSM for state register 'phase_reg' in module 'horner_fixedpoint_evaluator'
-INFO: [Synth 8-4471] merging register 'current_operation_reg[1:0]' into 'pending_op_reg[1:0]' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:93]
-WARNING: [Synth 8-6014] Unused sequential element current_operation_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:93]
+INFO: [Synth 8-4471] merging register 'result_reg[31:0]' into 'accumulator_reg[31:0]' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:68]
+WARNING: [Synth 8-6014] Unused sequential element result_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:68]
+INFO: [Synth 8-5545] ROM "overflow" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "div_by_zero" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:157]
+INFO: [Synth 8-5545] ROM "accumulator" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
 WARNING: [Synth 8-6014] Unused sequential element  was removed. 
 WARNING: [Synth 8-6014] Unused sequential element  was removed. 
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:157]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:157]
-INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'basic_calculator_engine'
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
 INFO: [Synth 8-5544] ROM "display_char" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "display_char" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "cursor_show" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
@@ -545,14 +547,6 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
                 FINALIZE |                              100 |                               10
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'phase_reg' using encoding 'one-hot' in module 'horner_fixedpoint_evaluator'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                 ST_IDLE |                              001 |                               00
-              ST_COMPUTE |                              010 |                               01
-                 ST_DONE |                              100 |                               10
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'basic_calculator_engine'
 WARNING: [Synth 8-327] inferring latch for variable 'oled_data_reg' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_keypad_display.v:117]
 WARNING: [Synth 8-327] inferring latch for variable 'display_char_reg' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_keypad_display.v:83]
 WARNING: [Synth 8-327] inferring latch for variable 'char_start_x_reg' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_keypad_display.v:84]
@@ -580,16 +574,16 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'control_state_reg' using encoding 'one-hot' in module 'arithmetic_output_display'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 780.195 ; gain = 523.473
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 781.172 ; gain = 524.180
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+-------------------------+------------+----------+
 |      |RTL Partition            |Replication |Instances |
 +------+-------------------------+------------+----------+
-|1     |arithmetic_module__GB0   |           1|     19983|
+|1     |arithmetic_module__GB0   |           1|     20837|
 |2     |arithmetic_module__GB1   |           1|     18137|
-|3     |arithmetic_text_selector |           1|     23252|
+|3     |arithmetic_text_selector |           1|     23256|
 |4     |Top_Student__GC0         |           1|      4910|
 +------+-------------------------+------------+----------+
 ---------------------------------------------------------------------------------
@@ -618,7 +612,7 @@ Detailed RTL Component Info :
 +---Registers : 
 	               48 Bit    Registers := 2     
 	               40 Bit    Registers := 2     
-	               32 Bit    Registers := 7     
+	               32 Bit    Registers := 6     
 	               18 Bit    Registers := 2     
 	               17 Bit    Registers := 2     
 	               16 Bit    Registers := 9     
@@ -640,7 +634,7 @@ Detailed RTL Component Info :
 	   4 Input     48 Bit        Muxes := 4     
 	   6 Input     48 Bit        Muxes := 1     
 	   2 Input     40 Bit        Muxes := 6     
-	   2 Input     32 Bit        Muxes := 21    
+	   2 Input     32 Bit        Muxes := 17    
 	   4 Input     32 Bit        Muxes := 1     
 	   3 Input     32 Bit        Muxes := 2     
 	  32 Input     32 Bit        Muxes := 2     
@@ -669,21 +663,20 @@ Detailed RTL Component Info :
 	   3 Input      4 Bit        Muxes := 2     
 	   7 Input      4 Bit        Muxes := 1     
 	   5 Input      4 Bit        Muxes := 5     
-	   2 Input      3 Bit        Muxes := 15    
+	   2 Input      3 Bit        Muxes := 14    
 	   9 Input      3 Bit        Muxes := 2     
 	   6 Input      3 Bit        Muxes := 4     
 	   4 Input      3 Bit        Muxes := 1     
-	   3 Input      3 Bit        Muxes := 1     
 	   5 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 15    
 	   6 Input      2 Bit        Muxes := 1     
 	  10 Input      2 Bit        Muxes := 1     
 	   5 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 132   
-	   4 Input      1 Bit        Muxes := 10    
+	   2 Input      1 Bit        Muxes := 136   
+	   4 Input      1 Bit        Muxes := 9     
 	   9 Input      1 Bit        Muxes := 1     
 	   6 Input      1 Bit        Muxes := 13    
-	   3 Input      1 Bit        Muxes := 15    
+	   3 Input      1 Bit        Muxes := 8     
 	   7 Input      1 Bit        Muxes := 1     
 	   5 Input      1 Bit        Muxes := 15    
 ---------------------------------------------------------------------------------
@@ -858,24 +851,21 @@ Module basic_calculator_engine
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     64 Bit       Adders := 3     
-	   3 Input     32 Bit       Adders := 1     
 	   2 Input     32 Bit       Adders := 2     
+	   3 Input     32 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 2     
+	               32 Bit    Registers := 1     
 	               18 Bit    Registers := 2     
 	               15 Bit    Registers := 2     
 	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 5     
 +---Muxes : 
 	   2 Input     64 Bit        Muxes := 2     
-	   2 Input     32 Bit        Muxes := 11    
+	   2 Input     32 Bit        Muxes := 7     
 	   4 Input     32 Bit        Muxes := 1     
-	   3 Input      3 Bit        Muxes := 1     
-	   2 Input      3 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 6     
+	   4 Input      1 Bit        Muxes := 1     
 	   5 Input      1 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 2     
-	   3 Input      1 Bit        Muxes := 7     
 Module sprite_library_optimized__2 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -1073,30 +1063,30 @@ DSP Report: Generating DSP frac_val1, operation Mode is: A*(B:0x2710).
 DSP Report: operator frac_val1 is absorbed into DSP frac_val1.
 DSP Report: Generating DSP frac_val1, operation Mode is: A*(B:0x2710).
 DSP Report: operator frac_val1 is absorbed into DSP frac_val1.
-INFO: [Synth 8-4471] merging register 'result_reg[31:0]' into 'accumulator_reg[31:0]' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:86]
 WARNING: [Synth 8-6014] Unused sequential element A was removed. 
-WARNING: [Synth 8-6014] Unused sequential element A was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:157]
-WARNING: [Synth 8-6014] Unused sequential element result_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:86]
+WARNING: [Synth 8-6014] Unused sequential element A was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
+INFO: [Synth 8-5545] ROM "accumulator" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "overflow" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 WARNING: [Synth 8-6014] Unused sequential element B was removed. 
-WARNING: [Synth 8-6014] Unused sequential element A was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:157]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:157]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:157]
-DSP Report: Generating DSP result1, operation Mode is: A*B2.
-DSP Report: register B is absorbed into DSP result1.
-DSP Report: operator result1 is absorbed into DSP result1.
-DSP Report: operator result1 is absorbed into DSP result1.
-DSP Report: Generating DSP result1, operation Mode is: (PCIN>>17)+A2*B.
-DSP Report: register B is absorbed into DSP result1.
-DSP Report: operator result1 is absorbed into DSP result1.
-DSP Report: operator result1 is absorbed into DSP result1.
-DSP Report: Generating DSP result1, operation Mode is: A2*B.
-DSP Report: register A is absorbed into DSP result1.
-DSP Report: operator result1 is absorbed into DSP result1.
-DSP Report: operator result1 is absorbed into DSP result1.
-DSP Report: Generating DSP result1, operation Mode is: (PCIN>>17)+A2*B.
-DSP Report: register A is absorbed into DSP result1.
-DSP Report: operator result1 is absorbed into DSP result1.
-DSP Report: operator result1 is absorbed into DSP result1.
+WARNING: [Synth 8-6014] Unused sequential element A was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
+DSP Report: Generating DSP overflow2, operation Mode is: A*B2.
+DSP Report: register B is absorbed into DSP overflow2.
+DSP Report: operator overflow2 is absorbed into DSP overflow2.
+DSP Report: operator overflow2 is absorbed into DSP overflow2.
+DSP Report: Generating DSP overflow2, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register B is absorbed into DSP overflow2.
+DSP Report: operator overflow2 is absorbed into DSP overflow2.
+DSP Report: operator overflow2 is absorbed into DSP overflow2.
+DSP Report: Generating DSP overflow2, operation Mode is: A2*B.
+DSP Report: register A is absorbed into DSP overflow2.
+DSP Report: operator overflow2 is absorbed into DSP overflow2.
+DSP Report: operator overflow2 is absorbed into DSP overflow2.
+DSP Report: Generating DSP overflow2, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register A is absorbed into DSP overflow2.
+DSP Report: operator overflow2 is absorbed into DSP overflow2.
+DSP Report: operator overflow2 is absorbed into DSP overflow2.
 WARNING: [Synth 8-6014] Unused sequential element display_selector/keypad_inst/button_char_renderer/oled_data_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:63]
 WARNING: [Synth 8-6014] Unused sequential element display_selector/operand_inst/button_char_renderer/oled_data_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:63]
 INFO: [Synth 8-5545] ROM "input_builder/event_dispatcher/buffer_mem_reg[1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
@@ -1143,7 +1133,6 @@ WARNING: [Synth 8-3331] design Top_Student has unconnected port an[1]
 WARNING: [Synth 8-3331] design Top_Student has unconnected port an[0]
 WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[15]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [Synth 8-3332] Sequential element (digit_index_reg[3]) is unused and will be removed from module arithmetic_input_display.
 INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/converter_inst/frac_val_reg[15]' (FDE) to 'my_calculator/text_selector/output_inst/converter_inst/frac_val_reg[14]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_calculator/text_selector /\output_inst/converter_inst /\frac_val_reg[14] )
 INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[0]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[1]'
@@ -1176,7 +1165,7 @@ INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/r
 INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[13]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[14]'
 INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[14]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[15]'
 INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[14]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[15]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/cursor_pos_x_reg[0]' (FD) to 'my_calculator/text_selector/input_inst/cursor_pos_x_reg[2]'
+INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/cursor_pos_x_reg[0]' (FD) to 'my_calculator/text_selector/input_inst/cursor_pos_x_reg[1]'
 INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/cursor_pos_x_reg[1]' (FD) to 'my_calculator/text_selector/input_inst/cursor_pos_x_reg[2]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_calculator/text_selector /input_inst/\cursor_pos_x_reg[2] )
 INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[0]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[1]'
@@ -1210,6 +1199,7 @@ INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/st
 INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[14]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[15]'
 INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[14]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[15]'
 WARNING: [Synth 8-3332] Sequential element (cursor_pos_x_reg[2]) is unused and will be removed from module arithmetic_input_display.
+WARNING: [Synth 8-3332] Sequential element (digit_index_reg[3]) is unused and will be removed from module arithmetic_input_display.
 WARNING: [Synth 8-3332] Sequential element (frac_val_reg[14]) is unused and will be removed from module fp_to_string.
 WARNING: [Synth 8-3332] Sequential element (result_valid_reg) is unused and will be removed from module basic_calculator_engine.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\display_selector/keypad_inst/display_char_reg[4] )
@@ -1265,7 +1255,7 @@ INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/c
 INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/converter_inst/result_reg[16]' (FDE) to 'my_calculator/text_selector/output_inst/converter_inst/result_reg[17]'
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:00:45 . Memory (MB): peak = 804.090 ; gain = 547.367
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 792.703 ; gain = 535.711
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1292,38 +1282,38 @@ Report RTL Partitions:
 +------+-------------------------+------------+----------+
 |      |RTL Partition            |Replication |Instances |
 +------+-------------------------+------------+----------+
-|1     |arithmetic_module__GB0   |           1|      8761|
+|1     |arithmetic_module__GB0   |           1|      8922|
 |2     |arithmetic_module__GB1   |           1|      3999|
-|3     |arithmetic_text_selector |           1|      5209|
+|3     |arithmetic_text_selector |           1|      5213|
 |4     |Top_Student__GC0         |           1|      1443|
 +------+-------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:48 ; elapsed = 00:00:54 . Memory (MB): peak = 834.730 ; gain = 578.008
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 836.234 ; gain = 579.242
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:51 ; elapsed = 00:00:57 . Memory (MB): peak = 865.270 ; gain = 608.547
+Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 868.070 ; gain = 611.078
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+-------------------------+------------+----------+
 |      |RTL Partition            |Replication |Instances |
 +------+-------------------------+------------+----------+
-|1     |arithmetic_module__GB0   |           1|      8761|
+|1     |arithmetic_module__GB0   |           1|      8922|
 |2     |arithmetic_module__GB1   |           1|      3999|
-|3     |arithmetic_text_selector |           1|      5209|
+|3     |arithmetic_text_selector |           1|      5213|
 |4     |Top_Student__GC0         |           1|      1443|
 +------+-------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:54 ; elapsed = 00:01:01 . Memory (MB): peak = 988.719 ; gain = 731.996
+Finished Technology Mapping : Time (s): cpu = 00:00:51 ; elapsed = 00:00:55 . Memory (MB): peak = 1022.809 ; gain = 765.816
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1347,7 +1337,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:55 ; elapsed = 00:01:02 . Memory (MB): peak = 988.719 ; gain = 731.996
+Finished IO Insertion : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1022.809 ; gain = 765.816
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1360,7 +1350,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:56 ; elapsed = 00:01:02 . Memory (MB): peak = 988.719 ; gain = 731.996
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1022.809 ; gain = 765.816
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1372,25 +1362,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:56 ; elapsed = 00:01:03 . Memory (MB): peak = 988.719 ; gain = 731.996
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:53 ; elapsed = 00:00:57 . Memory (MB): peak = 1022.809 ; gain = 765.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:56 ; elapsed = 00:01:03 . Memory (MB): peak = 988.719 ; gain = 731.996
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:53 ; elapsed = 00:00:57 . Memory (MB): peak = 1022.809 ; gain = 765.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:57 ; elapsed = 00:01:03 . Memory (MB): peak = 988.719 ; gain = 731.996
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:53 ; elapsed = 00:00:57 . Memory (MB): peak = 1022.809 ; gain = 765.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:57 ; elapsed = 00:01:03 . Memory (MB): peak = 988.719 ; gain = 731.996
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:53 ; elapsed = 00:00:57 . Memory (MB): peak = 1022.809 ; gain = 765.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1411,18 +1401,18 @@ Report Cell Usage:
 |3     |DSP48E1   |     1|
 |4     |DSP48E1_2 |     1|
 |5     |DSP48E1_3 |     4|
-|6     |LUT1      |   273|
-|7     |LUT2      |   858|
-|8     |LUT3      |  1017|
-|9     |LUT4      |  2456|
-|10    |LUT5      |  2375|
-|11    |LUT6      |  1082|
+|6     |LUT1      |   272|
+|7     |LUT2      |   853|
+|8     |LUT3      |  1019|
+|9     |LUT4      |  2486|
+|10    |LUT5      |  2402|
+|11    |LUT6      |  1048|
 |12    |MUXF7     |    52|
 |13    |MUXF8     |     4|
 |14    |FDCE      |    51|
 |15    |FDE_1     |    64|
 |16    |FDPE      |     4|
-|17    |FDRE      |   746|
+|17    |FDRE      |   747|
 |18    |FDSE      |    14|
 |19    |LD        |    22|
 |20    |IBUF      |     6|
@@ -1434,12 +1424,12 @@ Report Instance Areas:
 +------+-----------------------------+----------------------------+------+
 |      |Instance                     |Module                      |Cells |
 +------+-----------------------------+----------------------------+------+
-|1     |top                          |                            | 10657|
+|1     |top                          |                            | 10677|
 |2     |  clk_1kHz_gen               |flexible_clock_divider      |    54|
 |3     |  clk_6p25MHz_gen            |flexible_clock_divider_0    |    53|
 |4     |  first_display              |Oled_Display                |   496|
-|5     |  my_calculator              |arithmetic_module           |  9339|
-|6     |    calc_engine              |basic_calculator_engine     |  5792|
+|5     |  my_calculator              |arithmetic_module           |  9359|
+|6     |    calc_engine              |basic_calculator_engine     |  5813|
 |7     |    cursor_ctrl              |arithmetic_cursor           |   224|
 |8     |    display_selector         |arithmetic_display_selector |   331|
 |9     |      keypad_inst            |arithmetic_keypad_display   |   281|
@@ -1448,11 +1438,11 @@ Report Instance Areas:
 |12    |      operand_inst           |arithmetic_operand_display  |    50|
 |13    |        button_char_renderer |char_renderer_4             |    36|
 |14    |          char_rom           |sprite_library_optimized_5  |    19|
-|15    |    input_builder            |bcd_to_fp_input_system      |  1547|
-|16    |      event_dispatcher       |digit_manager               |   177|
+|15    |    input_builder            |bcd_to_fp_input_system      |  1540|
+|16    |      event_dispatcher       |digit_manager               |   174|
 |17    |      event_processor        |horner_fixedpoint_evaluator |  1215|
-|18    |    text_selector            |arithmetic_text_selector    |  1443|
-|19    |      input_inst             |arithmetic_input_display    |   445|
+|18    |    text_selector            |arithmetic_text_selector    |  1449|
+|19    |      input_inst             |arithmetic_input_display    |   451|
 |20    |        string_renderer      |string_renderer_optimized_2 |   238|
 |21    |          char_renderer_inst |char_renderer_3             |   235|
 |22    |      output_inst            |arithmetic_output_display   |   964|
@@ -1463,11 +1453,11 @@ Report Instance Areas:
 |27    |  second_display             |Oled_Display_1              |   635|
 +------+-----------------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:57 ; elapsed = 00:01:03 . Memory (MB): peak = 988.719 ; gain = 731.996
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:53 ; elapsed = 00:00:57 . Memory (MB): peak = 1022.809 ; gain = 765.816
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 71 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:49 ; elapsed = 00:00:57 . Memory (MB): peak = 988.719 ; gain = 377.297
-Synthesis Optimization Complete : Time (s): cpu = 00:00:57 ; elapsed = 00:01:04 . Memory (MB): peak = 988.719 ; gain = 731.996
+Synthesis finished with 0 errors, 0 critical warnings and 70 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:46 ; elapsed = 00:00:52 . Memory (MB): peak = 1022.809 ; gain = 411.035
+Synthesis Optimization Complete : Time (s): cpu = 00:00:54 ; elapsed = 00:00:58 . Memory (MB): peak = 1022.809 ; gain = 765.816
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 1734 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -1479,11 +1469,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   LD => LDCE: 22 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-277 Infos, 237 Warnings, 2 Critical Warnings and 0 Errors encountered.
+277 Infos, 241 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 988.719 ; gain = 744.891
+synth_design: Time (s): cpu = 00:00:56 ; elapsed = 00:01:01 . Memory (MB): peak = 1022.809 ; gain = 779.113
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/GitHub/EE2026_proj/FDP/FDP.runs/synth_1/Top_Student.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Top_Student_utilization_synth.rpt -pb Top_Student_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.053 . Memory (MB): peak = 988.719 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Thu Nov  6 23:05:57 2025...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.058 . Memory (MB): peak = 1022.809 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Fri Nov  7 01:17:07 2025...
