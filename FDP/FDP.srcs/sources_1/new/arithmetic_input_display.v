@@ -117,7 +117,7 @@ module arithmetic_input_display(
             current_state <= start_update;
             last_input_index <= input_index;
             last_has_decimal <= has_decimal;
-            last_decimal_pos <= last_decimal_pos;
+            last_decimal_pos <= decimal_pos;
             last_bcd_value <= bcd_value;
         end
         
