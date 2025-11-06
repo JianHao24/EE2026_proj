@@ -1,9 +1,28 @@
-/FDP/FDP.cache
-/FDP/FDP.sim/sim_1
-FDP/vivado.jou
-FDP/vivado.jou
-FDP/vivado_30860.backup.jou
-/FDP/FDP.sim
+# Vivado simulation files
+/FDP/FDP.sim/
+/FDP/FDP.cache/
+
+# Vivado run files
+/FDP/FDP.runs/
+
+# Vivado generated files
 *.jou
 *.log
 *.str
+*.backup.jou
+*.backup.log
+
+# Vivado GUI and project cache
+/FDP/FDP.cache/wt/
+
+# Vivado temporary files
+vivado*.backup.jou
+vivado*.backup.log
+vivado.jou
+vivado.log
+
+# Vivado other generated files
+*.wdb
+*.wcfg
+*.pb
+.Xil/

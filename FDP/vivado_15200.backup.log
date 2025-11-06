@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Wed Oct 22 15:40:27 2025
+# Process ID: 15200
+# Current directory: C:/Users/cheon/Documents/GitHub/EE2026_proj/FDP
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent22388 C:\Users\cheon\Documents\GitHub\EE2026_proj\FDP\FDP.xpr
+# Log file: C:/Users/cheon/Documents/GitHub/EE2026_proj/FDP/vivado.log
+# Journal file: C:/Users/cheon/Documents/GitHub/EE2026_proj/FDP\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/cheon/Documents/GitHub/EE2026_proj/FDP/FDP.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/User/Downloads/EE2026_proj/FDP' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 836.980 ; gain = 75.402
+update_compile_order -fileset sources_1
+close [ open C:/Users/cheon/Documents/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v w ]
+add_files C:/Users/cheon/Documents/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v
+update_compile_order -fileset sources_1
+save_project_as localcopy {C:/Users/wonge/OneDrive - National University of Singapore/Documents/GitHub/EE2026_proj/localcopy} -force
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'C:/Users/wonge/OneDrive - National University of Singapore/Documents/GitHub/EE2026_proj/localcopy'
+exit
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 26 22:18:54 2025...
