@@ -2,13 +2,13 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Thu Nov  6 02:32:20 2025
-# Process ID: 34928
-# Current directory: C:/GitHub/EE2026_proj/FDP
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent43284 C:\GitHub\EE2026_proj\FDP\FDP.xpr
-# Log file: C:/GitHub/EE2026_proj/FDP/vivado.log
-# Journal file: C:/GitHub/EE2026_proj/FDP\vivado.jou
+# Start of session at: Thu Nov  6 22:38:02 2025
+# Process ID: 18884
+# Current directory: C:/Users/User/Downloads/EE2026_proj/FDP
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent23268 C:\Users\User\Downloads\EE2026_proj\FDP\FDP.xpr
+# Log file: C:/Users/User/Downloads/EE2026_proj/FDP/vivado.log
+# Journal file: C:/Users/User/Downloads/EE2026_proj/FDP\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project C:/GitHub/EE2026_proj/FDP/FDP.xpr
+open_project C:/Users/User/Downloads/EE2026_proj/FDP/FDP.xpr
 update_compile_order -fileset sources_1
