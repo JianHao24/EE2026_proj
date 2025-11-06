@@ -2,6 +2,7 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+<<<<<<< Updated upstream
 # Start of session at: Wed Oct 22 15:40:27 2025
 # Process ID: 15200
 # Current directory: C:/Users/cheon/Documents/GitHub/EE2026_proj/FDP
@@ -128,3 +129,13 @@ source tb_basic_calc_engine.tcl
 restart
 run 1s
 close_sim
+=======
+# Start of session at: Thu Nov  6 02:25:18 2025
+# Process ID: 34952
+# Current directory: C:/Users/User/Downloads/EE2026_proj/FDP
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent29156 C:\Users\User\Downloads\EE2026_proj\FDP\FDP.xpr
+# Log file: C:/Users/User/Downloads/EE2026_proj/FDP/vivado.log
+# Journal file: C:/Users/User/Downloads/EE2026_proj/FDP\vivado.jou
+#-----------------------------------------------------------
+start_guioopen_project C:/Users/User/Downloads/EE2026_proj/FDP/FDP.xpruupdate_compile_order -fileset sources_1
+>>>>>>> Stashed changes
