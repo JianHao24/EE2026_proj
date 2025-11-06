@@ -126,7 +126,7 @@ module arithmetic_module(
     );
 
 
-    basic_calculator_engine calc_engine(
+  basic_calculator_engine calc_engine (
         .clk(clk_1kHz),
         .rst(reset || !is_arithmetic_mode),
         .input_valid(input_complete),
@@ -140,7 +140,6 @@ module arithmetic_module(
         .is_operand_mode(is_operand_mode),
         .current_operation(current_operation)
     );
-
 
     arithmetic_display_selector display_selector(
         .clk(clk_6p25MHz),

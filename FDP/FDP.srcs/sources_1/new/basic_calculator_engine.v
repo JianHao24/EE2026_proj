@@ -19,8 +19,6 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-`timescale 1ns / 1ps
-
 module basic_calculator_engine(
     input wire clk,
     input wire rst,
@@ -44,13 +42,6 @@ module basic_calculator_engine(
     output reg [1:0] current_operation   // Current pending operation
 );
 
-    // State encoding
-    localparam [1:0] ST_IDLE    = 2'b00;
-    localparam [1:0] ST_COMPUTE = 2'b01;
-    localparam [1:0] ST_DONE    = 2'b10;
-    
-    reg [1:0] state, next_state;
-    
     // Operation encoding
     localparam [1:0] OP_ADD = 2'b00;
     localparam [1:0] OP_SUB = 2'b01;
@@ -59,137 +50,109 @@ module basic_calculator_engine(
     
     // Internal registers
     reg signed [31:0] accumulator;       // Holds running result
-    reg [1:0] pending_op;                // Operation to perform
-    reg first_input;                     // Flag for first number
-    reg signed [63:0] temp_wide;         // For MUL/DIV intermediate
-    reg signed [31:0] temp_result;       // For computation result
+    reg awaiting_first_value;            // True until first number entered
+    reg signed [63:0] wide_temp;         // For multiplication/division
+    reg signed [31:0] calc_result;       // Temporary calculation result
+    reg overflow_detected;               // Internal overflow flag
+    reg signed [63:0] scaled_dividend;   // For division scaling
 
     always @(posedge clk) begin
+        // Clear single-cycle flags
+        result_valid <= 1'b0;
+        overflow_detected <= 1'b0;
+        overflow <= 1'b0;
+        div_by_zero <= 1'b0;
+        
         if (rst) begin
-            state <= ST_IDLE;
-        end else begin
-            state <= next_state;
-        end
-    end
-    
-    always @(*) begin
-        case (state)
-            ST_IDLE:    next_state = input_valid ? ST_COMPUTE : ST_IDLE;
-            ST_COMPUTE: next_state = ST_DONE;
-            ST_DONE:    next_state = ST_IDLE;
-            default:    next_state = ST_IDLE;
-        endcase
-    end
-    
-    always @(posedge clk) begin
-        if (rst) begin
-            accumulator <= 32'sd0;
-            result <= 32'sd0;
-            pending_op <= OP_ADD;
-            first_input <= 1'b1;
-            result_valid <= 1'b0;
-            overflow <= 1'b0;
-            div_by_zero <= 1'b0;
             is_operand_mode <= 1'b0;
+            result <= 32'sd0;
             current_operation <= OP_ADD;
+            awaiting_first_value <= 1'b1;
+            accumulator <= 32'sd0;
         end else begin
-            // Default control resets
-            result_valid <= 1'b0;
-
-            case (state)
-                ST_IDLE: begin
-                    // Capture operation - stay in input mode after operation selection
-                    if (op_valid) begin
-                        pending_op <= op_sel;
-                        current_operation <= op_sel;
-                        is_operand_mode <= 1'b0;  // Go back to input mode for second number
-                        overflow <= 1'b0;
-                        div_by_zero <= 1'b0;
-                    end
-                end
-
-                ST_COMPUTE: begin
-                    if (first_input) begin
-                        // First number: store it and go to operand selection
+            
+            // MODE 0: Input/Keypad Mode - waiting for number entry
+            if (!is_operand_mode) begin
+                if (input_valid) begin
+                    // Number has been entered, switch to operand selection mode
+                    is_operand_mode <= 1'b1;
+                    
+                    if (awaiting_first_value) begin
+                        // First value: just store it
                         accumulator <= input_val;
                         result <= input_val;
-                        first_input <= 1'b0;
-                        is_operand_mode <= 1'b1;  // Switch to operand mode
+                        awaiting_first_value <= 1'b0;
                     end else begin
-                        // Second number: perform the operation
-                        
-                        case (pending_op)
+                        // Subsequent value: execute pending operation
+                        case (current_operation)
                             OP_ADD: begin
-                                temp_result = accumulator + input_val;
-                                if ((accumulator[31] == input_val[31]) && 
-                                    (temp_result[31] != accumulator[31])) begin
-                                    overflow <= 1'b1;
-                                    result <= accumulator;
-                                end else begin
-                                    accumulator <= temp_result;
-                                    result <= temp_result;
-                                end
+                                calc_result = accumulator + input_val;
+                                // Overflow: same signs in, different sign out
+                                overflow_detected = (accumulator[31] == input_val[31]) && 
+                                                   (calc_result[31] != accumulator[31]);
+                                accumulator <= overflow_detected ? 32'sd0 : calc_result;
+                                result <= overflow_detected ? 32'sd0 : calc_result;
+                                overflow <= overflow_detected;
                             end
                             
                             OP_SUB: begin
-                                temp_result = accumulator - input_val;
-                                if ((accumulator[31] != input_val[31]) && 
-                                    (temp_result[31] != accumulator[31])) begin
-                                    overflow <= 1'b1;
-                                    result <= accumulator;
-                                end else begin
-                                    accumulator <= temp_result;
-                                    result <= temp_result;
-                                end
+                                calc_result = accumulator - input_val;
+                                // Overflow: different signs in, unexpected sign out
+                                overflow_detected = (accumulator[31] != input_val[31]) && 
+                                                   (calc_result[31] != accumulator[31]);
+                                accumulator <= overflow_detected ? 32'sd0 : calc_result;
+                                result <= overflow_detected ? 32'sd0 : calc_result;
+                                overflow <= overflow_detected;
                             end
                             
                             OP_MUL: begin
-                                temp_wide = $signed(accumulator) * $signed(input_val);
-                                temp_result = temp_wide[47:16];
-                                if (temp_result[31]) begin
-                                    if (temp_wide[63:48] != 16'hFFFF) begin
-                                        overflow <= 1'b1;
-                                        result <= accumulator;
-                                    end else begin
-                                        accumulator <= temp_result;
-                                        result <= temp_result;
-                                    end
-                                end else begin
-                                    if (temp_wide[63:48] != 16'h0000) begin
-                                        overflow <= 1'b1;
-                                        result <= accumulator;
-                                    end else begin
-                                        accumulator <= temp_result;
-                                        result <= temp_result;
+                                // Q16.16 multiply: shiftresult right by 16
+                                                            wide_temp = $signed(accumulator) * $signed(input_val);
+                                                            calc_result = wide_temp >>> 16;
+                                                            // Check if upper bits are proper sign extension
+                                                            overflow_detected = (wide_temp[63] == 1'b0) ? (|wide_temp[63:47]) : 
+                                                                               (|(~wide_temp[63:47]));
+                                                            accumulator <= overflow_detected ? 32'sd0 : calc_result;
+                                                            result <= overflow_detected ? 32'sd0 : calc_result;
+                                                            overflow <= overflow_detected;
+                                                        end
+                                                        
+                                                        OP_DIV: begin
+                                                            if (input_val == 32'sd0) begin
+                                                                // Division by zero
+                                                                accumulator <= 32'sd0;
+                                                                result <= 32'sd0;
+                                                                div_by_zero <= 1'b1;
+                                                            end else begin
+                                                                // Q16.16 divide: shift dividend left by 16
+                                                                scaled_dividend = {{32{accumulator[31]}}, accumulator} << 16;
+                                                                calc_result = scaled_dividend / $signed(input_val);
+                                                                
+                                                                // Overflow check for division
+                                                                overflow_detected = ((calc_result[31] == 1'b0) && (scaled_dividend[63] == 1'b1) && (input_val[31] == 1'b0)) ||
+                                                                                   ((calc_result[31] == 1'b1) && (scaled_dividend[63] == 1'b0) && (input_val[31] == 1'b0)) ||
+                                                                                   ((calc_result[31] == 1'b0) && (scaled_dividend[63] == 1'b0) && (input_val[31] == 1'b1)) ||
+                                                                                   ((calc_result[31] == 1'b1) && (scaled_dividend[63] == 1'b1) && (input_val[31] == 1'b1));
+                                                                
+                                                                accumulator <= overflow_detected ? 32'sd0 : calc_result;
+                                                                result <= overflow_detected ? 32'sd0 : calc_result;
+                                                                overflow <= overflow_detected;
+                                                            end
+                                                        end
+                                                    endcase
+                                                end
+                                                
+                                                result_valid <= 1'b1;
+                                            end
+                                        end 
+                                        // MODE 1: Operand Selection Mode - waiting for operation choice
+                                        else begin
+                                            if (op_valid) begin
+                                                // Operation selected, store it and return to input mode
+                                                current_operation <= op_sel;
+                                                is_operand_mode <= 1'b0;
+                                            end
+                                        end
                                     end
                                 end
-                            end
-                            
-                            OP_DIV: begin
-                                if (input_val == 32'sd0) begin
-                                    div_by_zero <= 1'b1;
-                                    result <= accumulator;
-                                end else begin
-                                    temp_wide = $signed(accumulator) <<< 16;
-                                    temp_result = temp_wide / $signed(input_val);
-                                    accumulator <= temp_result;
-                                    result <= temp_result;
-                                end
-                            end
-                        endcase
-                        
-                        // After computing, go back to operand mode to allow chaining
-                        is_operand_mode <= 1'b1;
-                    end
-                end
-
-                ST_DONE: begin
-                    result_valid <= 1'b1;
-                end
-            endcase
-        end
-    end
-endmodule
-
-
-
+                            endmodule
