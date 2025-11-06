@@ -19,6 +19,8 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+`timescale 1ns / 1ps
+
 module basic_calculator_engine(
     input wire clk,
     input wire rst,
@@ -61,7 +63,6 @@ module basic_calculator_engine(
     reg first_input;                     // Flag for first number
     reg signed [63:0] temp_wide;         // For MUL/DIV intermediate
     reg signed [31:0] temp_result;       // For computation result
-    reg start_new_calc;
 
     always @(posedge clk) begin
         if (rst) begin
@@ -91,27 +92,17 @@ module basic_calculator_engine(
             div_by_zero <= 1'b0;
             is_operand_mode <= 1'b0;
             current_operation <= OP_ADD;
-            start_new_calc <= 1'b0;
         end else begin
             // Default control resets
             result_valid <= 1'b0;
-            start_new_calc <= 1'b0;
 
             case (state)
                 ST_IDLE: begin
-                    // Capture operation
+                    // Capture operation - stay in input mode after operation selection
                     if (op_valid) begin
                         pending_op <= op_sel;
                         current_operation <= op_sel;
-                        is_operand_mode <= 1'b0;
-                        overflow <= 1'b0;
-                        div_by_zero <= 1'b0; // clear when new operation pressed
-                    end 
-                    // New calculation if input arrives while in operand mode
-                    else if (input_valid && is_operand_mode) begin
-                        start_new_calc <= 1'b1;
-                        first_input <= 1'b1;
-                        is_operand_mode <= 1'b0;
+                        is_operand_mode <= 1'b0;  // Go back to input mode for second number
                         overflow <= 1'b0;
                         div_by_zero <= 1'b0;
                     end
@@ -119,14 +110,13 @@ module basic_calculator_engine(
 
                 ST_COMPUTE: begin
                     if (first_input) begin
-                        // First number: store it
+                        // First number: store it and go to operand selection
                         accumulator <= input_val;
                         result <= input_val;
                         first_input <= 1'b0;
-                        is_operand_mode <= 1'b1;
+                        is_operand_mode <= 1'b1;  // Switch to operand mode
                     end else begin
-                        // Perform pending operation
-                        is_operand_mode <= 1'b1;
+                        // Second number: perform the operation
                         
                         case (pending_op)
                             OP_ADD: begin
@@ -177,7 +167,7 @@ module basic_calculator_engine(
                             
                             OP_DIV: begin
                                 if (input_val == 32'sd0) begin
-                                    div_by_zero <= 1'b1; // stay high until next op or new calc
+                                    div_by_zero <= 1'b1;
                                     result <= accumulator;
                                 end else begin
                                     temp_wide = $signed(accumulator) <<< 16;
@@ -187,6 +177,9 @@ module basic_calculator_engine(
                                 end
                             end
                         endcase
+                        
+                        // After computing, go back to operand mode to allow chaining
+                        is_operand_mode <= 1'b1;
                     end
                 end
 

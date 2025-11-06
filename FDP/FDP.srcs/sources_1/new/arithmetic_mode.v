@@ -85,9 +85,6 @@ module arithmetic_module(
     assign overflow_flag = overflow;
     assign div_by_zero_flag = div_by_zero;
 
-    // ========================================
-    // Cursor Controller
-    // ========================================
     arithmetic_cursor cursor_ctrl(
         .clk(clk_1kHz),
         .reset(reset || !is_arithmetic_mode),

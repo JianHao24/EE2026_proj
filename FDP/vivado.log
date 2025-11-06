@@ -18,5 +18,5 @@ INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
 update_compile_order -fileset sources_1
-exit
-INFO: [Common 17-206] Exiting Vivado at Thu Nov  6 23:37:56 2025...
+exexit
+INFO: [Common 17-206] Exiting Vivado at Fri Nov  7 00:00:32 2025...
