@@ -78,16 +78,13 @@ module arithmetic_module(
     wire result_valid;
     wire overflow;
     wire div_by_zero;
-    wire is_operand_mode;
+    wire waiting_operand;
     wire [1:0] current_operation;
     
     // Assign outputs
     assign overflow_flag = overflow;
     assign div_by_zero_flag = div_by_zero;
 
-    // ========================================
-    // Cursor Controller
-    // ========================================
     arithmetic_cursor cursor_ctrl(
         .clk(clk_1kHz),
         .reset(reset || !is_arithmetic_mode),
@@ -96,7 +93,7 @@ module arithmetic_module(
         .btnD(is_arithmetic_mode ? btnD : 1'b0),
         .btnL(is_arithmetic_mode ? btnL : 1'b0),
         .btnR(is_arithmetic_mode ? btnR : 1'b0),
-        .is_operand_mode(is_operand_mode),
+        .waiting_operand(waiting_operand),
         .cursor_row_keypad(cursor_row_keypad),
         .cursor_col_keypad(cursor_col_keypad),
         .cursor_row_operand(cursor_row_operand),
@@ -116,7 +113,7 @@ module arithmetic_module(
         .reset(reset || !is_arithmetic_mode),
         .keypad_btn_pressed(keypad_btn_pressed),
         .selected_keypad_value(keypad_selected_value),
-        .is_active_mode(!is_operand_mode && is_arithmetic_mode),
+        .is_active_mode(!waiting_operand && is_arithmetic_mode),
         .enable_negative(1'b0),
         .enable_backspace(1'b1),
         .has_decimal(has_decimal),
@@ -129,7 +126,7 @@ module arithmetic_module(
     );
 
 
-    basic_calculator_engine calc_engine(
+  basic_calculator_engine calc_engine (
         .clk(clk_1kHz),
         .rst(reset || !is_arithmetic_mode),
         .input_valid(input_complete),
@@ -140,10 +137,9 @@ module arithmetic_module(
         .result_valid(result_valid),
         .overflow(overflow),
         .div_by_zero(div_by_zero),
-        .is_operand_mode(is_operand_mode),
+        .is_operand_mode(waiting_operand),
         .current_operation(current_operation)
     );
-
 
     arithmetic_display_selector display_selector(
         .clk(clk_6p25MHz),
@@ -153,7 +149,7 @@ module arithmetic_module(
         .cursor_row_operand(cursor_row_operand),
         .cursor_col_operand(cursor_col_operand),
         .has_decimal(has_decimal),
-        .is_operand_mode(is_operand_mode),
+        .waiting_operand(waiting_operand),
         .oled_data(one_oled_data)
     );
 
@@ -162,7 +158,7 @@ module arithmetic_module(
         .clk(clk_6p25MHz),
         .pixel_index(two_pixel_index),
         .computed_result(result),
-        .is_operand_mode(is_operand_mode),
+        .waiting_operand(waiting_operand),
         .bcd_value(bcd_value),
         .decimal_pos(decimal_pos),
         .input_index(input_index),
