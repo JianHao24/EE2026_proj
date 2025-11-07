@@ -169,9 +169,19 @@ module arithmetic_module(
             
             // When trig function is selected, start computing
             if (trig_btn_pressed) begin
-                trig_computing <= 1;  // Mark that we're computing
-                waiting_trig <= 0;    // EXIT trig mode immediately to show result screen
-                show_result <= 1;     // Show result (will update when valid)
+                trig_computing <= 1;          // Mark that we're computing
+                waiting_trig <= 0;            // EXIT trig mode immediately to show result screen
+                show_result <= 1;             // Show result (will update when valid)
+            
+                // Drive the latched input to 1, 2 or 3 in Q16.16 fixed-point format
+                case (trig_selected_value)
+                    2'd0: latched_input <= 32'sd65536;  // 1.0  -> 1 << 16
+                    2'd1: latched_input <= 32'sd131072; // 2.0  -> 2 << 16
+                    2'd2: latched_input <= 32'sd196608; // 3.0  -> 3 << 16
+                    default: latched_input <= latched_input;
+                endcase
+            
+                pending_input <= 1;           // ensure trig_input uses latched_input
             end
             
             // When trig result is ready, keep showing result
@@ -228,7 +238,7 @@ module arithmetic_module(
         .reset(reset || !is_arithmetic_mode),
         .keypad_btn_pressed(keypad_btn_pressed),
         .selected_keypad_value(keypad_selected_value),
-        .is_active_mode(!waiting_operand && !waiting_trig && is_arithmetic_mode),
+        .is_active_mode(!waiting_operand && is_arithmetic_mode),
         .enable_negative(1'b0),
         .enable_backspace(1'b1),
         .has_decimal(has_decimal),
