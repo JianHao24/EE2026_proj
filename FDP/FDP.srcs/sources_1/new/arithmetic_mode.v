@@ -296,11 +296,12 @@ module arithmetic_module(
     // ===== TEXT DISPLAY (Second OLED) =====
     // Show result when: show_result is high, waiting for operand, or in trig mode
     // This ensures we don't try to show input when bcd_value is cleared during trig selection
-    arithmetic_text_selector text_selector(
+arithmetic_text_selector text_selector(
         .clk(clk_6p25MHz),
         .pixel_index(two_pixel_index),
         .computed_result(result),
-        .waiting_operand(show_result || waiting_operand || waiting_trig),
+        .waiting_operand(show_result || waiting_operand),
+        .waiting_trig(waiting_trig), 
         .bcd_value(bcd_value),
         .decimal_pos(decimal_pos),
         .input_index(input_index),

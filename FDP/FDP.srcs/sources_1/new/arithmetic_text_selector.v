@@ -25,6 +25,7 @@ module arithmetic_text_selector(
     input [12:0] pixel_index,
     input signed [31:0] computed_result,
     input waiting_operand,
+    input waiting_trig,
     input [31:0] bcd_value,
     input [3:0] decimal_pos,
     input [3:0] input_index,
@@ -57,7 +58,11 @@ module arithmetic_text_selector(
     
     // Mode-based text selection
     always @(*) begin
-        oled_data = waiting_operand ? output_display_data : input_display_data;
+        if (waiting_trig)
+            oled_data = input_display_data;  // Keep showing input while selecting trig
+        else if (waiting_operand)
+            oled_data = output_display_data;
+        else
+            oled_data = input_display_data;
     end
-    
 endmodule
