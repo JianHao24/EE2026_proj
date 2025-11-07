@@ -100,25 +100,6 @@ module arithmetic_module(
     wire trig_result_valid;
     wire trig_overflow;
     
-    reg signed [31:0] trig_result_hold = 0;
-    reg trig_result_show = 0;
-    
-    always @(posedge clk_1kHz) begin
-        if (reset || !is_arithmetic_mode) begin
-            trig_result_hold <= 0;
-            trig_result_show <= 0;
-        end else begin
-            // When a trig result becomes valid, latch and mark it as visible
-            if (trig_result_valid) begin
-                trig_result_hold <= trig_result;
-                trig_result_show <= 1;
-            end
-            // Clear when new number typing starts or trig menu re-entered
-            if (keypad_btn_pressed && keypad_selected_value <= 4'd11) begin
-                trig_result_show <= 0;
-            end
-        end
-    end
     
     // Combined result signals (mux between binary and trig)
     wire signed [31:0] result;
