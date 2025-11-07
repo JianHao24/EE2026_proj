@@ -118,7 +118,7 @@ module arithmetic_module(
     
     
     // Multiplex between binary and trig results, or show latched input if pending
-assign result = immediate_trig_valid ? immediate_trig_result :
+    assign result = immediate_trig_valid ? immediate_trig_result :
                     trig_result_valid ? trig_result :
                     binary_result_valid ? binary_result :
                     pending_input ? latched_input :
@@ -133,8 +133,6 @@ assign result = immediate_trig_valid ? immediate_trig_result :
     
     // -----------------------------
     // Sample the trig cursor outputs at 1 kHz domain to avoid same-cycle race.
-    // This captures the cursor's press and selected value one cycle after the cursor
-    // asserts them.
     always @(posedge clk_1kHz) begin
         sampled_trig_btn_pressed <= trig_btn_pressed;
         sampled_trig_selected_value <= trig_selected_value;
@@ -143,12 +141,6 @@ assign result = immediate_trig_valid ? immediate_trig_result :
     
     // Mode control logic
     // Track if we should show result (after trig or binary operation)
-    
-    always @(posedge clk_1kHz) begin
-        sampled_trig_btn_pressed <= trig_btn_pressed;
-        sampled_trig_selected_value <= trig_selected_value;
-    end
-    
     always @(posedge clk_1kHz) begin
         if (reset || !is_arithmetic_mode) begin
             waiting_trig <= 0;
@@ -158,6 +150,9 @@ assign result = immediate_trig_valid ? immediate_trig_result :
             pending_input <= 0;
             latched_input <= 0;
             trig_request <= 0;
+            immediate_trig_valid <= 1'b0;
+            dbg_sampled_trig_pressed <= 1'b0;
+            dbg_sampled_trig_sel <= 2'd0;
         end else begin
             // Default: clear trig_request (we will re-assert if needed)
             trig_request <= 1'b0;
@@ -204,18 +199,13 @@ assign result = immediate_trig_valid ? immediate_trig_result :
             end
             
             // -----------------------------
-            // Handle a sampled trig selection (cursor press that we sampled earlier)
-            // We do this in two steps to ensure ordering:
-            // 1) On sampled_trig_btn_pressed (one cycle after user pressed): latch the placeholder input
-            //    and assert trig_request (which will actually trigger trig_calc on the next cycle).
-            // 2) trig_request is used as the .trig_valid input to trig_calc so trig_calc sees the
-            //    stable latched_input.
+            // Handle a sampled trig selection
             if (sampled_trig_btn_pressed) begin
                 // latch placeholder according to trig type (Q16.16)
                 case (sampled_trig_selected_value)
-                    2'd0: latched_input <= 32'sd65536;   // sin ? 1.0
-                    2'd1: latched_input <= 32'sd131072;  // cos ? 2.0
-                    2'd2: latched_input <= 32'sd196608;  // tan ? 3.0
+                    2'd0: latched_input <= 32'sd65536;   // sin -> 1.0
+                    2'd1: latched_input <= 32'sd131072;  // cos -> 2.0
+                    2'd2: latched_input <= 32'sd196608;  // tan -> 3.0
                     default: latched_input <= latched_input;
                 endcase
             
@@ -254,7 +244,6 @@ assign result = immediate_trig_valid ? immediate_trig_result :
             end
             
             // When trig_calc begins (we detect trig_request was used), mark trig_computing
-            // Note: trig_computing is set when trig_result_valid returns or here - set here on request.
             if (trig_request) begin
                 trig_computing <= 1;
             end
@@ -342,12 +331,15 @@ assign result = immediate_trig_valid ? immediate_trig_result :
     // Use latched input if available, otherwise use fp_value
     wire signed [31:0] trig_input = pending_input ? latched_input : fp_value;
     
-trig_calc trig_unit(
+    // instantiate correct trig module and ports (matching your trig_calculator definition)
+    trig_calculator #(
+        .FIXED_FRAC_BITS(16)
+    ) trig_unit (
         .clk(clk_1kHz),
-        .rst(reset),
+        .rst(reset || !is_arithmetic_mode),
         .trig_valid(trig_request),
         .trig_sel(sampled_trig_selected_value),
-        .input_fp(latched_input),
+        .input_val(trig_input),
         .result(trig_result),
         .result_valid(trig_result_valid),
         .overflow(trig_overflow)
@@ -386,5 +378,6 @@ trig_calc trig_unit(
     );
 
 endmodule
+
 
 
