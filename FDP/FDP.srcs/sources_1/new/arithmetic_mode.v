@@ -100,6 +100,26 @@ module arithmetic_module(
     wire trig_result_valid;
     wire trig_overflow;
     
+    reg signed [31:0] trig_result_hold = 0;
+    reg trig_result_show = 0;
+    
+    always @(posedge clk_1kHz) begin
+        if (reset || !is_arithmetic_mode) begin
+            trig_result_hold <= 0;
+            trig_result_show <= 0;
+        end else begin
+            // When a trig result becomes valid, latch and mark it as visible
+            if (trig_result_valid) begin
+                trig_result_hold <= trig_result;
+                trig_result_show <= 1;
+            end
+            // Clear when new number typing starts or trig menu re-entered
+            if (keypad_btn_pressed && keypad_selected_value <= 4'd11) begin
+                trig_result_show <= 0;
+            end
+        end
+    end
+    
     // Combined result signals (mux between binary and trig)
     wire signed [31:0] result;
     wire result_valid;
@@ -112,13 +132,18 @@ module arithmetic_module(
     reg signed [31:0] latched_input;  // Store the input value
     
     // Multiplex between binary and trig results, or show latched input if pending
-    assign result = trig_result;
+    assign result = trig_result_valid ? trig_result :
+                    binary_result_valid ? binary_result :
+                    pending_input ? latched_input :
+                    binary_result;
+    
     assign result_valid = trig_result_valid | binary_result_valid;
     assign overflow = trig_result_valid ? trig_overflow : binary_overflow;
     
     // Assign status outputs
     assign overflow_flag = overflow;
     assign div_by_zero_flag = div_by_zero;
+
     
     // -----------------------------
     // Sample the trig cursor outputs at 1 kHz domain to avoid same-cycle race.
