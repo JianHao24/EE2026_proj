@@ -97,8 +97,16 @@ module arithmetic_module(
     wire result_valid;
     wire overflow;
     
-    // Multiplex between binary and trig results
-    assign result = trig_result_valid ? trig_result : binary_result;
+    reg show_result;
+    reg trig_computing;  // Track when trig calculation is in progress
+    reg force_operand_mode;  // Force calculator into operand mode when button 12 clicked
+    reg pending_input;   // Track if there's an input waiting to be processed
+    reg signed [31:0] latched_input;  // Store the input value
+    
+    // Multiplex between binary and trig results, or show latched input if pending
+    assign result = trig_result_valid ? trig_result : 
+                    binary_result_valid ? binary_result :
+                    pending_input ? latched_input : binary_result;
     assign result_valid = trig_result_valid | binary_result_valid;
     assign overflow = trig_result_valid ? trig_overflow : binary_overflow;
     
@@ -108,38 +116,74 @@ module arithmetic_module(
     
     // Mode control logic
     // Track if we should show result (after trig or binary operation)
-    reg show_result;
     
     always @(posedge clk_1kHz) begin
         if (reset || !is_arithmetic_mode) begin
             waiting_trig <= 0;
             show_result <= 0;
+            trig_computing <= 0;
+            force_operand_mode <= 0;
+            pending_input <= 0;
+            latched_input <= 0;
         end else begin
-            // Toggle between modes based on keypad button 12 (operations) or 13 (trig)
+            // Latch input when it completes
+            if (input_complete && !waiting_operand && !waiting_trig) begin
+                pending_input <= 1;
+                latched_input <= fp_value;
+            end
+            
+            // Toggle between modes based on keypad input
             if (keypad_btn_pressed) begin
                 if (keypad_selected_value == 4'd12) begin
-                    waiting_trig <= 0;  // Go to operations mode
-                    show_result <= 0;   // Clear result display
+                    // User clicked operations button - go to operand mode
+                    waiting_trig <= 0;
+                    show_result <= 0;
+                    trig_computing <= 0;
+                    force_operand_mode <= 1;  // Signal calculator to enter operand mode
+                    // Keep pending_input so calculator can use it
                 end
                 else if (keypad_selected_value == 4'd13) begin
-                    waiting_trig <= 1;  // Go to trig mode
-                    show_result <= 0;   // Clear result display
+                    // User clicked trig button - go to trig mode
+                    waiting_trig <= 1;
+                    show_result <= 0;
+                    trig_computing <= 0;
+                    force_operand_mode <= 0;
+                    // DON'T clear pending_input - trig needs the value
                 end
                 else if (keypad_selected_value <= 4'd11) begin
-                    // User started typing again, clear result display
+                    // User started typing a digit, decimal, or backspace
+                    // Clear result display to show new input
                     show_result <= 0;
+                    trig_computing <= 0;
+                    waiting_trig <= 0;
+                    force_operand_mode <= 0;
+                    pending_input <= 0;  // Clear pending input if user starts new number
                 end
             end
             
-            // Exit trig mode when function is selected
+            // Clear pending input when it's consumed by calculator
+            if (force_operand_mode && pending_input) begin
+                pending_input <= 0;
+            end
+            
+            // When trig function is selected, start computing
             if (trig_btn_pressed) begin
-                waiting_trig <= 0;
-                show_result <= 1;  // Show the trig result
+                trig_computing <= 1;  // Mark that we're computing
+                waiting_trig <= 1;    // STAY in trig mode until result ready
+            end
+            
+            // When trig result is ready, exit trig mode and show result
+            if (trig_result_valid && trig_computing) begin
+                waiting_trig <= 0;    // Now exit trig mode
+                show_result <= 1;     // Show the result
+                trig_computing <= 0;  // Done computing
+                pending_input <= 0;   // Clear pending input after trig operation
             end
             
             // Exit operand mode when operation is selected
             if (operand_btn_pressed) begin
                 show_result <= 0;  // Will show result after next number + operation
+                force_operand_mode <= 0;  // Clear the force flag
             end
             
             // When binary result is ready, show it
@@ -196,11 +240,15 @@ module arithmetic_module(
     );
 
     // ===== CALCULATOR ENGINE =====
+    // Send input to calculator when user explicitly enters operand mode or during ongoing calculation
+    wire calc_input_valid = (force_operand_mode && pending_input) || (waiting_operand && input_complete);
+    wire signed [31:0] calc_input = pending_input ? latched_input : fp_value;
+    
     basic_calculator_engine calc_engine(
         .clk(clk_1kHz),
         .rst(reset || !is_arithmetic_mode),
-        .input_valid(input_complete),
-        .input_val(fp_value),
+        .input_valid(calc_input_valid),
+        .input_val(calc_input),
         .op_valid(operand_btn_pressed),
         .op_sel(operand_selected_value),
         .result(binary_result),
@@ -212,6 +260,9 @@ module arithmetic_module(
     );
     
     // ===== TRIG CALCULATOR =====
+    // Use latched input if available, otherwise use fp_value
+    wire signed [31:0] trig_input = pending_input ? latched_input : fp_value;
+    
     trig_calculator #(
         .FIXED_FRAC_BITS(16)
     ) trig_calc(
@@ -219,7 +270,7 @@ module arithmetic_module(
         .rst(reset || !is_arithmetic_mode),
         .trig_valid(trig_btn_pressed),
         .trig_sel(trig_selected_value),
-        .input_val(fp_value),
+        .input_val(trig_input),
         .result(trig_result),
         .result_valid(trig_result_valid),
         .overflow(trig_overflow)
@@ -242,11 +293,13 @@ module arithmetic_module(
     );
 
     // ===== TEXT DISPLAY (Second OLED) =====
+    // Show result when: show_result is high, waiting for operand, or in trig mode
+    // This ensures we don't try to show input when bcd_value is cleared during trig selection
     arithmetic_text_selector text_selector(
         .clk(clk_6p25MHz),
         .pixel_index(two_pixel_index),
         .computed_result(result),
-        .waiting_operand(waiting_operand || waiting_trig),
+        .waiting_operand(show_result || waiting_operand || waiting_trig),
         .bcd_value(bcd_value),
         .decimal_pos(decimal_pos),
         .input_index(input_index),

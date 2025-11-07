@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date             : Fri Nov  7 23:14:43 2025
+| Date             : Fri Nov  7 23:37:49 2025
 | Host             : DESKTOP-LT7QO6N running 64-bit major release  (build 9200)
 | Command          : report_power -file Top_Student_power_routed.rpt -pb Top_Student_power_summary_routed.pb -rpx Top_Student_power_routed.rpx
 | Design           : Top_Student
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.143        |
+| Total On-Chip Power (W)  | 0.081        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.072        |
-| Device Static (W)        | 0.072        |
+| Dynamic (W)              | 0.012        |
+| Device Static (W)        | 0.068        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 84.3         |
-| Junction Temperature (C) | 25.7         |
+| Max Ambient (C)          | 84.6         |
+| Junction Temperature (C) | 25.4         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,18 +53,18 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.035 |    11329 |       --- |             --- |
-|   LUT as Logic |     0.029 |     7905 |     20800 |           38.00 |
-|   CARRY4       |     0.006 |     1646 |      8150 |           20.20 |
-|   Register     |    <0.001 |      905 |     41600 |            2.18 |
-|   F7/F8 Muxes  |    <0.001 |      108 |     32600 |            0.33 |
+| Slice Logic    |     0.006 |    11495 |       --- |             --- |
+|   LUT as Logic |     0.005 |     8069 |     20800 |           38.79 |
+|   CARRY4       |    <0.001 |     1646 |      8150 |           20.20 |
+|   Register     |    <0.001 |      964 |     41600 |            2.32 |
+|   F7/F8 Muxes  |    <0.001 |      107 |     32600 |            0.33 |
 |   Others       |     0.000 |       54 |       --- |             --- |
 |   BUFG         |     0.000 |        2 |        32 |            6.25 |
-| Signals        |     0.033 |     9649 |       --- |             --- |
+| Signals        |     0.005 |     9842 |       --- |             --- |
 | DSPs           |     0.000 |        6 |        90 |            6.67 |
-| I/O            |     0.003 |       50 |       106 |           47.17 |
-| Static Power   |     0.072 |          |           |                 |
-| Total          |     0.143 |          |           |                 |
+| I/O            |    <0.001 |       50 |       106 |           47.17 |
+| Static Power   |     0.068 |          |           |                 |
+| Total          |     0.081 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,9 +74,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.079 |       0.069 |      0.010 |
+| Vccint    |       1.000 |     0.022 |       0.012 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
-| Vcco33    |       3.300 |     0.002 |       0.001 |      0.001 |
+| Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -143,12 +143,12 @@ Table of Contents
 +------------------------------+-----------+
 | Name                         | Power (W) |
 +------------------------------+-----------+
-| Top_Student                  |     0.072 |
+| Top_Student                  |     0.012 |
 |   clk_1kHz_gen               |    <0.001 |
 |   clk_6p25MHz_gen            |    <0.001 |
 |   first_display              |    <0.001 |
-|   my_calculator              |     0.067 |
-|     calc_engine              |     0.061 |
+|   my_calculator              |     0.011 |
+|     calc_engine              |     0.006 |
 |     cursor_ctrl              |    <0.001 |
 |     display_selector         |    <0.001 |
 |       keypad_inst            |    <0.001 |
@@ -158,15 +158,15 @@ Table of Contents
 |       trig_inst              |    <0.001 |
 |         string_renderer_inst |    <0.001 |
 |           char_renderer_inst |    <0.001 |
-|     input_builder            |    <0.001 |
+|     input_builder            |     0.001 |
 |       event_dispatcher       |    <0.001 |
 |       event_processor        |    <0.001 |
-|     text_selector            |     0.006 |
+|     text_selector            |     0.003 |
 |       input_inst             |     0.002 |
 |         string_renderer      |    <0.001 |
 |           char_renderer_inst |    <0.001 |
-|       output_inst            |     0.004 |
-|         converter_inst       |     0.004 |
+|       output_inst            |    <0.001 |
+|         converter_inst       |    <0.001 |
 |         renderer_inst        |     0.000 |
 |           char_renderer_inst |     0.000 |
 |             char_rom         |     0.000 |
