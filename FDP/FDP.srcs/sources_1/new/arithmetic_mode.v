@@ -116,12 +116,6 @@ module arithmetic_module(
     reg dbg_sampled_trig_pressed = 1'b0;
     reg [1:0] dbg_sampled_trig_sel = 2'd0;
     
-    // sampled versions to avoid race conditions
-    reg sampled_trig_btn_pressed = 1'b0;
-    reg [1:0] sampled_trig_selected_value = 2'd0;
-    
-    // trigger pulse to start trig_calc one cycle later
-    reg trig_request = 1'b0;
     
     // Multiplex between binary and trig results, or show latched input if pending
 assign result = immediate_trig_valid ? immediate_trig_result :
