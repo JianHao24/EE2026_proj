@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Fri Nov  7 23:35:27 2025
-# Process ID: 25412
+# Start of session at: Sat Nov  8 02:34:08 2025
+# Process ID: 22968
 # Current directory: C:/Users/User/Downloads/EE2026_proj/FDP/FDP.runs/synth_1
 # Command line: vivado.exe -log Top_Student.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Top_Student.tcl
 # Log file: C:/Users/User/Downloads/EE2026_proj/FDP/FDP.runs/synth_1/Top_Student.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 30584 
+INFO: Helper process launched with PID 5904 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 356.844 ; gain = 99.891
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 357.156 ; gain = 100.191
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'Top_Student' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/Top_Student.v:14]
 INFO: [Synth 8-6157] synthesizing module 'flexible_clock_divider' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/flexible_clock_divider.v:23]
@@ -325,6 +325,8 @@ INFO: [Synth 8-6155] done synthesizing module 'fp_to_string' (17#1) [C:/Users/Us
 WARNING: [Synth 8-6014] Unused sequential element cached_result_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_output_display.v:89]
 INFO: [Synth 8-6155] done synthesizing module 'arithmetic_output_display' (18#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_output_display.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'arithmetic_text_selector' (19#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_text_selector.v:23]
+WARNING: [Synth 8-6014] Unused sequential element dbg_sampled_trig_pressed_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_mode.v:197]
+WARNING: [Synth 8-6014] Unused sequential element dbg_sampled_trig_sel_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_mode.v:198]
 INFO: [Synth 8-6155] done synthesizing module 'arithmetic_module' (20#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_mode.v:25]
 INFO: [Synth 8-6155] done synthesizing module 'Top_Student' (21#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/Top_Student.v:14]
 WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[31]
@@ -429,7 +431,7 @@ WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[4]
 WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[3]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 428.898 ; gain = 171.945
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 429.449 ; gain = 172.484
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -442,10 +444,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 428.898 ; gain = 171.945
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 429.449 ; gain = 172.484
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 428.898 ; gain = 171.945
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 429.449 ; gain = 172.484
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -467,22 +469,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 783.484 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 784.867 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 783.484 ; gain = 526.531
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 784.867 ; gain = 527.902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 783.484 ; gain = 526.531
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 784.867 ; gain = 527.902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 783.484 ; gain = 526.531
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 784.867 ; gain = 527.902
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "output_clock0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Oled_Display'
@@ -557,7 +559,12 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'fp_to
 INFO: [Synth 8-802] inferred FSM for state register 'control_state_reg' in module 'arithmetic_output_display'
 INFO: [Synth 8-5544] ROM "trigger_conversion" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "control_state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "force_operand_mode" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "waiting_trig" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "waiting_trig" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "waiting_trig" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "waiting_trig" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "latched_input" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "immediate_trig_result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -626,28 +633,26 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'control_state_reg' using encoding 'one-hot' in module 'arithmetic_output_display'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 783.484 ; gain = 526.531
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 784.867 ; gain = 527.902
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+------+-------------------------+------------+----------+
-|      |RTL Partition            |Replication |Instances |
-+------+-------------------------+------------+----------+
-|1     |arithmetic_module__GB0   |           1|     19920|
-|2     |arithmetic_module__GB1   |           1|     26976|
-|3     |reg__111                 |           1|        32|
-|4     |arithmetic_module__GB3   |           1|        97|
-|5     |arithmetic_text_selector |           1|     23256|
-|6     |Top_Student__GC0         |           1|      4910|
-+------+-------------------------+------------+----------+
++------+-----------------------+------------+----------+
+|      |RTL Partition          |Replication |Instances |
++------+-----------------------+------------+----------+
+|1     |arithmetic_module__GB0 |           1|     20714|
+|2     |arithmetic_module__GB1 |           1|     27743|
+|3     |arithmetic_module__GB2 |           1|     22445|
+|4     |Top_Student__GC0       |           1|      4910|
++------+-----------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     64 Bit       Adders := 3     
-	   3 Input     32 Bit       Adders := 2     
 	   2 Input     32 Bit       Adders := 4     
+	   3 Input     32 Bit       Adders := 2     
 	   2 Input     17 Bit       Adders := 2     
 	   3 Input      9 Bit       Adders := 30    
 	   2 Input      9 Bit       Adders := 1     
@@ -667,7 +672,7 @@ Detailed RTL Component Info :
 	               48 Bit    Registers := 2     
 	               40 Bit    Registers := 2     
 	               32 Bit    Registers := 7     
-	               19 Bit    Registers := 1     
+	               19 Bit    Registers := 2     
 	               18 Bit    Registers := 2     
 	               17 Bit    Registers := 2     
 	               16 Bit    Registers := 11    
@@ -678,8 +683,8 @@ Detailed RTL Component Info :
 	                6 Bit    Registers := 2     
 	                4 Bit    Registers := 29    
 	                3 Bit    Registers := 10    
-	                2 Bit    Registers := 10    
-	                1 Bit    Registers := 41    
+	                2 Bit    Registers := 11    
+	                1 Bit    Registers := 44    
 +---Multipliers : 
 	                14x32  Multipliers := 2     
 	                 4x32  Multipliers := 2     
@@ -689,16 +694,17 @@ Detailed RTL Component Info :
 	   4 Input     48 Bit        Muxes := 4     
 	   6 Input     48 Bit        Muxes := 1     
 	   2 Input     40 Bit        Muxes := 6     
-	   2 Input     32 Bit        Muxes := 21    
+	   2 Input     32 Bit        Muxes := 18    
 	   4 Input     32 Bit        Muxes := 1     
+	   5 Input     32 Bit        Muxes := 1     
 	   3 Input     32 Bit        Muxes := 2     
 	  32 Input     32 Bit        Muxes := 2     
 	   2 Input     20 Bit        Muxes := 1     
 	  32 Input     20 Bit        Muxes := 2     
-	   4 Input     19 Bit        Muxes := 1     
+	   4 Input     19 Bit        Muxes := 2     
 	   6 Input     18 Bit        Muxes := 1     
 	   2 Input     17 Bit        Muxes := 2     
-	   2 Input     16 Bit        Muxes := 32    
+	   2 Input     16 Bit        Muxes := 33    
 	   6 Input     16 Bit        Muxes := 1     
 	   4 Input     16 Bit        Muxes := 3     
 	   3 Input     16 Bit        Muxes := 2     
@@ -718,9 +724,9 @@ Detailed RTL Component Info :
 	   2 Input      5 Bit        Muxes := 4     
 	  32 Input      5 Bit        Muxes := 2     
 	   2 Input      4 Bit        Muxes := 30    
-	   4 Input      4 Bit        Muxes := 4     
+	   4 Input      4 Bit        Muxes := 3     
 	   6 Input      4 Bit        Muxes := 3     
-	   5 Input      4 Bit        Muxes := 5     
+	   5 Input      4 Bit        Muxes := 6     
 	   3 Input      4 Bit        Muxes := 1     
 	   7 Input      4 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 16    
@@ -733,12 +739,12 @@ Detailed RTL Component Info :
 	  10 Input      2 Bit        Muxes := 1     
 	   5 Input      2 Bit        Muxes := 2     
 	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 171   
-	   4 Input      1 Bit        Muxes := 9     
+	   2 Input      1 Bit        Muxes := 176   
+	   4 Input      1 Bit        Muxes := 8     
+	   5 Input      1 Bit        Muxes := 18    
+	   3 Input      1 Bit        Muxes := 9     
 	   9 Input      1 Bit        Muxes := 1     
 	   6 Input      1 Bit        Muxes := 13    
-	   3 Input      1 Bit        Muxes := 9     
-	   5 Input      1 Bit        Muxes := 16    
 	   7 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -747,13 +753,41 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module sprite_library_optimized 
+Module basic_calculator_engine 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     64 Bit       Adders := 3     
+	   2 Input     32 Bit       Adders := 2     
+	   3 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	               18 Bit    Registers := 2     
+	               15 Bit    Registers := 2     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   2 Input     64 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 7     
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+	   4 Input      1 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 1     
+Module trig_calculator 
+Detailed RTL Component Info : 
++---Registers : 
+	               19 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   4 Input     19 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
+	   3 Input      1 Bit        Muxes := 1     
+Module sprite_library_optimized__2 
 Detailed RTL Component Info : 
 +---Muxes : 
 	  32 Input      8 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 1     
 	  64 Input      5 Bit        Muxes := 2     
-Module char_renderer 
+Module char_renderer__2 
 Detailed RTL Component Info : 
 +---Adders : 
 	   3 Input      9 Bit       Adders := 1     
@@ -767,7 +801,7 @@ Detailed RTL Component Info :
 	   2 Input     16 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 1     
-Module string_renderer_optimized 
+Module string_renderer_optimized__2 
 Detailed RTL Component Info : 
 +---Adders : 
 	   3 Input      9 Bit       Adders := 8     
@@ -836,13 +870,13 @@ Detailed RTL Component Info :
 	   2 Input      1 Bit        Muxes := 37    
 	   9 Input      1 Bit        Muxes := 1     
 	   6 Input      1 Bit        Muxes := 13    
-Module sprite_library_optimized__4 
+Module sprite_library_optimized__1 
 Detailed RTL Component Info : 
 +---Muxes : 
 	  32 Input      8 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 1     
 	  64 Input      5 Bit        Muxes := 2     
-Module char_renderer__4 
+Module char_renderer__1 
 Detailed RTL Component Info : 
 +---Adders : 
 	   3 Input      9 Bit       Adders := 1     
@@ -856,7 +890,7 @@ Detailed RTL Component Info :
 	   2 Input     16 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 1     
-Module string_renderer_optimized__2 
+Module string_renderer_optimized__1 
 Detailed RTL Component Info : 
 +---Adders : 
 	   3 Input      9 Bit       Adders := 8     
@@ -878,35 +912,7 @@ Detailed RTL Component Info :
 Module arithmetic_text_selector 
 Detailed RTL Component Info : 
 +---Muxes : 
-	   2 Input     16 Bit        Muxes := 1     
-Module trig_calculator 
-Detailed RTL Component Info : 
-+---Registers : 
-	               19 Bit    Registers := 1     
-	                1 Bit    Registers := 3     
-+---Muxes : 
-	   4 Input     19 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 3     
-	   3 Input      1 Bit        Muxes := 1     
-Module basic_calculator_engine 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     64 Bit       Adders := 3     
-	   2 Input     32 Bit       Adders := 2     
-	   3 Input     32 Bit       Adders := 1     
-+---Registers : 
-	               32 Bit    Registers := 1     
-	               18 Bit    Registers := 2     
-	               15 Bit    Registers := 2     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 5     
-+---Muxes : 
-	   2 Input     64 Bit        Muxes := 2     
-	   2 Input     32 Bit        Muxes := 7     
-	   4 Input     32 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 6     
-	   4 Input      1 Bit        Muxes := 1     
-	   5 Input      1 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 2     
 Module digit_manager 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -951,15 +957,15 @@ Detailed RTL Component Info :
 	                1 Bit    Registers := 1     
 +---Muxes : 
 	   2 Input      4 Bit        Muxes := 3     
-	   4 Input      4 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 2     
-Module sprite_library_optimized__3 
+Module sprite_library_optimized 
 Detailed RTL Component Info : 
 +---Muxes : 
 	  32 Input      8 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 1     
 	  64 Input      5 Bit        Muxes := 2     
-Module char_renderer__3 
+Module char_renderer 
 Detailed RTL Component Info : 
 +---Adders : 
 	   3 Input      9 Bit       Adders := 1     
@@ -987,13 +993,13 @@ Detailed RTL Component Info :
 	   2 Input      6 Bit        Muxes := 2     
 	   4 Input      6 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
-Module sprite_library_optimized__2 
+Module sprite_library_optimized__4 
 Detailed RTL Component Info : 
 +---Muxes : 
 	  32 Input      8 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 1     
 	  64 Input      5 Bit        Muxes := 2     
-Module char_renderer__2 
+Module char_renderer__4 
 Detailed RTL Component Info : 
 +---Adders : 
 	   3 Input      9 Bit       Adders := 1     
@@ -1014,13 +1020,13 @@ Detailed RTL Component Info :
 	   4 Input     16 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 1     
 	   5 Input      6 Bit        Muxes := 1     
-Module sprite_library_optimized__1 
+Module sprite_library_optimized__3 
 Detailed RTL Component Info : 
 +---Muxes : 
 	  32 Input      8 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 1     
 	  64 Input      5 Bit        Muxes := 2     
-Module char_renderer__1 
+Module char_renderer__3 
 Detailed RTL Component Info : 
 +---Adders : 
 	   3 Input      9 Bit       Adders := 1     
@@ -1034,7 +1040,7 @@ Detailed RTL Component Info :
 	   2 Input     16 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 1     
-Module string_renderer_optimized__1 
+Module string_renderer_optimized 
 Detailed RTL Component Info : 
 +---Adders : 
 	   3 Input      9 Bit       Adders := 8     
@@ -1090,11 +1096,15 @@ Module arithmetic_module
 Detailed RTL Component Info : 
 +---Registers : 
 	               32 Bit    Registers := 1     
-	                1 Bit    Registers := 5     
+	               19 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 8     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 4     
-	   2 Input      1 Bit        Muxes := 21    
-	   4 Input      1 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 1     
+	   5 Input     32 Bit        Muxes := 1     
+	   4 Input     19 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 26    
+	   5 Input      1 Bit        Muxes := 2     
 Module flexible_clock_divider__1 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -1165,25 +1175,6 @@ Start Cross Boundary and Area Optimization
 Warning: Parallel synthesis criteria is not met 
 INFO: [Synth 8-5545] ROM "clk_6p25MHz_gen/output_clock0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "clk_1kHz_gen/output_clock0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-4471] merging register 'char_index_reg[3:0]' into 'char_index_reg[3:0]' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:132]
-WARNING: [Synth 8-6014] Unused sequential element char_index_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:132]
-INFO: [Synth 8-4471] merging register 'pos_reg[3:0]' into 'pos_reg[3:0]' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:66]
-WARNING: [Synth 8-6014] Unused sequential element pos_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:66]
-INFO: [Synth 8-5545] ROM "int_val" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "frac_val" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5546] ROM "digit_mem" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5545] ROM "digit_mem_reg[7]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "digit_mem_reg[6]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "digit_mem_reg[5]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "digit_mem_reg[4]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "digit_mem_reg[3]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "digit_mem_reg[2]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "digit_mem_reg[1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "digit_mem_reg[0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-DSP Report: Generating DSP frac_val1, operation Mode is: A*(B:0x2710).
-DSP Report: operator frac_val1 is absorbed into DSP frac_val1.
-DSP Report: Generating DSP frac_val1, operation Mode is: A*(B:0x2710).
-DSP Report: operator frac_val1 is absorbed into DSP frac_val1.
 WARNING: [Synth 8-6014] Unused sequential element A was removed. 
 WARNING: [Synth 8-6014] Unused sequential element A was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
 INFO: [Synth 8-5545] ROM "accumulator" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
@@ -1208,7 +1199,25 @@ DSP Report: Generating DSP overflow2, operation Mode is: (PCIN>>17)+A2*B.
 DSP Report: register A is absorbed into DSP overflow2.
 DSP Report: operator overflow2 is absorbed into DSP overflow2.
 DSP Report: operator overflow2 is absorbed into DSP overflow2.
-WARNING: [Synth 8-6014] Unused sequential element button_char_renderer/oled_data_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:63]
+INFO: [Synth 8-4471] merging register 'char_index_reg[3:0]' into 'char_index_reg[3:0]' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:132]
+WARNING: [Synth 8-6014] Unused sequential element char_index_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:132]
+INFO: [Synth 8-4471] merging register 'pos_reg[3:0]' into 'pos_reg[3:0]' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:66]
+WARNING: [Synth 8-6014] Unused sequential element pos_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:66]
+INFO: [Synth 8-5545] ROM "int_val" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "frac_val" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "digit_mem" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "digit_mem_reg[7]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "digit_mem_reg[6]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "digit_mem_reg[5]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "digit_mem_reg[4]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "digit_mem_reg[3]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "digit_mem_reg[2]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "digit_mem_reg[1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "digit_mem_reg[0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+DSP Report: Generating DSP frac_val1, operation Mode is: A*(B:0x2710).
+DSP Report: operator frac_val1 is absorbed into DSP frac_val1.
+DSP Report: Generating DSP frac_val1, operation Mode is: A*(B:0x2710).
+DSP Report: operator frac_val1 is absorbed into DSP frac_val1.
 INFO: [Synth 8-5545] ROM "input_builder/event_dispatcher/buffer_mem_reg[1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "input_builder/event_dispatcher/buffer_mem_reg[2]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "input_builder/event_dispatcher/buffer_mem_reg[3]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
@@ -1217,137 +1226,139 @@ INFO: [Synth 8-5545] ROM "input_builder/event_dispatcher/buffer_mem_reg[5]" won'
 INFO: [Synth 8-5545] ROM "input_builder/event_dispatcher/buffer_mem_reg[6]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "input_builder/event_dispatcher/buffer_mem_reg[7]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "input_builder/event_dispatcher/buffer_mem_reg[0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+WARNING: [Synth 8-6014] Unused sequential element button_char_renderer/oled_data_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:63]
 INFO: [Synth 8-5546] ROM "fsm_next_state0" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "fsm_next_state0" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "fsm_next_state0" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "fsm_next_state0" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5545] ROM "clk_6p25MHz_gen/output_clock0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "clk_1kHz_gen/output_clock0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/converter_inst/frac_val_reg[15]' (FDE) to 'my_calculator/text_selector/output_inst/converter_inst/frac_val_reg[14]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_calculator/text_selector /\output_inst/converter_inst /\frac_val_reg[14] )
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[0]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[1]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[0]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[1]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[1]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[2]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[1]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[2]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[2]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[3]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[2]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[3]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[3]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[4]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[3]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[4]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[4]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[5]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[4]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[5]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[5]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[6]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[5]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[6]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[6]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[7]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[6]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[7]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[7]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[8]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[7]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[8]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[8]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[9]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[8]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[9]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[9]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[10]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[9]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[10]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[10]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[11]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[10]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[11]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[11]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[12]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[11]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[12]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[12]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[13]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[12]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[13]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[13]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[14]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[13]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[14]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[14]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[15]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[14]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[15]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/cursor_pos_x_reg[0]' (FD) to 'my_calculator/text_selector/input_inst/cursor_pos_x_reg[1]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/cursor_pos_x_reg[1]' (FD) to 'my_calculator/text_selector/input_inst/cursor_pos_x_reg[2]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_calculator/text_selector /input_inst/\cursor_pos_x_reg[2] )
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[0]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[1]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[0]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[1]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[1]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[2]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[1]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[2]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[2]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[3]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[2]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[3]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[3]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[4]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[3]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[4]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[4]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[5]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[4]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[5]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[5]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[6]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[5]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[6]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[6]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[7]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[6]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[7]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[7]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[8]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[7]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[8]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[8]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[9]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[8]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[9]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[9]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[10]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[9]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[10]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[10]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[11]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[10]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[11]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[11]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[12]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[11]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[12]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[12]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[13]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[12]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[13]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[13]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[14]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[13]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[14]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[14]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/oled_data_reg[15]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[14]' (FD) to 'my_calculator/text_selector/input_inst/string_renderer/oled_data_reg[15]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[0]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/immediate_trig_result_reg[0]' (FDE) to 'my_calculatori_1/immediate_trig_result_reg[1]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[1]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/immediate_trig_result_reg[1]' (FDE) to 'my_calculatori_1/immediate_trig_result_reg[2]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[2]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/immediate_trig_result_reg[2]' (FDE) to 'my_calculatori_1/immediate_trig_result_reg[3]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[3]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/immediate_trig_result_reg[3]' (FDE) to 'my_calculatori_1/immediate_trig_result_reg[4]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[4]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/immediate_trig_result_reg[4]' (FDE) to 'my_calculatori_1/immediate_trig_result_reg[5]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[5]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/immediate_trig_result_reg[5]' (FDE) to 'my_calculatori_1/immediate_trig_result_reg[6]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[6]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/immediate_trig_result_reg[6]' (FDE) to 'my_calculatori_1/immediate_trig_result_reg[7]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[7]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/immediate_trig_result_reg[7]' (FDE) to 'my_calculatori_1/immediate_trig_result_reg[8]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[8]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/immediate_trig_result_reg[8]' (FDE) to 'my_calculatori_1/immediate_trig_result_reg[9]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[9]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/immediate_trig_result_reg[9]' (FDE) to 'my_calculatori_1/immediate_trig_result_reg[10]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[10]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/immediate_trig_result_reg[10]' (FDE) to 'my_calculatori_1/immediate_trig_result_reg[11]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[11]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/immediate_trig_result_reg[11]' (FDE) to 'my_calculatori_1/immediate_trig_result_reg[12]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[12]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/immediate_trig_result_reg[12]' (FDE) to 'my_calculatori_1/immediate_trig_result_reg[13]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[13]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/immediate_trig_result_reg[13]' (FDE) to 'my_calculatori_1/immediate_trig_result_reg[14]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[14]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/immediate_trig_result_reg[14]' (FDE) to 'my_calculatori_1/immediate_trig_result_reg[15]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[15]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/immediate_trig_result_reg[15]' (FDE) to 'my_calculatori_1/immediate_trig_result_reg[18]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_1/\trig_calc/result_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_1/\immediate_trig_result_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_1/\trig_calc/overflow_reg )
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/converter_inst/frac_val_reg[15]' (FDE) to 'my_calculatori_2/text_selector/output_inst/converter_inst/frac_val_reg[14]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\text_selector/output_inst/converter_inst /\frac_val_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\input_builder/event_dispatcher/sign_present_reg )
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[6][1]' (FDCE) to 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[6][2]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[5][1]' (FDCE) to 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[5][2]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[4][1]' (FDCE) to 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[4][2]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[3][1]' (FDCE) to 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[3][2]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[2][1]' (FDCE) to 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[2][2]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[1][1]' (FDCE) to 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[1][2]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[7][1]' (FDCE) to 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[7][2]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\input_builder/event_dispatcher/char_types_reg[6][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\input_builder/event_dispatcher/char_types_reg[5][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\input_builder/event_dispatcher/char_types_reg[4][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\input_builder/event_dispatcher/char_types_reg[3][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\input_builder/event_dispatcher/char_types_reg[2][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\input_builder/event_dispatcher/char_types_reg[1][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\input_builder/event_dispatcher/char_types_reg[0][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\input_builder/event_dispatcher/char_types_reg[7][2] )
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[0]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[1]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[0]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[1]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[1]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[2]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[1]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[2]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[2]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[3]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[2]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[3]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[3]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[4]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[3]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[4]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[4]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[5]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[4]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[5]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[5]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[6]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[5]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[6]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[6]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[6]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[7]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[8]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[7]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[8]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[8]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[9]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[8]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[9]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[9]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[10]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[9]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[10]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[10]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[11]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[10]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[11]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[11]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[11]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[12]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[13]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[12]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[13]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[13]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[14]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[13]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[14]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[14]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[15]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[14]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/char_renderer_inst/oled_data_reg[15]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/cursor_pos_x_reg[0]' (FD) to 'my_calculatori_2/text_selector/input_inst/cursor_pos_x_reg[1]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/cursor_pos_x_reg[1]' (FD) to 'my_calculatori_2/text_selector/input_inst/cursor_pos_x_reg[2]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\text_selector/input_inst /\cursor_pos_x_reg[2] )
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[0]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[1]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[0]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[1]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[1]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[2]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[1]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[2]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[2]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[3]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[2]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[3]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[3]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[4]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[3]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[4]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[4]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[5]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[4]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[5]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[5]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[6]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[5]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[6]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[6]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[6]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[7]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[8]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[7]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[8]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[8]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[9]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[8]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[9]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[9]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[10]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[9]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[10]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[10]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[11]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[10]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[11]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[11]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[11]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[12]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[13]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[12]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[13]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[13]' (FD) to 'my_calculatori_2/text_selector/output_inst/renderer_inst/oled_data_reg[14]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[13]' (FD) to 'my_calculatori_2/text_selector/input_inst/string_renderer/oled_data_reg[14]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 WARNING: [Synth 8-3332] Sequential element (cursor_pos_x_reg[2]) is unused and will be removed from module arithmetic_input_display.
 WARNING: [Synth 8-3332] Sequential element (digit_index_reg[3]) is unused and will be removed from module arithmetic_input_display.
 WARNING: [Synth 8-3332] Sequential element (frac_val_reg[14]) is unused and will be removed from module fp_to_string.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\trig_calc/overflow_reg )
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/trig_calc/result_reg[0]' (FDRE) to 'my_calculatori_2/trig_calc/result_reg[1]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/trig_calc/result_reg[1]' (FDRE) to 'my_calculatori_2/trig_calc/result_reg[2]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/trig_calc/result_reg[2]' (FDRE) to 'my_calculatori_2/trig_calc/result_reg[3]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/trig_calc/result_reg[3]' (FDRE) to 'my_calculatori_2/trig_calc/result_reg[4]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/trig_calc/result_reg[4]' (FDRE) to 'my_calculatori_2/trig_calc/result_reg[5]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/trig_calc/result_reg[5]' (FDRE) to 'my_calculatori_2/trig_calc/result_reg[6]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/trig_calc/result_reg[6]' (FDRE) to 'my_calculatori_2/trig_calc/result_reg[7]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/trig_calc/result_reg[7]' (FDRE) to 'my_calculatori_2/trig_calc/result_reg[8]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/trig_calc/result_reg[8]' (FDRE) to 'my_calculatori_2/trig_calc/result_reg[9]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/trig_calc/result_reg[9]' (FDRE) to 'my_calculatori_2/trig_calc/result_reg[10]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/trig_calc/result_reg[10]' (FDRE) to 'my_calculatori_2/trig_calc/result_reg[11]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/trig_calc/result_reg[11]' (FDRE) to 'my_calculatori_2/trig_calc/result_reg[12]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/trig_calc/result_reg[12]' (FDRE) to 'my_calculatori_2/trig_calc/result_reg[13]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/trig_calc/result_reg[13]' (FDRE) to 'my_calculatori_2/trig_calc/result_reg[14]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/trig_calc/result_reg[14]' (FDRE) to 'my_calculatori_2/trig_calc/result_reg[15]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/trig_calc/result_reg[15]' (FDRE) to 'my_calculatori_2/trig_calc/result_reg[18]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\trig_calc/result_reg[18] )
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[0]' (FD) to 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[1]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[1]' (FD) to 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[2]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[2]' (FD) to 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[3]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[3]' (FD) to 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[4]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[4]' (FD) to 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[5]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[5]' (FD) to 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[6]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[6]' (FD) to 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[7]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[7]' (FD) to 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[8]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[8]' (FD) to 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[9]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[9]' (FD) to 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[10]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[10]' (FD) to 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[11]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[11]' (FD) to 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[12]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[12]' (FD) to 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[13]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[13]' (FD) to 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[14]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[14]' (FD) to 'my_calculatori_3/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[15]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_3/display_selector/operand_inst/\display_char_reg[4] )
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/operand_inst/char_start_y_reg[0]' (LD) to 'my_calculatori_3/display_selector/operand_inst/char_start_y_reg[4]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/operand_inst/char_start_y_reg[1]' (LD) to 'my_calculatori_3/display_selector/operand_inst/char_start_y_reg[3]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/operand_inst/char_start_y_reg[2]' (LD) to 'my_calculatori_3/display_selector/operand_inst/char_start_y_reg[4]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/operand_inst/char_start_y_reg[3]' (LD) to 'my_calculatori_3/display_selector/operand_inst/char_start_x_reg[2]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/operand_inst/char_start_y_reg[4]' (LD) to 'my_calculatori_3/display_selector/operand_inst/char_start_x_reg[3]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_3/display_selector/operand_inst/char_start_x_reg[3]' (LD) to 'my_calculatori_3/display_selector/operand_inst/char_start_x_reg[1]'
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_3/display_selector/operand_inst/\char_start_x_reg[1] )
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (my_calculatori_3/display_selector/operand_inst/\char_start_x_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_3/\input_builder/event_dispatcher/sign_present_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_3/\input_builder/event_dispatcher/char_types_reg[6][2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_3/\input_builder/event_dispatcher/char_types_reg[5][2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_3/\input_builder/event_dispatcher/char_types_reg[4][2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_3/\input_builder/event_dispatcher/char_types_reg[3][2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_3/\input_builder/event_dispatcher/char_types_reg[2][2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_3/\input_builder/event_dispatcher/char_types_reg[1][2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_3/\input_builder/event_dispatcher/char_types_reg[0][2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_3/\input_builder/event_dispatcher/char_types_reg[7][2] )
 WARNING: [Synth 8-3332] Sequential element (display_char_reg[4]) is unused and will be removed from module arithmetic_operand_display.
 WARNING: [Synth 8-3332] Sequential element (char_start_x_reg[2]) is unused and will be removed from module arithmetic_operand_display.
 WARNING: [Synth 8-3332] Sequential element (char_start_x_reg[1]) is unused and will be removed from module arithmetic_operand_display.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 806.832 ; gain = 549.879
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 830.676 ; gain = 573.711
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1357,12 +1368,12 @@ DSP: Preliminary Mapping  Report (see note below)
 +------------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name             | DSP Mapping     | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +------------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|fp_to_string            | A*(B:0x2710)    | 16     | 14     | -      | -      | 30     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fp_to_string            | A*(B:0x2710)    | 16     | 14     | -      | -      | 30     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |basic_calculator_engine | A*B2            | 18     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
 |basic_calculator_engine | (PCIN>>17)+A2*B | 15     | 15     | -      | -      | 30     | 1    | 0    | -    | -    | -     | 0    | 0    | 
 |basic_calculator_engine | A2*B            | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
 |basic_calculator_engine | (PCIN>>17)+A2*B | 18     | 15     | -      | -      | 47     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|fp_to_string            | A*(B:0x2710)    | 16     | 14     | -      | -      | 30     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fp_to_string            | A*(B:0x2710)    | 16     | 14     | -      | -      | 30     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 +------------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
@@ -1371,45 +1382,41 @@ Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+------+-------------------------+------------+----------+
-|      |RTL Partition            |Replication |Instances |
-+------+-------------------------+------------+----------+
-|1     |arithmetic_module__GB0   |           1|      8532|
-|2     |arithmetic_module__GB1   |           1|      5086|
-|3     |reg__111                 |           1|        32|
-|4     |arithmetic_module__GB3   |           1|        98|
-|5     |arithmetic_text_selector |           1|      5213|
-|6     |Top_Student__GC0         |           1|      1467|
-+------+-------------------------+------------+----------+
++------+-----------------------+------------+----------+
+|      |RTL Partition          |Replication |Instances |
++------+-----------------------+------------+----------+
+|1     |arithmetic_module__GB0 |           1|      8744|
+|2     |arithmetic_module__GB1 |           1|      7661|
+|3     |arithmetic_module__GB2 |           1|      2861|
+|4     |Top_Student__GC0       |           1|      1467|
++------+-----------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:45 ; elapsed = 00:00:48 . Memory (MB): peak = 835.543 ; gain = 578.590
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:48 ; elapsed = 00:00:52 . Memory (MB): peak = 844.348 ; gain = 587.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 887.473 ; gain = 630.520
+Finished Timing Optimization : Time (s): cpu = 00:00:50 ; elapsed = 00:00:53 . Memory (MB): peak = 881.590 ; gain = 624.625
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+------+-------------------------+------------+----------+
-|      |RTL Partition            |Replication |Instances |
-+------+-------------------------+------------+----------+
-|1     |arithmetic_module__GB0   |           1|      8532|
-|2     |arithmetic_module__GB1   |           1|      5086|
-|3     |reg__111                 |           1|        32|
-|4     |arithmetic_module__GB3   |           1|        98|
-|5     |arithmetic_text_selector |           1|      5213|
-|6     |Top_Student__GC0         |           1|      1467|
-+------+-------------------------+------------+----------+
++------+-----------------------+------------+----------+
+|      |RTL Partition          |Replication |Instances |
++------+-----------------------+------------+----------+
+|1     |arithmetic_module__GB0 |           1|      8744|
+|2     |arithmetic_module__GB1 |           1|      7661|
+|3     |arithmetic_module__GB2 |           1|      2861|
+|4     |Top_Student__GC0       |           1|      1467|
++------+-----------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:50 ; elapsed = 00:00:53 . Memory (MB): peak = 1088.379 ; gain = 831.426
+Finished Technology Mapping : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1051.363 ; gain = 794.398
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1433,7 +1440,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:51 ; elapsed = 00:00:54 . Memory (MB): peak = 1088.379 ; gain = 831.426
+Finished IO Insertion : Time (s): cpu = 00:00:53 ; elapsed = 00:00:57 . Memory (MB): peak = 1051.363 ; gain = 794.398
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1446,7 +1453,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:51 ; elapsed = 00:00:54 . Memory (MB): peak = 1088.379 ; gain = 831.426
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:53 ; elapsed = 00:00:57 . Memory (MB): peak = 1051.363 ; gain = 794.398
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1458,25 +1465,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:51 ; elapsed = 00:00:54 . Memory (MB): peak = 1088.379 ; gain = 831.426
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:54 ; elapsed = 00:00:57 . Memory (MB): peak = 1051.363 ; gain = 794.398
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:52 ; elapsed = 00:00:55 . Memory (MB): peak = 1088.379 ; gain = 831.426
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:55 ; elapsed = 00:00:58 . Memory (MB): peak = 1051.363 ; gain = 794.398
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1088.379 ; gain = 831.426
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:55 ; elapsed = 00:00:58 . Memory (MB): peak = 1051.363 ; gain = 794.398
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1088.379 ; gain = 831.426
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:55 ; elapsed = 00:00:58 . Memory (MB): peak = 1051.363 ; gain = 794.398
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1494,39 +1501,38 @@ Report Cell Usage:
 +------+----------+------+
 |1     |BUFG      |     3|
 |2     |CARRY4    |  1646|
-|3     |DSP48E1   |     2|
-|4     |DSP48E1_1 |     1|
-|5     |DSP48E1_2 |     3|
-|6     |LUT1      |   253|
-|7     |LUT2      |   810|
-|8     |LUT3      |  2993|
-|9     |LUT4      |   625|
-|10    |LUT5      |   693|
-|11    |LUT6      |  3377|
-|12    |MUXF7     |    88|
-|13    |MUXF8     |    19|
+|3     |DSP48E1   |     1|
+|4     |DSP48E1_1 |     3|
+|5     |DSP48E1_2 |     2|
+|6     |LUT1      |   250|
+|7     |LUT2      |   832|
+|8     |LUT3      |  3000|
+|9     |LUT4      |   635|
+|10    |LUT5      |   640|
+|11    |LUT6      |  3392|
+|12    |MUXF7     |    56|
+|13    |MUXF8     |     3|
 |14    |FDCE      |    51|
 |15    |FDE_1     |    64|
 |16    |FDPE      |     4|
-|17    |FDRE      |   829|
-|18    |FDSE      |     8|
-|19    |LD        |     8|
-|20    |IBUF      |     6|
-|21    |OBUF      |    16|
-|22    |OBUFT     |    28|
+|17    |FDRE      |   844|
+|18    |LD        |     8|
+|19    |IBUF      |     6|
+|20    |OBUF      |    16|
+|21    |OBUFT     |    28|
 +------+----------+------+
 
 Report Instance Areas: 
 +------+-----------------------------+----------------------------+------+
 |      |Instance                     |Module                      |Cells |
 +------+-----------------------------+----------------------------+------+
-|1     |top                          |                            | 11527|
+|1     |top                          |                            | 11484|
 |2     |  clk_1kHz_gen               |flexible_clock_divider      |    54|
 |3     |  clk_6p25MHz_gen            |flexible_clock_divider_0    |    51|
 |4     |  first_display              |Oled_Display                |   927|
-|5     |  my_calculator              |arithmetic_module           |  9775|
-|6     |    calc_engine              |basic_calculator_engine     |  3832|
-|7     |    cursor_ctrl              |arithmetic_cursor           |   246|
+|5     |  my_calculator              |arithmetic_module           |  9701|
+|6     |    calc_engine              |basic_calculator_engine     |  3838|
+|7     |    cursor_ctrl              |arithmetic_cursor           |   252|
 |8     |    display_selector         |arithmetic_display_selector |   472|
 |9     |      keypad_inst            |arithmetic_keypad_display   |    58|
 |10    |        button_char_renderer |char_renderer_7             |    58|
@@ -1535,29 +1541,29 @@ Report Instance Areas:
 |13    |      trig_inst              |arithmetic_trig_display     |   278|
 |14    |        string_renderer_inst |string_renderer_optimized_4 |   278|
 |15    |          char_renderer_inst |char_renderer_5             |   251|
-|16    |    input_builder            |bcd_to_fp_input_system      |  3576|
-|17    |      event_dispatcher       |digit_manager               |   136|
-|18    |      event_processor        |horner_fixedpoint_evaluator |  1256|
-|19    |    text_selector            |arithmetic_text_selector    |  1481|
-|20    |      input_inst             |arithmetic_input_display    |   484|
-|21    |        string_renderer      |string_renderer_optimized_2 |   271|
-|22    |          char_renderer_inst |char_renderer_3             |   268|
-|23    |      output_inst            |arithmetic_output_display   |   966|
-|24    |        converter_inst       |fp_to_string                |   830|
+|16    |    input_builder            |bcd_to_fp_input_system      |  3620|
+|17    |      event_dispatcher       |digit_manager               |   190|
+|18    |      event_processor        |horner_fixedpoint_evaluator |  1215|
+|19    |    text_selector            |arithmetic_text_selector    |  1370|
+|20    |      input_inst             |arithmetic_input_display    |   400|
+|21    |        string_renderer      |string_renderer_optimized_2 |   190|
+|22    |          char_renderer_inst |char_renderer_3             |   187|
+|23    |      output_inst            |arithmetic_output_display   |   967|
+|24    |        converter_inst       |fp_to_string                |   831|
 |25    |        renderer_inst        |string_renderer_optimized   |   131|
 |26    |          char_renderer_inst |char_renderer               |   119|
 |27    |            char_rom         |sprite_library_optimized    |    61|
-|28    |    trig_calc                |trig_calculator             |    10|
-|29    |  second_display             |Oled_Display_1              |   639|
+|28    |    trig_calc                |trig_calculator             |    13|
+|29    |  second_display             |Oled_Display_1              |   670|
 +------+-----------------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1088.379 ; gain = 831.426
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:55 ; elapsed = 00:00:58 . Memory (MB): peak = 1051.363 ; gain = 794.398
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 67 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 1088.379 ; gain = 476.840
-Synthesis Optimization Complete : Time (s): cpu = 00:00:53 ; elapsed = 00:00:56 . Memory (MB): peak = 1088.379 ; gain = 831.426
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:48 ; elapsed = 00:00:53 . Memory (MB): peak = 1051.363 ; gain = 438.980
+Synthesis Optimization Complete : Time (s): cpu = 00:00:55 ; elapsed = 00:00:59 . Memory (MB): peak = 1051.363 ; gain = 794.398
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 1837 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 1789 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -1567,11 +1573,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   LD => LDCE: 8 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-285 Infos, 240 Warnings, 2 Critical Warnings and 0 Errors encountered.
+291 Infos, 242 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:55 ; elapsed = 00:00:59 . Memory (MB): peak = 1088.379 ; gain = 844.359
+synth_design: Time (s): cpu = 00:00:57 ; elapsed = 00:01:02 . Memory (MB): peak = 1051.363 ; gain = 807.328
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/User/Downloads/EE2026_proj/FDP/FDP.runs/synth_1/Top_Student.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Top_Student_utilization_synth.rpt -pb Top_Student_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 1088.379 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Fri Nov  7 23:36:31 2025...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.049 . Memory (MB): peak = 1051.363 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat Nov  8 02:35:15 2025...

@@ -297,7 +297,7 @@ module arithmetic_module(
         .rst(reset),
         .trig_valid(trig_request),
         .trig_sel(sampled_trig_selected_value),
-        .input_fp(latched_input),
+        .input_val(latched_input),
         .result(trig_result),
         .result_valid(trig_result_valid),
         .overflow(trig_overflow)
