@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Fri Nov  7 22:04:19 2025
+| Date         : Fri Nov  7 22:47:41 2025
 | Host         : DESKTOP-LT7QO6N running 64-bit major release  (build 9200)
 | Command      : report_drc -file Top_Student_drc_routed.rpt -pb Top_Student_drc_routed.pb -rpx Top_Student_drc_routed.rpx
 | Design       : Top_Student
@@ -24,19 +24,24 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 17
+             Violations found: 16
 +----------+----------+------------------------+------------+
 | Rule     | Severity | Description            | Violations |
 +----------+----------+------------------------+------------+
-| DPIP-1   | Warning  | Input pipelining       | 1          |
+| DPIP-1   | Warning  | Input pipelining       | 2          |
 | DPOP-1   | Warning  | PREG Output pipelining | 6          |
 | DPOP-2   | Warning  | MREG Output pipelining | 6          |
-| PDRC-153 | Warning  | Gated clock check      | 4          |
+| PDRC-153 | Warning  | Gated clock check      | 2          |
 +----------+----------+------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
 DPIP-1#1 Warning
+Input pipelining  
+DSP my_calculator/text_selector/output_inst/converter_inst/frac_val1 input my_calculator/text_selector/output_inst/converter_inst/frac_val1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#2 Warning
 Input pipelining  
 DSP my_calculator/text_selector/output_inst/converter_inst/frac_val1__0 input my_calculator/text_selector/output_inst/converter_inst/frac_val1__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
@@ -103,22 +108,12 @@ Related violations: <none>
 
 PDRC-153#1 Warning
 Gated clock check  
-Net first_display/E[0] is a gated clock net sourced by a combinational pin first_display/char_start_x_reg[6]_i_2/O, cell first_display/char_start_x_reg[6]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net my_calculator/display_selector/operand_inst/button_char_renderer/E[0] is a gated clock net sourced by a combinational pin my_calculator/display_selector/operand_inst/button_char_renderer/display_char_reg[5]_i_2/O, cell my_calculator/display_selector/operand_inst/button_char_renderer/display_char_reg[5]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#2 Warning
 Gated clock check  
-Net first_display/active_pixel_reg_11[0] is a gated clock net sourced by a combinational pin first_display/display_char_reg[5]_i_2__0/O, cell first_display/display_char_reg[5]_i_2__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-Related violations: <none>
-
-PDRC-153#3 Warning
-Gated clock check  
-Net my_calculator/display_selector/keypad_inst/char_start_x_reg[5]_i_2_n_0 is a gated clock net sourced by a combinational pin my_calculator/display_selector/keypad_inst/char_start_x_reg[5]_i_2/O, cell my_calculator/display_selector/keypad_inst/char_start_x_reg[5]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-Related violations: <none>
-
-PDRC-153#4 Warning
-Gated clock check  
-Net my_calculator/display_selector/keypad_inst/oled_data_reg[15]_i_2__0_n_0 is a gated clock net sourced by a combinational pin my_calculator/display_selector/keypad_inst/oled_data_reg[15]_i_2__0/O, cell my_calculator/display_selector/keypad_inst/oled_data_reg[15]_i_2__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net my_calculator/display_selector/operand_inst/button_char_renderer/active_pixel_reg_10[0] is a gated clock net sourced by a combinational pin my_calculator/display_selector/operand_inst/button_char_renderer/char_start_x_reg[6]_i_2/O, cell my_calculator/display_selector/operand_inst/button_char_renderer/char_start_x_reg[6]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 

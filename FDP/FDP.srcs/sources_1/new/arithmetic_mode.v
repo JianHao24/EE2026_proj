@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -30,7 +30,7 @@ module arithmetic_module(
     // Button inputs
     input btnC, btnU, btnD, btnL, btnR,
 
-    // Expose flags for module control
+    // Control flags
     input reset,
     input is_arithmetic_mode,
 
@@ -52,17 +52,23 @@ module arithmetic_module(
     output div_by_zero_flag
 );
 
-
-    
     // Cursor controller signals
     wire [1:0] cursor_row_keypad;
     wire [2:0] cursor_col_keypad;
     wire [1:0] cursor_row_operand;
     wire [1:0] cursor_col_operand;
+    wire [1:0] cursor_row_trig;
+    wire [1:0] cursor_col_trig;
+    
     wire keypad_btn_pressed;
     wire [3:0] keypad_selected_value;
     wire operand_btn_pressed;
     wire [1:0] operand_selected_value;
+    wire trig_btn_pressed;
+    wire [1:0] trig_selected_value;
+    
+    // Mode control
+    reg waiting_trig;
     
     // Input system signals
     wire has_decimal;
@@ -73,18 +79,54 @@ module arithmetic_module(
     wire input_complete;
     wire [3:0] decimal_pos;
     
-    // Calculator engine signals
-    wire signed [31:0] result;
-    wire result_valid;
-    wire overflow;
+    // Calculator engine signals - BINARY (basic operations)
+    wire signed [31:0] binary_result;
+    wire binary_result_valid;
+    wire binary_overflow;
     wire div_by_zero;
     wire waiting_operand;
     wire [1:0] current_operation;
     
-    // Assign outputs
+    // Calculator engine signals - TRIG
+    wire signed [31:0] trig_result;
+    wire trig_result_valid;
+    wire trig_overflow;
+    
+    // Combined result signals (mux between binary and trig)
+    wire signed [31:0] result;
+    wire result_valid;
+    wire overflow;
+    
+    // Multiplex between binary and trig results
+    assign result = trig_result_valid ? trig_result : binary_result;
+    assign result_valid = trig_result_valid | binary_result_valid;
+    assign overflow = trig_result_valid ? trig_overflow : binary_overflow;
+    
+    // Assign status outputs
     assign overflow_flag = overflow;
     assign div_by_zero_flag = div_by_zero;
+    
+    // Mode control logic
+    always @(posedge clk_1kHz) begin
+        if (reset || !is_arithmetic_mode) begin
+            waiting_trig <= 0;
+        end else begin
+            // Toggle between modes based on keypad button 12 (operations) or 13 (trig)
+            if (keypad_btn_pressed) begin
+                if (keypad_selected_value == 4'd12)
+                    waiting_trig <= 0;  // Go to operations mode
+                else if (keypad_selected_value == 4'd13)
+                    waiting_trig <= 1;  // Go to trig mode
+            end
+            
+            // Exit modes when function/operation is selected
+            if (operand_btn_pressed || trig_btn_pressed) begin
+                waiting_trig <= 0;
+            end
+        end
+    end
 
+    // ===== CURSOR CONTROLLER =====
     arithmetic_cursor cursor_ctrl(
         .clk(clk_1kHz),
         .reset(reset || !is_arithmetic_mode),
@@ -94,17 +136,22 @@ module arithmetic_module(
         .btnL(is_arithmetic_mode ? btnL : 1'b0),
         .btnR(is_arithmetic_mode ? btnR : 1'b0),
         .waiting_operand(waiting_operand),
+        .waiting_trig(waiting_trig),
         .cursor_row_keypad(cursor_row_keypad),
         .cursor_col_keypad(cursor_col_keypad),
         .cursor_row_operand(cursor_row_operand),
         .cursor_col_operand(cursor_col_operand),
+        .cursor_row_trig(cursor_row_trig),
+        .cursor_col_trig(cursor_col_trig),
         .keypad_btn_pressed(keypad_btn_pressed),
         .keypad_selected_value(keypad_selected_value),
         .operand_btn_pressed(operand_btn_pressed),
-        .operand_selected_value(operand_selected_value)
+        .operand_selected_value(operand_selected_value),
+        .trig_btn_pressed(trig_btn_pressed),
+        .trig_selected_value(trig_selected_value)
     );
 
-
+    // ===== INPUT SYSTEM =====
     bcd_to_fp_input_system #(
         .DIGIT_CAPACITY(8),
         .FIXED_FRAC_BITS(16)
@@ -113,7 +160,7 @@ module arithmetic_module(
         .reset(reset || !is_arithmetic_mode),
         .keypad_btn_pressed(keypad_btn_pressed),
         .selected_keypad_value(keypad_selected_value),
-        .is_active_mode(!waiting_operand && is_arithmetic_mode),
+        .is_active_mode(!waiting_operand && !waiting_trig && is_arithmetic_mode),
         .enable_negative(1'b0),
         .enable_backspace(1'b1),
         .has_decimal(has_decimal),
@@ -125,22 +172,37 @@ module arithmetic_module(
         .decimal_pos(decimal_pos)
     );
 
-
-  basic_calculator_engine calc_engine (
+    // ===== CALCULATOR ENGINE =====
+    basic_calculator_engine calc_engine(
         .clk(clk_1kHz),
         .rst(reset || !is_arithmetic_mode),
         .input_valid(input_complete),
         .input_val(fp_value),
         .op_valid(operand_btn_pressed),
         .op_sel(operand_selected_value),
-        .result(result),
-        .result_valid(result_valid),
-        .overflow(overflow),
+        .result(binary_result),
+        .result_valid(binary_result_valid),
+        .overflow(binary_overflow),
         .div_by_zero(div_by_zero),
         .is_operand_mode(waiting_operand),
         .current_operation(current_operation)
     );
+    
+    // ===== TRIG CALCULATOR =====
+    trig_calculator #(
+        .FIXED_FRAC_BITS(16)
+    ) trig_calc(
+        .clk(clk_1kHz),
+        .rst(reset || !is_arithmetic_mode),
+        .trig_valid(trig_btn_pressed),
+        .trig_sel(trig_selected_value),
+        .input_val(fp_value),
+        .result(trig_result),
+        .result_valid(trig_result_valid),
+        .overflow(trig_overflow)
+    );
 
+    // ===== DISPLAY CONTROLLER (First OLED) =====
     arithmetic_display_selector display_selector(
         .clk(clk_6p25MHz),
         .pixel_index(one_pixel_index),
@@ -148,17 +210,20 @@ module arithmetic_module(
         .cursor_col_keypad(cursor_col_keypad),
         .cursor_row_operand(cursor_row_operand),
         .cursor_col_operand(cursor_col_operand),
+        .cursor_row_trig(cursor_row_trig),
+        .cursor_col_trig(cursor_col_trig),
         .has_decimal(has_decimal),
         .waiting_operand(waiting_operand),
+        .waiting_trig(waiting_trig),
         .oled_data(one_oled_data)
     );
 
-
+    // ===== TEXT DISPLAY (Second OLED) =====
     arithmetic_text_selector text_selector(
         .clk(clk_6p25MHz),
         .pixel_index(two_pixel_index),
         .computed_result(result),
-        .waiting_operand(waiting_operand),
+        .waiting_operand(waiting_operand || waiting_trig),
         .bcd_value(bcd_value),
         .decimal_pos(decimal_pos),
         .input_index(input_index),

@@ -20,6 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+`timescale 1ns / 1ps
+
 module arithmetic_keypad_display(
     input clk,
     input [12:0]pixel_index,
@@ -27,7 +29,7 @@ module arithmetic_keypad_display(
     input [2:0]cursor_col,
     input has_decimal,
     output reg [15:0]oled_data
-    );
+);
 
     // OLED dimensions
     parameter width = 96;
@@ -40,57 +42,75 @@ module arithmetic_keypad_display(
     // Keypad layout constants
     parameter button_width = 24;
     parameter button_height = 16;
-    parameter keypad_start_x = 0;
-    parameter keypad_start_y = 0;
-    parameter checkmark_x = 72;
+    parameter keypad_end_x = 72;  // 3 columns of keypad
+    
+    // Right column split into upper and lower half
+    parameter right_col_x = 72;
+    parameter upper_button_end_y = 32;  // Upper half: rows 0-1
+    parameter lower_button_start_y = 32; // Lower half: rows 2-3
 
     // Colors
     parameter white = 16'hFFFF;
     parameter black = 16'h0000;
     parameter red = 16'hF800;
+    parameter blue = 16'h001F;
+    parameter green = 16'h07E0;
 
-    // Determine current button position
+    // Determine current area
+    wire in_keypad = (x < keypad_end_x);
+    wire in_right_upper = (x >= right_col_x) && (y < upper_button_end_y);
+    wire in_right_lower = (x >= right_col_x) && (y >= lower_button_start_y);
+    
+    // Keypad button position (4 rows, 3 cols)
     wire [1:0] btn_row = y / button_height;
     wire [1:0] btn_col = x / button_width;
     
-    // Boundary checks
-    wire in_button_area = (x < checkmark_x) && (btn_row < 4 && btn_col < 3);
-    wire in_checkmark_area = (x >= checkmark_x);
+    // Right column position
+    wire [1:0] right_section = y / (height / 2);  // 0 = upper, 1 = lower
     
-    // Relative positions within button
+    // Calculate local position within button
     reg [6:0] local_x;
     reg [6:0] local_y;
-
-    // Selection and state logic
-    wire selected_button = (in_button_area && btn_row == cursor_row && btn_col == cursor_col);
-    wire selected_checkmark = (in_checkmark_area && cursor_col == 3'd3);
-    wire decimal_button = (in_button_area && btn_row == 2'd3 && btn_col == 2'd1);
+    
+    // Selection logic
+    wire selected_keypad = in_keypad && (btn_row == cursor_row) && (btn_col == cursor_col);
+    wire selected_right = (cursor_col == 3) && 
+                         ((in_right_upper && cursor_row < 2) || 
+                          (in_right_lower && cursor_row >= 2));
+    
+    // Decimal button disable
+    wire decimal_button = in_keypad && (btn_row == 2'd3) && (btn_col == 2'd1);
     wire disabled_decimal = (decimal_button && has_decimal);
-
-    // Character rendering signals
+    
+    // Character rendering
     wire [15:0] char_pixel_data;
     wire char_pixel_active;
     reg [5:0] display_char;
-    
-    // Character sprite positions
     reg [6:0] char_start_x;
     reg [5:0] char_start_y;
-
-    // Button character renderer instance
+    
     char_renderer button_char_renderer(
         .clk(clk),
         .pixel_index(pixel_index),
         .char(display_char),
         .start_x(char_start_x),
         .start_y(char_start_y),
-        .colour(selected_button ? white : black),
+        .colour(selected_keypad || selected_right ? white : black),
         .oled_data(char_pixel_data),
         .active_pixel(char_pixel_active)
     );
 
-    always @ (*) begin
-        if (in_button_area) begin
-            // Map button position to character
+    always @(*) begin
+        // Default values
+        local_x = 0;
+        local_y = 0;
+        display_char = 6'd32; // space
+        char_start_x = 0;
+        char_start_y = 0;
+        oled_data = white;
+        
+        if (in_keypad) begin
+            // ===== KEYPAD AREA (LEFT 3 COLUMNS) =====
             case({btn_row, btn_col})
                 {2'd0, 2'd0}: display_char = 6'd7;  // 7
                 {2'd0, 2'd1}: display_char = 6'd8;  // 8
@@ -102,62 +122,73 @@ module arithmetic_keypad_display(
                 {2'd2, 2'd1}: display_char = 6'd2;  // 2
                 {2'd2, 2'd2}: display_char = 6'd3;  // 3
                 {2'd3, 2'd0}: display_char = 6'd0;  // 0
-                {2'd3, 2'd1}: display_char = 6'd14; // . (decimal point)
+                {2'd3, 2'd1}: display_char = 6'd14; // .
                 {2'd3, 2'd2}: display_char = 6'd38; // X (backspace)
-                default: display_char = 6'd32;      // space
+                default: display_char = 6'd32;
             endcase
-
-            // Calculate relative position within button
+            
             local_x = x % button_width;
             local_y = y % button_height;
-
-            // Draw button border
+            
+            // Draw border
             if (local_x == 0 || local_x == button_width - 1 || 
                 local_y == 0 || local_y == button_height - 1) begin
                 oled_data = black;
-            end
-            else begin
-                // Set background color based on selection state
-                if (selected_button) begin
-                    oled_data = disabled_decimal ? red : black;
-                end
-                else begin
-                    oled_data = white;
-                end
-
-                // Center the character in the button
+            end else begin
+                oled_data = selected_keypad ? (disabled_decimal ? red : black) : white;
+                
+                // Center character
                 char_start_x = (btn_col * button_width) + (button_width/2) - 4;
                 char_start_y = (btn_row * button_height) + (button_height/2) - 6;
-
-                // Overlay character if active
+                
                 if (char_pixel_active) begin
-                    oled_data = selected_button ? white : black;
+                    oled_data = char_pixel_data;
                 end
             end
-        end
-        else if (in_checkmark_area) begin
-            // Display equals sign for checkmark
-            display_char = 6'd42;
-            local_x = x - checkmark_x;
-
+            
+        end else if (in_right_upper) begin
+            // ===== RIGHT UPPER BUTTON (Operations Toggle) =====
+            display_char = 6'd42; // = (equals sign for "confirm and select operation")
+            
+            local_x = x - right_col_x;
+            local_y = y;
+            
             // Draw border
             if (local_x == 0 || local_x == button_width - 1 || 
-                y == 0 || y == height - 1) begin
+                local_y == 0 || local_y == upper_button_end_y - 1) begin
                 oled_data = black;
+            end else begin
+                oled_data = (selected_right && cursor_row < 2) ? blue : white;
+                
+                // Center character
+                char_start_x = right_col_x + (button_width/2) - 4;
+                char_start_y = (upper_button_end_y/2) - 6;
+                
+                if (char_pixel_active) begin
+                    oled_data = char_pixel_data;
+                end
             end
-            else begin
-                // Set background color
-                oled_data = selected_checkmark ? black : white;
-
-                // Center equals sign vertically
-                if (y >= 24 && y < 40) begin
-                    char_start_x = checkmark_x + 8;
-                    char_start_y = 24;
-
-                    // Overlay character if active
-                    if (char_pixel_active) begin
-                        oled_data = selected_checkmark ? white : black;
-                    end
+            
+        end else if (in_right_lower) begin
+            // ===== RIGHT LOWER BUTTON (Trig Toggle) =====
+            display_char = 6'd15; // f (function symbol)
+            
+            local_x = x - right_col_x;
+            local_y = y - lower_button_start_y;
+            
+            // Draw border
+            if (local_x == 0 || local_x == button_width - 1 || 
+                local_y == 0 || local_y == (height - lower_button_start_y - 1)) begin
+                oled_data = black;
+            end else begin
+                oled_data = (selected_right && cursor_row >= 2) ? green : white;
+                
+                // Center character
+                char_start_x = right_col_x + (button_width/2) - 4;
+                char_start_y = lower_button_start_y + ((height - lower_button_start_y)/2) - 6;
+                
+                if (char_pixel_active) begin
+                    oled_data = char_pixel_data;
                 end
             end
         end

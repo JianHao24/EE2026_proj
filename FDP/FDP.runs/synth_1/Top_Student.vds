@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Fri Nov  7 22:02:21 2025
-# Process ID: 13176
+# Start of session at: Fri Nov  7 22:45:36 2025
+# Process ID: 20268
 # Current directory: C:/Users/User/Downloads/EE2026_proj/FDP/FDP.runs/synth_1
 # Command line: vivado.exe -log Top_Student.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Top_Student.tcl
 # Log file: C:/Users/User/Downloads/EE2026_proj/FDP/FDP.runs/synth_1/Top_Student.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 4020 
+INFO: Helper process launched with PID 33296 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 356.781 ; gain = 99.320
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 357.156 ; gain = 100.719
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'Top_Student' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/Top_Student.v:14]
 INFO: [Synth 8-6157] synthesizing module 'flexible_clock_divider' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/flexible_clock_divider.v:23]
@@ -79,8 +79,8 @@ WARNING: [Synth 8-693] zero replication count - replication ignored [C:/Users/Us
 INFO: [Synth 8-6155] done synthesizing module 'Oled_Display' (2#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:36]
 INFO: [Synth 8-6157] synthesizing module 'arithmetic_module' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_mode.v:25]
 INFO: [Synth 8-6157] synthesizing module 'arithmetic_cursor' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:22]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:152]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:207]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:208]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:286]
 INFO: [Synth 8-6155] done synthesizing module 'arithmetic_cursor' (3#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:22]
 INFO: [Synth 8-6157] synthesizing module 'bcd_to_fp_input_system' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_bcd_to_fp_input_system.v:24]
 	Parameter DIGIT_CAPACITY bound to: 8 - type: integer 
@@ -128,18 +128,29 @@ WARNING: [Synth 8-6014] Unused sequential element calc_result_reg was removed.  
 WARNING: [Synth 8-6014] Unused sequential element wide_temp_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
 WARNING: [Synth 8-6014] Unused sequential element scaled_dividend_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:128]
 INFO: [Synth 8-6155] done synthesizing module 'basic_calculator_engine' (7#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:22]
-INFO: [Synth 8-6157] synthesizing module 'arithmetic_display_selector' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_display_selector.v:23]
-INFO: [Synth 8-6157] synthesizing module 'arithmetic_keypad_display' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_keypad_display.v:23]
+INFO: [Synth 8-6157] synthesizing module 'trig_calculator' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/trig_calculator.v:24]
+	Parameter FIXED_FRAC_BITS bound to: 16 - type: integer 
+	Parameter FP_ONE bound to: 65536 - type: integer 
+	Parameter FP_TWO bound to: 131072 - type: integer 
+	Parameter FP_THREE bound to: 196608 - type: integer 
+	Parameter IDLE bound to: 1'b0 
+	Parameter COMPUTE bound to: 1'b1 
+INFO: [Synth 8-6155] done synthesizing module 'trig_calculator' (8#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/trig_calculator.v:24]
+INFO: [Synth 8-6157] synthesizing module 'arithmetic_display_selector' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_display_selector.v:24]
+INFO: [Synth 8-6157] synthesizing module 'arithmetic_keypad_display' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_keypad_display.v:25]
 	Parameter width bound to: 96 - type: integer 
 	Parameter height bound to: 64 - type: integer 
 	Parameter button_width bound to: 24 - type: integer 
 	Parameter button_height bound to: 16 - type: integer 
-	Parameter keypad_start_x bound to: 0 - type: integer 
-	Parameter keypad_start_y bound to: 0 - type: integer 
-	Parameter checkmark_x bound to: 72 - type: integer 
+	Parameter keypad_end_x bound to: 72 - type: integer 
+	Parameter right_col_x bound to: 72 - type: integer 
+	Parameter upper_button_end_y bound to: 32 - type: integer 
+	Parameter lower_button_start_y bound to: 32 - type: integer 
 	Parameter white bound to: 16'b1111111111111111 
 	Parameter black bound to: 16'b0000000000000000 
 	Parameter red bound to: 16'b1111100000000000 
+	Parameter blue bound to: 16'b0000000000011111 
+	Parameter green bound to: 16'b0000011111100000 
 INFO: [Synth 8-6157] synthesizing module 'char_renderer' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:23]
 	Parameter width bound to: 96 - type: integer 
 	Parameter height bound to: 64 - type: integer 
@@ -248,9 +259,9 @@ WARNING: [Synth 8-3848] Net char[56][4] in module/entity sprite_library_optimize
 WARNING: [Synth 8-3848] Net char[57][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
 WARNING: [Synth 8-3848] Net char[58][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
 INFO: [Common 17-14] Message 'Synth 8-3848' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-6155] done synthesizing module 'sprite_library_optimized' (8#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'char_renderer' (9#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'arithmetic_keypad_display' (10#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_keypad_display.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'sprite_library_optimized' (9#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'char_renderer' (10#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'arithmetic_keypad_display' (11#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_keypad_display.v:25]
 INFO: [Synth 8-6157] synthesizing module 'arithmetic_operand_display' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_operand_display.v:23]
 	Parameter width bound to: 96 - type: integer 
 	Parameter height bound to: 64 - type: integer 
@@ -258,8 +269,23 @@ INFO: [Synth 8-6157] synthesizing module 'arithmetic_operand_display' [C:/Users/
 	Parameter button_height bound to: 32 - type: integer 
 	Parameter white bound to: 16'b1111111111111111 
 	Parameter black bound to: 16'b0000000000000000 
-INFO: [Synth 8-6155] done synthesizing module 'arithmetic_operand_display' (11#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_operand_display.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'arithmetic_display_selector' (12#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_display_selector.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'arithmetic_operand_display' (12#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_operand_display.v:23]
+INFO: [Synth 8-6157] synthesizing module 'arithmetic_trig_display' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_trig_display.v:23]
+	Parameter width bound to: 96 - type: integer 
+	Parameter height bound to: 64 - type: integer 
+	Parameter button_width bound to: 48 - type: integer 
+	Parameter button_height bound to: 32 - type: integer 
+	Parameter white bound to: 16'b1111111111111111 
+	Parameter black bound to: 16'b0000000000000000 
+	Parameter green bound to: 16'b0000011111100000 
+INFO: [Synth 8-6157] synthesizing module 'string_renderer_optimized' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/string_renderer.v:23]
+	Parameter CHAR_WIDTH bound to: 8 - type: integer 
+	Parameter NUM_CHARS bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'string_renderer_optimized' (13#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/string_renderer.v:23]
+WARNING: [Synth 8-689] width (32) of port connection 'start_x' does not match port width (7) of module 'string_renderer_optimized' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_trig_display.v:72]
+WARNING: [Synth 8-689] width (32) of port connection 'start_y' does not match port width (6) of module 'string_renderer_optimized' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_trig_display.v:73]
+INFO: [Synth 8-6155] done synthesizing module 'arithmetic_trig_display' (14#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_trig_display.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'arithmetic_display_selector' (15#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_display_selector.v:24]
 INFO: [Synth 8-6157] synthesizing module 'arithmetic_text_selector' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_text_selector.v:23]
 INFO: [Synth 8-6157] synthesizing module 'arithmetic_input_display' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:23]
 	Parameter width bound to: 96 - type: integer 
@@ -272,12 +298,8 @@ INFO: [Synth 8-6157] synthesizing module 'arithmetic_input_display' [C:/Users/Us
 	Parameter start_update bound to: 1 - type: integer 
 	Parameter process_digit bound to: 2 - type: integer 
 	Parameter render bound to: 3 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'string_renderer_optimized' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/string_renderer.v:23]
-	Parameter CHAR_WIDTH bound to: 8 - type: integer 
-	Parameter NUM_CHARS bound to: 8 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'string_renderer_optimized' (13#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/string_renderer.v:23]
 INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:125]
-INFO: [Synth 8-6155] done synthesizing module 'arithmetic_input_display' (14#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'arithmetic_input_display' (16#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:23]
 INFO: [Synth 8-6157] synthesizing module 'arithmetic_output_display' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_output_display.v:23]
 	Parameter width bound to: 96 - type: integer 
 	Parameter height bound to: 64 - type: integer 
@@ -299,12 +321,44 @@ INFO: [Synth 8-6157] synthesizing module 'fp_to_string' [C:/Users/User/Downloads
 	Parameter CHAR_DOT bound to: 6'b001110 
 	Parameter CHAR_SPACE bound to: 6'b111111 
 WARNING: [Synth 8-6014] Unused sequential element divisor_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:140]
-INFO: [Synth 8-6155] done synthesizing module 'fp_to_string' (15#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'fp_to_string' (17#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:24]
 WARNING: [Synth 8-6014] Unused sequential element cached_result_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_output_display.v:89]
-INFO: [Synth 8-6155] done synthesizing module 'arithmetic_output_display' (16#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_output_display.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'arithmetic_text_selector' (17#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_text_selector.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'arithmetic_module' (18#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_mode.v:25]
-INFO: [Synth 8-6155] done synthesizing module 'Top_Student' (19#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/Top_Student.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'arithmetic_output_display' (18#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_output_display.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'arithmetic_text_selector' (19#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_text_selector.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'arithmetic_module' (20#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_mode.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'Top_Student' (21#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/Top_Student.v:14]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[31]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[30]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[29]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[28]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[27]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[26]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[25]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[24]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[23]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[22]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[21]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[20]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[19]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[18]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[17]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[16]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[15]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[14]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[13]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[12]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[11]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[10]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[9]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[8]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[7]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[6]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[5]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[4]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[3]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[2]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[1]
+WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[0]
 WARNING: [Synth 8-3331] design arithmetic_module has unconnected port xpos[11]
 WARNING: [Synth 8-3331] design arithmetic_module has unconnected port xpos[10]
 WARNING: [Synth 8-3331] design arithmetic_module has unconnected port xpos[9]
@@ -373,11 +427,9 @@ WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[6]
 WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[5]
 WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[4]
 WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[3]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[2]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[1]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[0]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 426.199 ; gain = 168.738
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 427.949 ; gain = 171.512
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -390,10 +442,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 426.199 ; gain = 168.738
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 427.949 ; gain = 171.512
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 426.199 ; gain = 168.738
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 427.949 ; gain = 171.512
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -415,22 +467,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 780.859 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 782.809 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 780.859 ; gain = 523.398
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 782.809 ; gain = 526.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 780.859 ; gain = 523.398
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 782.809 ; gain = 526.371
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 780.859 ; gain = 523.398
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 782.809 ; gain = 526.371
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "output_clock0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Oled_Display'
@@ -440,6 +492,7 @@ INFO: [Synth 8-5546] ROM "fsm_next_state0" won't be mapped to RAM because it is 
 INFO: [Synth 8-5546] ROM "keypad_btn_pressed" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "keypad_selected_value" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "operand_selected_value" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "trig_selected_value" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/circular_digit_manager.v:88]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/circular_digit_manager.v:88]
 INFO: [Synth 8-5544] ROM "buffer_mem_reg[0]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
@@ -474,6 +527,8 @@ WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/
 WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
 INFO: [Synth 8-5544] ROM "display_char" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "display_char" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "display_string" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "display_string" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "cursor_show" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "current_state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "divisor" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
@@ -502,6 +557,8 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'fp_to
 INFO: [Synth 8-802] inferred FSM for state register 'control_state_reg' in module 'arithmetic_output_display'
 INFO: [Synth 8-5544] ROM "trigger_conversion" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "control_state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "waiting_trig" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "waiting_trig" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -547,10 +604,6 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
                 FINALIZE |                              100 |                               10
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'phase_reg' using encoding 'one-hot' in module 'horner_fixedpoint_evaluator'
-WARNING: [Synth 8-327] inferring latch for variable 'oled_data_reg' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_keypad_display.v:117]
-WARNING: [Synth 8-327] inferring latch for variable 'display_char_reg' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_keypad_display.v:83]
-WARNING: [Synth 8-327] inferring latch for variable 'char_start_x_reg' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_keypad_display.v:84]
-WARNING: [Synth 8-327] inferring latch for variable 'char_start_y_reg' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_keypad_display.v:85]
 WARNING: [Synth 8-327] inferring latch for variable 'display_char_reg' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_operand_display.v:71]
 WARNING: [Synth 8-327] inferring latch for variable 'char_start_x_reg' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_operand_display.v:72]
 WARNING: [Synth 8-327] inferring latch for variable 'char_start_y_reg' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_operand_display.v:73]
@@ -574,17 +627,18 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'control_state_reg' using encoding 'one-hot' in module 'arithmetic_output_display'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 780.859 ; gain = 523.398
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 782.809 ; gain = 526.371
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+-------------------------+------------+----------+
 |      |RTL Partition            |Replication |Instances |
 +------+-------------------------+------------+----------+
-|1     |arithmetic_module__GB0   |           1|     20837|
-|2     |arithmetic_module__GB1   |           1|     18137|
-|3     |arithmetic_text_selector |           1|     23256|
-|4     |Top_Student__GC0         |           1|      4910|
+|1     |arithmetic_module__GB0   |           1|     19888|
+|2     |arithmetic_module__GB1   |           1|     26934|
+|3     |arithmetic_module__GB2   |           1|        33|
+|4     |arithmetic_text_selector |           1|     23256|
+|5     |Top_Student__GC0         |           1|      4910|
 +------+-------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -595,27 +649,28 @@ Detailed RTL Component Info :
 	   3 Input     32 Bit       Adders := 2     
 	   2 Input     32 Bit       Adders := 4     
 	   2 Input     17 Bit       Adders := 2     
-	   3 Input      9 Bit       Adders := 21    
+	   3 Input      9 Bit       Adders := 30    
 	   2 Input      9 Bit       Adders := 1     
-	   3 Input      8 Bit       Adders := 4     
+	   3 Input      8 Bit       Adders := 5     
 	   2 Input      8 Bit       Adders := 5     
-	   2 Input      7 Bit       Adders := 3     
+	   2 Input      7 Bit       Adders := 5     
 	   2 Input      6 Bit       Adders := 2     
 	   3 Input      5 Bit       Adders := 1     
-	   3 Input      4 Bit       Adders := 4     
+	   3 Input      4 Bit       Adders := 5     
 	   2 Input      4 Bit       Adders := 12    
-	   3 Input      3 Bit       Adders := 5     
+	   3 Input      3 Bit       Adders := 6     
 	   2 Input      3 Bit       Adders := 4     
 	   4 Input      3 Bit       Adders := 1     
-	   2 Input      2 Bit       Adders := 4     
-	   2 Input      1 Bit       Adders := 2     
+	   2 Input      2 Bit       Adders := 6     
+	   2 Input      1 Bit       Adders := 4     
 +---Registers : 
 	               48 Bit    Registers := 2     
 	               40 Bit    Registers := 2     
 	               32 Bit    Registers := 6     
+	               19 Bit    Registers := 1     
 	               18 Bit    Registers := 2     
 	               17 Bit    Registers := 2     
-	               16 Bit    Registers := 9     
+	               16 Bit    Registers := 11    
 	               15 Bit    Registers := 2     
 	                9 Bit    Registers := 1     
 	                8 Bit    Registers := 5     
@@ -623,8 +678,8 @@ Detailed RTL Component Info :
 	                6 Bit    Registers := 2     
 	                4 Bit    Registers := 29    
 	                3 Bit    Registers := 10    
-	                2 Bit    Registers := 7     
-	                1 Bit    Registers := 30    
+	                2 Bit    Registers := 10    
+	                1 Bit    Registers := 37    
 +---Multipliers : 
 	                14x32  Multipliers := 2     
 	                 4x32  Multipliers := 2     
@@ -634,51 +689,57 @@ Detailed RTL Component Info :
 	   4 Input     48 Bit        Muxes := 4     
 	   6 Input     48 Bit        Muxes := 1     
 	   2 Input     40 Bit        Muxes := 6     
-	   2 Input     32 Bit        Muxes := 17    
+	   2 Input     32 Bit        Muxes := 18    
 	   4 Input     32 Bit        Muxes := 1     
 	   3 Input     32 Bit        Muxes := 2     
 	  32 Input     32 Bit        Muxes := 2     
 	   2 Input     20 Bit        Muxes := 1     
 	  32 Input     20 Bit        Muxes := 2     
+	   4 Input     19 Bit        Muxes := 1     
+	   6 Input     18 Bit        Muxes := 1     
 	   2 Input     17 Bit        Muxes := 2     
-	   2 Input     16 Bit        Muxes := 27    
+	   2 Input     16 Bit        Muxes := 32    
 	   6 Input     16 Bit        Muxes := 1     
-	   4 Input     16 Bit        Muxes := 2     
+	   4 Input     16 Bit        Muxes := 3     
+	   3 Input     16 Bit        Muxes := 2     
 	   4 Input     10 Bit        Muxes := 2     
 	   2 Input     10 Bit        Muxes := 1     
 	   2 Input      9 Bit        Muxes := 1     
-	  32 Input      8 Bit        Muxes := 8     
-	   2 Input      8 Bit        Muxes := 19    
+	  32 Input      8 Bit        Muxes := 10    
+	   2 Input      8 Bit        Muxes := 25    
+	   6 Input      7 Bit        Muxes := 1     
 	   2 Input      7 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 6     
-	  14 Input      6 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 8     
+	  16 Input      6 Bit        Muxes := 1     
+	   4 Input      6 Bit        Muxes := 1     
 	   5 Input      6 Bit        Muxes := 1     
 	  32 Input      6 Bit        Muxes := 2     
-	  64 Input      5 Bit        Muxes := 8     
+	  64 Input      5 Bit        Muxes := 10    
 	   2 Input      5 Bit        Muxes := 4     
 	  32 Input      5 Bit        Muxes := 2     
-	   2 Input      4 Bit        Muxes := 28    
-	   4 Input      4 Bit        Muxes := 3     
+	   2 Input      4 Bit        Muxes := 30    
+	   4 Input      4 Bit        Muxes := 4     
 	   6 Input      4 Bit        Muxes := 3     
-	   3 Input      4 Bit        Muxes := 2     
-	   7 Input      4 Bit        Muxes := 1     
 	   5 Input      4 Bit        Muxes := 5     
-	   2 Input      3 Bit        Muxes := 14    
-	   9 Input      3 Bit        Muxes := 2     
+	   3 Input      4 Bit        Muxes := 1     
+	   7 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 16    
+	   9 Input      3 Bit        Muxes := 3     
 	   6 Input      3 Bit        Muxes := 4     
-	   4 Input      3 Bit        Muxes := 1     
 	   5 Input      3 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 15    
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 21    
 	   6 Input      2 Bit        Muxes := 1     
 	  10 Input      2 Bit        Muxes := 1     
-	   5 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 136   
-	   4 Input      1 Bit        Muxes := 9     
+	   5 Input      2 Bit        Muxes := 2     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 155   
+	   4 Input      1 Bit        Muxes := 8     
 	   9 Input      1 Bit        Muxes := 1     
 	   6 Input      1 Bit        Muxes := 13    
-	   3 Input      1 Bit        Muxes := 8     
+	   3 Input      1 Bit        Muxes := 9     
+	   5 Input      1 Bit        Muxes := 16    
 	   7 Input      1 Bit        Muxes := 1     
-	   5 Input      1 Bit        Muxes := 15    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -775,13 +836,13 @@ Detailed RTL Component Info :
 	   2 Input      1 Bit        Muxes := 37    
 	   9 Input      1 Bit        Muxes := 1     
 	   6 Input      1 Bit        Muxes := 13    
-Module sprite_library_optimized__3 
+Module sprite_library_optimized__4 
 Detailed RTL Component Info : 
 +---Muxes : 
 	  32 Input      8 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 1     
 	  64 Input      5 Bit        Muxes := 2     
-Module char_renderer__3 
+Module char_renderer__4 
 Detailed RTL Component Info : 
 +---Adders : 
 	   3 Input      9 Bit       Adders := 1     
@@ -795,7 +856,7 @@ Detailed RTL Component Info :
 	   2 Input     16 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 1     
-Module string_renderer_optimized__1 
+Module string_renderer_optimized__2 
 Detailed RTL Component Info : 
 +---Adders : 
 	   3 Input      9 Bit       Adders := 8     
@@ -818,35 +879,15 @@ Module arithmetic_text_selector
 Detailed RTL Component Info : 
 +---Muxes : 
 	   2 Input     16 Bit        Muxes := 1     
-Module arithmetic_cursor 
+Module trig_calculator 
 Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      9 Bit       Adders := 1     
-	   2 Input      8 Bit       Adders := 5     
-	   2 Input      4 Bit       Adders := 3     
-	   2 Input      3 Bit       Adders := 2     
-	   2 Input      2 Bit       Adders := 4     
-	   2 Input      1 Bit       Adders := 2     
 +---Registers : 
-	                9 Bit    Registers := 1     
-	                8 Bit    Registers := 5     
-	                4 Bit    Registers := 1     
-	                3 Bit    Registers := 1     
-	                2 Bit    Registers := 4     
-	                1 Bit    Registers := 7     
+	               19 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
 +---Muxes : 
-	   2 Input      9 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 15    
-	   3 Input      4 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 3     
-	   7 Input      4 Bit        Muxes := 1     
-	   4 Input      3 Bit        Muxes := 1     
-	   2 Input      3 Bit        Muxes := 6     
-	   2 Input      2 Bit        Muxes := 13    
-	   2 Input      1 Bit        Muxes := 30    
-	   4 Input      1 Bit        Muxes := 1     
-	   7 Input      1 Bit        Muxes := 1     
-	   5 Input      1 Bit        Muxes := 1     
+	   4 Input     19 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
+	   3 Input      1 Bit        Muxes := 1     
 Module basic_calculator_engine 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -866,68 +907,6 @@ Detailed RTL Component Info :
 	   2 Input      1 Bit        Muxes := 6     
 	   4 Input      1 Bit        Muxes := 1     
 	   5 Input      1 Bit        Muxes := 1     
-Module sprite_library_optimized__2 
-Detailed RTL Component Info : 
-+---Muxes : 
-	  32 Input      8 Bit        Muxes := 2     
-	   2 Input      8 Bit        Muxes := 1     
-	  64 Input      5 Bit        Muxes := 2     
-Module char_renderer__2 
-Detailed RTL Component Info : 
-+---Adders : 
-	   3 Input      9 Bit       Adders := 1     
-	   3 Input      8 Bit       Adders := 1     
-	   3 Input      4 Bit       Adders := 1     
-	   3 Input      3 Bit       Adders := 1     
-+---Registers : 
-	               16 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input     16 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 1     
-	   2 Input      3 Bit        Muxes := 1     
-Module arithmetic_keypad_display 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      7 Bit       Adders := 1     
-+---Muxes : 
-	   2 Input     16 Bit        Muxes := 5     
-	   4 Input     16 Bit        Muxes := 1     
-	   2 Input      7 Bit        Muxes := 1     
-	  14 Input      6 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 2     
-Module sprite_library_optimized__1 
-Detailed RTL Component Info : 
-+---Muxes : 
-	  32 Input      8 Bit        Muxes := 2     
-	   2 Input      8 Bit        Muxes := 1     
-	  64 Input      5 Bit        Muxes := 2     
-Module char_renderer__1 
-Detailed RTL Component Info : 
-+---Adders : 
-	   3 Input      9 Bit       Adders := 1     
-	   3 Input      8 Bit       Adders := 1     
-	   3 Input      4 Bit       Adders := 1     
-	   3 Input      3 Bit       Adders := 1     
-+---Registers : 
-	               16 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input     16 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 1     
-	   2 Input      3 Bit        Muxes := 1     
-Module arithmetic_operand_display 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   2 Input     16 Bit        Muxes := 2     
-	   4 Input     16 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 1     
-	   5 Input      6 Bit        Muxes := 1     
-Module arithmetic_display_selector 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   2 Input     16 Bit        Muxes := 1     
 Module digit_manager 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -974,6 +953,146 @@ Detailed RTL Component Info :
 	   2 Input      4 Bit        Muxes := 3     
 	   4 Input      4 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 2     
+Module arithmetic_cursor 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 5     
+	   2 Input      4 Bit       Adders := 3     
+	   2 Input      3 Bit       Adders := 2     
+	   2 Input      2 Bit       Adders := 6     
+	   2 Input      1 Bit       Adders := 4     
++---Registers : 
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 5     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 7     
+	                1 Bit    Registers := 8     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 20    
+	   4 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 3     
+	   7 Input      4 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 7     
+	   2 Input      2 Bit        Muxes := 19    
+	   4 Input      2 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 43    
+	   5 Input      1 Bit        Muxes := 2     
+	   7 Input      1 Bit        Muxes := 1     
+Module sprite_library_optimized__3 
+Detailed RTL Component Info : 
++---Muxes : 
+	  32 Input      8 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	  64 Input      5 Bit        Muxes := 2     
+Module char_renderer__3 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input      9 Bit       Adders := 1     
+	   3 Input      8 Bit       Adders := 1     
+	   3 Input      4 Bit       Adders := 1     
+	   3 Input      3 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+Module arithmetic_keypad_display 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 2     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 6     
+	   4 Input     16 Bit        Muxes := 1     
+	   3 Input     16 Bit        Muxes := 2     
+	   6 Input      7 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	  16 Input      6 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 2     
+	   4 Input      6 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+Module sprite_library_optimized__2 
+Detailed RTL Component Info : 
++---Muxes : 
+	  32 Input      8 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	  64 Input      5 Bit        Muxes := 2     
+Module char_renderer__2 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input      9 Bit       Adders := 1     
+	   3 Input      8 Bit       Adders := 1     
+	   3 Input      4 Bit       Adders := 1     
+	   3 Input      3 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+Module arithmetic_operand_display 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 2     
+	   4 Input     16 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 1     
+	   5 Input      6 Bit        Muxes := 1     
+Module sprite_library_optimized__1 
+Detailed RTL Component Info : 
++---Muxes : 
+	  32 Input      8 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	  64 Input      5 Bit        Muxes := 2     
+Module char_renderer__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input      9 Bit       Adders := 1     
+	   3 Input      8 Bit       Adders := 1     
+	   3 Input      4 Bit       Adders := 1     
+	   3 Input      3 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+Module string_renderer_optimized__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input      9 Bit       Adders := 8     
+	   2 Input      7 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 1     
+	   9 Input      3 Bit        Muxes := 1     
+Module arithmetic_trig_display 
+Detailed RTL Component Info : 
++---Muxes : 
+	   6 Input     18 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
+	   4 Input     16 Bit        Muxes := 1     
+Module arithmetic_display_selector 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 2     
+Module arithmetic_module 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 5     
 Module flexible_clock_divider__1 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -1087,8 +1206,7 @@ DSP Report: Generating DSP overflow2, operation Mode is: (PCIN>>17)+A2*B.
 DSP Report: register A is absorbed into DSP overflow2.
 DSP Report: operator overflow2 is absorbed into DSP overflow2.
 DSP Report: operator overflow2 is absorbed into DSP overflow2.
-WARNING: [Synth 8-6014] Unused sequential element display_selector/keypad_inst/button_char_renderer/oled_data_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:63]
-WARNING: [Synth 8-6014] Unused sequential element display_selector/operand_inst/button_char_renderer/oled_data_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:63]
+WARNING: [Synth 8-6014] Unused sequential element button_char_renderer/oled_data_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:63]
 INFO: [Synth 8-5545] ROM "input_builder/event_dispatcher/buffer_mem_reg[1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "input_builder/event_dispatcher/buffer_mem_reg[2]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "input_builder/event_dispatcher/buffer_mem_reg[3]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
@@ -1103,36 +1221,6 @@ INFO: [Synth 8-5546] ROM "fsm_next_state0" won't be mapped to RAM because it is 
 INFO: [Synth 8-5546] ROM "fsm_next_state0" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5545] ROM "clk_6p25MHz_gen/output_clock0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "clk_1kHz_gen/output_clock0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-WARNING: [Synth 8-3331] design Top_Student has unconnected port led[15]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port led[14]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port led[13]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port led[12]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port led[11]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port led[10]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port led[9]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port led[8]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port led[7]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port led[6]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port led[5]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port led[4]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port led[3]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port led[2]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port JB[2]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port JA[2]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port seg[7]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port seg[6]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port seg[5]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port seg[4]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port seg[3]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port seg[2]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port seg[1]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port seg[0]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port an[3]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port an[2]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port an[1]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port an[0]
-WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[15]
-INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/converter_inst/frac_val_reg[15]' (FDE) to 'my_calculator/text_selector/output_inst/converter_inst/frac_val_reg[14]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\my_calculator/text_selector /\output_inst/converter_inst /\frac_val_reg[14] )
 INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[0]' (FD) to 'my_calculator/text_selector/output_inst/renderer_inst/char_renderer_inst/oled_data_reg[1]'
@@ -1201,21 +1289,51 @@ INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/input_inst/st
 WARNING: [Synth 8-3332] Sequential element (cursor_pos_x_reg[2]) is unused and will be removed from module arithmetic_input_display.
 WARNING: [Synth 8-3332] Sequential element (digit_index_reg[3]) is unused and will be removed from module arithmetic_input_display.
 WARNING: [Synth 8-3332] Sequential element (frac_val_reg[14]) is unused and will be removed from module fp_to_string.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_1/\trig_calc/overflow_reg )
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[0]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[1]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[1]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[2]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[2]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[3]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[3]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[4]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[4]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[5]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[5]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[6]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[6]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[7]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[7]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[8]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[8]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[9]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[9]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[10]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[10]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[11]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[11]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[12]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[12]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[13]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[13]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[14]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[14]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[15]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_1/trig_calc/result_reg[15]' (FDRE) to 'my_calculatori_1/trig_calc/result_reg[18]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_1/\trig_calc/result_reg[18] )
 WARNING: [Synth 8-3332] Sequential element (result_valid_reg) is unused and will be removed from module basic_calculator_engine.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\display_selector/keypad_inst/display_char_reg[4] )
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/char_start_y_reg[0]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/char_start_y_reg[2]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/char_start_y_reg[2]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/char_start_x_reg[2]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/char_start_x_reg[0]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/char_start_x_reg[2]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/char_start_x_reg[1]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/char_start_x_reg[2]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\display_selector/keypad_inst/char_start_x_reg[2] )
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[0]' (FD) to 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[1]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[1]' (FD) to 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[2]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[2]' (FD) to 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[3]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[3]' (FD) to 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[4]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[4]' (FD) to 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[5]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[5]' (FD) to 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[6]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[6]' (FD) to 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[7]' (FD) to 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[8]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[8]' (FD) to 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[9]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[9]' (FD) to 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[10]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[10]' (FD) to 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[11]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[11]' (FD) to 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[12]' (FD) to 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[13]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[13]' (FD) to 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[14]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[14]' (FD) to 'my_calculatori_2/display_selector/trig_inst/string_renderer_inst/char_renderer_inst/oled_data_reg[15]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/display_selector/operand_inst/\display_char_reg[4] )
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/operand_inst/char_start_y_reg[0]' (LD) to 'my_calculatori_2/display_selector/operand_inst/char_start_y_reg[4]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/operand_inst/char_start_y_reg[1]' (LD) to 'my_calculatori_2/display_selector/operand_inst/char_start_y_reg[3]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/operand_inst/char_start_y_reg[2]' (LD) to 'my_calculatori_2/display_selector/operand_inst/char_start_y_reg[4]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/operand_inst/char_start_y_reg[3]' (LD) to 'my_calculatori_2/display_selector/operand_inst/char_start_x_reg[2]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/operand_inst/char_start_y_reg[4]' (LD) to 'my_calculatori_2/display_selector/operand_inst/char_start_x_reg[3]'
+INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/operand_inst/char_start_x_reg[3]' (LD) to 'my_calculatori_2/display_selector/operand_inst/char_start_x_reg[1]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/display_selector/operand_inst/\char_start_x_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (my_calculatori_2/display_selector/operand_inst/\char_start_x_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\input_builder/event_dispatcher/sign_present_reg )
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[6][1]' (FDCE) to 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[6][2]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[5][1]' (FDCE) to 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[5][2]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[4][1]' (FDCE) to 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[4][2]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[3][1]' (FDCE) to 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[3][2]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[2][1]' (FDCE) to 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[2][2]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[1][1]' (FDCE) to 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[1][2]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[7][1]' (FDCE) to 'my_calculatori_2/input_builder/event_dispatcher/char_types_reg[7][2]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\input_builder/event_dispatcher/char_types_reg[6][2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\input_builder/event_dispatcher/char_types_reg[5][2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\input_builder/event_dispatcher/char_types_reg[4][2] )
@@ -1224,38 +1342,11 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calcul
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\input_builder/event_dispatcher/char_types_reg[1][2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\input_builder/event_dispatcher/char_types_reg[0][2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\input_builder/event_dispatcher/char_types_reg[7][2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\display_selector/operand_inst/display_char_reg[4] )
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/operand_inst/char_start_y_reg[0]' (LD) to 'my_calculatori_2/display_selector/operand_inst/char_start_y_reg[4]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/operand_inst/char_start_y_reg[1]' (LD) to 'my_calculatori_2/display_selector/operand_inst/char_start_y_reg[3]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/operand_inst/char_start_y_reg[2]' (LD) to 'my_calculatori_2/display_selector/operand_inst/char_start_y_reg[4]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/operand_inst/char_start_y_reg[3]' (LD) to 'my_calculatori_2/display_selector/operand_inst/char_start_x_reg[2]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/operand_inst/char_start_y_reg[4]' (LD) to 'my_calculatori_2/display_selector/operand_inst/char_start_x_reg[3]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/operand_inst/char_start_x_reg[3]' (LD) to 'my_calculatori_2/display_selector/operand_inst/char_start_x_reg[1]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/operand_inst/char_start_x_reg[0]' (LD) to 'my_calculatori_2/display_selector/operand_inst/char_start_x_reg[1]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (my_calculatori_2/\display_selector/operand_inst/char_start_x_reg[1] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (my_calculatori_2/\display_selector/operand_inst/char_start_x_reg[2] )
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[0]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[1]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[1]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[2]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[2]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[3]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[3]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[4]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[4]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[5]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[5]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[6]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[6]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[7]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[7]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[8]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[8]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[9]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[9]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[10]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[11]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[12]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[12]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[13]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[13]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[14]'
-INFO: [Synth 8-3886] merging instance 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[14]' (LD) to 'my_calculatori_2/display_selector/keypad_inst/oled_data_reg[15]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/converter_inst/result_reg[4]' (FDE) to 'my_calculator/text_selector/output_inst/converter_inst/result_reg[5]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/converter_inst/result_reg[28]' (FDE) to 'my_calculator/text_selector/output_inst/converter_inst/result_reg[29]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/converter_inst/result_reg[40]' (FDE) to 'my_calculator/text_selector/output_inst/converter_inst/result_reg[41]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/converter_inst/result_reg[22]' (FDE) to 'my_calculator/text_selector/output_inst/converter_inst/result_reg[23]'
-INFO: [Synth 8-3886] merging instance 'my_calculator/text_selector/output_inst/converter_inst/result_reg[16]' (FDE) to 'my_calculator/text_selector/output_inst/converter_inst/result_reg[17]'
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (display_char_reg[4]) is unused and will be removed from module arithmetic_operand_display.
+WARNING: [Synth 8-3332] Sequential element (char_start_x_reg[2]) is unused and will be removed from module arithmetic_operand_display.
+WARNING: [Synth 8-3332] Sequential element (char_start_x_reg[1]) is unused and will be removed from module arithmetic_operand_display.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 798.625 ; gain = 541.164
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 786.055 ; gain = 529.617
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1282,38 +1373,40 @@ Report RTL Partitions:
 +------+-------------------------+------------+----------+
 |      |RTL Partition            |Replication |Instances |
 +------+-------------------------+------------+----------+
-|1     |arithmetic_module__GB0   |           1|      8922|
-|2     |arithmetic_module__GB1   |           1|      3999|
-|3     |arithmetic_text_selector |           1|      5213|
-|4     |Top_Student__GC0         |           1|      1443|
+|1     |arithmetic_module__GB0   |           1|      8435|
+|2     |arithmetic_module__GB1   |           1|      5038|
+|3     |arithmetic_module__GB2   |           1|        68|
+|4     |arithmetic_text_selector |           1|      5213|
+|5     |Top_Student__GC0         |           1|      1467|
 +------+-------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 840.926 ; gain = 583.465
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 834.129 ; gain = 577.691
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 871.777 ; gain = 614.316
+Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 874.539 ; gain = 618.102
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+-------------------------+------------+----------+
 |      |RTL Partition            |Replication |Instances |
 +------+-------------------------+------------+----------+
-|1     |arithmetic_module__GB0   |           1|      8922|
-|2     |arithmetic_module__GB1   |           1|      3999|
-|3     |arithmetic_text_selector |           1|      5213|
-|4     |Top_Student__GC0         |           1|      1443|
+|1     |arithmetic_module__GB0   |           1|      8435|
+|2     |arithmetic_module__GB1   |           1|      5038|
+|3     |arithmetic_module__GB2   |           1|        68|
+|4     |arithmetic_text_selector |           1|      5213|
+|5     |Top_Student__GC0         |           1|      1467|
 +------+-------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 1025.406 ; gain = 767.945
+Finished Technology Mapping : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 1027.055 ; gain = 770.617
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1337,7 +1430,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:41 ; elapsed = 00:00:45 . Memory (MB): peak = 1025.406 ; gain = 767.945
+Finished IO Insertion : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 1027.055 ; gain = 770.617
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1350,7 +1443,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:41 ; elapsed = 00:00:45 . Memory (MB): peak = 1025.406 ; gain = 767.945
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 1027.055 ; gain = 770.617
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1362,25 +1455,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:41 ; elapsed = 00:00:45 . Memory (MB): peak = 1025.406 ; gain = 767.945
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1027.055 ; gain = 770.617
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 1025.406 ; gain = 767.945
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1027.055 ; gain = 770.617
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 1025.406 ; gain = 767.945
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1027.055 ; gain = 770.617
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 1025.406 ; gain = 767.945
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1027.055 ; gain = 770.617
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1397,83 +1490,84 @@ Report Cell Usage:
 |      |Cell      |Count |
 +------+----------+------+
 |1     |BUFG      |     3|
-|2     |CARRY4    |  1580|
-|3     |DSP48E1   |     1|
-|4     |DSP48E1_2 |     1|
-|5     |DSP48E1_3 |     4|
-|6     |LUT1      |   272|
-|7     |LUT2      |   853|
-|8     |LUT3      |  1019|
-|9     |LUT4      |  2486|
-|10    |LUT5      |  2402|
-|11    |LUT6      |  1048|
-|12    |MUXF7     |    52|
-|13    |MUXF8     |     4|
-|14    |FDCE      |    51|
-|15    |FDE_1     |    64|
-|16    |FDPE      |     4|
-|17    |FDRE      |   747|
-|18    |FDSE      |    14|
-|19    |LD        |    22|
-|20    |IBUF      |     6|
-|21    |OBUF      |    16|
-|22    |OBUFT     |    28|
+|2     |CARRY4    |  1646|
+|3     |DSP48E1   |     2|
+|4     |DSP48E1_3 |     4|
+|5     |LUT1      |   285|
+|6     |LUT2      |  1024|
+|7     |LUT3      |  1108|
+|8     |LUT4      |  2545|
+|9     |LUT5      |  2449|
+|10    |LUT6      |  1231|
+|11    |MUXF7     |    89|
+|12    |MUXF8     |    19|
+|13    |FDCE      |    51|
+|14    |FDE_1     |    64|
+|15    |FDPE      |     4|
+|16    |FDRE      |   770|
+|17    |FDSE      |     8|
+|18    |LD        |     8|
+|19    |IBUF      |     6|
+|20    |OBUF      |    16|
+|21    |OBUFT     |    28|
 +------+----------+------+
 
 Report Instance Areas: 
 +------+-----------------------------+----------------------------+------+
 |      |Instance                     |Module                      |Cells |
 +------+-----------------------------+----------------------------+------+
-|1     |top                          |                            | 10677|
+|1     |top                          |                            | 11360|
 |2     |  clk_1kHz_gen               |flexible_clock_divider      |    54|
-|3     |  clk_6p25MHz_gen            |flexible_clock_divider_0    |    53|
-|4     |  first_display              |Oled_Display                |   496|
-|5     |  my_calculator              |arithmetic_module           |  9359|
-|6     |    calc_engine              |basic_calculator_engine     |  5813|
-|7     |    cursor_ctrl              |arithmetic_cursor           |   224|
-|8     |    display_selector         |arithmetic_display_selector |   331|
-|9     |      keypad_inst            |arithmetic_keypad_display   |   281|
-|10    |        button_char_renderer |char_renderer_6             |   178|
-|11    |          char_rom           |sprite_library_optimized_7  |    75|
-|12    |      operand_inst           |arithmetic_operand_display  |    50|
-|13    |        button_char_renderer |char_renderer_4             |    36|
-|14    |          char_rom           |sprite_library_optimized_5  |    19|
-|15    |    input_builder            |bcd_to_fp_input_system      |  1540|
-|16    |      event_dispatcher       |digit_manager               |   174|
-|17    |      event_processor        |horner_fixedpoint_evaluator |  1215|
-|18    |    text_selector            |arithmetic_text_selector    |  1449|
-|19    |      input_inst             |arithmetic_input_display    |   451|
-|20    |        string_renderer      |string_renderer_optimized_2 |   238|
-|21    |          char_renderer_inst |char_renderer_3             |   235|
-|22    |      output_inst            |arithmetic_output_display   |   964|
-|23    |        converter_inst       |fp_to_string                |   828|
-|24    |        renderer_inst        |string_renderer_optimized   |   131|
-|25    |          char_renderer_inst |char_renderer               |   119|
-|26    |            char_rom         |sprite_library_optimized    |    65|
-|27    |  second_display             |Oled_Display_1              |   635|
+|3     |  clk_6p25MHz_gen            |flexible_clock_divider_0    |    51|
+|4     |  first_display              |Oled_Display                |   927|
+|5     |  my_calculator              |arithmetic_module           |  9608|
+|6     |    calc_engine              |basic_calculator_engine     |  5776|
+|7     |    cursor_ctrl              |arithmetic_cursor           |   217|
+|8     |    display_selector         |arithmetic_display_selector |   472|
+|9     |      keypad_inst            |arithmetic_keypad_display   |    58|
+|10    |        button_char_renderer |char_renderer_7             |    58|
+|11    |      operand_inst           |arithmetic_operand_display  |   133|
+|12    |        button_char_renderer |char_renderer_6             |   125|
+|13    |      trig_inst              |arithmetic_trig_display     |   278|
+|14    |        string_renderer_inst |string_renderer_optimized_4 |   278|
+|15    |          char_renderer_inst |char_renderer_5             |   251|
+|16    |    input_builder            |bcd_to_fp_input_system      |  1542|
+|17    |      event_dispatcher       |digit_manager               |   172|
+|18    |      event_processor        |horner_fixedpoint_evaluator |  1219|
+|19    |    text_selector            |arithmetic_text_selector    |  1479|
+|20    |      input_inst             |arithmetic_input_display    |   484|
+|21    |        string_renderer      |string_renderer_optimized_2 |   271|
+|22    |          char_renderer_inst |char_renderer_3             |   268|
+|23    |      output_inst            |arithmetic_output_display   |   964|
+|24    |        converter_inst       |fp_to_string                |   828|
+|25    |        renderer_inst        |string_renderer_optimized   |   131|
+|26    |          char_renderer_inst |char_renderer               |   119|
+|27    |            char_rom         |sprite_library_optimized    |    61|
+|28    |    trig_calc                |trig_calculator             |    69|
+|29    |  second_display             |Oled_Display_1              |   639|
 +------+-----------------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 1025.406 ; gain = 767.945
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1027.055 ; gain = 770.617
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 70 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 1025.406 ; gain = 413.285
-Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 1025.406 ; gain = 767.945
+Synthesis finished with 0 errors, 0 critical warnings and 68 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1027.055 ; gain = 415.758
+Synthesis Optimization Complete : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1027.055 ; gain = 770.617
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 1734 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 1838 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 86 instances were transformed.
+  A total of 72 instances were transformed.
   FDE_1 => FDRE (inverted pins: C): 64 instances
-  LD => LDCE: 22 instances
+  LD => LDCE: 8 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-277 Infos, 241 Warnings, 2 Critical Warnings and 0 Errors encountered.
+286 Infos, 241 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:43 ; elapsed = 00:00:48 . Memory (MB): peak = 1025.406 ; gain = 780.883
+synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:53 . Memory (MB): peak = 1027.055 ; gain = 783.508
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/User/Downloads/EE2026_proj/FDP/FDP.runs/synth_1/Top_Student.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Top_Student_utilization_synth.rpt -pb Top_Student_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 1025.406 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Fri Nov  7 22:03:14 2025...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.045 . Memory (MB): peak = 1027.055 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Fri Nov  7 22:46:33 2025...

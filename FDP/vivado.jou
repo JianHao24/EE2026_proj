@@ -2,17 +2,26 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Fri Nov  7 22:14:29 2025
-# Process ID: 11276
+# Start of session at: Fri Nov  7 22:19:00 2025
+# Process ID: 12836
 # Current directory: C:/Users/User/Downloads/EE2026_proj/FDP
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20096 C:\Users\User\Downloads\EE2026_proj\FDP\FDP.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent28868 C:\Users\User\Downloads\EE2026_proj\FDP\FDP.xpr
 # Log file: C:/Users/User/Downloads/EE2026_proj/FDP/vivado.log
 # Journal file: C:/Users/User/Downloads/EE2026_proj/FDP\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/User/Downloads/EE2026_proj/FDP/FDP.xpr
 update_compile_order -fileset sources_1
-archive_project C:/Users/User/Downloads/EE2026_proj/TestCopy.xpr.zip -temp_dir C:/Users/User/Downloads/EE2026_proj/FDP/.Xil/Vivado-11276-DESKTOP-LT7QO6N -force -include_local_ip_cache
 close [ open C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/trig_calculator.v w ]
 add_files C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/trig_calculator.v
 update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close [ open C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_trig_display.v w ]
+add_files C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_trig_display.v
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
