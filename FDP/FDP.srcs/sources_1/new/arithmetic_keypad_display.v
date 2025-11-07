@@ -171,7 +171,7 @@ module arithmetic_keypad_display(
         end else if (in_right_lower) begin
             // ===== RIGHT LOWER BUTTON (Trig Toggle) =====
             // CHANGED: Now displays "T" instead of "f"
-            display_char = 6'd29; // T (for Trig)
+            display_char = 6'd35; // T (for Trig)
             
             local_x = x - right_col_x;
             local_y = y - lower_button_start_y;

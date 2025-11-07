@@ -94,9 +94,9 @@ module arithmetic_trig_display(
             // Map button to trig function label
             // Character encoding: A=10, C=12, I=18, N=23, O=24, S=28, T=29
             case({btn_row, btn_col})
-                4'b00_00: display_string = {6'd28, 6'd18, 6'd23};  // "SIN"
-                4'b00_01: display_string = {6'd12, 6'd24, 6'd28};  // "COS"
-                4'b01_00: display_string = {6'd29, 6'd10, 6'd23};  // "TAN"
+                4'b00_00: display_string = {6'd34, 6'd23, 6'd28};  // "SIN"
+                4'b00_01: display_string = {6'd17, 6'd29, 6'd34};  // "COS"
+                4'b01_00: display_string = {6'd35, 6'd15, 6'd28};  // "TAN"
                 4'b01_01: display_string = {6'd63, 6'd63, 6'd63};  // Empty (all spaces)
                 default: display_string = {6'd63, 6'd63, 6'd63};
             endcase
