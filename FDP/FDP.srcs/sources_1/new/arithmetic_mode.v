@@ -292,7 +292,7 @@ module arithmetic_module(
     // ===== TRIG CALCULATOR =====
     wire signed [31:0] trig_input = pending_input ? latched_input : fp_value;
     
-    trig_calc trig_unit(
+    trig_calculator trig_calc(
         .clk(clk_1kHz),
         .rst(reset),
         .trig_valid(trig_request),
