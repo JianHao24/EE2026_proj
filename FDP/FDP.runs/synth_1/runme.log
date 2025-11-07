@@ -14,9 +14,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 33296 
+INFO: Helper process launched with PID 32644 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 357.156 ; gain = 100.719
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 357.004 ; gain = 100.055
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'Top_Student' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/Top_Student.v:14]
 INFO: [Synth 8-6157] synthesizing module 'flexible_clock_divider' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/flexible_clock_divider.v:23]
@@ -324,6 +324,7 @@ INFO: [Synth 8-6155] done synthesizing module 'fp_to_string' (17#1) [C:/Users/Us
 WARNING: [Synth 8-6014] Unused sequential element cached_result_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_output_display.v:89]
 INFO: [Synth 8-6155] done synthesizing module 'arithmetic_output_display' (18#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_output_display.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'arithmetic_text_selector' (19#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_text_selector.v:23]
+WARNING: [Synth 8-6014] Unused sequential element show_result_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_mode.v:116]
 INFO: [Synth 8-6155] done synthesizing module 'arithmetic_module' (20#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_mode.v:25]
 INFO: [Synth 8-6155] done synthesizing module 'Top_Student' (21#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/Top_Student.v:14]
 WARNING: [Synth 8-3331] design trig_calculator has unconnected port input_val[31]
@@ -428,7 +429,7 @@ WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[4]
 WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[3]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 427.949 ; gain = 171.512
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 427.941 ; gain = 170.992
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -441,10 +442,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 427.949 ; gain = 171.512
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 427.941 ; gain = 170.992
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 427.949 ; gain = 171.512
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 427.941 ; gain = 170.992
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -466,22 +467,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 782.809 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 783.383 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 782.809 ; gain = 526.371
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 783.383 ; gain = 526.434
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 782.809 ; gain = 526.371
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 783.383 ; gain = 526.434
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 782.809 ; gain = 526.371
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 783.383 ; gain = 526.434
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "output_clock0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Oled_Display'
@@ -626,7 +627,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'control_state_reg' using encoding 'one-hot' in module 'arithmetic_output_display'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 782.809 ; gain = 526.371
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 783.383 ; gain = 526.434
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -634,7 +635,7 @@ Report RTL Partitions:
 |      |RTL Partition            |Replication |Instances |
 +------+-------------------------+------------+----------+
 |1     |arithmetic_module__GB0   |           1|     19888|
-|2     |arithmetic_module__GB1   |           1|     26934|
+|2     |arithmetic_module__GB1   |           1|     26933|
 |3     |arithmetic_module__GB2   |           1|        33|
 |4     |arithmetic_text_selector |           1|     23256|
 |5     |Top_Student__GC0         |           1|      4910|
@@ -1345,7 +1346,7 @@ WARNING: [Synth 8-3332] Sequential element (display_char_reg[4]) is unused and w
 WARNING: [Synth 8-3332] Sequential element (char_start_x_reg[2]) is unused and will be removed from module arithmetic_operand_display.
 WARNING: [Synth 8-3332] Sequential element (char_start_x_reg[1]) is unused and will be removed from module arithmetic_operand_display.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 786.055 ; gain = 529.617
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 786.617 ; gain = 529.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1373,7 +1374,7 @@ Report RTL Partitions:
 |      |RTL Partition            |Replication |Instances |
 +------+-------------------------+------------+----------+
 |1     |arithmetic_module__GB0   |           1|      8435|
-|2     |arithmetic_module__GB1   |           1|      5038|
+|2     |arithmetic_module__GB1   |           1|      5031|
 |3     |arithmetic_module__GB2   |           1|        68|
 |4     |arithmetic_text_selector |           1|      5213|
 |5     |Top_Student__GC0         |           1|      1467|
@@ -1382,13 +1383,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 834.129 ; gain = 577.691
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:43 ; elapsed = 00:00:47 . Memory (MB): peak = 835.234 ; gain = 578.285
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 874.539 ; gain = 618.102
+Finished Timing Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 875.277 ; gain = 618.328
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1396,7 +1397,7 @@ Report RTL Partitions:
 |      |RTL Partition            |Replication |Instances |
 +------+-------------------------+------------+----------+
 |1     |arithmetic_module__GB0   |           1|      8435|
-|2     |arithmetic_module__GB1   |           1|      5038|
+|2     |arithmetic_module__GB1   |           1|      5031|
 |3     |arithmetic_module__GB2   |           1|        68|
 |4     |arithmetic_text_selector |           1|      5213|
 |5     |Top_Student__GC0         |           1|      1467|
@@ -1405,7 +1406,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 1027.055 ; gain = 770.617
+Finished Technology Mapping : Time (s): cpu = 00:00:48 ; elapsed = 00:00:52 . Memory (MB): peak = 1026.855 ; gain = 769.906
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1429,7 +1430,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 1027.055 ; gain = 770.617
+Finished IO Insertion : Time (s): cpu = 00:00:49 ; elapsed = 00:00:53 . Memory (MB): peak = 1026.855 ; gain = 769.906
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1442,7 +1443,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 1027.055 ; gain = 770.617
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:49 ; elapsed = 00:00:53 . Memory (MB): peak = 1026.855 ; gain = 769.906
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1454,25 +1455,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1027.055 ; gain = 770.617
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:50 ; elapsed = 00:00:54 . Memory (MB): peak = 1026.855 ; gain = 769.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1027.055 ; gain = 770.617
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:50 ; elapsed = 00:00:54 . Memory (MB): peak = 1026.855 ; gain = 769.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1027.055 ; gain = 770.617
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:50 ; elapsed = 00:00:54 . Memory (MB): peak = 1026.855 ; gain = 769.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1027.055 ; gain = 770.617
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:50 ; elapsed = 00:00:54 . Memory (MB): peak = 1026.855 ; gain = 769.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1494,8 +1495,8 @@ Report Cell Usage:
 |4     |DSP48E1_3 |     4|
 |5     |LUT1      |   285|
 |6     |LUT2      |  1024|
-|7     |LUT3      |  1108|
-|8     |LUT4      |  2545|
+|7     |LUT3      |  1110|
+|8     |LUT4      |  2544|
 |9     |LUT5      |  2449|
 |10    |LUT6      |  1231|
 |11    |MUXF7     |    89|
@@ -1515,13 +1516,13 @@ Report Instance Areas:
 +------+-----------------------------+----------------------------+------+
 |      |Instance                     |Module                      |Cells |
 +------+-----------------------------+----------------------------+------+
-|1     |top                          |                            | 11360|
+|1     |top                          |                            | 11361|
 |2     |  clk_1kHz_gen               |flexible_clock_divider      |    54|
 |3     |  clk_6p25MHz_gen            |flexible_clock_divider_0    |    51|
 |4     |  first_display              |Oled_Display                |   927|
-|5     |  my_calculator              |arithmetic_module           |  9608|
+|5     |  my_calculator              |arithmetic_module           |  9609|
 |6     |    calc_engine              |basic_calculator_engine     |  5776|
-|7     |    cursor_ctrl              |arithmetic_cursor           |   217|
+|7     |    cursor_ctrl              |arithmetic_cursor           |   220|
 |8     |    display_selector         |arithmetic_display_selector |   472|
 |9     |      keypad_inst            |arithmetic_keypad_display   |    58|
 |10    |        button_char_renderer |char_renderer_7             |    58|
@@ -1530,8 +1531,8 @@ Report Instance Areas:
 |13    |      trig_inst              |arithmetic_trig_display     |   278|
 |14    |        string_renderer_inst |string_renderer_optimized_4 |   278|
 |15    |          char_renderer_inst |char_renderer_5             |   251|
-|16    |    input_builder            |bcd_to_fp_input_system      |  1542|
-|17    |      event_dispatcher       |digit_manager               |   172|
+|16    |    input_builder            |bcd_to_fp_input_system      |  1540|
+|17    |      event_dispatcher       |digit_manager               |   170|
 |18    |      event_processor        |horner_fixedpoint_evaluator |  1219|
 |19    |    text_selector            |arithmetic_text_selector    |  1479|
 |20    |      input_inst             |arithmetic_input_display    |   484|
@@ -1546,11 +1547,11 @@ Report Instance Areas:
 |29    |  second_display             |Oled_Display_1              |   639|
 +------+-----------------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1027.055 ; gain = 770.617
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:50 ; elapsed = 00:00:54 . Memory (MB): peak = 1026.855 ; gain = 769.906
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 68 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1027.055 ; gain = 415.758
-Synthesis Optimization Complete : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1027.055 ; gain = 770.617
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:43 ; elapsed = 00:00:49 . Memory (MB): peak = 1026.855 ; gain = 414.465
+Synthesis Optimization Complete : Time (s): cpu = 00:00:50 ; elapsed = 00:00:54 . Memory (MB): peak = 1026.855 ; gain = 769.906
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 1838 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -1562,11 +1563,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   LD => LDCE: 8 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-286 Infos, 241 Warnings, 2 Critical Warnings and 0 Errors encountered.
+286 Infos, 242 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:53 . Memory (MB): peak = 1027.055 ; gain = 783.508
+synth_design: Time (s): cpu = 00:00:52 ; elapsed = 00:00:58 . Memory (MB): peak = 1026.855 ; gain = 782.742
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/User/Downloads/EE2026_proj/FDP/FDP.runs/synth_1/Top_Student.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Top_Student_utilization_synth.rpt -pb Top_Student_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.045 . Memory (MB): peak = 1027.055 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Fri Nov  7 22:46:33 2025...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.043 . Memory (MB): peak = 1026.855 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Fri Nov  7 23:13:29 2025...

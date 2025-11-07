@@ -107,21 +107,44 @@ module arithmetic_module(
     assign div_by_zero_flag = div_by_zero;
     
     // Mode control logic
+    // Track if we should show result (after trig or binary operation)
+    reg show_result;
+    
     always @(posedge clk_1kHz) begin
         if (reset || !is_arithmetic_mode) begin
             waiting_trig <= 0;
+            show_result <= 0;
         end else begin
             // Toggle between modes based on keypad button 12 (operations) or 13 (trig)
             if (keypad_btn_pressed) begin
-                if (keypad_selected_value == 4'd12)
+                if (keypad_selected_value == 4'd12) begin
                     waiting_trig <= 0;  // Go to operations mode
-                else if (keypad_selected_value == 4'd13)
+                    show_result <= 0;   // Clear result display
+                end
+                else if (keypad_selected_value == 4'd13) begin
                     waiting_trig <= 1;  // Go to trig mode
+                    show_result <= 0;   // Clear result display
+                end
+                else if (keypad_selected_value <= 4'd11) begin
+                    // User started typing again, clear result display
+                    show_result <= 0;
+                end
             end
             
-            // Exit modes when function/operation is selected
-            if (operand_btn_pressed || trig_btn_pressed) begin
+            // Exit trig mode when function is selected
+            if (trig_btn_pressed) begin
                 waiting_trig <= 0;
+                show_result <= 1;  // Show the trig result
+            end
+            
+            // Exit operand mode when operation is selected
+            if (operand_btn_pressed) begin
+                show_result <= 0;  // Will show result after next number + operation
+            end
+            
+            // When binary result is ready, show it
+            if (binary_result_valid) begin
+                show_result <= 1;
             end
         end
     end
