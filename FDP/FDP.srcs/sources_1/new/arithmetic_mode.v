@@ -110,12 +110,27 @@ module arithmetic_module(
     reg force_operand_mode;  // Force calculator into operand mode when button 12 clicked
     reg pending_input;   // Track if there's an input waiting to be processed
     reg signed [31:0] latched_input;  // Store the input value
+    reg signed [31:0] immediate_trig_result = 32'sd0;
+    reg immediate_trig_valid = 1'b0;
+    
+    reg dbg_sampled_trig_pressed = 1'b0;
+    reg [1:0] dbg_sampled_trig_sel = 2'd0;
+    
+    // sampled versions to avoid race conditions
+    reg sampled_trig_btn_pressed = 1'b0;
+    reg [1:0] sampled_trig_selected_value = 2'd0;
+    
+    // trigger pulse to start trig_calc one cycle later
+    reg trig_request = 1'b0;
     
     // Multiplex between binary and trig results, or show latched input if pending
-    assign result = trig_result_valid ? trig_result : 
+assign result = immediate_trig_valid ? immediate_trig_result :
+                    trig_result_valid ? trig_result :
                     binary_result_valid ? binary_result :
-                    pending_input ? latched_input : binary_result;
-    assign result_valid = trig_result_valid | binary_result_valid;
+                    pending_input ? latched_input :
+                    binary_result;
+    
+    assign result_valid = immediate_trig_valid | trig_result_valid | binary_result_valid;
     assign overflow = trig_result_valid ? trig_overflow : binary_overflow;
     
     // Assign status outputs
@@ -134,6 +149,12 @@ module arithmetic_module(
     
     // Mode control logic
     // Track if we should show result (after trig or binary operation)
+    
+    always @(posedge clk_1kHz) begin
+        sampled_trig_btn_pressed <= trig_btn_pressed;
+        sampled_trig_selected_value <= trig_selected_value;
+    end
+    
     always @(posedge clk_1kHz) begin
         if (reset || !is_arithmetic_mode) begin
             waiting_trig <= 0;
@@ -196,19 +217,38 @@ module arithmetic_module(
             // 2) trig_request is used as the .trig_valid input to trig_calc so trig_calc sees the
             //    stable latched_input.
             if (sampled_trig_btn_pressed) begin
-                // latch placeholder value according to selection (Q16.16)
+                // latch placeholder according to trig type (Q16.16)
                 case (sampled_trig_selected_value)
-                    2'd0: latched_input <= 32'sd65536;   // SIN -> 1.0
-                    2'd1: latched_input <= 32'sd131072;  // COS -> 2.0
-                    2'd2: latched_input <= 32'sd196608;  // TAN -> 3.0
+                    2'd0: latched_input <= 32'sd65536;   // sin ? 1.0
+                    2'd1: latched_input <= 32'sd131072;  // cos ? 2.0
+                    2'd2: latched_input <= 32'sd196608;  // tan ? 3.0
                     default: latched_input <= latched_input;
                 endcase
-
-                pending_input <= 1;      // ensure trig_input will use latched_input
-                trig_request <= 1'b1;    // pulse to trigger trig_calc next cycle
-                // leave waiting_trig cleared so UI will switch to result view
+            
+                pending_input <= 1;
+                trig_request <= 1'b1; // start trig_calc next cycle
+            
+                // immediate placeholder so OLED updates instantly
+                case (sampled_trig_selected_value)
+                    2'd0: immediate_trig_result <= 32'sd65536;
+                    2'd1: immediate_trig_result <= 32'sd131072;
+                    2'd2: immediate_trig_result <= 32'sd196608;
+                    default: immediate_trig_result <= 32'sd0;
+                endcase
+                immediate_trig_valid <= 1'b1;
+            
+                // debug flags
+                dbg_sampled_trig_pressed <= 1'b1;
+                dbg_sampled_trig_sel <= sampled_trig_selected_value;
+            
+                // close menu and show result
                 waiting_trig <= 0;
                 show_result <= 1;
+            
+            end else begin
+                // clear temporary flags
+                dbg_sampled_trig_pressed <= 1'b0;
+                immediate_trig_valid <= 1'b0;
             end
             // -----------------------------
             
@@ -308,14 +348,12 @@ module arithmetic_module(
     // Use latched input if available, otherwise use fp_value
     wire signed [31:0] trig_input = pending_input ? latched_input : fp_value;
     
-    trig_calculator #(
-        .FIXED_FRAC_BITS(16)
-    ) trig_calc(
+trig_calc trig_unit(
         .clk(clk_1kHz),
-        .rst(reset || !is_arithmetic_mode),
-        .trig_valid(trig_request),                       // trigger on trig_request (one cycle after latch)
-        .trig_sel(sampled_trig_selected_value),          // sampled selection for stability
-        .input_val(trig_input),
+        .rst(reset),
+        .trig_valid(trig_request),
+        .trig_sel(sampled_trig_selected_value),
+        .input_fp(latched_input),
         .result(trig_result),
         .result_valid(trig_result_valid),
         .overflow(trig_overflow)
