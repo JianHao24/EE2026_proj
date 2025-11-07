@@ -9,18 +9,17 @@
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
-// Description: 
+// Description: Updated - trig button now shows "T" instead of "f"
 // 
 // Dependencies: 
 // 
 // Revision:
-// Revision 0.01 - File Created
+// Revision 0.02 - Changed trig button label
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
 
-`timescale 1ns / 1ps
 
 module arithmetic_keypad_display(
     input clk,
@@ -171,7 +170,8 @@ module arithmetic_keypad_display(
             
         end else if (in_right_lower) begin
             // ===== RIGHT LOWER BUTTON (Trig Toggle) =====
-            display_char = 6'd15; // f (function symbol)
+            // CHANGED: Now displays "T" instead of "f"
+            display_char = 6'd29; // T (for Trig)
             
             local_x = x - right_col_x;
             local_y = y - lower_button_start_y;

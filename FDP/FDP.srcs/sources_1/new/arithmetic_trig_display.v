@@ -9,12 +9,12 @@
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
-// Description: 
+// Description: Updated to show "SIN", "COS", "TAN" labels
 // 
 // Dependencies: 
 // 
 // Revision:
-// Revision 0.01 - File Created
+// Revision 0.02 - Added text labels
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
@@ -36,9 +36,9 @@ module arithmetic_trig_display(
     wire [6:0] x = pixel_index % width;
     wire [6:0] y = pixel_index / width;
 
-    // Button layout: 2x2 grid (mirrors operations)
-    // Row 0: sin  cos
-    // Row 1: tan  (empty or confirm)
+    // Button layout: 2x2 grid
+    // Row 0: SIN  COS
+    // Row 1: TAN  (empty)
     parameter button_width = 48;
     parameter button_height = 32;
 
@@ -65,12 +65,14 @@ module arithmetic_trig_display(
     wire [15:0] str_pixel_data;
     wire str_pixel_active;
     reg [17:0] display_string;  // 3 chars x 6 bits
+    reg [6:0] str_start_x;
+    reg [5:0] str_start_y;
     
     string_renderer_optimized string_renderer_inst(
         .clk(clk),
         .word({display_string, 30'h3FFFFFFF}),  // Pad to 48 bits with spaces
-        .start_x(local_x + (btn_col * button_width) + (button_width/2) - 12),
-        .start_y(local_y + (btn_row * button_height) + (button_height/2) - 6),
+        .start_x(str_start_x),
+        .start_y(str_start_y),
         .pixel_index(pixel_index),
         .colour(selected ? white : black),
         .oled_data(str_pixel_data),
@@ -83,12 +85,19 @@ module arithmetic_trig_display(
         display_string = 18'd0;
         
         if (in_button_area) begin
-            // Map button to trig function
+            // Calculate centered position for text (3 characters = 24 pixels wide)
+            // Each char is 8 pixels wide, so 3 chars = 24 pixels
+            // Center in 48-pixel button: (48-24)/2 = 12 pixel offset
+            str_start_x = (btn_col * button_width) + (button_width / 2) - 12;
+            str_start_y = (btn_row * button_height) + (button_height / 2) - 6;
+            
+            // Map button to trig function label
+            // Character encoding: A=10, C=12, I=18, N=23, O=24, S=28, T=29
             case({btn_row, btn_col})
-                {2'd0, 2'd0}: display_string = {6'd28, 6'd18, 6'd23};  // "SIN" (S=28, I=18, N=23)
-                {2'd0, 2'd1}: display_string = {6'd12, 6'd24, 6'd28};  // "COS" (C=12, O=24, S=28)
-                {2'd1, 2'd0}: display_string = {6'd29, 6'd10, 6'd23};  // "TAN" (T=29, A=10, N=23)
-                {2'd1, 2'd1}: display_string = {6'd63, 6'd63, 6'd63};  // Empty or could be "="
+                4'b00_00: display_string = {6'd28, 6'd18, 6'd23};  // "SIN"
+                4'b00_01: display_string = {6'd12, 6'd24, 6'd28};  // "COS"
+                4'b01_00: display_string = {6'd29, 6'd10, 6'd23};  // "TAN"
+                4'b01_01: display_string = {6'd63, 6'd63, 6'd63};  // Empty (all spaces)
                 default: display_string = {6'd63, 6'd63, 6'd63};
             endcase
             
