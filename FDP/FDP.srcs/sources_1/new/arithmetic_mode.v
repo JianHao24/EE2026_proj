@@ -137,7 +137,7 @@ module arithmetic_module(
         .result_valid(result_valid),
         .overflow(overflow),
         .div_by_zero(div_by_zero),
-        .waiting_operand(waiting_operand),
+        .is_operand_mode(waiting_operand),
         .current_operation(current_operation)
     );
 
