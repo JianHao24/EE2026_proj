@@ -2,10 +2,10 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Fri Nov  7 21:58:11 2025
-# Process ID: 33464
+# Start of session at: Fri Nov  7 22:14:29 2025
+# Process ID: 11276
 # Current directory: C:/Users/User/Downloads/EE2026_proj/FDP
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent30756 C:\Users\User\Downloads\EE2026_proj\FDP\FDP.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20096 C:\Users\User\Downloads\EE2026_proj\FDP\FDP.xpr
 # Log file: C:/Users/User/Downloads/EE2026_proj/FDP/vivado.log
 # Journal file: C:/Users/User/Downloads/EE2026_proj/FDP\vivado.jou
 #-----------------------------------------------------------
@@ -17,9 +17,28 @@ INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
 update_compile_order -fileset sources_1
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 6
-[Fri Nov  7 22:02:19 2025] Launched synth_1...
-Run output will be captured here: C:/Users/User/Downloads/EE2026_proj/FDP/FDP.runs/synth_1/runme.log
-[Fri Nov  7 22:02:19 2025] Launched impl_1...
-Run output will be captured here: C:/Users/User/Downloads/EE2026_proj/FDP/FDP.runs/impl_1/runme.log
+archive_project C:/Users/User/Downloads/EE2026_proj/TestCopy.xpr.zip -temp_dir C:/Users/User/Downloads/EE2026_proj/FDP/.Xil/Vivado-11276-DESKTOP-LT7QO6N -force -include_local_ip_cache
+INFO: [Coretcl 2-137] starting archive...
+INFO: [Coretcl 2-1499] Saving project copy to temporary location 'C:/Users/User/Downloads/EE2026_proj/FDP/.Xil/Vivado-11276-DESKTOP-LT7QO6N' for archiving project
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+INFO: [Coretcl 2-1211] Creating project copy for archival...
+INFO: [ProjectBase 1-495] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience any problem with archiving the project, please consider setting environment variable $TEMP to a shorter path.
+Current project path is 'C:/Users/User/Downloads/EE2026_proj/FDP/.Xil/Vivado-11276-DESKTOP-LT7QO6N/PrjAr/_X_'.
+INFO: [Coretcl 2-1213] Including run results for 'synth_1'
+INFO: [Coretcl 2-1213] Including run results for 'impl_1'
+INFO: [Coretcl 2-1212] Importing remotely added design sources and verilog include files (if any)...
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'constrs_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'constrs_1'
+INFO: [filemgmt 20-334] All file(s) are already imported in fileset: 'sim_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'sim_1'
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'sources_1'
+INFO: [Coretcl 2-1209] Adding archive summary file to the project...
+INFO: [Coretcl 2-1214] Preparing project files for archive...
+INFO: [Coretcl 2-1210] Compressing project files and data...
+INFO: [Coretcl 2-1215] Project archived (C:/Users/User/Downloads/EE2026_proj/TestCopy.xpr.zip)
+INFO: [Coretcl 2-1216] To view the archive summary log in GUI, double click on 'Design Sources->Text->archive_project_summary.txt', or open this file from the archived project directory.
+archive_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:11 . Memory (MB): peak = 934.578 ; gain = 11.426
