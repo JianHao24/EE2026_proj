@@ -73,6 +73,8 @@ module bcd_to_fp_input_system #(
         end
         else if (selected_keypad_value == EXT_CHECKMARK)
             internal_key_code = INT_ENTER;          // map to enter
+        else if (selected_keypad_value == 4'd13)     // TRIG BUTTON
+            internal_key_code = INT_ENTER;          // also map to enter to trigger conversion
         else if (selected_keypad_value == EXT_DECIMAL)
             internal_key_code = INT_DECIMAL;        // map to decimal
         // digits 0-9 remain unchanged

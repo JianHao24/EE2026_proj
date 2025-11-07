@@ -117,7 +117,7 @@ module arithmetic_module(
     // Mode control logic
     // Track if we should show result (after trig or binary operation)
     
-    always @(posedge clk_1kHz) begin
+       always @(posedge clk_1kHz) begin
         if (reset || !is_arithmetic_mode) begin
             waiting_trig <= 0;
             show_result <= 0;
@@ -126,8 +126,9 @@ module arithmetic_module(
             pending_input <= 0;
             latched_input <= 0;
         end else begin
-            // Latch input when it completes
-            if (input_complete && !waiting_operand && !waiting_trig) begin
+            // Latch input when it completes OR when trig button is pressed
+            if ((input_complete && !waiting_operand && !waiting_trig) || 
+                (keypad_btn_pressed && keypad_selected_value == 4'd13 && !pending_input)) begin
                 pending_input <= 1;
                 latched_input <= fp_value;
             end
