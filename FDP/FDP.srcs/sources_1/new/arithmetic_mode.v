@@ -67,6 +67,12 @@ module arithmetic_module(
     wire trig_btn_pressed;
     wire [1:0] trig_selected_value;
     
+    // -----------------------------
+    // Add sampled (1-cycle delayed) versions of trig signals to avoid same-cycle race
+    reg sampled_trig_btn_pressed = 1'b0;
+    reg [1:0] sampled_trig_selected_value = 2'd0;
+    // -----------------------------
+    
     // Mode control
     reg waiting_trig;
     
@@ -113,6 +119,14 @@ module arithmetic_module(
     // Assign status outputs
     assign overflow_flag = overflow;
     assign div_by_zero_flag = div_by_zero;
+    
+    // -----------------------------
+    // Sample the trig cursor outputs at 1 kHz domain to avoid same-cycle race
+    always @(posedge clk_1kHz) begin
+        sampled_trig_btn_pressed <= trig_btn_pressed;
+        sampled_trig_selected_value <= trig_selected_value;
+    end
+    // -----------------------------
     
     // Mode control logic
     // Track if we should show result (after trig or binary operation)
@@ -167,22 +181,25 @@ module arithmetic_module(
                 pending_input <= 0;
             end
             
-            // When trig function is selected, start computing
-            if (trig_btn_pressed) begin
+            // -----------------------------
+            // When trig function is selected, start computing and set latched_input to placeholder 1/2/3
+            // Use sampled_trig_* to avoid missing the cursor's update due to same-cycle register updates
+            if (sampled_trig_btn_pressed) begin
                 trig_computing <= 1;          // Mark that we're computing
                 waiting_trig <= 0;            // EXIT trig mode immediately to show result screen
                 show_result <= 1;             // Show result (will update when valid)
             
                 // Drive the latched input to 1, 2 or 3 in Q16.16 fixed-point format
-                case (trig_selected_value)
-                    2'd0: latched_input <= 32'sd65536;  // 1.0  -> 1 << 16
-                    2'd1: latched_input <= 32'sd131072; // 2.0  -> 2 << 16
-                    2'd2: latched_input <= 32'sd196608; // 3.0  -> 3 << 16
+                case (sampled_trig_selected_value)
+                    2'd0: latched_input <= 32'sd65536;  // SIN -> 1.0  (1 << 16)
+                    2'd1: latched_input <= 32'sd131072; // COS -> 2.0  (2 << 16)
+                    2'd2: latched_input <= 32'sd196608; // TAN -> 3.0  (3 << 16)
                     default: latched_input <= latched_input;
                 endcase
             
                 pending_input <= 1;           // ensure trig_input uses latched_input
             end
+            // -----------------------------
             
             // When trig result is ready, keep showing result
             if (trig_result_valid && trig_computing) begin
@@ -320,3 +337,4 @@ arithmetic_text_selector text_selector(
     );
 
 endmodule
+
