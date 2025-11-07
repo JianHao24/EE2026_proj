@@ -13,3 +13,6 @@ start_gui
 open_project C:/Users/User/Downloads/EE2026_proj/FDP/FDP.xpr
 update_compile_order -fileset sources_1
 archive_project C:/Users/User/Downloads/EE2026_proj/TestCopy.xpr.zip -temp_dir C:/Users/User/Downloads/EE2026_proj/FDP/.Xil/Vivado-11276-DESKTOP-LT7QO6N -force -include_local_ip_cache
+close [ open C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/trig_calculator.v w ]
+add_files C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/trig_calculator.v
+update_compile_order -fileset sources_1
