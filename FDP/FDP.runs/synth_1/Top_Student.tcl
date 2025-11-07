@@ -41,6 +41,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_operand_display.v
   C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_output_display.v
   C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_text_selector.v
+  C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_trig_display.v
   C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v
   C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v
   C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/circular_digit_manager.v
@@ -49,6 +50,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/horner_fixedpoint_evaluator.v
   C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v
   C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/string_renderer.v
+  C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/trig_calculator.v
   C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/Top_Student.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
