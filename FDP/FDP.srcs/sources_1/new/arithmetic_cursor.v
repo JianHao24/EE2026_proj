@@ -28,50 +28,40 @@ module arithmetic_cursor(
     input btnL,
     input btnR,
     input waiting_operand,
-    output reg [1:0] cursor_row_keypad = 0,
-    output reg [2:0] cursor_col_keypad = 0,
-    output reg [1:0] cursor_row_operand = 0,
-    output reg [1:0] cursor_col_operand = 0,
+    output reg [1:0]cursor_row_keypad = 0,
+    output reg [2:0]cursor_col_keypad = 0,
+    output reg [1:0]cursor_row_operand = 0,
+    output reg [1:0]cursor_col_operand = 0,
     output reg keypad_btn_pressed = 0,
-    output reg [3:0] keypad_selected_value = 0,
+    output reg [3:0]keypad_selected_value = 0,
     output reg operand_btn_pressed = 0,
-    output reg [1:0] operand_selected_value = 0
-);
+    output reg [1:0]operand_selected_value = 0
+    );
 
-    // Button state tracking
-    reg prev_btnC, prev_btnU, prev_btnD, prev_btnL, prev_btnR;
-    
-    // Debounce timers
-    reg [7:0] timer_C, timer_U, timer_D, timer_L, timer_R;
-    
-    // Input cooldown
-    reg [8:0] input_cooldown;
-    
-    // Position checks
-    wire at_checkmark = (cursor_col_keypad == 3'd3) && !waiting_operand;
+    // Previous button states for debouncing
+    reg prev_btnC = 0;
+    reg prev_btnU = 0;
+    reg prev_btnD = 0;
+    reg prev_btnL = 0;
+    reg prev_btnR = 0;
 
-    always @(posedge clk) begin
-        // Store previous button states
-        prev_btnC <= btnC;
-        prev_btnU <= btnU;
-        prev_btnD <= btnD;
-        prev_btnL <= btnL;
-        prev_btnR <= btnR;
-        
-        // Count down debounce timers
-        if (timer_C > 0) timer_C <= timer_C - 1;
-        if (timer_U > 0) timer_U <= timer_U - 1;
-        if (timer_D > 0) timer_D <= timer_D - 1;
-        if (timer_L > 0) timer_L <= timer_L - 1;
-        if (timer_R > 0) timer_R <= timer_R - 1;
-        
-        // Count down input cooldown
-        if (input_cooldown > 0) input_cooldown <= input_cooldown - 1;
-    end
+    // Debouncing counters
+    reg [7:0] debounce_C = 0;
+    reg [7:0] debounce_U = 0;
+    reg [7:0] debounce_D = 0;
+    reg [7:0] debounce_L = 0;
+    reg [7:0] debounce_R = 0;
 
-    // Main control logic
-    always @(posedge clk) begin
+    // Waiting counter
+    reg [8:0] counter = 9'd500;
+
+    // Flag to track if on the checkmark
+    wire on_checkmark = (cursor_col_keypad == 3'd3 && !waiting_operand);
+
+    // Button handling loop
+    always @ (posedge clk) begin
         if (reset) begin
+            // Reset all state variables to initial values
             cursor_row_keypad <= 0;
             cursor_col_keypad <= 0;
             cursor_row_operand <= 0;
@@ -80,135 +70,161 @@ module arithmetic_cursor(
             keypad_selected_value <= 0;
             operand_btn_pressed <= 0;
             operand_selected_value <= 0;
-            timer_C <= 0;
-            timer_U <= 0;
-            timer_D <= 0;
-            timer_L <= 0;
-            timer_R <= 0;
-            input_cooldown <= 9'd500;
-        end else begin
-            // Clear single-cycle signals
+            
+            // Reset debounce counters and button states
+            prev_btnC <= 0;
+            prev_btnU <= 0;
+            prev_btnD <= 0;
+            prev_btnL <= 0;
+            prev_btnR <= 0;
+            debounce_C <= 0;
+            debounce_U <= 0;
+            debounce_D <= 0;
+            debounce_L <= 0;
+            debounce_R <= 0;
+            counter <= 500;
+        end
+        else begin
+            // Reset button pressed signal each cycle
             keypad_btn_pressed <= 0;
             operand_btn_pressed <= 0;
+        
+            // Decrement debounce counters if active
+            if (debounce_U > 0) debounce_U <= debounce_U - 1;
+            if (debounce_D > 0) debounce_D <= debounce_D - 1;
+            if (debounce_L > 0) debounce_L <= debounce_L - 1;
+            if (debounce_R > 0) debounce_R <= debounce_R - 1;
+            if (debounce_C > 0) debounce_C <= debounce_C - 1;
 
             if (!waiting_operand) begin
-                // Keypad mode - respect input cooldown
-                if (input_cooldown == 0) begin
-                    // Up button - move up if not at top and not on checkmark
-                    if (btnU && !prev_btnU && timer_U == 0) begin
-                        if (cursor_row_keypad > 0 && !at_checkmark) begin
+                if (counter == 0) begin
+                    // Up button processing
+                    if (btnU && !prev_btnU && debounce_U == 0) begin
+                        if (cursor_row_keypad > 0 && !on_checkmark) begin
                             cursor_row_keypad <= cursor_row_keypad - 1;
                         end
-                        timer_U <= 8'd200;
+                        debounce_U <= 200;
                     end
 
-                    // Down button - move down if not at bottom and not on checkmark
-                    if (btnD && !prev_btnD && timer_D == 0) begin
-                        if (cursor_row_keypad < 2'd3 && !at_checkmark) begin
+                    // Down
+                    if (btnD && !prev_btnD && debounce_D == 0) begin
+                        if (cursor_row_keypad < 3 && !on_checkmark) begin
                             cursor_row_keypad <= cursor_row_keypad + 1;
                         end
-                        timer_D <= 8'd200;
+                        debounce_D <= 200;
                     end
 
-                    // Left button
-                    if (btnL && !prev_btnL && timer_L == 0) begin
-                        if (at_checkmark) begin
-                            // Move from checkmark to main keypad
+                    // Left
+                    if (btnL && !prev_btnL && debounce_L == 0) begin
+                        if (on_checkmark) begin
+                            // Moving left from checkmark goes to the main keypad
                             cursor_col_keypad <= 3'd2;
                         end else if (cursor_col_keypad > 0) begin
                             cursor_col_keypad <= cursor_col_keypad - 1;
                         end
-                        timer_L <= 8'd200;
+                        debounce_L <= 200;
                     end
 
-                    // Right button
-                    if (btnR && !prev_btnR && timer_R == 0) begin
-                        if (!at_checkmark) begin
-                            if (cursor_col_keypad < 3'd2) begin
-                                cursor_col_keypad <= cursor_col_keypad + 1;
-                            end else if (cursor_col_keypad == 3'd2) begin
-                                // Move to checkmark
-                                cursor_col_keypad <= 3'd3;
-                            end
+                    // Right
+                    if (btnR && !prev_btnR && debounce_R == 0) begin
+                        if (!on_checkmark && cursor_col_keypad < 2) begin
+                            cursor_col_keypad <= cursor_col_keypad + 1;
+                        end else if (!on_checkmark && cursor_col_keypad == 2) begin
+                            cursor_col_keypad <= 3'd3;  // Go to
                         end
-                        timer_R <= 8'd200;
+                        debounce_R <= 200;
                     end
 
-                    // Center button - selection
-                    if (btnC && !prev_btnC && timer_C == 0) begin
+                    // Center (Selection)
+                    if (btnC && !prev_btnC && debounce_C == 0) begin
                         keypad_btn_pressed <= 1;
-                        input_cooldown <= 9'd500;
-                        
-                        if (at_checkmark) begin
-                            keypad_selected_value <= 4'd12; // Checkmark
+                        counter <= 500;
+                        if (on_checkmark) begin
+                            // Checkmark selected
+                            keypad_selected_value <= 4'd12;  // Special value for checkmark
                         end else begin
-                            // Map cursor position to keypad value
+                            // Determining selected value based on cursor position in main keypad
                             case(cursor_row_keypad)
-                                2'd0: keypad_selected_value <= cursor_col_keypad + 4'd7; // 7,8,9
-                                2'd1: keypad_selected_value <= cursor_col_keypad + 4'd4; // 4,5,6
-                                2'd2: keypad_selected_value <= cursor_col_keypad + 4'd1; // 1,2,3
+                                2'd0: keypad_selected_value <= cursor_col_keypad + 4'd7; // 7, 8, 9
+                                2'd1: keypad_selected_value <= cursor_col_keypad + 4'd4; // 4, 5, 6
+                                2'd2: keypad_selected_value <= cursor_col_keypad + 4'd1; // 1, 2, 3
                                 2'd3: begin
                                     case(cursor_col_keypad)
-                                        2'd0: keypad_selected_value <= 4'd0;  // 0
-                                        2'd1: keypad_selected_value <= 4'd10; // .
-                                        2'd2: keypad_selected_value <= 4'd11; // x
-                                        default: keypad_selected_value <= 4'd0;
+                                        2'd0: keypad_selected_value <= 4'd0; // 0
+                                        2'd1: keypad_selected_value <= 4'd10; // . decimal
+                                        2'd2: keypad_selected_value <= 4'd11; // x backspace
                                     endcase
                                 end
                             endcase
                         end
-                        timer_C <= 8'd200;
+
+                        debounce_C <= 200;
                     end
                 end
-            end else begin
-                // Operand mode - no input cooldown
-                // Up button
-                if (btnU && !prev_btnU && timer_U == 0) begin
+                else begin
+                    counter <= counter -1;
+                end
+            end
+            else begin
+                // OPERAND MODE
+                // Up button handling
+                if (btnU && !prev_btnU && debounce_U == 0) begin
                     if (cursor_row_operand > 0) begin
                         cursor_row_operand <= cursor_row_operand - 1;
                     end
-                    timer_U <= 8'd200;
+                    debounce_U <= 200;
                 end
             
-                // Down button
-                if (btnD && !prev_btnD && timer_D == 0) begin
-                    if (cursor_row_operand < 2'd1) begin
+                // Down button handling
+                if (btnD && !prev_btnD && debounce_D == 0) begin
+                    if (cursor_row_operand < 1) begin  
                         cursor_row_operand <= cursor_row_operand + 1;
                     end
-                    timer_D <= 8'd200;
+                    debounce_D <= 200;
                 end
             
-                // Left button
-                if (btnL && !prev_btnL && timer_L == 0) begin
+                // Left button handling
+                if (btnL && !prev_btnL && debounce_L == 0) begin
                     if (cursor_col_operand > 0) begin
                         cursor_col_operand <= cursor_col_operand - 1;
                     end
-                    timer_L <= 8'd200;
+                    debounce_L <= 200;
                 end
             
-                // Right button
-                if (btnR && !prev_btnR && timer_R == 0) begin
-                    if (cursor_col_operand < 2'd1) begin
+                // Right button handling
+                if (btnR && !prev_btnR && debounce_R == 0) begin
+                    if (cursor_col_operand < 1) begin  
                         cursor_col_operand <= cursor_col_operand + 1;
                     end
-                    timer_R <= 8'd200;
+                    debounce_R <= 200;
                 end
             
-                // Center button - operand selection
-                if (btnC && !prev_btnC && timer_C == 0) begin
+                // Center button handling (selection)
+                if (btnC && !prev_btnC && debounce_C == 0) begin
                     operand_btn_pressed <= 1;
-                    // Map operand grid to values
+                
+                    // Determine selected operand based on cursor position
                     case({cursor_row_operand, cursor_col_operand})
                         4'b00_00: operand_selected_value <= 2'd0; // +
                         4'b00_01: operand_selected_value <= 2'd1; // -
-                        4'b01_00: operand_selected_value <= 2'd2; // ื
-                        4'b01_01: operand_selected_value <= 2'd3; // ๗
-                        default: operand_selected_value <= 2'd0;
+                        4'b01_00: operand_selected_value <= 2'd2; // ร-
+                        4'b01_01: operand_selected_value <= 2'd3; // รท
                     endcase
-                    timer_C <= 8'd200;
+                
+                    debounce_C <= 200;
                 end
             end
+
+        
+
+            // Update previous button states
+            prev_btnU <= btnU;
+            prev_btnD <= btnD;
+            prev_btnL <= btnL;
+            prev_btnR <= btnR;
+            prev_btnC <= btnC;
         end
     end
+
 
 endmodule
