@@ -145,7 +145,7 @@ module arithmetic_module(
                 else if (keypad_selected_value == 4'd13) begin
                     // User clicked trig button - go to trig mode
                     waiting_trig <= 1;
-                    show_result <= 0;
+                    show_result <= 1;  // KEEP SHOWING INPUT VALUE as result until trig selected
                     trig_computing <= 0;
                     force_operand_mode <= 0;
                     // DON'T clear pending_input - trig needs the value
@@ -169,13 +169,13 @@ module arithmetic_module(
             // When trig function is selected, start computing
             if (trig_btn_pressed) begin
                 trig_computing <= 1;  // Mark that we're computing
-                waiting_trig <= 1;    // STAY in trig mode until result ready
+                waiting_trig <= 0;    // EXIT trig mode immediately to show result screen
+                show_result <= 1;     // Show result (will update when valid)
             end
             
-            // When trig result is ready, exit trig mode and show result
+            // When trig result is ready, keep showing result
             if (trig_result_valid && trig_computing) begin
-                waiting_trig <= 0;    // Now exit trig mode
-                show_result <= 1;     // Show the result
+                show_result <= 1;     // Keep showing the result
                 trig_computing <= 0;  // Done computing
                 pending_input <= 0;   // Clear pending input after trig operation
             end
