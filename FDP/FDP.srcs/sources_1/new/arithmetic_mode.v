@@ -68,9 +68,11 @@ module arithmetic_module(
     wire [1:0] trig_selected_value;
     
     // -----------------------------
-    // Add sampled (1-cycle delayed) versions of trig signals to avoid same-cycle race
+    // Sampled (1-cycle delayed) versions of trig signals to avoid same-cycle race
     reg sampled_trig_btn_pressed = 1'b0;
     reg [1:0] sampled_trig_selected_value = 2'd0;
+    // One-cycle trigger to fire trig_calc after latched_input is set
+    reg trig_request = 1'b0;
     // -----------------------------
     
     // Mode control
@@ -121,7 +123,9 @@ module arithmetic_module(
     assign div_by_zero_flag = div_by_zero;
     
     // -----------------------------
-    // Sample the trig cursor outputs at 1 kHz domain to avoid same-cycle race
+    // Sample the trig cursor outputs at 1 kHz domain to avoid same-cycle race.
+    // This captures the cursor's press and selected value one cycle after the cursor
+    // asserts them.
     always @(posedge clk_1kHz) begin
         sampled_trig_btn_pressed <= trig_btn_pressed;
         sampled_trig_selected_value <= trig_selected_value;
@@ -130,8 +134,7 @@ module arithmetic_module(
     
     // Mode control logic
     // Track if we should show result (after trig or binary operation)
-    
-       always @(posedge clk_1kHz) begin
+    always @(posedge clk_1kHz) begin
         if (reset || !is_arithmetic_mode) begin
             waiting_trig <= 0;
             show_result <= 0;
@@ -139,8 +142,12 @@ module arithmetic_module(
             force_operand_mode <= 0;
             pending_input <= 0;
             latched_input <= 0;
+            trig_request <= 0;
         end else begin
-            // Latch input when it completes OR when trig button is pressed
+            // Default: clear trig_request (we will re-assert if needed)
+            trig_request <= 1'b0;
+
+            // Latch input when it completes OR when trig button is pressed to open menu
             if ((input_complete && !waiting_operand && !waiting_trig) || 
                 (keypad_btn_pressed && keypad_selected_value == 4'd13 && !pending_input)) begin
                 pending_input <= 1;
@@ -163,7 +170,7 @@ module arithmetic_module(
                     show_result <= 1;  // KEEP SHOWING INPUT VALUE as result until trig selected
                     trig_computing <= 0;
                     force_operand_mode <= 0;
-                    // DON'T clear pending_input - trig needs the value
+                    // DON'T clear pending_input - trig needs the value (will latch when selection occurs)
                 end
                 else if (keypad_selected_value <= 4'd11) begin
                     // User started typing a digit, decimal, or backspace
@@ -182,32 +189,42 @@ module arithmetic_module(
             end
             
             // -----------------------------
-            // When trig function is selected, start computing and set latched_input to placeholder 1/2/3
-            // Use sampled_trig_* to avoid missing the cursor's update due to same-cycle register updates
+            // Handle a sampled trig selection (cursor press that we sampled earlier)
+            // We do this in two steps to ensure ordering:
+            // 1) On sampled_trig_btn_pressed (one cycle after user pressed): latch the placeholder input
+            //    and assert trig_request (which will actually trigger trig_calc on the next cycle).
+            // 2) trig_request is used as the .trig_valid input to trig_calc so trig_calc sees the
+            //    stable latched_input.
             if (sampled_trig_btn_pressed) begin
-                trig_computing <= 1;          // Mark that we're computing
-                waiting_trig <= 0;            // EXIT trig mode immediately to show result screen
-                show_result <= 1;             // Show result (will update when valid)
-            
-                // Drive the latched input to 1, 2 or 3 in Q16.16 fixed-point format
+                // latch placeholder value according to selection (Q16.16)
                 case (sampled_trig_selected_value)
-                    2'd0: latched_input <= 32'sd65536;  // SIN -> 1.0  (1 << 16)
-                    2'd1: latched_input <= 32'sd131072; // COS -> 2.0  (2 << 16)
-                    2'd2: latched_input <= 32'sd196608; // TAN -> 3.0  (3 << 16)
+                    2'd0: latched_input <= 32'sd65536;   // SIN -> 1.0
+                    2'd1: latched_input <= 32'sd131072;  // COS -> 2.0
+                    2'd2: latched_input <= 32'sd196608;  // TAN -> 3.0
                     default: latched_input <= latched_input;
                 endcase
-            
-                pending_input <= 1;           // ensure trig_input uses latched_input
+
+                pending_input <= 1;      // ensure trig_input will use latched_input
+                trig_request <= 1'b1;    // pulse to trigger trig_calc next cycle
+                // leave waiting_trig cleared so UI will switch to result view
+                waiting_trig <= 0;
+                show_result <= 1;
             end
             // -----------------------------
             
-            // When trig result is ready, keep showing result
+            // When trig result is ready, keep showing result and clear pending
             if (trig_result_valid && trig_computing) begin
                 show_result <= 1;     // Keep showing the result
                 trig_computing <= 0;  // Done computing
                 pending_input <= 0;   // Clear pending input after trig operation
             end
             
+            // When trig_calc begins (we detect trig_request was used), mark trig_computing
+            // Note: trig_computing is set when trig_result_valid returns or here - set here on request.
+            if (trig_request) begin
+                trig_computing <= 1;
+            end
+
             // Exit operand mode when operation is selected
             if (operand_btn_pressed) begin
                 show_result <= 0;  // Will show result after next number + operation
@@ -296,8 +313,8 @@ module arithmetic_module(
     ) trig_calc(
         .clk(clk_1kHz),
         .rst(reset || !is_arithmetic_mode),
-        .trig_valid(trig_btn_pressed),
-        .trig_sel(trig_selected_value),
+        .trig_valid(trig_request),                       // trigger on trig_request (one cycle after latch)
+        .trig_sel(sampled_trig_selected_value),          // sampled selection for stability
         .input_val(trig_input),
         .result(trig_result),
         .result_valid(trig_result_valid),
@@ -323,12 +340,12 @@ module arithmetic_module(
     // ===== TEXT DISPLAY (Second OLED) =====
     // Show result when: show_result is high, waiting for operand, or in trig mode
     // This ensures we don't try to show input when bcd_value is cleared during trig selection
-arithmetic_text_selector text_selector(
+    arithmetic_text_selector text_selector(
         .clk(clk_6p25MHz),
         .pixel_index(two_pixel_index),
         .computed_result(result),
         .waiting_operand(show_result || waiting_operand),
-        .waiting_trig(waiting_trig), 
+        .waiting_trig(waiting_trig),
         .bcd_value(bcd_value),
         .decimal_pos(decimal_pos),
         .input_index(input_index),
@@ -337,4 +354,5 @@ arithmetic_text_selector text_selector(
     );
 
 endmodule
+
 
