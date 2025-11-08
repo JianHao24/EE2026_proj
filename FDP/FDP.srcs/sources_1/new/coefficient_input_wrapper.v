@@ -26,6 +26,7 @@ module coefficient_input_wrapper(
     input btnC, btnU, btnD, btnL, btnR,
     input [12:0] one_pixel_index,
     input [12:0] two_pixel_index,
+    input reset,
     output [15:0] one_oled_data,
     output [15:0] two_oled_data,
     output signed [31:0] coeff_a,
