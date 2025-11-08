@@ -24,7 +24,7 @@ module polytable_display(
     input clk,
     input [12:0] pixel_index,
     input is_table_mode,
-    input is_dfx_mode,        // New: indicates if we're showing derivative
+    input is_dfx_mode,        // indicates if we're showing derivative
     
     // From polynomial_table_cursor_controller
     input signed [31:0] starting_x,
@@ -36,17 +36,18 @@ module polytable_display(
     input signed [31:0] coeff_d,
 
     output reg [15:0] oled_data
-    );
+);
 
     // OLED dimensions
     parameter WIDTH = 96;
     parameter HEIGHT = 64;
-    parameter ROW_HEIGHT = 12;
+    parameter ROW_HEIGHT = 16;      // Increased from 12 to 16
     parameter COL_WIDTH = 48;
-    parameter HEADER_HEIGHT = 12;
-    parameter TABLE_ROWS = 5;
+    parameter HEADER_HEIGHT = 16;   // Increased from 12 to 16 for larger headers
+    parameter TABLE_ROWS = 3;       // Reduced from 5 to 3
     parameter WHITE = 16'hFFFF;
     parameter BLACK = 16'h0000;
+    parameter BLUE = 16'h001F;      // Pure blue color for header background
 
     // Extract pixel coordinates
     wire [6:0] x = pixel_index % WIDTH;
@@ -68,14 +69,14 @@ module polytable_display(
     // Control signals
     reg is_full_computation = 0;
     reg is_full_conversion = 0;
-    reg is_deriv_computation = 0;    // Track derivative computation
-    reg is_deriv_conversion = 0;     // Track derivative string conversion
+    reg is_deriv_computation = 0;
+    reg is_deriv_conversion = 0;
     reg [31:0] prev_starting_x = 1;
     
     // Derivative coefficients
-    wire signed [31:0] deriv_a = {coeff_a[30:0], 1'b0} + coeff_a;  // 3a (for ax³)
-    wire signed [31:0] deriv_b = {coeff_b[30:0], 1'b0};            // 2b (for bx²)
-    wire signed [31:0] deriv_c = coeff_c;                          // c  (for cx)
+    wire signed [31:0] deriv_a = {coeff_a[30:0], 1'b0} + coeff_a;  // 3a
+    wire signed [31:0] deriv_b = {coeff_b[30:0], 1'b0};            // 2b
+    wire signed [31:0] deriv_c = coeff_c;                          // c
     
     // Computation controller
     reg requires_computation = 0;
@@ -91,7 +92,7 @@ module polytable_display(
     wire [47:0] converted_string;
     reg [31:0] value_to_convert;
     
-    // Computation modules for f(x) and df(x)
+    // Computation module
     poly_calc_engine compute_fx(
         .clk(clk),
         .requires_computation(requires_computation),
@@ -104,20 +105,6 @@ module polytable_display(
         .computation_complete(computation_complete),
         .is_graph(0)
     );
-
-    // Derivative computation engine (uses derivative coefficients)
-    poly_calc_engine compute_dfx(
-        .clk(clk),
-        .requires_computation(requires_computation && !is_full_computation),
-        .x_value(x_values[comp_row]),
-        .coeff_a(deriv_a),    // 3a for derivative of ax³
-        .coeff_b(deriv_b),    // 2b for derivative of bx²
-        .coeff_c(deriv_c),    // c for derivative of cx
-        .coeff_d(32'h0),      // Derivative of d is 0
-        .y_value(computed_dy),
-        .computation_complete(deriv_computation_complete),
-        .is_graph(0)
-    );
     
     fp_to_string converter_inst(
         .clk(clk),
@@ -128,19 +115,49 @@ module polytable_display(
     );
     
     // For display rendering
+    reg [47:0] x_header_text;
+    reg [47:0] y_header_text;
     reg [47:0] x_text;
     reg [47:0] y_text;
+    
+    wire [15:0] x_header_data;
+    wire x_header_active;
+    wire [15:0] y_header_data;
+    wire y_header_active;
     wire [15:0] x_string_data;
     wire x_active;
     wire [15:0] y_string_data;
     wire y_active;
     
-    // String renderers
+    // String renderers for larger headers - WHITE text on BLUE background
+    string_renderer render_x_header(
+        .clk(clk),
+        .word(x_header_text),
+        .start_x(20),  // Centered in left column
+        .start_y(4),   // Vertically centered in header
+        .pixel_index(pixel_index),
+        .colour(WHITE),  // Changed from BLACK to WHITE
+        .oled_data(x_header_data),
+        .active_pixel(x_header_active)
+    );
+
+    string_renderer render_y_header(
+        .clk(clk),
+        .word(y_header_text),
+        .start_x(COL_WIDTH + 20),  // Centered in right column
+        .start_y(4),               // Vertically centered in header
+        .pixel_index(pixel_index),
+        .colour(WHITE),  // Changed from BLACK to WHITE
+        .oled_data(y_header_data),
+        .active_pixel(y_header_active)
+    );
+    
+    // String renderers for data rows
     string_renderer render_x(
         .clk(clk),
         .word(x_text),
         .start_x(4),
-        .start_y(in_header ? 1 : HEADER_HEIGHT + current_row * ROW_HEIGHT + 1),
+        .start_y(HEADER_HEIGHT + current_row * ROW_HEIGHT + 4),  // Vertically centered in row
         .pixel_index(pixel_index),
         .colour(BLACK),
         .oled_data(x_string_data),
@@ -151,7 +168,7 @@ module polytable_display(
         .clk(clk),
         .word(y_text),
         .start_x(COL_WIDTH + 4),
-        .start_y(in_header ? 1 : HEADER_HEIGHT + current_row * ROW_HEIGHT + 1),
+        .start_y(HEADER_HEIGHT + current_row * ROW_HEIGHT + 4),  // Vertically centered in row
         .pixel_index(pixel_index),
         .colour(BLACK),
         .oled_data(y_string_data),
@@ -172,7 +189,7 @@ module polytable_display(
             prev_starting_x <= starting_x;
             is_full_computation <= 0;
             is_full_conversion <= 0;
-            master_state <= 1; // Start computation phase
+            master_state <= 1;
             comp_row <= 0;
         end
         else if (!is_table_mode) begin
@@ -181,8 +198,8 @@ module polytable_display(
         
         // Main state machine
         case (master_state)
-            0: begin // Idle state - everything computed and converted
-                // Do nothing, wait for starting_x change
+            0: begin // Idle state
+                // Wait for starting_x change
             end
             
             1: begin // Computation Phase - Initialize x values
@@ -204,8 +221,8 @@ module polytable_display(
             
             2: begin // Wait for computation to complete
                 if (computation_complete) begin
-                    // Store computed y value
-                    if (computed_y > 48'sh00007FFF0000|| computed_y < -48'sh000080000000) begin
+                    // Store computed y value with overflow protection
+                    if (computed_y > 48'sh00007FFF0000 || computed_y < -48'sh000080000000) begin
                         y_values[comp_row] <= (computed_y < 0) ? 32'h80000000 : 32'h7FFF0000;
                     end
                     else begin
@@ -215,32 +232,27 @@ module polytable_display(
                     // Move to next row or finish computation
                     if (comp_row < TABLE_ROWS-1) begin
                         comp_row <= comp_row + 1;
-                        master_state <= 1; // Next row
+                        master_state <= 1;
                     end
                     else begin
                         is_full_computation <= 1;
-                        master_state <= 3; // Move to conversion phase
+                        master_state <= 3;
                         conv_row <= 0;
                         is_y_conversion <= 0;
                     end
                 end
                 else begin
-                    // Keep computation signal high while waiting
                     requires_computation <= 1;
                 end
             end
             
             3: begin // Conversion Phase - setup
                 if (!is_full_conversion) begin
-                    // Determine what to convert (x or y value)
                     value_to_convert <= is_y_conversion ? y_values[conv_row] : x_values[conv_row];
-                    
-                    // Start conversion
                     require_conversion <= 1;
                     master_state <= 4;
                 end
                 else begin
-                    // All converted, go to idle
                     master_state <= 0;
                 end
             end
@@ -251,23 +263,20 @@ module polytable_display(
                     if (is_y_conversion) begin
                         y_string_cache[conv_row] <= converted_string;
                         
-                        // Move to next row or finish if all Y values are done
                         if (conv_row < TABLE_ROWS-1) begin
                             conv_row <= conv_row + 1;
                             is_y_conversion <= 0;
-                            master_state <= 3; // Next row, still converting Y values
+                            master_state <= 3;
                         end
                         else begin
-                            // All values converted
                             is_full_conversion <= 1;
-                            master_state <= 0; // Go to idle
+                            master_state <= 0;
                         end
                     end
                     else begin
-                        // Store X string and switch to Y conversion
                         x_string_cache[conv_row] <= converted_string;
                         is_y_conversion <= 1;
-                        master_state <= 3; // Convert Y value for same row
+                        master_state <= 3;
                     end
                 end
             end
@@ -290,24 +299,28 @@ module polytable_display(
             else begin
                 // Table content
                 if (in_header) begin
-                    // Set Header text
+                    // Blue background for header row
+                    oled_data = BLUE;
+                    
+                    // Set Header text - larger "X" and "Y"
+                    x_header_text = {6'b100110, 6'b111111, 6'b111111, 6'b111111, 6'b111111, 6'b111111, 6'b111111, 6'b111111};
+                    y_header_text = {6'b100111, 6'b111111, 6'b111111, 6'b111111, 6'b111111, 6'b111111, 6'b111111, 6'b111111};
+                    
                     if (x < COL_WIDTH) begin
-                        // X header
-                        x_text = {6'b100110, 6'b111111, 6'b111111, 6'b111111, 6'b111111, 6'b111111, 6'b111111, 6'b111111};
-                        if (x_active) begin
-                            oled_data = x_string_data;
+                        // X header with white text
+                        if (x_header_active) begin
+                            oled_data = x_header_data;
                         end
                     end
                     else begin
-                        // Y Header
-                        y_text = {6'b100111, 6'b111111, 6'b111111, 6'b111111, 6'b111111, 6'b111111, 6'b111111, 6'b111111};
-                        if (y_active) begin
-                            oled_data = y_string_data;
+                        // Y Header with white text
+                        if (y_header_active) begin
+                            oled_data = y_header_data;
                         end
                     end
                 end
                 else if (in_table_body && is_full_computation && is_full_conversion) begin
-                    // Data rows - only display when computation and conversion are complete
+                    // Data rows
                     if (x < COL_WIDTH) begin
                         // X value column
                         x_text = x_string_cache[current_row];
@@ -336,7 +349,7 @@ module polytable_display(
         for (i = 0; i < TABLE_ROWS; i = i + 1) begin
             x_values[i] = 0;
             y_values[i] = 0;
-            x_string_cache[i] = 48'h303030303030; // Default to "000000"
+            x_string_cache[i] = 48'h303030303030;
             y_string_cache[i] = 48'h303030303030;
         end
         is_full_computation = 0;

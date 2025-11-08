@@ -45,12 +45,12 @@ module coefficient_input_display(
     // === Colors ===
     parameter WHITE = 16'hFFFF;
     parameter BLACK = 16'h0000;
-    parameter GREEN = 16'h07E0;
+    parameter BLUE = 16'h001F;  // Changed from GREEN to BLUE
 
     // === Display positions ===
     parameter TEXT_START_X = 8;
-    parameter TEXT_START_Y = 24;
-    parameter LABEL_Y      = 8;
+    parameter TEXT_START_Y = 48;  // Moved to bottom (was 24)
+    parameter LABEL_Y      = 8;   // Keep label at top
 
     // === Split BCD digits ===
     wire [3:0] digits[0:7];
@@ -67,12 +67,13 @@ module coefficient_input_display(
     reg [47:0] display_string;
     reg [47:0] current_label;
 
-    // Labels: "INPUT A", "INPUT B", etc.
-    parameter [47:0] LABEL_A = {6'd23,6'd28,6'd30,6'd36,6'd35,6'd32,6'd15,6'd32};
-    parameter [47:0] LABEL_B = {6'd23,6'd28,6'd30,6'd36,6'd35,6'd32,6'd16,6'd32};
-    parameter [47:0] LABEL_C = {6'd23,6'd28,6'd30,6'd36,6'd35,6'd32,6'd17,6'd32};
-    parameter [47:0] LABEL_D = {6'd23,6'd28,6'd30,6'd36,6'd35,6'd32,6'd18,6'd32};
-    parameter [47:0] LABEL_X = {6'd23,6'd28,6'd30,6'd36,6'd35,6'd32,6'd38,6'd32};
+    // Labels: Changed from "INPUT A/B/C/D" to "COEFF A/B/C/D"
+    // Character codes: C=17, O=29, E=19, F=20, A=15, B=16, C=17, D=18
+    parameter [47:0] LABEL_A = {6'd17,6'd29,6'd19,6'd20,6'd20,6'd32,6'd15,6'd32}; // "COEFF A"
+    parameter [47:0] LABEL_B = {6'd17,6'd29,6'd19,6'd20,6'd20,6'd32,6'd16,6'd32}; // "COEFF B"
+    parameter [47:0] LABEL_C = {6'd17,6'd29,6'd19,6'd20,6'd20,6'd32,6'd17,6'd32}; // "COEFF C"
+    parameter [47:0] LABEL_D = {6'd17,6'd29,6'd19,6'd20,6'd20,6'd32,6'd18,6'd32}; // "COEFF D"
+    parameter [47:0] LABEL_X = {6'd17,6'd29,6'd19,6'd20,6'd20,6'd32,6'd38,6'd32}; // "COEFF X"
 
     // === FSM state parameters ===
     parameter IDLE = 2'd0;
@@ -122,7 +123,7 @@ module coefficient_input_display(
         .start_x(TEXT_START_X),
         .start_y(LABEL_Y),
         .pixel_index(pixel_index),
-        .colour(GREEN),
+        .colour(BLUE),  // Changed from GREEN to BLUE
         .oled_data(label_data),
         .active_pixel(label_active)
     );
@@ -211,6 +212,4 @@ module coefficient_input_display(
             oled_data = BLACK;
     end
 endmodule
-
-
 

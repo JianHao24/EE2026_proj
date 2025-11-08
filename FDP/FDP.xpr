@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="38" Path="C:/Users/jaina/Downloads/EEProj/EE2026_proj/FDP/FDP.xpr">
+<Project Version="7" Minor="38" Path="C:/GitHub/EE2026_proj/FDP/FDP.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="bfbba13f8993484091dc7de8f2730e7a"/>
