@@ -14,6 +14,7 @@ open_project C:/GitHub/EE2026_proj/FDP/FDP.xpr
 INFO: [Project 1-313] Project file moved from 'C:/Users/User/Downloads/EE2026_proj/FDP' since last save.
 Scanning sources...
 Finished scanning sources
+WARNING: [Project 1-509] GeneratedRun file for 'impl_1' not found
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.

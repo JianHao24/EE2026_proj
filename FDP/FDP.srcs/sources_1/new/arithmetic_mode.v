@@ -169,7 +169,7 @@ module arithmetic_mode(
 
             // Latch input when completed or when opening trig menu
             if ((input_complete && !waiting_operand && !waiting_trig) || 
-                (keypad_btn_pressed && keypad_selected_value == 4'd13 && !pending_input)) begin
+                (keypad_btn_pressed && keypad_selected_value == 4'd13)) begin //changed this line
                 pending_input <= 1;
                 latched_input <= fp_value;
             end
@@ -207,14 +207,6 @@ module arithmetic_mode(
             
             // Handle trig selection
             if (sampled_trig_btn_pressed) begin
-                // Latch placeholder according to selection
-                case (sampled_trig_selected_value)
-                    2'd0: latched_input <= 32'sd65536;   // SIN -> 1.0
-                    2'd1: latched_input <= 32'sd131072;  // COS -> 2.0
-                    2'd2: latched_input <= 32'sd196608;  // TAN -> 3.0
-                    default: latched_input <= latched_input;
-                endcase
-
                 pending_input <= 1;
                 trig_request <= 1'b1;
                 waiting_trig <= 0;
@@ -227,7 +219,7 @@ module arithmetic_mode(
                 show_result <= 1;
                 trig_computing <= 0;
                 pending_input <= 0;
-            end
+            end 
 
             // Exit operand mode when operation selected
             if (operand_btn_pressed) begin
