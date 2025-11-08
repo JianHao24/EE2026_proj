@@ -61,9 +61,6 @@ module calculator_keypad(
     parameter red_bg = 16'hF800;      // Red background for right buttons
     parameter spacing_color = 16'hFFFF; // White color for spacing between buttons
     parameter red = 16'hF800;
-    parameter blue_selected = 16'h05BF;  // Lighter blue for selection
-    parameter green_selected = 16'h07E0;
-    parameter yellow = 16'hFFE0;      // Yellow for highlighted selection
 
     // Determine current area
     wire in_keypad = (x >= keypad_start_x && x < keypad_end_x && y >= keypad_start_y);
@@ -119,16 +116,17 @@ module calculator_keypad(
         
         if (in_keypad) begin
             // ===== KEYPAD AREA (LEFT 3 COLUMNS) =====
+            // REORDERED: Now shows 1-2-3 / 4-5-6 / 7-8-9 (top to bottom)
             case({btn_row, btn_col})
-                {2'd0, 2'd0}: display_char = 6'd7;  // 7
-                {2'd0, 2'd1}: display_char = 6'd8;  // 8
-                {2'd0, 2'd2}: display_char = 6'd9;  // 9
+                {2'd0, 2'd0}: display_char = 6'd1;  // 1
+                {2'd0, 2'd1}: display_char = 6'd2;  // 2
+                {2'd0, 2'd2}: display_char = 6'd3;  // 3
                 {2'd1, 2'd0}: display_char = 6'd4;  // 4
                 {2'd1, 2'd1}: display_char = 6'd5;  // 5
                 {2'd1, 2'd2}: display_char = 6'd6;  // 6
-                {2'd2, 2'd0}: display_char = 6'd1;  // 1
-                {2'd2, 2'd1}: display_char = 6'd2;  // 2
-                {2'd2, 2'd2}: display_char = 6'd3;  // 3
+                {2'd2, 2'd0}: display_char = 6'd7;  // 7
+                {2'd2, 2'd1}: display_char = 6'd8;  // 8
+                {2'd2, 2'd2}: display_char = 6'd9;  // 9
                 {2'd3, 2'd0}: display_char = 6'd0;  // 0
                 {2'd3, 2'd1}: display_char = 6'd14; // .
                 {2'd3, 2'd2}: display_char = 6'd38; // X (backspace)

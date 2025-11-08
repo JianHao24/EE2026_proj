@@ -14,14 +14,14 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 31488 
+INFO: Helper process launched with PID 46668 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 358.059 ; gain = 101.523
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 357.438 ; gain = 100.488
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'Top_Student' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/Top_Student.v:1]
-INFO: [Synth 8-6157] synthesizing module 'clock_divider' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/flexible_clock_divider.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'clock_divider' (1#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/flexible_clock_divider.v:23]
-INFO: [Synth 8-6157] synthesizing module 'Oled_Display' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:36]
+INFO: [Synth 8-6157] synthesizing module 'Top_Student' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/Top_Student.v:1]
+INFO: [Synth 8-6157] synthesizing module 'clock_divider' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/flexible_clock_divider.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'clock_divider' (1#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/flexible_clock_divider.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Oled_Display' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:36]
 	Parameter Width bound to: 96 - type: integer 
 	Parameter Height bound to: 64 - type: integer 
 	Parameter PixelCount bound to: 6144 - type: integer 
@@ -72,16 +72,16 @@ INFO: [Synth 8-6157] synthesizing module 'Oled_Display' [C:/Users/User/Downloads
 	Parameter SendPixel bound to: 5'b10000 
 	Parameter SpiCommandMaxWidth bound to: 40 - type: integer 
 	Parameter SpiCommandBitCountWidth bound to: 6 - type: integer 
-INFO: [Synth 8-226] default block is never used [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:123]
-INFO: [Synth 8-226] default block is never used [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:198]
-WARNING: [Synth 8-693] zero replication count - replication ignored [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:346]
-INFO: [Synth 8-6155] done synthesizing module 'Oled_Display' (2#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:36]
-INFO: [Synth 8-6157] synthesizing module 'arithmetic_mode' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_mode.v:26]
-INFO: [Synth 8-6157] synthesizing module 'calculator_select' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:22]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:208]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:286]
-INFO: [Synth 8-6155] done synthesizing module 'calculator_select' (3#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:22]
-INFO: [Synth 8-6157] synthesizing module 'bcd_to_fp_input_system' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_bcd_to_fp_input_system.v:24]
+INFO: [Synth 8-226] default block is never used [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:123]
+INFO: [Synth 8-226] default block is never used [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:198]
+WARNING: [Synth 8-693] zero replication count - replication ignored [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:346]
+INFO: [Synth 8-6155] done synthesizing module 'Oled_Display' (2#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/imports/Desktop/Oled_Display.v:36]
+INFO: [Synth 8-6157] synthesizing module 'arithmetic_mode' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_mode.v:26]
+INFO: [Synth 8-6157] synthesizing module 'calculator_select' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:24]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:210]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:289]
+INFO: [Synth 8-6155] done synthesizing module 'calculator_select' (3#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_cursor.v:24]
+INFO: [Synth 8-6157] synthesizing module 'bcd_to_fp_input_system' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_bcd_to_fp_input_system.v:24]
 	Parameter DIGIT_CAPACITY bound to: 8 - type: integer 
 	Parameter FIXED_FRAC_BITS bound to: 16 - type: integer 
 	Parameter EXT_DECIMAL bound to: 4'b1010 
@@ -91,7 +91,7 @@ INFO: [Synth 8-6157] synthesizing module 'bcd_to_fp_input_system' [C:/Users/User
 	Parameter INT_BACKSPACE bound to: 4'b1011 
 	Parameter INT_ENTER bound to: 4'b1100 
 	Parameter INT_NEGATIVE bound to: 4'b1101 
-INFO: [Synth 8-6157] synthesizing module 'digit_manager' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/circular_digit_manager.v:27]
+INFO: [Synth 8-6157] synthesizing module 'digit_manager' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/circular_digit_manager.v:27]
 	Parameter BUFFER_SIZE bound to: 8 - type: integer 
 	Parameter TYPE_DIGIT bound to: 3'b000 
 	Parameter TYPE_DOT bound to: 3'b001 
@@ -100,43 +100,43 @@ INFO: [Synth 8-6157] synthesizing module 'digit_manager' [C:/Users/User/Download
 	Parameter KEY_BACKSPACE bound to: 4'b1011 
 	Parameter KEY_ENTER bound to: 4'b1100 
 	Parameter KEY_NEGATIVE bound to: 4'b1101 
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/circular_digit_manager.v:112]
-INFO: [Synth 8-6155] done synthesizing module 'digit_manager' (4#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/circular_digit_manager.v:27]
-INFO: [Synth 8-6157] synthesizing module 'horner_fixedpoint_evaluator' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/horner_fixedpoint_evaluator.v:25]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/circular_digit_manager.v:112]
+INFO: [Synth 8-6155] done synthesizing module 'digit_manager' (4#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/circular_digit_manager.v:27]
+INFO: [Synth 8-6157] synthesizing module 'horner_fixedpoint_evaluator' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/horner_fixedpoint_evaluator.v:25]
 	Parameter FRAC_WIDTH bound to: 16 - type: integer 
 	Parameter MAX_VALUE bound to: 32767 - type: integer 
 	Parameter WAIT bound to: 2'b00 
 	Parameter EVALUATE bound to: 2'b01 
 	Parameter FINALIZE bound to: 2'b10 
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/horner_fixedpoint_evaluator.v:67]
-WARNING: [Synth 8-6014] Unused sequential element scale_factor_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/horner_fixedpoint_evaluator.v:61]
-WARNING: [Synth 8-6014] Unused sequential element temp_result_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/horner_fixedpoint_evaluator.v:65]
-INFO: [Synth 8-6155] done synthesizing module 'horner_fixedpoint_evaluator' (5#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/horner_fixedpoint_evaluator.v:25]
-INFO: [Synth 8-6155] done synthesizing module 'bcd_to_fp_input_system' (6#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_bcd_to_fp_input_system.v:24]
-INFO: [Synth 8-6157] synthesizing module 'basic_calculator_engine' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:22]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/horner_fixedpoint_evaluator.v:67]
+WARNING: [Synth 8-6014] Unused sequential element scale_factor_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/horner_fixedpoint_evaluator.v:61]
+WARNING: [Synth 8-6014] Unused sequential element temp_result_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/horner_fixedpoint_evaluator.v:65]
+INFO: [Synth 8-6155] done synthesizing module 'horner_fixedpoint_evaluator' (5#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/horner_fixedpoint_evaluator.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'bcd_to_fp_input_system' (6#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_bcd_to_fp_input_system.v:24]
+INFO: [Synth 8-6157] synthesizing module 'basic_calculator_engine' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:22]
 	Parameter OP_ADD bound to: 2'b00 
 	Parameter OP_SUB bound to: 2'b01 
 	Parameter OP_MUL bound to: 2'b10 
 	Parameter OP_DIV bound to: 2'b11 
-WARNING: [Synth 8-6090] variable 'overflow_detected' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:91]
-WARNING: [Synth 8-6090] variable 'overflow_detected' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:101]
-WARNING: [Synth 8-6090] variable 'overflow_detected' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:113]
-WARNING: [Synth 8-6090] variable 'overflow_detected' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:132]
-WARNING: [Synth 8-6014] Unused sequential element overflow_detected_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:62]
-WARNING: [Synth 8-6014] Unused sequential element calc_result_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:89]
-WARNING: [Synth 8-6014] Unused sequential element wide_temp_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
-WARNING: [Synth 8-6014] Unused sequential element scaled_dividend_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:128]
-INFO: [Synth 8-6155] done synthesizing module 'basic_calculator_engine' (7#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:22]
-INFO: [Synth 8-6157] synthesizing module 'trig_calculator' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/trig_calculator.v:24]
+WARNING: [Synth 8-6090] variable 'overflow_detected' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:91]
+WARNING: [Synth 8-6090] variable 'overflow_detected' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:101]
+WARNING: [Synth 8-6090] variable 'overflow_detected' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:113]
+WARNING: [Synth 8-6090] variable 'overflow_detected' is written by both blocking and non-blocking assignments, entire logic could be removed [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:132]
+WARNING: [Synth 8-6014] Unused sequential element overflow_detected_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:62]
+WARNING: [Synth 8-6014] Unused sequential element calc_result_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:89]
+WARNING: [Synth 8-6014] Unused sequential element wide_temp_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
+WARNING: [Synth 8-6014] Unused sequential element scaled_dividend_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:128]
+INFO: [Synth 8-6155] done synthesizing module 'basic_calculator_engine' (7#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:22]
+INFO: [Synth 8-6157] synthesizing module 'trig_calculator' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/trig_calculator.v:24]
 	Parameter FIXED_FRAC_BITS bound to: 16 - type: integer 
 	Parameter FP_ONE bound to: 65536 - type: integer 
 	Parameter FP_TWO bound to: 131072 - type: integer 
 	Parameter FP_THREE bound to: 196608 - type: integer 
 	Parameter IDLE bound to: 1'b0 
 	Parameter COMPUTE bound to: 1'b1 
-INFO: [Synth 8-6155] done synthesizing module 'trig_calculator' (8#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/trig_calculator.v:24]
-INFO: [Synth 8-6157] synthesizing module 'calc_display_selector' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_display_selector.v:24]
-INFO: [Synth 8-6157] synthesizing module 'calculator_keypad' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_keypad_display.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'trig_calculator' (8#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/trig_calculator.v:24]
+INFO: [Synth 8-6157] synthesizing module 'calc_display_selector' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_display_selector.v:24]
+INFO: [Synth 8-6157] synthesizing module 'calculator_keypad' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_keypad_display.v:25]
 	Parameter width bound to: 96 - type: integer 
 	Parameter height bound to: 64 - type: integer 
 	Parameter button_width bound to: 22 - type: integer 
@@ -156,121 +156,118 @@ INFO: [Synth 8-6157] synthesizing module 'calculator_keypad' [C:/Users/User/Down
 	Parameter red_bg bound to: 16'b1111100000000000 
 	Parameter spacing_color bound to: 16'b1111111111111111 
 	Parameter red bound to: 16'b1111100000000000 
-	Parameter blue_selected bound to: 16'b0000010110111111 
-	Parameter green_selected bound to: 16'b0000011111100000 
-	Parameter yellow bound to: 16'b1111111111100000 
-INFO: [Synth 8-6157] synthesizing module 'char_renderer' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:23]
+INFO: [Synth 8-6157] synthesizing module 'char_renderer' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:23]
 	Parameter width bound to: 96 - type: integer 
 	Parameter height bound to: 64 - type: integer 
 	Parameter char_width bound to: 8 - type: integer 
 	Parameter char_height bound to: 12 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'sprite_library_optimized' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:23]
-INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[43][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[44][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[45][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[46][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[47][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[48][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[49][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[50][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[51][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[52][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[53][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[54][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[55][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[56][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[57][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[58][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[59][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[60][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[61][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[62][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[63][0] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[43][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[44][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[45][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[46][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[47][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[48][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[49][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[50][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[51][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[52][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[53][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[54][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[55][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[56][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[57][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[58][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[59][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[60][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[61][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[62][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[63][1] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[43][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[44][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[45][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[46][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[47][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[48][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[49][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[50][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[51][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[52][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[53][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[54][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[55][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[56][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[57][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[58][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[59][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[60][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[61][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[62][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[63][2] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[43][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[44][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[45][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[46][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[47][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[48][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[49][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[50][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[51][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[52][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[53][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[54][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[55][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[56][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[57][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[58][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[59][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[60][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[61][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[62][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[63][3] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[43][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[44][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[45][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[46][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[47][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[48][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[49][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[50][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[51][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[52][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[53][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[54][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[55][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[56][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[57][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
-WARNING: [Synth 8-3848] Net char[58][4] in module/entity sprite_library_optimized does not have driver. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+INFO: [Synth 8-6157] synthesizing module 'sprite_library_optimized' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:23]
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[43][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[44][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[45][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[46][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[47][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[48][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[49][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[50][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[51][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[52][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[53][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[54][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[55][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[56][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[57][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[58][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[59][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[60][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[61][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[62][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[63][0] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[43][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[44][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[45][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[46][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[47][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[48][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[49][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[50][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[51][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[52][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[53][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[54][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[55][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[56][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[57][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[58][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[59][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[60][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[61][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[62][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[63][1] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[43][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[44][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[45][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[46][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[47][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[48][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[49][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[50][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[51][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[52][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[53][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[54][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[55][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[56][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[57][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[58][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[59][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[60][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[61][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[62][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[63][2] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[43][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[44][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[45][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[46][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[47][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[48][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[49][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[50][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[51][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[52][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[53][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[54][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[55][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[56][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[57][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[58][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[59][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[60][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[61][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[62][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[63][3] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[43][4] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[44][4] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[45][4] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[46][4] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[47][4] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[48][4] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[49][4] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[50][4] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[51][4] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[52][4] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[53][4] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[54][4] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[55][4] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[56][4] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[57][4] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
+WARNING: [Synth 8-3848] Net char[58][4] in module/entity sprite_library_optimized does not have driver. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:28]
 INFO: [Common 17-14] Message 'Synth 8-3848' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-6155] done synthesizing module 'sprite_library_optimized' (9#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'char_renderer' (10#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'calculator_keypad' (11#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_keypad_display.v:25]
-INFO: [Synth 8-6157] synthesizing module 'operator_keypad' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_operand_display.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'sprite_library_optimized' (9#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/sprite_library.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'char_renderer' (10#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'calculator_keypad' (11#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_keypad_display.v:25]
+INFO: [Synth 8-6157] synthesizing module 'operator_keypad' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_operand_display.v:25]
 	Parameter width bound to: 96 - type: integer 
 	Parameter height bound to: 64 - type: integer 
 	Parameter button_width bound to: 48 - type: integer 
@@ -278,8 +275,8 @@ INFO: [Synth 8-6157] synthesizing module 'operator_keypad' [C:/Users/User/Downlo
 	Parameter white bound to: 16'b1111111111111111 
 	Parameter black bound to: 16'b0000000000000000 
 	Parameter blue_bg bound to: 16'b0000000000011111 
-INFO: [Synth 8-6155] done synthesizing module 'operator_keypad' (12#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_operand_display.v:25]
-INFO: [Synth 8-6157] synthesizing module 'trig_keypad' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_trig_display.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'operator_keypad' (12#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_operand_display.v:25]
+INFO: [Synth 8-6157] synthesizing module 'trig_keypad' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_trig_display.v:25]
 	Parameter width bound to: 96 - type: integer 
 	Parameter height bound to: 64 - type: integer 
 	Parameter button_width bound to: 48 - type: integer 
@@ -287,14 +284,14 @@ INFO: [Synth 8-6157] synthesizing module 'trig_keypad' [C:/Users/User/Downloads/
 	Parameter white bound to: 16'b1111111111111111 
 	Parameter black bound to: 16'b0000000000000000 
 	Parameter blue_bg bound to: 16'b0000000000011111 
-INFO: [Synth 8-6157] synthesizing module 'string_renderer' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/string_renderer.v:23]
+INFO: [Synth 8-6157] synthesizing module 'string_renderer' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/string_renderer.v:23]
 	Parameter CHAR_WIDTH bound to: 8 - type: integer 
 	Parameter NUM_CHARS bound to: 8 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'string_renderer' (13#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/string_renderer.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'trig_keypad' (14#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_trig_display.v:25]
-INFO: [Synth 8-6155] done synthesizing module 'calc_display_selector' (15#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_display_selector.v:24]
-INFO: [Synth 8-6157] synthesizing module 'calculator_text' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_text_selector.v:23]
-INFO: [Synth 8-6157] synthesizing module 'calculator_input' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'string_renderer' (13#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/string_renderer.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'trig_keypad' (14#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_trig_display.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'calc_display_selector' (15#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_display_selector.v:24]
+INFO: [Synth 8-6157] synthesizing module 'calculator_text' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_text_selector.v:23]
+INFO: [Synth 8-6157] synthesizing module 'calculator_input' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:23]
 	Parameter width bound to: 96 - type: integer 
 	Parameter height bound to: 64 - type: integer 
 	Parameter white bound to: 16'b1111111111111111 
@@ -305,9 +302,9 @@ INFO: [Synth 8-6157] synthesizing module 'calculator_input' [C:/Users/User/Downl
 	Parameter start_update bound to: 1 - type: integer 
 	Parameter process_digit bound to: 2 - type: integer 
 	Parameter render bound to: 3 - type: integer 
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:125]
-INFO: [Synth 8-6155] done synthesizing module 'calculator_input' (16#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:23]
-INFO: [Synth 8-6157] synthesizing module 'calculator_output' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_output_display.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:125]
+INFO: [Synth 8-6155] done synthesizing module 'calculator_input' (16#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:23]
+INFO: [Synth 8-6157] synthesizing module 'calculator_output' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_output_display.v:23]
 	Parameter width bound to: 96 - type: integer 
 	Parameter height bound to: 64 - type: integer 
 	Parameter white bound to: 16'b1111111111111111 
@@ -317,7 +314,7 @@ INFO: [Synth 8-6157] synthesizing module 'calculator_output' [C:/Users/User/Down
 	Parameter ST_IDLE bound to: 2'b00 
 	Parameter ST_CONVERT bound to: 2'b01 
 	Parameter ST_RENDER bound to: 2'b10 
-INFO: [Synth 8-6157] synthesizing module 'fp_to_string' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:24]
+INFO: [Synth 8-6157] synthesizing module 'fp_to_string' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:24]
 	Parameter S_IDLE bound to: 3'b000 
 	Parameter S_PARSE bound to: 3'b001 
 	Parameter S_INT_PROC bound to: 3'b010 
@@ -327,18 +324,18 @@ INFO: [Synth 8-6157] synthesizing module 'fp_to_string' [C:/Users/User/Downloads
 	Parameter CHAR_NEG bound to: 6'b001011 
 	Parameter CHAR_DOT bound to: 6'b001110 
 	Parameter CHAR_SPACE bound to: 6'b111111 
-WARNING: [Synth 8-6014] Unused sequential element divisor_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:140]
-INFO: [Synth 8-6155] done synthesizing module 'fp_to_string' (17#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:24]
-WARNING: [Synth 8-6014] Unused sequential element cached_result_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_output_display.v:89]
-INFO: [Synth 8-6155] done synthesizing module 'calculator_output' (18#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_output_display.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'calculator_text' (19#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_text_selector.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'arithmetic_mode' (20#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_mode.v:26]
-WARNING: [Synth 8-350] instance 'my_calculator' of module 'arithmetic_mode' requires 20 connections, but only 19 given [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/Top_Student.v:84]
-INFO: [Synth 8-6157] synthesizing module 'coefficient_input_wrapper' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/coefficient_input_wrapper.v:23]
-INFO: [Synth 8-6157] synthesizing module 'coeff_controller' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/integral_cursor_controller.v:23]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/integral_cursor_controller.v:147]
-INFO: [Synth 8-6155] done synthesizing module 'coeff_controller' (21#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/integral_cursor_controller.v:23]
-INFO: [Synth 8-6157] synthesizing module 'polytable_keypad_display' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_keypad_display.v:23]
+WARNING: [Synth 8-6014] Unused sequential element divisor_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:140]
+INFO: [Synth 8-6155] done synthesizing module 'fp_to_string' (17#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:24]
+WARNING: [Synth 8-6014] Unused sequential element cached_result_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_output_display.v:89]
+INFO: [Synth 8-6155] done synthesizing module 'calculator_output' (18#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_output_display.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'calculator_text' (19#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_text_selector.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'arithmetic_mode' (20#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_mode.v:26]
+WARNING: [Synth 8-350] instance 'my_calculator' of module 'arithmetic_mode' requires 20 connections, but only 19 given [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/Top_Student.v:84]
+INFO: [Synth 8-6157] synthesizing module 'coefficient_input_wrapper' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/coefficient_input_wrapper.v:23]
+INFO: [Synth 8-6157] synthesizing module 'coeff_controller' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/integral_cursor_controller.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/integral_cursor_controller.v:147]
+INFO: [Synth 8-6155] done synthesizing module 'coeff_controller' (21#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/integral_cursor_controller.v:23]
+INFO: [Synth 8-6157] synthesizing module 'polytable_keypad_display' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_keypad_display.v:23]
 	Parameter WIDTH bound to: 96 - type: integer 
 	Parameter HEIGHT bound to: 64 - type: integer 
 	Parameter BUTTON_WIDTH bound to: 24 - type: integer 
@@ -349,9 +346,9 @@ INFO: [Synth 8-6157] synthesizing module 'polytable_keypad_display' [C:/Users/Us
 	Parameter WHITE bound to: 16'b1111111111111111 
 	Parameter BLACK bound to: 16'b0000000000000000 
 	Parameter RED bound to: 16'b1111100000000000 
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_keypad_display.v:118]
-INFO: [Synth 8-6155] done synthesizing module 'polytable_keypad_display' (22#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_keypad_display.v:23]
-INFO: [Synth 8-6157] synthesizing module 'coefficient_input_display' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/coefficient_input_display.v:26]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_keypad_display.v:118]
+INFO: [Synth 8-6155] done synthesizing module 'polytable_keypad_display' (22#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_keypad_display.v:23]
+INFO: [Synth 8-6157] synthesizing module 'coefficient_input_display' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/coefficient_input_display.v:26]
 	Parameter WIDTH bound to: 96 - type: integer 
 	Parameter HEIGHT bound to: 64 - type: integer 
 	Parameter WHITE bound to: 16'b1111111111111111 
@@ -369,15 +366,15 @@ INFO: [Synth 8-6157] synthesizing module 'coefficient_input_display' [C:/Users/U
 	Parameter START_UPDATE bound to: 2'b01 
 	Parameter PROCESS_DIGIT bound to: 2'b10 
 	Parameter RENDER bound to: 2'b11 
-INFO: [Synth 8-6155] done synthesizing module 'coefficient_input_display' (23#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/coefficient_input_display.v:26]
-WARNING: [Synth 8-689] width (2) of port connection 'coeff_state' does not match port width (3) of module 'coefficient_input_display' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/coefficient_input_wrapper.v:131]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/coefficient_input_wrapper.v:154]
-INFO: [Synth 8-6155] done synthesizing module 'coefficient_input_wrapper' (24#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/coefficient_input_wrapper.v:23]
-INFO: [Synth 8-6157] synthesizing module 'polynomial_table_module' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_module.v:25]
-INFO: [Synth 8-6157] synthesizing module 'polytable_select' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_cursor_controller.v:29]
+INFO: [Synth 8-6155] done synthesizing module 'coefficient_input_display' (23#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/coefficient_input_display.v:26]
+WARNING: [Synth 8-689] width (2) of port connection 'coeff_state' does not match port width (3) of module 'coefficient_input_display' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/coefficient_input_wrapper.v:131]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/coefficient_input_wrapper.v:154]
+INFO: [Synth 8-6155] done synthesizing module 'coefficient_input_wrapper' (24#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/coefficient_input_wrapper.v:23]
+INFO: [Synth 8-6157] synthesizing module 'polytable_mode' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_module.v:25]
+INFO: [Synth 8-6157] synthesizing module 'polytable_select' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_cursor_controller.v:29]
 	Parameter DEBOUNCE_DELAY bound to: 2000000 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'polytable_select' (25#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_cursor_controller.v:29]
-INFO: [Synth 8-6157] synthesizing module 'polytable_display' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_table_display.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'polytable_select' (25#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_cursor_controller.v:29]
+INFO: [Synth 8-6157] synthesizing module 'polytable_display' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_table_display.v:23]
 	Parameter WIDTH bound to: 96 - type: integer 
 	Parameter HEIGHT bound to: 64 - type: integer 
 	Parameter ROW_HEIGHT bound to: 12 - type: integer 
@@ -386,23 +383,23 @@ INFO: [Synth 8-6157] synthesizing module 'polytable_display' [C:/Users/User/Down
 	Parameter TABLE_ROWS bound to: 5 - type: integer 
 	Parameter WHITE bound to: 16'b1111111111111111 
 	Parameter BLACK bound to: 16'b0000000000000000 
-INFO: [Synth 8-6157] synthesizing module 'poly_calc_engine' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:23]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:61]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:78]
-WARNING: [Synth 8-6014] Unused sequential element x3_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:66]
-WARNING: [Synth 8-6014] Unused sequential element local_overflow_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:92]
-WARNING: [Synth 8-6014] Unused sequential element sum_tmp_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:160]
-INFO: [Synth 8-6155] done synthesizing module 'poly_calc_engine' (26#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:23]
-WARNING: [Synth 8-689] width (32) of port connection 'start_y' does not match port width (6) of module 'string_renderer' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_table_display.v:119]
-WARNING: [Synth 8-689] width (32) of port connection 'start_y' does not match port width (6) of module 'string_renderer' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_table_display.v:130]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_table_display.v:159]
-INFO: [Synth 8-6155] done synthesizing module 'polytable_display' (27#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_table_display.v:23]
-INFO: [Synth 8-6157] synthesizing module 'polytable_keypad_render' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_table_keypad_renderer.v:24]
-INFO: [Synth 8-6155] done synthesizing module 'polytable_keypad_render' (28#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_table_keypad_renderer.v:24]
-WARNING: [Synth 8-6014] Unused sequential element input_system_reset_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_module.v:89]
-WARNING: [Synth 8-6014] Unused sequential element prev_input_complete_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_module.v:92]
-INFO: [Synth 8-6155] done synthesizing module 'polynomial_table_module' (29#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_module.v:25]
-INFO: [Synth 8-6155] done synthesizing module 'Top_Student' (30#1) [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/Top_Student.v:1]
+INFO: [Synth 8-6157] synthesizing module 'poly_calc_engine' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:61]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:78]
+WARNING: [Synth 8-6014] Unused sequential element x3_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:66]
+WARNING: [Synth 8-6014] Unused sequential element local_overflow_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:92]
+WARNING: [Synth 8-6014] Unused sequential element sum_tmp_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:160]
+INFO: [Synth 8-6155] done synthesizing module 'poly_calc_engine' (26#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:23]
+WARNING: [Synth 8-689] width (32) of port connection 'start_y' does not match port width (6) of module 'string_renderer' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_table_display.v:119]
+WARNING: [Synth 8-689] width (32) of port connection 'start_y' does not match port width (6) of module 'string_renderer' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_table_display.v:130]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_table_display.v:159]
+INFO: [Synth 8-6155] done synthesizing module 'polytable_display' (27#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_table_display.v:23]
+INFO: [Synth 8-6157] synthesizing module 'polytable_keypad_render' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_table_keypad_renderer.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'polytable_keypad_render' (28#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_table_keypad_renderer.v:24]
+WARNING: [Synth 8-6014] Unused sequential element input_system_reset_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_module.v:89]
+WARNING: [Synth 8-6014] Unused sequential element prev_input_complete_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_module.v:92]
+INFO: [Synth 8-6155] done synthesizing module 'polytable_mode' (29#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_module.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'Top_Student' (30#1) [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/Top_Student.v:1]
 WARNING: [Synth 8-3917] design Top_Student has port seg[7] driven by constant 1
 WARNING: [Synth 8-3917] design Top_Student has port seg[6] driven by constant 1
 WARNING: [Synth 8-3917] design Top_Student has port seg[5] driven by constant 1
@@ -502,7 +499,7 @@ WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[4]
 WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[3]
 WARNING: [Synth 8-3331] design Top_Student has unconnected port sw[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 447.426 ; gain = 190.891
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 447.043 ; gain = 190.094
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -515,47 +512,47 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 447.426 ; gain = 190.891
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 447.043 ; gain = 190.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 447.426 ; gain = 190.891
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 447.043 ; gain = 190.094
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/constrs_1/new/constraints.xdc]
-WARNING: [Vivado 12-584] No ports matched 'ps2_clk'. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/constrs_1/new/constraints.xdc:136]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/constrs_1/new/constraints.xdc:136]
+Parsing XDC File [C:/GitHub/EE2026_proj/FDP/FDP.srcs/constrs_1/new/constraints.xdc]
+WARNING: [Vivado 12-584] No ports matched 'ps2_clk'. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/constrs_1/new/constraints.xdc:136]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/constrs_1/new/constraints.xdc:136]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'ps2_data'. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/constrs_1/new/constraints.xdc:137]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/constrs_1/new/constraints.xdc:137]
+WARNING: [Vivado 12-584] No ports matched 'ps2_data'. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/constrs_1/new/constraints.xdc:137]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/GitHub/EE2026_proj/FDP/FDP.srcs/constrs_1/new/constraints.xdc:137]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-Finished Parsing XDC File [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/constrs_1/new/constraints.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/constrs_1/new/constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Top_Student_propImpl.xdc].
+Finished Parsing XDC File [C:/GitHub/EE2026_proj/FDP/FDP.srcs/constrs_1/new/constraints.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/GitHub/EE2026_proj/FDP/FDP.srcs/constrs_1/new/constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Top_Student_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/Top_Student_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 817.941 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 818.820 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 817.941 ; gain = 561.406
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 818.820 ; gain = 561.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 817.941 ; gain = 561.406
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 818.820 ; gain = 561.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 817.941 ; gain = 561.406
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 818.820 ; gain = 561.871
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "output_clock0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Oled_Display'
@@ -566,8 +563,8 @@ INFO: [Synth 8-5546] ROM "keypad_btn_pressed" won't be mapped to RAM because it 
 INFO: [Synth 8-5544] ROM "keypad_selected_value" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "operand_selected_value" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "trig_selected_value" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/circular_digit_manager.v:88]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/circular_digit_manager.v:88]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/circular_digit_manager.v:88]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/circular_digit_manager.v:88]
 INFO: [Synth 8-5544] ROM "buffer_mem_reg[0]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5545] ROM "buffer_mem_reg[0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5544] ROM "buffer_mem_reg[1]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
@@ -586,18 +583,18 @@ INFO: [Synth 8-5544] ROM "buffer_mem_reg[7]" won't be mapped to Block RAM becaus
 INFO: [Synth 8-5545] ROM "buffer_mem_reg[7]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5544] ROM "sign_present" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "dot_present" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/horner_fixedpoint_evaluator.v:85]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/horner_fixedpoint_evaluator.v:85]
 INFO: [Synth 8-802] inferred FSM for state register 'phase_reg' in module 'horner_fixedpoint_evaluator'
-INFO: [Synth 8-4471] merging register 'result_reg[31:0]' into 'accumulator_reg[31:0]' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:68]
-WARNING: [Synth 8-6014] Unused sequential element result_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:68]
+INFO: [Synth 8-4471] merging register 'result_reg[31:0]' into 'accumulator_reg[31:0]' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:68]
+WARNING: [Synth 8-6014] Unused sequential element result_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:68]
 INFO: [Synth 8-5545] ROM "overflow" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "div_by_zero" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "accumulator" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
 WARNING: [Synth 8-6014] Unused sequential element  was removed. 
 WARNING: [Synth 8-6014] Unused sequential element  was removed. 
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
 INFO: [Synth 8-5544] ROM "display_char" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "display_char" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "colour0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -639,16 +636,16 @@ INFO: [Synth 8-5544] ROM "keypad_selected_value" won't be mapped to Block RAM be
 INFO: [Synth 8-5546] ROM "count" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "cursor_visible" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_cursor_controller.v:231]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_cursor_controller.v:231]
 INFO: [Synth 8-5546] ROM "keypad_btn_pressed" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "keypad_btn_pressed" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "cursor_row" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "cursor_col" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:70]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:70]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
 WARNING: [Synth 8-6014] Unused sequential element  was removed. 
 WARNING: [Synth 8-6014] Unused sequential element  was removed. 
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:73]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:73]
 WARNING: [Synth 8-6014] Unused sequential element  was removed. 
 WARNING: [Synth 8-6014] Unused sequential element  was removed. 
 INFO: [Synth 8-5544] ROM "master_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -702,10 +699,10 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
                 FINALIZE |                              100 |                               10
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'phase_reg' using encoding 'one-hot' in module 'horner_fixedpoint_evaluator'
-WARNING: [Synth 8-327] inferring latch for variable 'char_start_x_reg' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_operand_display.v:75]
-WARNING: [Synth 8-327] inferring latch for variable 'char_start_y_reg' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_operand_display.v:76]
-WARNING: [Synth 8-327] inferring latch for variable 'str_start_x_reg' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_trig_display.v:74]
-WARNING: [Synth 8-327] inferring latch for variable 'str_start_y_reg' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_trig_display.v:75]
+WARNING: [Synth 8-327] inferring latch for variable 'char_start_x_reg' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_operand_display.v:75]
+WARNING: [Synth 8-327] inferring latch for variable 'char_start_y_reg' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_operand_display.v:76]
+WARNING: [Synth 8-327] inferring latch for variable 'str_start_x_reg' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_trig_display.v:74]
+WARNING: [Synth 8-327] inferring latch for variable 'str_start_y_reg' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_trig_display.v:75]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -725,9 +722,9 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
                ST_RENDER |                              100 |                               10
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'control_state_reg' using encoding 'one-hot' in module 'calculator_output'
-WARNING: [Synth 8-327] inferring latch for variable 'oled_data_reg' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_keypad_display.v:139]
+WARNING: [Synth 8-327] inferring latch for variable 'oled_data_reg' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_table_keypad_display.v:139]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 817.941 ; gain = 561.406
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 818.820 ; gain = 561.871
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -736,7 +733,7 @@ Report RTL Partitions:
 +------+-------------------------------+------------+----------+
 |1     |string_renderer                |           7|      7018|
 |2     |trig_keypad__GC0               |           1|       544|
-|3     |calc_display_selector__GC0     |           1|     13804|
+|3     |calc_display_selector__GC0     |           1|     13802|
 |4     |calculator_input__GC0          |           1|      1680|
 |5     |calculator_output__GC0         |           1|      7524|
 |6     |case__287__GD                  |           1|        32|
@@ -745,7 +742,7 @@ Report RTL Partitions:
 |9     |coefficient_input_display__GC0 |           1|      1731|
 |10    |coefficient_input_wrapper__GC0 |           1|     12718|
 |11    |polytable_display__GC0         |           1|     12944|
-|12    |polynomial_table_module__GC0   |           1|     12434|
+|12    |polytable_mode__GC0            |           1|     12434|
 |13    |Top_Student__GC0               |           1|      5028|
 +------+-------------------------------+------------+----------+
 ---------------------------------------------------------------------------------
@@ -1497,7 +1494,7 @@ Module polytable_keypad_render
 Detailed RTL Component Info : 
 +---Muxes : 
 	   2 Input     16 Bit        Muxes := 2     
-Module polynomial_table_module 
+Module polytable_mode 
 Detailed RTL Component Info : 
 +---Muxes : 
 	   2 Input     16 Bit        Muxes := 1     
@@ -1571,10 +1568,10 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "clk_6p25MHz_gen/output_clock0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "clk_1kHz_gen/output_clock0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-4471] merging register 'char_index_reg[3:0]' into 'char_index_reg[3:0]' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:132]
-WARNING: [Synth 8-6014] Unused sequential element char_index_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:132]
-INFO: [Synth 8-4471] merging register 'pos_reg[3:0]' into 'pos_reg[3:0]' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:66]
-WARNING: [Synth 8-6014] Unused sequential element pos_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:66]
+INFO: [Synth 8-4471] merging register 'char_index_reg[3:0]' into 'char_index_reg[3:0]' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:132]
+WARNING: [Synth 8-6014] Unused sequential element char_index_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/arithmetic_input_display.v:132]
+INFO: [Synth 8-4471] merging register 'pos_reg[3:0]' into 'pos_reg[3:0]' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:66]
+WARNING: [Synth 8-6014] Unused sequential element pos_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:66]
 INFO: [Synth 8-5545] ROM "int_val" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "frac_val" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5546] ROM "digit_mem" won't be mapped to RAM because it is too sparse
@@ -1598,8 +1595,8 @@ INFO: [Synth 8-5545] ROM "input_builder/event_dispatcher/buffer_mem_reg[5]" won'
 INFO: [Synth 8-5545] ROM "input_builder/event_dispatcher/buffer_mem_reg[6]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "input_builder/event_dispatcher/buffer_mem_reg[7]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "input_builder/event_dispatcher/buffer_mem_reg[0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-4471] merging register 'i_reg[3:0]' into 'i_reg[3:0]' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/coefficient_input_display.v:170]
-WARNING: [Synth 8-6014] Unused sequential element i_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/coefficient_input_display.v:170]
+INFO: [Synth 8-4471] merging register 'i_reg[3:0]' into 'i_reg[3:0]' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/coefficient_input_display.v:170]
+WARNING: [Synth 8-6014] Unused sequential element i_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/coefficient_input_display.v:170]
 INFO: [Synth 8-5546] ROM "fsm_next_state0" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "fsm_next_state0" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "fsm_next_state0" won't be mapped to RAM because it is too sparse
@@ -1757,13 +1754,13 @@ WARNING: [Synth 8-3332] Sequential element (char_renderer_inst/oled_data_reg[10]
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\operand_inst/char_start_x_reg[1] )
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (\operand_inst/char_start_x_reg[2] )
 WARNING: [Synth 8-6014] Unused sequential element A was removed. 
-WARNING: [Synth 8-6014] Unused sequential element A was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
+WARNING: [Synth 8-6014] Unused sequential element A was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
 INFO: [Synth 8-5545] ROM "accumulator" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "overflow" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 WARNING: [Synth 8-6014] Unused sequential element B was removed. 
-WARNING: [Synth 8-6014] Unused sequential element A was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
+WARNING: [Synth 8-6014] Unused sequential element A was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/basic_calculator_engine.v:110]
 DSP Report: Generating DSP overflow2, operation Mode is: A*B2.
 DSP Report: register B is absorbed into DSP overflow2.
 DSP Report: operator overflow2 is absorbed into DSP overflow2.
@@ -1780,7 +1777,7 @@ DSP Report: Generating DSP overflow2, operation Mode is: (PCIN>>17)+A2*B.
 DSP Report: register A is absorbed into DSP overflow2.
 DSP Report: operator overflow2 is absorbed into DSP overflow2.
 DSP Report: operator overflow2 is absorbed into DSP overflow2.
-WARNING: [Synth 8-6014] Unused sequential element keypad_display/char_renderer_inst/oled_data_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:63]
+WARNING: [Synth 8-6014] Unused sequential element keypad_display/char_renderer_inst/oled_data_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:63]
 INFO: [Synth 8-5546] ROM "coeff_ctrl/count" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "coeff_ctrl/keypad_btn_pressed" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5545] ROM "input_builder/event_dispatcher/buffer_mem_reg[1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
@@ -1799,52 +1796,52 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\input_bu
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\input_builder/event_dispatcher/char_types_reg[1][2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\input_builder/event_dispatcher/char_types_reg[0][2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\input_builder/event_dispatcher/char_types_reg[7][2] )
-INFO: [Synth 8-4471] merging register 'term_a_reg[47:0]' into 'term_a_reg[47:0]' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
-INFO: [Synth 8-4471] merging register 'term_a_reg[47:0]' into 'term_a_reg[47:0]' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
-INFO: [Synth 8-4471] merging register 'term_b_reg[47:0]' into 'term_b_reg[47:0]' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:70]
-INFO: [Synth 8-4471] merging register 'term_a_reg[47:0]' into 'term_a_reg[47:0]' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
-INFO: [Synth 8-4471] merging register 'term_c_reg[47:0]' into 'term_c_reg[47:0]' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:72]
-WARNING: [Synth 8-6014] Unused sequential element term_a_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
-WARNING: [Synth 8-6014] Unused sequential element term_b_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:70]
-WARNING: [Synth 8-6014] Unused sequential element term_a_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
+INFO: [Synth 8-4471] merging register 'term_a_reg[47:0]' into 'term_a_reg[47:0]' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
+INFO: [Synth 8-4471] merging register 'term_a_reg[47:0]' into 'term_a_reg[47:0]' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
+INFO: [Synth 8-4471] merging register 'term_b_reg[47:0]' into 'term_b_reg[47:0]' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:70]
+INFO: [Synth 8-4471] merging register 'term_a_reg[47:0]' into 'term_a_reg[47:0]' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
+INFO: [Synth 8-4471] merging register 'term_c_reg[47:0]' into 'term_c_reg[47:0]' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:72]
+WARNING: [Synth 8-6014] Unused sequential element term_a_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
+WARNING: [Synth 8-6014] Unused sequential element term_b_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:70]
+WARNING: [Synth 8-6014] Unused sequential element term_a_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
 WARNING: [Synth 8-6014] Unused sequential element B was removed. 
-WARNING: [Synth 8-6014] Unused sequential element term_c_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:72]
+WARNING: [Synth 8-6014] Unused sequential element term_c_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:72]
 WARNING: [Synth 8-6014] Unused sequential element A was removed. 
-WARNING: [Synth 8-6014] Unused sequential element A was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:73]
-WARNING: [Synth 8-6014] Unused sequential element term_a_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
+WARNING: [Synth 8-6014] Unused sequential element A was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:73]
+WARNING: [Synth 8-6014] Unused sequential element term_a_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
 WARNING: [Synth 8-3936] Found unconnected internal register 'B' and it is trimmed from '64' to '48' bits.
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 9 [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element mul_in_b_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:62]
-WARNING: [Synth 8-6014] Unused sequential element mul_in_a_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:62]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 9 [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element mul_in_b_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:62]
+WARNING: [Synth 8-6014] Unused sequential element mul_in_a_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:62]
 WARNING: [Synth 8-6014] Unused sequential element B was removed. 
-WARNING: [Synth 8-6014] Unused sequential element A was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:70]
-WARNING: [Synth 8-6014] Unused sequential element term_c_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:72]
+WARNING: [Synth 8-6014] Unused sequential element A was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:70]
+WARNING: [Synth 8-6014] Unused sequential element term_c_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:72]
 WARNING: [Synth 8-6014] Unused sequential element A was removed. 
-WARNING: [Synth 8-6014] Unused sequential element A was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:70]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:70]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:73]
-WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:73]
+WARNING: [Synth 8-6014] Unused sequential element A was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:63]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:68]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:70]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:70]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:73]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/polynomial_computation.v:73]
 DSP Report: Generating DSP mul_res0, operation Mode is: A2*B2.
 DSP Report: register B is absorbed into DSP mul_res0.
 DSP Report: register A is absorbed into DSP mul_res0.
@@ -1911,8 +1908,8 @@ DSP Report: register B is absorbed into DSP y_value0.
 DSP Report: register A is absorbed into DSP y_value0.
 DSP Report: register A is absorbed into DSP y_value0.
 DSP Report: operator y_value0 is absorbed into DSP y_value0.
-INFO: [Synth 8-4471] merging register 'pos_reg[3:0]' into 'pos_reg[3:0]' [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:66]
-WARNING: [Synth 8-6014] Unused sequential element pos_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:66]
+INFO: [Synth 8-4471] merging register 'pos_reg[3:0]' into 'pos_reg[3:0]' [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:66]
+WARNING: [Synth 8-6014] Unused sequential element pos_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/fp_to_string.v:66]
 INFO: [Synth 8-5545] ROM "int_val" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "frac_val" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5546] ROM "digit_mem" won't be mapped to RAM because it is too sparse
@@ -2031,7 +2028,7 @@ WARNING: [Synth 8-3332] Sequential element (term_c_reg[13]) is unused and will b
 WARNING: [Synth 8-3332] Sequential element (term_c_reg[12]) is unused and will be removed from module poly_calc_engine.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [Synth 8-6014] Unused sequential element keypad_display/char_renderer_inst/oled_data_reg was removed.  [C:/Users/User/Downloads/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:63]
+WARNING: [Synth 8-6014] Unused sequential element keypad_display/char_renderer_inst/oled_data_reg was removed.  [C:/GitHub/EE2026_proj/FDP/FDP.srcs/sources_1/new/char_renderer.v:63]
 INFO: [Synth 8-5545] ROM "input_builder_table/event_dispatcher/buffer_mem_reg[1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "input_builder_table/event_dispatcher/buffer_mem_reg[2]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "input_builder_table/event_dispatcher/buffer_mem_reg[3]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
@@ -2049,7 +2046,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\input_bu
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\input_builder_table/event_dispatcher/char_types_reg[0][2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\input_builder_table/event_dispatcher/char_types_reg[7][2] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:00:58 . Memory (MB): peak = 1049.574 ; gain = 793.039
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:57 ; elapsed = 00:01:11 . Memory (MB): peak = 1049.512 ; gain = 792.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -2105,16 +2102,16 @@ Report RTL Partitions:
 +------+----------------------------------+------------+----------+
 |1     |string_renderer                   |           1|      1339|
 |2     |trig_keypad__GC0                  |           1|       281|
-|3     |calc_display_selector__GC0        |           1|      1745|
+|3     |calc_display_selector__GC0        |           1|      1739|
 |4     |calculator_input__GC0             |           1|       770|
 |5     |calculator_output__GC0            |           1|      2066|
 |6     |case__287__GD                     |           1|         2|
 |7     |basic_calculator_engine           |           1|      8427|
-|8     |arithmetic_mode__GCB1             |           1|      3001|
+|8     |arithmetic_mode__GCB1             |           1|      2954|
 |9     |coefficient_input_display__GC0    |           1|       841|
 |10    |coefficient_input_wrapper__GC0    |           1|      4063|
 |11    |polytable_display__GC0            |           1|      4557|
-|12    |polynomial_table_module__GC0      |           1|      4243|
+|12    |polytable_mode__GC0               |           1|      4243|
 |13    |Top_Student__GC0                  |           1|      1596|
 |14    |string_renderer__1                |           1|       966|
 |15    |string_renderer__2                |           1|       666|
@@ -2129,7 +2126,7 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:53 ; elapsed = 00:01:07 . Memory (MB): peak = 1049.574 ; gain = 793.039
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:04 ; elapsed = 00:01:20 . Memory (MB): peak = 1049.512 ; gain = 792.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
@@ -2137,7 +2134,7 @@ Start Timing Optimization
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (table_modulei_11/\table_controller/debounced_reg )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (table_modulei_11/\table_controller/mouse_left_prev_reg )
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:55 ; elapsed = 00:01:10 . Memory (MB): peak = 1049.574 ; gain = 793.039
+Finished Timing Optimization : Time (s): cpu = 00:01:08 ; elapsed = 00:01:23 . Memory (MB): peak = 1049.512 ; gain = 792.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -2163,16 +2160,16 @@ Report RTL Partitions:
 +------+----------------------------------+------------+----------+
 |1     |string_renderer                   |           1|      1339|
 |2     |trig_keypad__GC0                  |           1|       281|
-|3     |calc_display_selector__GC0        |           1|      1728|
+|3     |calc_display_selector__GC0        |           1|      1722|
 |4     |calculator_input__GC0             |           1|       770|
 |5     |calculator_output__GC0            |           1|      2066|
 |6     |case__287__GD                     |           1|         2|
 |7     |basic_calculator_engine           |           1|      8415|
-|8     |arithmetic_mode__GCB1             |           1|      3001|
+|8     |arithmetic_mode__GCB1             |           1|      2954|
 |9     |coefficient_input_display__GC0    |           1|       841|
 |10    |coefficient_input_wrapper__GC0    |           1|      4063|
 |11    |polytable_display__GC0            |           1|      4453|
-|12    |polynomial_table_module__GC0      |           1|      4105|
+|12    |polytable_mode__GC0               |           1|      4105|
 |13    |Top_Student__GC0                  |           1|      1583|
 |14    |string_renderer__1                |           1|       966|
 |15    |string_renderer__2                |           1|       666|
@@ -2188,7 +2185,7 @@ Start Technology Mapping
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:59 ; elapsed = 00:01:14 . Memory (MB): peak = 1049.574 ; gain = 793.039
+Finished Technology Mapping : Time (s): cpu = 00:01:15 ; elapsed = 00:01:30 . Memory (MB): peak = 1049.512 ; gain = 792.562
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -2213,7 +2210,7 @@ INFO: [Synth 8-6064] Net \my_calculator/calc_input [31] is driving 8 big block p
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:01 ; elapsed = 00:01:15 . Memory (MB): peak = 1049.574 ; gain = 793.039
+Finished IO Insertion : Time (s): cpu = 00:01:16 ; elapsed = 00:01:32 . Memory (MB): peak = 1049.512 ; gain = 792.562
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -2226,7 +2223,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:01 ; elapsed = 00:01:16 . Memory (MB): peak = 1049.574 ; gain = 793.039
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:17 ; elapsed = 00:01:32 . Memory (MB): peak = 1049.512 ; gain = 792.562
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -2238,25 +2235,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:02 ; elapsed = 00:01:17 . Memory (MB): peak = 1049.574 ; gain = 793.039
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:18 ; elapsed = 00:01:34 . Memory (MB): peak = 1049.512 ; gain = 792.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:02 ; elapsed = 00:01:17 . Memory (MB): peak = 1049.574 ; gain = 793.039
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:19 ; elapsed = 00:01:34 . Memory (MB): peak = 1049.512 ; gain = 792.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:03 ; elapsed = 00:01:17 . Memory (MB): peak = 1049.574 ; gain = 793.039
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:19 ; elapsed = 00:01:35 . Memory (MB): peak = 1049.512 ; gain = 792.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:03 ; elapsed = 00:01:17 . Memory (MB): peak = 1049.574 ; gain = 793.039
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:19 ; elapsed = 00:01:35 . Memory (MB): peak = 1049.512 ; gain = 792.562
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -2282,10 +2279,10 @@ Report Cell Usage:
 |8     |DSP48E1_5 |     1|
 |9     |DSP48E1_6 |     1|
 |10    |LUT1      |   858|
-|11    |LUT2      |  2382|
-|12    |LUT3      |  2905|
-|13    |LUT4      |  3419|
-|14    |LUT5      |  3371|
+|11    |LUT2      |  2378|
+|12    |LUT3      |  2907|
+|13    |LUT4      |  3425|
+|14    |LUT5      |  3367|
 |15    |LUT6      |  2984|
 |16    |MUXF7     |   123|
 |17    |MUXF8     |    22|
@@ -2322,22 +2319,22 @@ Report Instance Areas:
 |14    |    keypad_display           |polytable_keypad_display_24    |   240|
 |15    |      char_renderer_inst     |char_renderer_25               |   205|
 |16    |        char_rom             |sprite_library_optimized_26    |    66|
-|17    |  first_display              |Oled_Display                   |  1704|
-|18    |  my_calculator              |arithmetic_mode                |  9287|
-|19    |    calc_ctrl                |calculator_select              |   257|
-|20    |    calc_engine              |basic_calculator_engine        |   676|
-|21    |    display_selector         |calc_display_selector          |   684|
-|22    |      keypad_inst            |calculator_keypad              |   326|
-|23    |        button_char_renderer |char_renderer_20               |   269|
-|24    |          char_rom           |sprite_library_optimized_21    |   107|
+|17    |  first_display              |Oled_Display                   |  1696|
+|18    |  my_calculator              |arithmetic_mode                |  9295|
+|19    |    calc_ctrl                |calculator_select              |   255|
+|20    |    calc_engine              |basic_calculator_engine        |   675|
+|21    |    display_selector         |calc_display_selector          |   694|
+|22    |      keypad_inst            |calculator_keypad              |   335|
+|23    |        button_char_renderer |char_renderer_20               |   266|
+|24    |          char_rom           |sprite_library_optimized_21    |   105|
 |25    |      operand_inst           |operator_keypad                |    21|
 |26    |        char_renderer_inst   |char_renderer_19               |    12|
 |27    |          char_rom           |sprite_library_optimized       |     1|
-|28    |      trig_inst              |trig_keypad                    |   337|
-|29    |        string_renderer_inst |string_renderer_17             |   331|
+|28    |      trig_inst              |trig_keypad                    |   338|
+|29    |        string_renderer_inst |string_renderer_17             |   332|
 |30    |          char_renderer_inst |char_renderer_18               |   159|
-|31    |    input_builder            |bcd_to_fp_input_system_9       |  5929|
-|32    |      event_dispatcher       |digit_manager_15               |   154|
+|31    |    input_builder            |bcd_to_fp_input_system_9       |  5930|
+|32    |      event_dispatcher       |digit_manager_15               |   155|
 |33    |      event_processor        |horner_fixedpoint_evaluator_16 |   462|
 |34    |    text_selector            |calculator_text                |  1686|
 |35    |      input_inst             |calculator_input               |   466|
@@ -2349,7 +2346,7 @@ Report Instance Areas:
 |41    |          char_renderer_inst |char_renderer_12               |   210|
 |42    |    trig_calc                |trig_calculator                |    11|
 |43    |  second_display             |Oled_Display_1                 |  1038|
-|44    |  table_module               |polynomial_table_module        |  4283|
+|44    |  table_module               |polytable_mode                 |  4283|
 |45    |    input_builder_table      |bcd_to_fp_input_system         |   673|
 |46    |      event_dispatcher       |digit_manager                  |   166|
 |47    |      event_processor        |horner_fixedpoint_evaluator    |   473|
@@ -2370,11 +2367,11 @@ Report Instance Areas:
 |62    |        char_renderer_inst   |char_renderer                  |   218|
 +------+-----------------------------+-------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:03 ; elapsed = 00:01:17 . Memory (MB): peak = 1049.574 ; gain = 793.039
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:19 ; elapsed = 00:01:35 . Memory (MB): peak = 1049.512 ; gain = 792.562
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 212 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:55 ; elapsed = 00:01:11 . Memory (MB): peak = 1049.574 ; gain = 422.523
-Synthesis Optimization Complete : Time (s): cpu = 00:01:03 ; elapsed = 00:01:18 . Memory (MB): peak = 1049.574 ; gain = 793.039
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:11 ; elapsed = 00:01:28 . Memory (MB): peak = 1049.512 ; gain = 420.785
+Synthesis Optimization Complete : Time (s): cpu = 00:01:19 ; elapsed = 00:01:35 . Memory (MB): peak = 1049.512 ; gain = 792.562
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 2935 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -2390,9 +2387,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 392 Infos, 419 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:06 ; elapsed = 00:01:22 . Memory (MB): peak = 1049.574 ; gain = 806.090
+synth_design: Time (s): cpu = 00:01:24 ; elapsed = 00:01:41 . Memory (MB): peak = 1049.512 ; gain = 805.410
 WARNING: [Constraints 18-5210] No constraint will be written out.
-INFO: [Common 17-1381] The checkpoint 'C:/Users/User/Downloads/EE2026_proj/FDP/FDP.runs/synth_1/Top_Student.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint 'C:/GitHub/EE2026_proj/FDP/FDP.runs/synth_1/Top_Student.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Top_Student_utilization_synth.rpt -pb Top_Student_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.080 . Memory (MB): peak = 1049.574 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sat Nov  8 22:58:02 2025...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.081 . Memory (MB): peak = 1049.512 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat Nov  8 23:37:13 2025...

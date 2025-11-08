@@ -85,16 +85,19 @@ module operator_keypad(
         display_char = 6'd32; // space
         
         if (in_button_area) begin
-            // Calculate centered position for character
+            // Calculate optimally centered position for character
+            // For 48x32 button with 8x12 character:
+            // X center: (48/2) - 4 = 20
+            // Y center: (32/2) - 6 = 10
             char_start_x = (btn_col * button_width) + (button_width / 2) - 4;
             char_start_y = (btn_row * button_height) + (button_height / 2) - 6;
             
-            // Map button to operation
+            // Map button to operation with proper symbol encoding
             case({btn_row, btn_col})
-                4'b00_00: display_char = 6'd10; // + (addition - correct encoding)
-                4'b00_01: display_char = 6'd11; // - (subtraction)
-                4'b01_00: display_char = 6'd12; // * (multiplication)
-                4'b01_01: display_char = 6'd13; // / (division)
+                4'b00_00: display_char = 6'd10; // + (addition)
+                4'b00_01: display_char = 6'd11; // - (subtraction)  
+                4'b01_00: display_char = 6'd12; // × (multiplication)
+                4'b01_01: display_char = 6'd13; // ÷ (division)
                 default: display_char = 6'd32;  // space
             endcase
             

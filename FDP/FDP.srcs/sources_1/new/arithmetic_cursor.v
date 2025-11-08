@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -18,6 +18,8 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
+
+`timescale 1ns / 1ps
 
 module calculator_select(
     input clk,
@@ -218,7 +220,7 @@ module calculator_select(
             end else begin
                 // ===== KEYPAD INPUT MODE =====
                 // Layout: 4 rows x 4 columns
-                // Cols 0-2: Number keypad
+                // Cols 0-2: Number keypad (NOW: 1-2-3 / 4-5-6 / 7-8-9)
                 // Col 3: Split - upper (operations), lower (trig)
                 
                 if (counter == 0) begin
@@ -278,10 +280,11 @@ module calculator_select(
                             keypad_selected_value <= 4'd13;  // Enter for trig
                         end else begin
                             // Determining selected value based on cursor position in main keypad
+                            // UPDATED MAPPING: Now 1-2-3 / 4-5-6 / 7-8-9
                             case(cursor_row_keypad)
-                                2'd0: keypad_selected_value <= cursor_col_keypad + 4'd7; // 7, 8, 9
+                                2'd0: keypad_selected_value <= cursor_col_keypad + 4'd1; // 1, 2, 3
                                 2'd1: keypad_selected_value <= cursor_col_keypad + 4'd4; // 4, 5, 6
-                                2'd2: keypad_selected_value <= cursor_col_keypad + 4'd1; // 1, 2, 3
+                                2'd2: keypad_selected_value <= cursor_col_keypad + 4'd7; // 7, 8, 9
                                 2'd3: begin
                                     case(cursor_col_keypad)
                                         2'd0: keypad_selected_value <= 4'd0; // 0

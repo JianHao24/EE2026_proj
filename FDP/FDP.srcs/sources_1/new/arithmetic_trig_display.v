@@ -90,7 +90,7 @@ module trig_keypad(
             str_start_y = (btn_row * button_height) + (button_height / 2) - 6;
             
             // Map button to trig function label
-            // Character encoding: C=12, I=18, N=23, O=24, S=28, T=29
+            // Character encoding: C=17, I=18, N=23, O=24, S=28(34), T=29(35), A=15
             case({btn_row, btn_col})
                 4'b00_00: display_string = {6'd34, 6'd23, 6'd28};  // "SIN"
                 4'b00_01: display_string = {6'd17, 6'd29, 6'd34};  // "COS"
