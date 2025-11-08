@@ -24,11 +24,12 @@ module polytable_display(
     input clk,
     input [12:0] pixel_index,
     input is_table_mode,
+    input is_dfx_mode,        // New: indicates if we're showing derivative
     
     // From polynomial_table_cursor_controller
     input signed [31:0] starting_x,
 
-    // From some other module (likely wayne's)
+    // Coefficients for f(x)
     input signed [31:0] coeff_a,
     input signed [31:0] coeff_b,
     input signed [31:0] coeff_c,
@@ -58,14 +59,23 @@ module polytable_display(
     
     // Table data storage
     reg signed [31:0] x_values[0:TABLE_ROWS-1];
-    reg signed [47:0] y_values[0:TABLE_ROWS-1];
+    reg signed [47:0] y_values[0:TABLE_ROWS-1];        // For f(x)
+    reg signed [47:0] dy_values[0:TABLE_ROWS-1];       // For df(x)
     reg [47:0] x_string_cache[0:TABLE_ROWS-1];
-    reg [47:0] y_string_cache[0:TABLE_ROWS-1];
+    reg [47:0] y_string_cache[0:TABLE_ROWS-1];         // For f(x)
+    reg [47:0] dy_string_cache[0:TABLE_ROWS-1];        // For df(x)
     
     // Control signals
     reg is_full_computation = 0;
     reg is_full_conversion = 0;
+    reg is_deriv_computation = 0;    // Track derivative computation
+    reg is_deriv_conversion = 0;     // Track derivative string conversion
     reg [31:0] prev_starting_x = 1;
+    
+    // Derivative coefficients
+    wire signed [31:0] deriv_a = {coeff_a[30:0], 1'b0} + coeff_a;  // 3a (for ax³)
+    wire signed [31:0] deriv_b = {coeff_b[30:0], 1'b0};            // 2b (for bx²)
+    wire signed [31:0] deriv_c = coeff_c;                          // c  (for cx)
     
     // Computation controller
     reg requires_computation = 0;
@@ -81,8 +91,8 @@ module polytable_display(
     wire [47:0] converted_string;
     reg [31:0] value_to_convert;
     
-    // Computation module instance
-    poly_calc_engine compute(
+    // Computation modules for f(x) and df(x)
+    poly_calc_engine compute_fx(
         .clk(clk),
         .requires_computation(requires_computation),
         .x_value(x_values[comp_row]),
@@ -92,6 +102,20 @@ module polytable_display(
         .coeff_d(coeff_d),
         .y_value(computed_y),
         .computation_complete(computation_complete),
+        .is_graph(0)
+    );
+
+    // Derivative computation engine (uses derivative coefficients)
+    poly_calc_engine compute_dfx(
+        .clk(clk),
+        .requires_computation(requires_computation && !is_full_computation),
+        .x_value(x_values[comp_row]),
+        .coeff_a(deriv_a),    // 3a for derivative of ax³
+        .coeff_b(deriv_b),    // 2b for derivative of bx²
+        .coeff_c(deriv_c),    // c for derivative of cx
+        .coeff_d(32'h0),      // Derivative of d is 0
+        .y_value(computed_dy),
+        .computation_complete(deriv_computation_complete),
         .is_graph(0)
     );
     

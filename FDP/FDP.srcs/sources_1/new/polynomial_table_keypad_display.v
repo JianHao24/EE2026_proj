@@ -28,7 +28,8 @@ module polytable_keypad_display(
     input has_decimal,
     input has_negative,
     input [3:0] input_index,
-    output reg [15:0] oled_data
+    output reg [15:0] oled_data,
+    input is_dfx_mode    // Input indicating if DFX mode is latched (from controller)
     );
 
     // OLED dimensions
@@ -79,8 +80,44 @@ module polytable_keypad_display(
 
     reg [6:0] rel_x;
     reg [6:0] rel_y;
+    // temporary column indices for label rendering
+    reg [2:0] colf;
+    reg [2:0] colx;
+    reg [2:0] cold;
+    reg [2:0] colf2;
+    reg [2:0] colx2;
+
+    // Mode selection wires (computed from cursor position)
+    wire in_top_button = (y < HEIGHT/2);
+    // Hover-selected (cursor) definitions: top half = rows 0..1, bottom half = rows 2..3
+    wire selected_fx = (cursor_col == 3'd3 && cursor_row < 2);
+    wire selected_dfx = (cursor_col == 3'd3 && cursor_row >= 2);
+
+    // Display active flags combine latched mode and hover selection
+    wire top_active_display = (~is_dfx_mode) || selected_fx; // FX active if latched FX or hovered
+    wire bottom_active_display = (is_dfx_mode) || selected_dfx; // DFX active if latched DFX or hovered
 
     // Sprite renderer for characters
+    // We will use the sprite ROM directly for FX/DFX labels to avoid
+    // timing issues with the clocked char_renderer. Instantiate ROM outputs
+    // for the characters we need: 'F'(20), 'X'(38), 'D'(18).
+    wire [7:0] pixels_top_F;
+    wire [7:0] pixels_top_X;
+    wire [7:0] pixels_bot_D;
+    wire [7:0] pixels_bot_F;
+    wire [7:0] pixels_bot_X;
+
+    // row wires for each (driven when in range)
+    wire [3:0] row_top = (y >= 8 && y < 24) ? (y - 8) : 4'd0;
+    wire [3:0] row_bot = (y >= 40 && y < 56) ? (y - 40) : 4'd0;
+
+    sprite_library_optimized rom_topF(.character(6'd20), .row(row_top), .pixels(pixels_top_F));
+    sprite_library_optimized rom_topX(.character(6'd38), .row(row_top), .pixels(pixels_top_X));
+    sprite_library_optimized rom_botD(.character(6'd18), .row(row_bot), .pixels(pixels_bot_D));
+    sprite_library_optimized rom_botF(.character(6'd20), .row(row_bot), .pixels(pixels_bot_F));
+    sprite_library_optimized rom_botX(.character(6'd38), .row(row_bot), .pixels(pixels_bot_X));
+
+    // Clocked char renderer used for the main keypad symbols (0-9, ., -)
     char_renderer char_renderer_inst(
         .clk(clk),
         .pixel_index(pixel_index),
@@ -164,27 +201,58 @@ module polytable_keypad_display(
                 end
             end
         end
-        // Check if pixel is in the large rectangle area on the right
+        // Check if pixel is in the mode selection area on the right
         else if (x >= CHECKMARK_X) begin
             inside_checkmark = 1;
-
             rel_x = x - CHECKMARK_X;
+            
+            // Split into two buttons vertically (wires declared at module scope)
 
-            // Border
-            if (rel_x == 0 || rel_x == BUTTON_WIDTH - 1 || y == 0 || y == HEIGHT - 1) begin
+            // Border for both buttons
+            if (rel_x == 0 || rel_x == BUTTON_WIDTH - 1 || 
+                y == 0 || y == HEIGHT - 1 || y == HEIGHT/2) begin
                 oled_data = BLACK;
             end
             else begin
-                // Background color
-                oled_data = is_selected_checkmark ? BLACK : WHITE;
+                // Background colors based on latched mode or hover
+                if (in_top_button) begin
+                    oled_data = top_active_display ? BLACK : WHITE;
+                    // Draw "FX"
+                    if (y >= 8 && y < 24) begin
+                        // Draw 'F' at CHECKMARK_X+4
+                        if (x >= CHECKMARK_X+4 && x < CHECKMARK_X+12) begin
+                            // column within character
+                            colf = x - (CHECKMARK_X+4);
+                            if (pixels_top_F[7-colf]) oled_data = top_active_display ? WHITE : BLACK;
+                        end
 
-                if (y >= 24 && y < 40) begin
-                    current_char = 6'd42;
-                    char_x = CHECKMARK_X + 8;
-                    char_y = 24;
+                        // Draw 'X' at CHECKMARK_X+12
+                        if (x >= CHECKMARK_X+12 && x < CHECKMARK_X+20) begin
+                            colx = x - (CHECKMARK_X+12);
+                            if (pixels_top_X[7-colx]) oled_data = top_active_display ? WHITE : BLACK;
+                        end
+                    end
+                end else begin
+                    oled_data = bottom_active_display ? BLACK : WHITE;
+                    // Draw "DFX"
+                    if (y >= 40 && y < 56) begin
+                        // Draw 'D' at CHECKMARK_X+2
+                        if (x >= CHECKMARK_X+2 && x < CHECKMARK_X+10) begin
+                            cold = x - (CHECKMARK_X+2);
+                            if (pixels_bot_D[7-cold]) oled_data = bottom_active_display ? WHITE : BLACK;
+                        end
 
-                    if (char_active) begin
-                        oled_data = is_selected_checkmark ? WHITE : BLACK;
+                        // Draw 'F' at CHECKMARK_X+8
+                        if (x >= CHECKMARK_X+8 && x < CHECKMARK_X+16) begin
+                            colf2 = x - (CHECKMARK_X+8);
+                            if (pixels_bot_F[7-colf2]) oled_data = bottom_active_display ? WHITE : BLACK;
+                        end
+
+                        // Draw 'X' at CHECKMARK_X+14
+                        if (x >= CHECKMARK_X+14 && x < CHECKMARK_X+22) begin
+                            colx2 = x - (CHECKMARK_X+14);
+                            if (pixels_bot_X[7-colx2]) oled_data = bottom_active_display ? WHITE : BLACK;
+                        end
                     end
                 end
             end

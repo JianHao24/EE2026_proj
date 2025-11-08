@@ -50,7 +50,8 @@ module polytable_select(
     output reg [2:0] cursor_col = 0,
     output reg keypad_btn_pressed = 0,
     output reg [3:0] keypad_selected_value = 0,
-    output reg signed [31:0] starting_x = 0
+    output reg signed [31:0] starting_x = 0,
+    output reg is_dfx_mode = 0
     );
 
     // Previous button states for debouncing
@@ -86,6 +87,8 @@ module polytable_select(
     end
     reg mouse_left_prev;
     initial begin mouse_left_prev = 1'b0; end
+    // default to FX mode
+    initial begin is_dfx_mode = 1'b0; end
     
     // Flag to track if on the checkmark
     wire on_checkmark = (cursor_col == 3'd3 && is_table_input_mode);
@@ -194,10 +197,10 @@ module polytable_select(
                     debounce_C <= 200;
                     keypad_btn_pressed <= 1;
 
-                    // Transition out of input mode
+                    // If center pressed while on the checkmark area, latch the
+                    // derivative mode (top half -> FX, bottom half -> DFX).
                     if (on_checkmark) begin
-                        // is_table_input_mode <= 0;
-                        keypad_selected_value <= 4'd12;
+                        is_dfx_mode <= (cursor_row >= 2) ? 1'b1 : 1'b0;
                     end
                     else begin
                         // Determine selected value based on cursor position
@@ -321,12 +324,12 @@ module polytable_select(
           else begin //this is the checkmark side
                 cursor_col <= 3;
           end
-          if (debounced && !mouse_left_prev) begin
-            keypad_btn_pressed <= 1;
-            if (on_checkmark) begin
-                // is_table_input_mode <= 0;                   
-                keypad_selected_value <= 4'd12;
-            end
+                    if (debounced && !mouse_left_prev) begin
+                        keypad_btn_pressed <= 1;
+                        if (on_checkmark) begin
+                                // Latch derivative mode based on mouse click location
+                                is_dfx_mode <= (cursor_row >= 2) ? 1'b1 : 1'b0;
+                        end
             else begin
                 // Determine selected value based on cursor position
                     case ({cursor_row, cursor_col})
