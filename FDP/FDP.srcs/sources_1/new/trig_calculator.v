@@ -1,238 +1,185 @@
-
-
 `timescale 1ns / 1ps
+
 module trig_calculator #(
     parameter FIXED_FRAC_BITS = 16
 )(
     input wire clk,
     input wire rst,
-    input wire trig_valid,              // Start calculation
-    input wire [1:0] trig_sel,          // 00=sin, 01=cos, 10=tan, 11=log2
-    input wire signed [31:0] input_val, // 16.16 format angle/value input
-    output reg signed [31:0] result,    // 16.16 format result
-    output reg result_valid,            // Result ready
-    output reg overflow                 // Overflow flag
+    
+    // Trig function selection
+    input wire trig_valid,
+    input wire [1:0] trig_sel,  // 0=sin, 1=cos, 2=tan, 3=log2
+    input wire signed [31:0] input_val,  // Q16.16 input
+    
+    // Output
+    output reg signed [31:0] result,
+    output reg result_valid,
+    output reg overflow
 );
-    // States
-    localparam IDLE = 3'd0;
-    localparam COMPUTE = 3'd1;
-    localparam WAIT_CORDIC = 3'd2;
-    localparam COMPUTE_LOG2 = 3'd3;
-    localparam DONE = 3'd4;
+
+    // Trig function codes
+    localparam [1:0] TRIG_SIN = 2'b00;
+    localparam [1:0] TRIG_COS = 2'b01;
+    localparam [1:0] TRIG_TAN = 2'b10;
+    localparam [1:0] TRIG_LOG = 2'b11;
     
-    reg [2:0] state, next_state;  // Increased to 3 bits for more states
-    reg [1:0] trig_mode;
-    reg [4:0] wait_counter;  // Increased for log2 iterations
+    // State machine
+    localparam [1:0] ST_IDLE = 2'b00;
+    localparam [1:0] ST_COMPUTE = 2'b01;
+    localparam [1:0] ST_WAIT = 2'b10;
+    localparam [1:0] ST_DONE = 2'b11;
     
-    // Convert 16.16 to Q6.10 for CORDIC input
-    wire signed [15:0] angle_q610 = input_val[21:6];
+    reg [1:0] state;
+    reg [3:0] wait_counter;
     
-    // CORDIC instance (for sin/cos/tan)
-    wire signed [15:0] sin_out, cos_out;
+    // CORDIC signals
+    reg signed [15:0] cordic_angle;
+    wire signed [15:0] cordic_sin, cordic_cos;
     
+    // Instantiate CORDIC
     cordic_sin_cos #(
         .WIDTH(16),
-        .ITER(12)
+        .ITER(15)
     ) cordic_inst (
-        .angle(angle_q610),
-        .sin_out(sin_out),
-        .cos_out(cos_out)
+        .angle(cordic_angle),
+        .sin_out(cordic_sin),
+        .cos_out(cordic_cos)
     );
     
-    // Convert Q1.15 to 16.16
-    wire signed [31:0] sin_16_16 = {{16{sin_out[15]}}, sin_out} << 1;
-    wire signed [31:0] cos_16_16 = {{16{cos_out[15]}}, cos_out} << 1;
+    // Intermediate values for tan
+    reg signed [63:0] tan_temp;
     
-    // Tangent calculation
-    reg signed [31:0] tan_16_16;
-    wire is_cos_zero = (cos_out >= -100 && cos_out <= 100);
+    // Log2 intermediate values
+    reg signed [31:0] input_magnitude;
+    reg signed [31:0] temp_val;
+    reg [5:0] bit_pos;
+    reg signed [31:0] fractional_part;
+    reg signed [31:0] mantissa;
+    reg signed [6:0] signed_bit_pos;
+    integer i;
     
-    // ===== LOG2 CALCULATION LOGIC =====
-    // Log2 using bit-scanning and linear interpolation
-    reg signed [31:0] log2_result;
-    reg signed [31:0] log2_input;
-    reg [4:0] log2_iter;
-    reg [4:0] msb_pos;  // Most significant bit position
-    reg [31:0] normalized;  // Normalized value
-    reg [31:0] frac_part;   // Fractional part for interpolation
-    
-    // Constants for log2 calculation
-    // log2(1 + x) ? x - x²/2 + x³/3 for small x
-    // We'll use a simpler approximation: log2(1+x) ? x / ln(2) where ln(2) ? 0.693
-    // In 16.16 format: 1/ln(2) ? 1.4427 ? 0x00016A09
-    localparam [31:0] INV_LN2_16_16 = 32'h00016A09;  // 1.4427 in 16.16
-    
-    // State register
     always @(posedge clk) begin
         if (rst) begin
-            state <= IDLE;
+            state <= ST_IDLE;
+            result <= 32'sd0;
+            result_valid <= 1'b0;
+            overflow <= 1'b0;
+            wait_counter <= 4'd0;
+            cordic_angle <= 16'sd0;
         end else begin
-            state <= next_state;
-        end
-    end
-    
-    // Next state logic
-    always @(*) begin
-        next_state = state;
-        case (state)
-            IDLE: begin
-                if (trig_valid) begin
-                    if (trig_sel == 2'b11)  // log2
-                        next_state = COMPUTE_LOG2;
-                    else
-                        next_state = COMPUTE;
-                end
-            end
-            COMPUTE: begin
-                next_state = WAIT_CORDIC;
-            end
-            WAIT_CORDIC: begin
-                if (wait_counter >= 3)
-                    next_state = DONE;
-            end
-            COMPUTE_LOG2: begin
-                if (wait_counter >= 20)  // Give enough cycles for log2
-                    next_state = DONE;
-            end
-            DONE: begin
-                next_state = IDLE;
-            end
-            default: next_state = IDLE;
-        endcase
-    end
-    
-    // Helper function to find MSB position
-    function [4:0] find_msb;
-        input [31:0] value;
-        integer i;
-        begin
-            find_msb = 0;
-            for (i = 31; i >= 0; i = i - 1) begin
-                if (value[i] == 1'b1 && find_msb == 0) begin
-                    find_msb = i;
-                end
-            end
-        end
-    endfunction
-    
-    // Output logic
-    always @(posedge clk) begin
-        if (rst) begin
-            result <= 0;
-            result_valid <= 0;
-            overflow <= 0;
-            trig_mode <= 0;
-            tan_16_16 <= 0;
-            wait_counter <= 0;
-            log2_result <= 0;
-            log2_input <= 0;
-            log2_iter <= 0;
-            msb_pos <= 0;
-            normalized <= 0;
-            frac_part <= 0;
-        end else begin
+            result_valid <= 1'b0;
+            overflow <= 1'b0;
+            
             case (state)
-                IDLE: begin
-                    result_valid <= 0;
-                    overflow <= 0;
-                    wait_counter <= 0;
-                    
+                ST_IDLE: begin
                     if (trig_valid) begin
-                        trig_mode <= trig_sel;
-                        
-                        // Initialize log2 computation if needed
-                        if (trig_sel == 2'b11) begin
-                            // Check for invalid input (negative or zero)
-                            if (input_val <= 0) begin
-                                log2_result <= 32'h80000000;  // Return -32768 for invalid
-                                overflow <= 1;
-                            end else begin
-                                log2_input <= input_val;
-                                log2_iter <= 0;
-                                overflow <= 0;
-                            end
-                        end
+                        state <= ST_COMPUTE;
+                        wait_counter <= 4'd0;
                     end
                 end
                 
-                COMPUTE: begin
-                    // Start waiting for CORDIC to settle
-                    wait_counter <= 0;
+                ST_COMPUTE: begin
+                    case (trig_sel)
+                        TRIG_SIN: begin
+                            // Convert Q16.16 to Q6.10 for CORDIC
+                            cordic_angle <= input_val[31:6];
+                            state <= ST_WAIT;
+                        end
+                        
+                        TRIG_COS: begin
+                            cordic_angle <= input_val[31:6];
+                            state <= ST_WAIT;
+                        end
+                        
+                        TRIG_TAN: begin
+                            cordic_angle <= input_val[31:6];
+                            state <= ST_WAIT;
+                        end
+                        
+                        2'd3: begin // log2
+                            if (input_val <= 0) begin
+                                result <= 32'sh80000000; // Return minimum value for log(0) or log(negative)
+                                overflow <= 1;
+                                result_valid <= 1;
+                                state <= ST_IDLE;
+                            end
+                            else begin
+                                input_magnitude = (input_val[31]) ? -input_val : input_val;
+                                
+                                // Find the position of the most significant bit (integer part of log2)
+                                bit_pos = 0;
+                                temp_val = input_magnitude; // Use full Q16.16 value, not shifted
+                                
+                                // Find MSB position
+                                for (i = 31; i >= 0; i = i - 1) begin
+                                    if (temp_val[i] && bit_pos == 0) begin
+                                        bit_pos = i;
+                                    end
+                                end
+                                
+                                // Adjust bit position for Q16.16 format (bit 16 represents 2^0)
+                                signed_bit_pos = bit_pos - 16;
+                                
+                                // Calculate fractional part using linear interpolation
+                                if (bit_pos > 0) begin
+                                    // Get mantissa (normalized to [1, 2) range)
+                                    mantissa = (input_magnitude << (31 - bit_pos)) >> 15; // Now in Q16.16
+                                    
+                                    // Linear interpolation: frac ? (mantissa - 1.0)
+                                    fractional_part = mantissa - 32'h00010000; // Subtract 1.0 in Q16.16
+                                end
+                                else begin
+                                    fractional_part = 0;
+                                end
+                                
+                                // Combine integer and fractional parts
+                                result <= (signed_bit_pos << 16) + fractional_part;
+                                overflow <= 0;
+                                result_valid <= 1;
+                                state <= ST_IDLE;
+                            end
+                        end
+                    endcase
                 end
                 
-                WAIT_CORDIC: begin
+                ST_WAIT: begin
                     wait_counter <= wait_counter + 1;
                     
-                    // After CORDIC settles, calculate tangent if needed
-                    if (wait_counter >= 3) begin
-                        if (trig_mode == 2'b10) begin
-                            if (is_cos_zero) begin
-                                tan_16_16 <= 32'h7FFFFFFF;
-                                overflow <= 1;
+                    if (wait_counter >= 4'd5) begin
+                        state <= ST_DONE;
+                    end
+                end
+                
+                ST_DONE: begin
+                    case (trig_sel)
+                        TRIG_SIN: begin
+                            result <= {{16{cordic_sin[15]}}, cordic_sin};
+                        end
+                        
+                        TRIG_COS: begin
+                            result <= {{16{cordic_cos[15]}}, cordic_cos};
+                        end
+                        
+                        TRIG_TAN: begin
+                            if (cordic_cos == 16'sd0) begin
+                                result <= 32'sh7FFF0000;
+                                overflow <= 1'b1;
                             end else begin
-                                tan_16_16 <= ({{16{sin_out[15]}}, sin_out} << 16) / {{16{cos_out[15]}}, cos_out};
+                                tan_temp = ($signed(cordic_sin) << 31) / $signed(cordic_cos);
+                                
+                                if (tan_temp > 64'sh00007FFF0000 || tan_temp < -64'sh00008000000) begin
+                                    result <= (tan_temp[63]) ? 32'sh80000000 : 32'sh7FFF0000;
+                                    overflow <= 1'b1;
+                                end else begin
+                                    result <= tan_temp[31:0];
+                                    overflow <= 1'b0;
+                                end
                             end
                         end
-                    end
-                end
-                
-                COMPUTE_LOG2: begin
-                    if (wait_counter == 0) begin
-                        // Step 1: Find MSB position (integer part of log2)
-                        msb_pos <= find_msb(log2_input);
-                        wait_counter <= 1;
-                    end
-                    else if (wait_counter == 1) begin
-                        // Step 2: Normalize to range [1.0, 2.0)
-                        if (msb_pos >= 16) begin
-                            normalized <= log2_input >> (msb_pos - 16);
-                        end else begin
-                            normalized <= log2_input << (16 - msb_pos);
-                        end
-                        wait_counter <= 2;
-                    end
-                    else if (wait_counter == 2) begin
-                        // Step 3: Extract fractional part (normalized - 1.0)
-                        frac_part <= normalized - 32'h00010000;
-                        wait_counter <= 3;
-                    end
-                    else if (wait_counter == 3) begin
-                        // Step 4: Approximate log2(1 + frac_part) using linear approximation
-                        // log2(1+x) ? x * (1/ln(2)) in fixed point
-                        log2_result <= (frac_part * INV_LN2_16_16) >>> 16;
-                        wait_counter <= 4;
-                    end
-                    else if (wait_counter == 4) begin
-                        // Step 5: Add integer part (msb_pos - 16)
-                        if (msb_pos >= 16) begin
-                            log2_result <= log2_result + ((msb_pos - 16) << 16);
-                        end else begin
-                            log2_result <= log2_result - ((16 - msb_pos) << 16);
-                        end
-                        wait_counter <= 5;
-                    end
-                    else begin
-                        // Step 6: Just wait for state transition
-                        wait_counter <= wait_counter + 1;
-                    end
-                end
-                
-                DONE: begin
-                    // Select output based on mode
-                    case (trig_mode)
-                        2'b00: result <= sin_16_16;   // sin
-                        2'b01: result <= cos_16_16;   // cos
-                        2'b10: result <= tan_16_16;   // tan
-                        2'b11: result <= log2_result; // log2
-                        default: result <= 0;
-                    endcase 
+                    endcase
                     
-                    result_valid <= 1;
-                end
-                
-                default: begin
-                    result_valid <= 0;
-                    wait_counter <= 0;
+                    result_valid <= 1'b1;
+                    state <= ST_IDLE;
                 end
             endcase
         end
