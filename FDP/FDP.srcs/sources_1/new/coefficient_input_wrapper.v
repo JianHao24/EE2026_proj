@@ -40,6 +40,10 @@ module coefficient_input_wrapper(
     reg [2:0] coeff_state = 0;  // 0=A, 1=B, 2=C, 3=D, 4=Done
     reg signed [31:0] stored_a = 0, stored_b = 0, stored_c = 0, stored_d = 0;
     
+    // **NEW: Reset control for input system**
+    reg input_system_reset = 0;
+    reg prev_input_complete = 0;
+    
     // Keypad interaction signals
     wire [1:0] cursor_row;
     wire [2:0] cursor_col;
@@ -67,7 +71,7 @@ module coefficient_input_wrapper(
     // Cursor controller for keypad
     integral_cursor_controller cursor_ctrl(
         .clk(clk_1kHz),
-        .reset(1'b0),
+        .reset(reset),  // Use main reset
         .btnC(btnC), .btnU(btnU), .btnD(btnD), .btnL(btnL), .btnR(btnR),
         .is_integral_mode(1'b1),
         .is_integral_input_mode(coeff_state < 4),
@@ -77,18 +81,18 @@ module coefficient_input_wrapper(
         .keypad_selected_value(keypad_selected_value)
     );
     
-    // Input builder
-    
+    // Input builder with proper reset signal
     bcd_to_fp_input_system #(
         .DIGIT_CAPACITY(8),
         .FIXED_FRAC_BITS(16)
     ) input_builder (
         .clk(clk_1kHz),
+        .reset(input_system_reset || reset),  // **FIXED: Reset between coefficients**
         .keypad_btn_pressed(keypad_btn_pressed),
         .selected_keypad_value(keypad_selected_value),
         .is_active_mode(coeff_state < 4),
-        .enable_negative(1'b0),      // arithmetic disables negative input
-        .enable_backspace(1'b1),     // arithmetic supports backspace
+        .enable_negative(1'b0),
+        .enable_backspace(1'b1),
         .has_decimal(has_decimal),
         .has_negative(has_negative),
         .input_index(input_index),
@@ -126,14 +130,46 @@ module coefficient_input_wrapper(
     assign one_oled_data = keypad_oled_data;
     assign two_oled_data = input_oled_data;
     
-    // State machine to collect all 4 coefficients
+    // **FIXED: State machine with proper reset handling**
     always @(posedge clk_1kHz) begin
-        if (input_complete) begin
+        // Default: don't reset input system
+        input_system_reset <= 0;
+        
+        // Detect rising edge of input_complete
+        prev_input_complete <= input_complete;
+        
+        if (reset) begin
+            // Main reset: clear everything
+            coeff_state <= 0;
+            stored_a <= 0;
+            stored_b <= 0;
+            stored_c <= 0;
+            stored_d <= 0;
+            input_system_reset <= 1;
+        end
+        else if (input_complete && !prev_input_complete) begin
+            // Input just completed - store value and move to next coefficient
             case (coeff_state)
-                0: begin stored_a <= fp_value; coeff_state <= 1; end
-                1: begin stored_b <= fp_value; coeff_state <= 2; end
-                2: begin stored_c <= fp_value; coeff_state <= 3; end
-                3: begin stored_d <= fp_value; coeff_state <= 4; end
+                0: begin 
+                    stored_a <= fp_value; 
+                    coeff_state <= 1;
+                    input_system_reset <= 1;  // Reset for next input
+                end
+                1: begin 
+                    stored_b <= fp_value; 
+                    coeff_state <= 2;
+                    input_system_reset <= 1;
+                end
+                2: begin 
+                    stored_c <= fp_value; 
+                    coeff_state <= 3;
+                    input_system_reset <= 1;
+                end
+                3: begin 
+                    stored_d <= fp_value; 
+                    coeff_state <= 4;
+                    // Don't reset - we're done
+                end
             endcase
         end
     end
