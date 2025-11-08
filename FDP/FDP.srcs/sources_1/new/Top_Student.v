@@ -71,7 +71,8 @@ module Top_Student (
     // ========= FSM MODE SELECTION (3 MODES) =========
     reg [1:0] state;
     always @(*) begin
-        if (sw[2]) state = 2'd2;      // Coefficient input mode
+        if (sw[3]) state = 2'd3; // sin-cos graphing mode
+        else if (sw[2]) state = 2'd2;      // Coefficient input mode
         else if (sw[1]) state = 2'd1; // Table mode
         else if (sw[0]) state = 2'd0; // Arithmetic mode
         else state = 2'd0;            // Default arithmetic
@@ -80,7 +81,9 @@ module Top_Student (
     wire is_arithmetic_selected = (state == 2'd0);
     wire is_table_selected      = (state == 2'd1);
     wire is_coeff_input_selected = (state == 2'd2);
+    wire is_sin_cos_graphing_selected = (state == 2'd3);
 
+    
     // ========= ARITHMETIC MODULE =========
     wire [15:0] arithmetic_one_oled_data, arithmetic_two_oled_data;
     arithmetic_module my_calculator(
