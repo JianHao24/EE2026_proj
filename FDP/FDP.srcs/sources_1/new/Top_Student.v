@@ -95,12 +95,6 @@ module Top_Student (
         .btnR(is_arithmetic_selected ? btnR : 1'b0),
         .reset(~is_arithmetic_selected),
         .is_arithmetic_mode(is_arithmetic_selected),
-        // Mouse input disabled
-        .xpos(12'd0),
-        .ypos(12'd0),
-        .use_mouse(1'b0),
-        .mouse_left(1'b0),
-        .mouse_middle(1'b0),
         // OLED connections
         .one_pixel_index(JB_pixel_index),
         .two_pixel_index(JA_pixel_index),
@@ -147,11 +141,6 @@ module Top_Student (
         .btnL(is_table_selected ? btnL : 1'b0),
         .btnR(is_table_selected ? btnR : 1'b0),
         // Mouse input disabled
-        .xpos(12'd0),
-        .ypos(12'd0),
-        .use_mouse(1'b0),
-        .mouse_left(1'b0),
-        .mouse_middle(1'b0),
         // Table control - use coefficients from input wrapper
         .is_table_mode(is_table_selected && coeffs_ready),
         .coeff_a(input_coeff_a),
