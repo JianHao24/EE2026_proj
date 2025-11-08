@@ -96,7 +96,7 @@ module coefficient_input_wrapper(
         .keypad_btn_pressed(keypad_btn_pressed),
         .selected_keypad_value(keypad_selected_value),
         .is_active_mode(coeff_state < 4),
-        .enable_negative(1'b0),
+        .enable_negative(1'b1),
         .enable_backspace(1'b1),
         .has_decimal(has_decimal),
         .has_negative(has_negative),
