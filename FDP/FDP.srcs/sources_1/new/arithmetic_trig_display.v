@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -20,6 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+`timescale 1ns / 1ps
+
 module arithmetic_trig_display(
     input clk,
     input [12:0]pixel_index,
@@ -28,24 +30,22 @@ module arithmetic_trig_display(
     output reg [15:0]oled_data
 );
 
-    // OLED dimensions (mirrors operand display layout)
+    // OLED dimensions
     parameter width = 96;
     parameter height = 64;
 
     // Extract pixel coordinates
     wire [6:0] x = pixel_index % width;
-    wire [6:0] y = pixel_index / width;
+    wire [5:0] y = pixel_index / width;
 
-    // Button layout: 2x2 grid
-    // Row 0: SIN  COS
-    // Row 1: TAN  (empty)
+    // Original button layout: 2x2 grid (restored size)
     parameter button_width = 48;
     parameter button_height = 32;
 
-    // Colors
+    // Colors - Blue theme
     parameter white = 16'hFFFF;
     parameter black = 16'h0000;
-    parameter green = 16'h07E0;
+    parameter blue_bg = 16'h001F;     // Blue background
 
     // Determine current button position
     wire [1:0] btn_row = y / button_height;
@@ -61,7 +61,7 @@ module arithmetic_trig_display(
     // Selection logic
     wire selected = in_button_area && (btn_row == cursor_row) && (btn_col == cursor_col);
     
-    // Character rendering for multi-character strings
+    // String rendering for multi-character labels
     wire [15:0] str_pixel_data;
     wire str_pixel_active;
     reg [17:0] display_string;  // 3 chars x 6 bits
@@ -74,7 +74,7 @@ module arithmetic_trig_display(
         .start_x(str_start_x),
         .start_y(str_start_y),
         .pixel_index(pixel_index),
-        .colour(selected ? white : black),
+        .colour(selected ? black : white),  // Black text on white bg when selected
         .oled_data(str_pixel_data),
         .active_pixel(str_pixel_active)
     );
@@ -86,18 +86,16 @@ module arithmetic_trig_display(
         
         if (in_button_area) begin
             // Calculate centered position for text (3 characters = 24 pixels wide)
-            // Each char is 8 pixels wide, so 3 chars = 24 pixels
-            // Center in 48-pixel button: (48-24)/2 = 12 pixel offset
             str_start_x = (btn_col * button_width) + (button_width / 2) - 12;
             str_start_y = (btn_row * button_height) + (button_height / 2) - 6;
             
             // Map button to trig function label
-            // Character encoding: A=10, C=12, I=18, N=23, O=24, S=28, T=29
+            // Character encoding: C=12, I=18, N=23, O=24, S=28, T=29
             case({btn_row, btn_col})
                 4'b00_00: display_string = {6'd34, 6'd23, 6'd28};  // "SIN"
                 4'b00_01: display_string = {6'd17, 6'd29, 6'd34};  // "COS"
                 4'b01_00: display_string = {6'd35, 6'd15, 6'd28};  // "TAN"
-                4'b01_01: display_string = {6'd63, 6'd63, 6'd63};  // Empty (all spaces)
+                4'b01_01: display_string = {6'd63, 6'd63, 6'd63};  // Empty (spaces)
                 default: display_string = {6'd63, 6'd63, 6'd63};
             endcase
             
@@ -106,16 +104,16 @@ module arithmetic_trig_display(
                 local_y == 0 || local_y == button_height - 1) begin
                 oled_data = black;
             end else begin
-                // Green background for trig functions
-                oled_data = selected ? green : white;
+                // White background if selected, blue otherwise
+                oled_data = selected ? white : blue_bg;
                 
                 // Overlay string if active
                 if (str_pixel_active) begin
-                    oled_data = str_pixel_data;
+                    oled_data = str_pixel_data;  // Black text when selected, white when not
                 end
             end
         end else begin
-            oled_data = white;
+            oled_data = blue_bg;  // Blue background outside buttons
         end
     end
 endmodule

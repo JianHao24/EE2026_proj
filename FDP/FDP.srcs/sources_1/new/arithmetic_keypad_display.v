@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -21,6 +21,8 @@
 
 
 
+`timescale 1ns / 1ps
+
 module arithmetic_keypad_display(
     input clk,
     input [12:0]pixel_index,
@@ -38,34 +40,41 @@ module arithmetic_keypad_display(
     wire [6:0] x = pixel_index % width;
     wire [6:0] y = pixel_index / width;
 
-    // Keypad layout constants
-    parameter button_width = 24;
-    parameter button_height = 16;
-    parameter keypad_end_x = 72;  // 3 columns of keypad
+    // Optimized keypad layout constants with spacing
+    parameter button_width = 22;   // Increased button width
+    parameter button_height = 14;  // Increased button height
+    parameter h_spacing = 2;       // Horizontal spacing between buttons
+    parameter v_spacing = 2;       // Vertical spacing between buttons
+    parameter keypad_start_x = 2;  // Left margin
+    parameter keypad_start_y = 1;  // Top margin (reduced to balance with bottom)
+    parameter keypad_end_x = 74;   // End of keypad area
     
     // Right column split into upper and lower half
-    parameter right_col_x = 72;
-    parameter upper_button_end_y = 32;  // Upper half: rows 0-1
-    parameter lower_button_start_y = 32; // Lower half: rows 2-3
+    parameter right_col_x = 74;
+    parameter right_col_width = 20; // Adjusted width
+    parameter upper_button_end_y = 32;
+    parameter lower_button_start_y = 32;
 
-    // Colors
+    // Colors - Blue theme
     parameter white = 16'hFFFF;
     parameter black = 16'h0000;
+    parameter blue_bg = 16'h001F;     // Blue background
+    parameter spacing_color = 16'hFFFF; // White color for spacing between buttons
     parameter red = 16'hF800;
-    parameter blue = 16'h001F;
-    parameter green = 16'h07E0;
+    parameter blue_selected = 16'h05BF;  // Lighter blue for selection
+    parameter green_selected = 16'h07E0;
+    parameter yellow = 16'hFFE0;      // Yellow for highlighted selection
 
     // Determine current area
-    wire in_keypad = (x < keypad_end_x);
+    wire in_keypad = (x >= keypad_start_x && x < keypad_end_x && y >= keypad_start_y);
     wire in_right_upper = (x >= right_col_x) && (y < upper_button_end_y);
     wire in_right_lower = (x >= right_col_x) && (y >= lower_button_start_y);
     
-    // Keypad button position (4 rows, 3 cols)
-    wire [1:0] btn_row = y / button_height;
-    wire [1:0] btn_col = x / button_width;
-    
-    // Right column position
-    wire [1:0] right_section = y / (height / 2);  // 0 = upper, 1 = lower
+    // Keypad button position with spacing (4 rows, 3 cols)
+    wire [6:0] adjusted_x = x - keypad_start_x;
+    wire [6:0] adjusted_y = y - keypad_start_y;
+    wire [1:0] btn_row = adjusted_y / (button_height + v_spacing);
+    wire [1:0] btn_col = adjusted_x / (button_width + h_spacing);
     
     // Calculate local position within button
     reg [6:0] local_x;
@@ -94,7 +103,7 @@ module arithmetic_keypad_display(
         .char(display_char),
         .start_x(char_start_x),
         .start_y(char_start_y),
-        .colour(selected_keypad || selected_right ? white : black),
+        .colour(selected_keypad || selected_right ? black : white),  // Black text on white bg when selected
         .oled_data(char_pixel_data),
         .active_pixel(char_pixel_active)
     );
@@ -106,7 +115,7 @@ module arithmetic_keypad_display(
         display_char = 6'd32; // space
         char_start_x = 0;
         char_start_y = 0;
-        oled_data = white;
+        oled_data = white;  // White background by default (for spacing and margins)
         
         if (in_keypad) begin
             // ===== KEYPAD AREA (LEFT 3 COLUMNS) =====
@@ -126,69 +135,79 @@ module arithmetic_keypad_display(
                 default: display_char = 6'd32;
             endcase
             
-            local_x = x % button_width;
-            local_y = y % button_height;
+            local_x = adjusted_x % (button_width + h_spacing);
+            local_y = adjusted_y % (button_height + v_spacing);
             
-            // Draw border
-            if (local_x == 0 || local_x == button_width - 1 || 
-                local_y == 0 || local_y == button_height - 1) begin
-                oled_data = black;
+            // Check if we're in the spacing area or button area
+            if (local_x >= button_width || local_y >= button_height) begin
+                // In spacing area - show white
+                oled_data = spacing_color;
             end else begin
-                oled_data = selected_keypad ? (disabled_decimal ? red : black) : white;
-                
-                // Center character
-                char_start_x = (btn_col * button_width) + (button_width/2) - 4;
-                char_start_y = (btn_row * button_height) + (button_height/2) - 6;
-                
-                if (char_pixel_active) begin
-                    oled_data = char_pixel_data;
+                // Draw border
+                if (local_x == 0 || local_x == button_width - 1 || 
+                    local_y == 0 || local_y == button_height - 1) begin
+                    oled_data = black;  // Black border
+                end else begin
+                    // Button background - white if selected, blue otherwise
+                    if (selected_keypad) begin
+                        oled_data = disabled_decimal ? red : white;
+                    end else begin
+                        oled_data = blue_bg;
+                    end
+                    
+                    // Center character
+                    char_start_x = keypad_start_x + (btn_col * (button_width + h_spacing)) + (button_width/2) - 4;
+                    char_start_y = keypad_start_y + (btn_row * (button_height + v_spacing)) + (button_height/2) - 6;
+                    
+                    if (char_pixel_active) begin
+                        oled_data = char_pixel_data;  // Black text when selected, white when not
+                    end
                 end
             end
             
         end else if (in_right_upper) begin
             // ===== RIGHT UPPER BUTTON (Operations Toggle) =====
-            display_char = 6'd42; // = (equals sign for "confirm and select operation")
+            display_char = 6'd42; // = (equals sign)
             
             local_x = x - right_col_x;
             local_y = y;
             
             // Draw border
-            if (local_x == 0 || local_x == button_width - 1 || 
+            if (local_x == 0 || local_x == right_col_width - 1 || 
                 local_y == 0 || local_y == upper_button_end_y - 1) begin
                 oled_data = black;
             end else begin
-                oled_data = (selected_right && cursor_row < 2) ? blue : white;
+                oled_data = (selected_right && cursor_row < 2) ? white : blue_bg;
                 
                 // Center character
-                char_start_x = right_col_x + (button_width/2) - 4;
+                char_start_x = right_col_x + (right_col_width/2) - 4;
                 char_start_y = (upper_button_end_y/2) - 6;
                 
                 if (char_pixel_active) begin
-                    oled_data = char_pixel_data;
+                    oled_data = char_pixel_data;  // Black text when selected, white when not
                 end
             end
             
         end else if (in_right_lower) begin
             // ===== RIGHT LOWER BUTTON (Trig Toggle) =====
-            // CHANGED: Now displays "T" instead of "f"
             display_char = 6'd35; // T (for Trig)
             
             local_x = x - right_col_x;
             local_y = y - lower_button_start_y;
             
             // Draw border
-            if (local_x == 0 || local_x == button_width - 1 || 
+            if (local_x == 0 || local_x == right_col_width - 1 || 
                 local_y == 0 || local_y == (height - lower_button_start_y - 1)) begin
                 oled_data = black;
             end else begin
-                oled_data = (selected_right && cursor_row >= 2) ? green : white;
+                oled_data = (selected_right && cursor_row >= 2) ? white : blue_bg;
                 
                 // Center character
-                char_start_x = right_col_x + (button_width/2) - 4;
+                char_start_x = right_col_x + (right_col_width/2) - 4;
                 char_start_y = lower_button_start_y + ((height - lower_button_start_y)/2) - 6;
                 
                 if (char_pixel_active) begin
-                    oled_data = char_pixel_data;
+                    oled_data = char_pixel_data;  // Black text when selected, white when not
                 end
             end
         end
