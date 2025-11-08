@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Sat Nov  8 22:58:12 2025">
+<application name="pa" timeStamp="Sat Nov  8 23:06:50 2025">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="dc02afab6b6d49a982131c5769d7cb20" type="ProjectID"/>
 <property name="ProjectIteration" value="39" type="ProjectIteration"/>
@@ -20,7 +20,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="AddSources" value="7" type="JavaHandler"/>
 <property name="ArchiveProject" value="1" type="JavaHandler"/>
 <property name="AutoConnectTarget" value="7" type="JavaHandler"/>
-<property name="EditDelete" value="1" type="JavaHandler"/>
+<property name="EditDelete" value="2" type="JavaHandler"/>
 <property name="LaunchProgramFpga" value="41" type="JavaHandler"/>
 <property name="OpenHardwareManager" value="52" type="JavaHandler"/>
 <property name="OpenRecentTarget" value="8" type="JavaHandler"/>
@@ -35,12 +35,12 @@ This means code written to parse this file will need to be revisited each subseq
 <item name="Gui Handlers">
 <property name="BaseDialog_CANCEL" value="8" type="GuiHandlerData"/>
 <property name="BaseDialog_NO" value="1" type="GuiHandlerData"/>
-<property name="BaseDialog_OK" value="87" type="GuiHandlerData"/>
+<property name="BaseDialog_OK" value="88" type="GuiHandlerData"/>
 <property name="BaseDialog_YES" value="27" type="GuiHandlerData"/>
-<property name="CmdMsgDialog_OK" value="6" type="GuiHandlerData"/>
+<property name="CmdMsgDialog_OK" value="7" type="GuiHandlerData"/>
 <property name="CmdMsgDialog_OPEN_MESSAGES_VIEW" value="1" type="GuiHandlerData"/>
 <property name="CreateSrcFileDialog_FILE_NAME" value="9" type="GuiHandlerData"/>
-<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="998" type="GuiHandlerData"/>
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="1012" type="GuiHandlerData"/>
 <property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="102" type="GuiHandlerData"/>
 <property name="HCodeEditor_SEARCH_TEXT_COMBO_BOX" value="28" type="GuiHandlerData"/>
 <property name="MainMenuMgr_CHECKPOINT" value="1" type="GuiHandlerData"/>
@@ -66,7 +66,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ProgramFpgaDialog_PROGRAM" value="41" type="GuiHandlerData"/>
 <property name="ProgressDialog_CANCEL" value="7" type="GuiHandlerData"/>
 <property name="RDICommands_COPY" value="2" type="GuiHandlerData"/>
-<property name="RDICommands_DELETE" value="1" type="GuiHandlerData"/>
+<property name="RDICommands_DELETE" value="2" type="GuiHandlerData"/>
 <property name="RDICommands_LINE_COMMENT" value="3" type="GuiHandlerData"/>
 <property name="RDICommands_REDO" value="2" type="GuiHandlerData"/>
 <property name="RDICommands_UNDO" value="2" type="GuiHandlerData"/>
@@ -80,9 +80,9 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="SyntheticaStateMonitor_CANCEL" value="3" type="GuiHandlerData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="103" type="GuiMode"/>
+<property name="GuiMode" value="104" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="86" type="TclMode"/>
+<property name="TclMode" value="87" type="TclMode"/>
 </item>
 </section>
 </application>

@@ -133,7 +133,7 @@ module Top_Student (
     wire [15:0] table_one_oled_data, table_two_oled_data;
     wire is_table_input_mode_outgoing;
 
-    polynomial_table_module table_module(
+    polytable_mode table_module(
         .clk_6p25MHz(clk_6p25MHz),
         .clk_1kHz(clk_1kHz),
         .clk_100MHz(basys_clock),

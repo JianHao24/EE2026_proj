@@ -22,7 +22,7 @@
 This module wraps around the polynomial table functionality, requiring only the
 coefficients and is_table_mode to properly function/interface with the rest of the program.
 */
-module polynomial_table_module(
+module polytable_mode(
     // Clocks for display and keypad controller
     input clk_6p25MHz,
     input clk_1kHz,
