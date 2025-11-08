@@ -108,7 +108,7 @@ module coefficient_input_wrapper(
     );
     
     // Keypad display
-    polytable_keypad keypad_display(
+    polytable_keypad_display keypad_display(
         .clk(clk_6p25MHz),
         .pixel_index(one_pixel_index),
         .cursor_row(cursor_row),
