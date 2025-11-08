@@ -23,7 +23,7 @@
 
 `timescale 1ns / 1ps
 
-module arithmetic_module(
+module arithmetic_mode(
     // Clock inputs
     input clk_6p25MHz,
     input clk_1kHz,
@@ -234,8 +234,7 @@ module arithmetic_module(
         end
     end
 
-    // ===== CURSOR CONTROLLER =====
-    arithmetic_cursor cursor_ctrl(
+    calculator_select calc_ctrl(
         .clk(clk_1kHz),
         .reset(reset || !is_arithmetic_mode),
         .btnC(is_arithmetic_mode ? btnC : 1'b0),
@@ -259,7 +258,6 @@ module arithmetic_module(
         .trig_selected_value(trig_selected_value)
     );
 
-    // ===== INPUT SYSTEM =====
     bcd_to_fp_input_system #(
         .DIGIT_CAPACITY(8),
         .FIXED_FRAC_BITS(16)
@@ -280,7 +278,6 @@ module arithmetic_module(
         .decimal_pos(decimal_pos)
     );
 
-    // ===== CALCULATOR ENGINE =====
     wire calc_input_valid = (force_operand_mode && pending_input) || (waiting_operand && input_complete);
     wire signed [31:0] calc_input = pending_input ? latched_input : fp_value;
     
@@ -299,7 +296,6 @@ module arithmetic_module(
         .current_operation(current_operation)
     );
     
-    // ===== TRIG CALCULATOR =====
     wire signed [31:0] trig_input = pending_input ? latched_input : fp_value;
     
     trig_calculator #(
@@ -315,8 +311,7 @@ module arithmetic_module(
         .overflow(trig_overflow)
     );
 
-    // ===== DISPLAY CONTROLLER (First OLED) =====
-    arithmetic_display_selector display_selector(
+    calc_display_selector display_selector(
         .clk(clk_6p25MHz),
         .pixel_index(one_pixel_index),
         .cursor_row_keypad(cursor_row_keypad),
@@ -331,8 +326,7 @@ module arithmetic_module(
         .oled_data(one_oled_data)
     );
 
-    // ===== TEXT DISPLAY (Second OLED) =====
-    arithmetic_text_selector text_selector(
+    calculator_text text_selector(
         .clk(clk_6p25MHz),
         .pixel_index(two_pixel_index),
         .computed_result(result),

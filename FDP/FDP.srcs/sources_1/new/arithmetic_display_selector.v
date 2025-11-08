@@ -21,7 +21,7 @@
 
 `timescale 1ns / 1ps
 
-module arithmetic_display_selector(
+module calc_display_selector(
     input clk,
     input [12:0]pixel_index,
     input [1:0]cursor_row_keypad,
@@ -42,7 +42,7 @@ module arithmetic_display_selector(
     wire [15:0]trig_display_data;
     
     // Instantiate keypad display (with split right side)
-    arithmetic_keypad_display keypad_inst(
+    calculator_keypad keypad_inst(
         .clk(clk),
         .pixel_index(pixel_index),
         .cursor_row(cursor_row_keypad),
@@ -52,7 +52,7 @@ module arithmetic_display_selector(
     );
     
     // Instantiate operand display (existing - unchanged)
-    arithmetic_operand_display operand_inst(
+  operator_keypad operand_inst(
         .clk(clk),
         .pixel_index(pixel_index),
         .cursor_row(cursor_row_operand),
@@ -61,7 +61,7 @@ module arithmetic_display_selector(
     );
     
     // Instantiate trig display (new - mirrors operand)
-    arithmetic_trig_display trig_inst(
+    trig_keypad trig_inst(
         .clk(clk),
         .pixel_index(pixel_index),
         .cursor_row(cursor_row_trig),

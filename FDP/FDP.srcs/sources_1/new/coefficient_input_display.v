@@ -105,7 +105,7 @@ module coefficient_input_display(
     wire [15:0] string_data, label_data;
     wire string_active, label_active;
 
-    string_renderer_optimized renderer (
+    string_renderer renderer (
         .clk(clk),
         .word(display_string),
         .start_x(TEXT_START_X),
@@ -116,7 +116,7 @@ module coefficient_input_display(
         .active_pixel(string_active)
     );
 
-    string_renderer_optimized label_renderer (
+    string_renderer label_renderer (
         .clk(clk),
         .word(current_label),
         .start_x(TEXT_START_X),

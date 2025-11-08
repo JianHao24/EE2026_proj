@@ -22,7 +22,7 @@
 
 `timescale 1ns / 1ps
 
-module arithmetic_trig_display(
+module trig_keypad(
     input clk,
     input [12:0]pixel_index,
     input [1:0]cursor_row,
@@ -68,7 +68,7 @@ module arithmetic_trig_display(
     reg [6:0] str_start_x;
     reg [5:0] str_start_y;
     
-    string_renderer_optimized string_renderer_inst(
+    string_renderer string_renderer_inst(
         .clk(clk),
         .word({display_string, 30'h3FFFFFFF}),  // Pad to 48 bits with spaces
         .start_x(str_start_x),

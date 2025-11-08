@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module polynomial_table_keypad_display(
+module polytable_keypad_display(
     input clk,
     input [12:0] pixel_index,
     input [1:0] cursor_row,

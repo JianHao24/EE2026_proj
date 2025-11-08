@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module flexible_clock_divider(
+module clock_divider(
     input main_clock,
     input[31:0] ticks,
     output reg output_clock

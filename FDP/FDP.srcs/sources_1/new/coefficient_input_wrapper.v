@@ -20,6 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+
+
 module coefficient_input_wrapper(
     input clk_6p25MHz,
     input clk_1kHz,
@@ -39,12 +41,11 @@ module coefficient_input_wrapper(
     // State machine for coefficient entry
     reg [2:0] coeff_state = 0;  // 0=A, 1=B, 2=C, 3=D, 4=Done
     
-    // **FIXED: Store coefficients in persistent registers**
-    // These should NOT be cleared when switching modes
+    // Store coefficients in persistent registers
     reg signed [31:0] stored_a = 0, stored_b = 0, stored_c = 0, stored_d = 0;
-    reg stored_coeffs_ready = 0;  // Once set, stays HIGH
+    reg stored_coeffs_ready = 0;
     
-    // Reset control for input system
+    // Input system control
     reg input_system_reset = 0;
     reg prev_input_complete = 0;
     
@@ -66,7 +67,7 @@ module coefficient_input_wrapper(
     wire [15:0] keypad_oled_data;
     wire [15:0] input_oled_data;
     
-    // **FIXED: Output the stored coefficients (persistent across mode switches)**
+    // Output the stored coefficients (persistent across mode switches)
     assign coefficients_ready = stored_coeffs_ready;
     assign coeff_a = stored_a;
     assign coeff_b = stored_b;
@@ -74,7 +75,7 @@ module coefficient_input_wrapper(
     assign coeff_d = stored_d;
     
     // Cursor controller for keypad
-    integral_cursor_controller cursor_ctrl(
+    coeff_controller coeff_ctrl(
         .clk(clk_1kHz),
         .reset(reset),
         .btnC(btnC), .btnU(btnU), .btnD(btnD), .btnL(btnL), .btnR(btnR),
@@ -108,7 +109,7 @@ module coefficient_input_wrapper(
     );
     
     // Keypad display
-    polynomial_table_keypad_display keypad_display(
+    polytable_keypad_display keypad_display(
         .clk(clk_6p25MHz),
         .pixel_index(one_pixel_index),
         .cursor_row(cursor_row),
@@ -135,22 +136,16 @@ module coefficient_input_wrapper(
     assign one_oled_data = keypad_oled_data;
     assign two_oled_data = input_oled_data;
     
-    // **FIXED: State machine - only reset input system, NOT stored coefficients**
+    // State machine - only reset input system, NOT stored coefficients
     always @(posedge clk_1kHz) begin
-        // Default: don't reset input system
         input_system_reset <= 0;
-        
-        // Detect rising edge of input_complete
         prev_input_complete <= input_complete;
         
         if (reset) begin
-            // **ONLY reset the input state machine, NOT the stored coefficients**
-            coeff_state <= stored_coeffs_ready ? 4 : 0;  // If already done, stay done
+            coeff_state <= stored_coeffs_ready ? 4 : 0;
             input_system_reset <= 1;
-            // stored_a, stored_b, stored_c, stored_d are NOT cleared here!
         end
         else if (input_complete && !prev_input_complete) begin
-            // Input just completed - store value and move to next coefficient
             case (coeff_state)
                 0: begin 
                     stored_a <= fp_value; 
@@ -170,7 +165,7 @@ module coefficient_input_wrapper(
                 3: begin 
                     stored_d <= fp_value; 
                     coeff_state <= 4;
-                    stored_coeffs_ready <= 1;  // Mark as complete (permanent)
+                    stored_coeffs_ready <= 1;
                 end
             endcase
         end

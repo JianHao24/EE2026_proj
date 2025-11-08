@@ -21,7 +21,7 @@
 /*
 This module is concerned with choosing the output OLED for the first screen, where the user will either see the keypad or the polynomial table
 */
-module polynomial_table_table_keypad_renderer(
+module polytable_keypad_render(
     input is_table_mode,
     input is_table_input_mode,
     input [15:0] keypad_oled_data,

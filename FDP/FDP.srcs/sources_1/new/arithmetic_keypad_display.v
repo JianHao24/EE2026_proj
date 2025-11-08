@@ -22,7 +22,7 @@
 
 `timescale 1ns / 1ps
 
-module arithmetic_keypad_display(
+module calculator_keypad(
     input clk,
     input [12:0]pixel_index,
     input [1:0]cursor_row,

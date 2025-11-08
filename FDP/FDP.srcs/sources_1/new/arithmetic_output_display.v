@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module arithmetic_output_display(
+module calculator_output(
     input clk,
     input [12:0] pixel_index,
     input signed [31:0] computed_result,
@@ -69,7 +69,7 @@ module arithmetic_output_display(
     );
     
     // String renderer instance
-    string_renderer_optimized renderer_inst(
+    string_renderer renderer_inst(
         .clk(clk),
         .word(formatted_string),
         .start_x(text_x_offset),

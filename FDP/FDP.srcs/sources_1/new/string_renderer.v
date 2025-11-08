@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module string_renderer_optimized(
+module string_renderer(
     input clk,
     input [47:0] word,
     input [6:0] start_x,
