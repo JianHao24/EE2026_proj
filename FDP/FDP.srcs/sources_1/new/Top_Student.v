@@ -68,27 +68,29 @@ module Top_Student (
         .pmoden(JA[7])
     );
 
-    // ========= FSM MODE SELECTION (2 MODES) =========
+    // ========= FSM MODE SELECTION (3 MODES) =========
     reg [1:0] state;
     always @(*) begin
-        if (sw[1]) state = 2'd1;   // Table mode
+        if (sw[2]) state = 2'd2;      // Coefficient input mode
+        else if (sw[1]) state = 2'd1; // Table mode
         else if (sw[0]) state = 2'd0; // Arithmetic mode
-        else state = 2'd0; // Default arithmetic
+        else state = 2'd0;            // Default arithmetic
     end
 
     wire is_arithmetic_selected = (state == 2'd0);
     wire is_table_selected      = (state == 2'd1);
+    wire is_coeff_input_selected = (state == 2'd2);
 
     // ========= ARITHMETIC MODULE =========
     wire [15:0] arithmetic_one_oled_data, arithmetic_two_oled_data;
     arithmetic_module my_calculator(
         .clk_6p25MHz(clk_6p25MHz),
         .clk_1kHz(clk_1kHz),
-        .btnC(btnC),
-        .btnU(btnU),
-        .btnD(btnD),
-        .btnL(btnL),
-        .btnR(btnR),
+        .btnC(is_arithmetic_selected ? btnC : 1'b0),
+        .btnU(is_arithmetic_selected ? btnU : 1'b0),
+        .btnD(is_arithmetic_selected ? btnD : 1'b0),
+        .btnL(is_arithmetic_selected ? btnL : 1'b0),
+        .btnR(is_arithmetic_selected ? btnR : 1'b0),
         .reset(~is_arithmetic_selected),
         .is_arithmetic_mode(is_arithmetic_selected),
         // Mouse input disabled
@@ -103,36 +105,59 @@ module Top_Student (
         .one_oled_data(arithmetic_one_oled_data),
         .two_oled_data(arithmetic_two_oled_data),
         // LED indicators
-        .overflow_flag(led[0]),
-        .div_by_zero_flag(led[1])
+        .overflow_flag(led[0])
+    );
+
+    // ========= COEFFICIENT INPUT WRAPPER =========
+    wire signed [31:0] input_coeff_a, input_coeff_b, input_coeff_c, input_coeff_d;
+    wire coeffs_ready;
+    wire [15:0] coeff_input_one_oled_data, coeff_input_two_oled_data;
+
+    coefficient_input_wrapper coeff_input(
+        .clk_6p25MHz(clk_6p25MHz),
+        .clk_1kHz(clk_1kHz),
+        .btnC(is_coeff_input_selected ? btnC : 1'b0),
+        .btnU(is_coeff_input_selected ? btnU : 1'b0),
+        .btnD(is_coeff_input_selected ? btnD : 1'b0),
+        .btnL(is_coeff_input_selected ? btnL : 1'b0),
+        .btnR(is_coeff_input_selected ? btnR : 1'b0),
+        .reset(~is_coeff_input_selected),
+        .one_pixel_index(JB_pixel_index),
+        .two_pixel_index(JA_pixel_index),
+        .one_oled_data(coeff_input_one_oled_data),
+        .two_oled_data(coeff_input_two_oled_data),
+        .coeff_a(input_coeff_a),
+        .coeff_b(input_coeff_b),
+        .coeff_c(input_coeff_c),
+        .coeff_d(input_coeff_d),
+        .coefficients_ready(coeffs_ready)
     );
 
     // ========= TABLE MODULE =========
     wire [15:0] table_one_oled_data, table_two_oled_data;
     wire is_table_input_mode_outgoing;
-    wire signed [31:0] coeff_a, coeff_b, coeff_c, coeff_d;
 
     polynomial_table_module table_module(
         .clk_6p25MHz(clk_6p25MHz),
         .clk_1kHz(clk_1kHz),
         .clk_100MHz(basys_clock),
-        .btnC(btnC),
-        .btnU(btnU),
-        .btnD(btnD),
-        .btnL(btnL),
-        .btnR(btnR),
+        .btnC(is_table_selected ? btnC : 1'b0),
+        .btnU(is_table_selected ? btnU : 1'b0),
+        .btnD(is_table_selected ? btnD : 1'b0),
+        .btnL(is_table_selected ? btnL : 1'b0),
+        .btnR(is_table_selected ? btnR : 1'b0),
         // Mouse input disabled
         .xpos(12'd0),
         .ypos(12'd0),
         .use_mouse(1'b0),
         .mouse_left(1'b0),
         .mouse_middle(1'b0),
-        // Table control
-        .is_table_mode(is_table_selected),
-        .coeff_a(coeff_a),
-        .coeff_b(coeff_b),
-        .coeff_c(coeff_c),
-        .coeff_d(coeff_d),
+        // Table control - use coefficients from input wrapper
+        .is_table_mode(is_table_selected && coeffs_ready),
+        .coeff_a(input_coeff_a),
+        .coeff_b(input_coeff_b),
+        .coeff_c(input_coeff_c),
+        .coeff_d(input_coeff_d),
         // OLED connections
         .one_pixel_index(JB_pixel_index),
         .two_pixel_index(JA_pixel_index),
@@ -144,17 +169,26 @@ module Top_Student (
 
     // ========= OLED OUTPUT MUX =========
     assign JB_oled_data = 
-        (is_arithmetic_selected) ? arithmetic_one_oled_data :
-        (is_table_selected)      ? table_one_oled_data :
-                                   16'h0000;  // blank
+        (is_coeff_input_selected) ? coeff_input_one_oled_data :
+        (is_arithmetic_selected)  ? arithmetic_one_oled_data :
+        (is_table_selected)       ? table_one_oled_data :
+                                    16'h0000;  // blank
 
     assign JA_oled_data = 
-        (is_arithmetic_selected) ? arithmetic_two_oled_data :
-        (is_table_selected)      ? table_two_oled_data :
-                                   16'h0000;
+        (is_coeff_input_selected) ? coeff_input_two_oled_data :
+        (is_arithmetic_selected)  ? arithmetic_two_oled_data :
+        (is_table_selected)       ? table_two_oled_data :
+                                    16'h0000;
 
     // ========= LED DEBUG OUTPUT =========
     assign led[15:14] = state;
+    assign led[13] = coeffs_ready;  // Shows when coefficients are ready
+    assign led[2] = is_table_input_mode_outgoing;  // Shows when in table input mode
+
+    // ========= 7-SEGMENT DISPLAY (OPTIONAL) =========
+    // You can add display logic here if needed
+    assign seg = 8'hFF;  // All segments off for now
+    assign an = 4'hF;    // All anodes off for now
 
 endmodule
 
