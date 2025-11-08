@@ -150,7 +150,7 @@ bcd_to_fp_input_system #(
     
     
     // Keypad display
-    polytable_keypad keypad_display(
+    polytable_keypad_display keypad_display(
         .clk(clk_6p25MHz),
         .pixel_index(one_pixel_index),
         .cursor_row(cursor_row),
@@ -189,7 +189,7 @@ bcd_to_fp_input_system #(
     );
 
     // Keypad/Table renderer
-    polytable_keypad keypad(
+    polytable_keypad_render keypad(
         .is_table_mode(is_table_mode),
         .is_table_input_mode(is_table_input_mode),
         .keypad_oled_data(keypad_oled_data),
