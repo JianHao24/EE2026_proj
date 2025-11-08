@@ -140,9 +140,9 @@ module coeff_controller(
                     end else begin
                         // Determining selected value based on cursor position in main keypad
                         case(cursor_row)
-                            2'd0: keypad_selected_value <= cursor_col + 4'd7; // 7, 8, 9
-                            2'd1: keypad_selected_value <= cursor_col + 4'd4; // 4, 5, 6
-                            2'd2: keypad_selected_value <= cursor_col + 4'd1; // 1, 2, 3
+                        2'd0: keypad_selected_value <= cursor_col + 4'd1; // 1, 2, 3
+                        2'd1: keypad_selected_value <= cursor_col + 4'd4; // 4, 5, 6
+                        2'd2: keypad_selected_value <= cursor_col + 4'd7; // 7, 8, 9
                             2'd3: begin
                                 case(cursor_col)
                                     2'd0: keypad_selected_value <= 4'd0; // 0
