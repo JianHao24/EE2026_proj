@@ -1,3 +1,6 @@
+
+
+`timescale 1ns / 1ps
 module trig_calculator #(
     parameter FIXED_FRAC_BITS = 16
 )(
@@ -174,48 +177,43 @@ module trig_calculator #(
                 end
                 
                 COMPUTE_LOG2: begin
-                    wait_counter <= wait_counter + 1;
-                    
                     if (wait_counter == 0) begin
                         // Step 1: Find MSB position (integer part of log2)
                         msb_pos <= find_msb(log2_input);
+                        wait_counter <= 1;
                     end
                     else if (wait_counter == 1) begin
                         // Step 2: Normalize to range [1.0, 2.0)
-                        // Shift so MSB is at bit 16 (the integer/fraction boundary)
                         if (msb_pos >= 16) begin
                             normalized <= log2_input >> (msb_pos - 16);
                         end else begin
                             normalized <= log2_input << (16 - msb_pos);
                         end
+                        wait_counter <= 2;
                     end
                     else if (wait_counter == 2) begin
                         // Step 3: Extract fractional part (normalized - 1.0)
-                        // In 16.16 format, 1.0 = 0x00010000
                         frac_part <= normalized - 32'h00010000;
+                        wait_counter <= 3;
                     end
                     else if (wait_counter == 3) begin
-                        // Step 4: Approximate log2(1 + frac_part)
-                        // Using: log2(1+x) ? x * (1/ln(2))
-                        // Multiply in 16.16: (a * b) >> 16
+                        // Step 4: Approximate log2(1 + frac_part) using linear approximation
+                        // log2(1+x) ? x * (1/ln(2)) in fixed point
                         log2_result <= (frac_part * INV_LN2_16_16) >>> 16;
+                        wait_counter <= 4;
                     end
                     else if (wait_counter == 4) begin
                         // Step 5: Add integer part (msb_pos - 16)
-                        // Convert msb_pos offset to 16.16 format
                         if (msb_pos >= 16) begin
                             log2_result <= log2_result + ((msb_pos - 16) << 16);
                         end else begin
                             log2_result <= log2_result - ((16 - msb_pos) << 16);
                         end
+                        wait_counter <= 5;
                     end
-                    
-                    // Check for overflow
-                    if (wait_counter == 5) begin
-                        if (log2_result > 32'h7FFF0000 || log2_result < -32'h80000000) begin
-                            overflow <= 1;
-                            log2_result <= (log2_result[31]) ? 32'h80000000 : 32'h7FFF0000;
-                        end
+                    else begin
+                        // Step 6: Just wait for state transition
+                        wait_counter <= wait_counter + 1;
                     end
                 end
                 
