@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module arithmetic_input_display(
+module calculator_input(
     input clk,
     input [12:0] pixel_index,
     input [31:0] bcd_value,
@@ -81,7 +81,7 @@ module arithmetic_input_display(
     wire str_pixel_active;
     
     // String renderer instance
-    string_renderer_optimized string_renderer(
+    string_renderer string_renderer(
         .clk(clk),
         .word(display_string),
         .start_x(text_start_x),

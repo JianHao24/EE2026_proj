@@ -74,7 +74,7 @@ module coefficient_input_wrapper(
     assign coeff_d = stored_d;
     
     // Cursor controller for keypad
-    integral_cursor_controller cursor_ctrl(
+    coeff_controller coeff_ctrl(
         .clk(clk_1kHz),
         .reset(reset),
         .btnC(btnC), .btnU(btnU), .btnD(btnD), .btnL(btnL), .btnR(btnR),
@@ -108,7 +108,7 @@ module coefficient_input_wrapper(
     );
     
     // Keypad display
-    polynomial_table_keypad_display keypad_display(
+    polytable_keypad keypad_display(
         .clk(clk_6p25MHz),
         .pixel_index(one_pixel_index),
         .cursor_row(cursor_row),

@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 (* use_dsp = "yes" *)
-module polynomial_computation(
+module poly_calc_engine(
     input  wire clk,
     input  wire requires_computation,
     input  wire signed [31:0] x_value,

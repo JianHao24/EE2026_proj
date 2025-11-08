@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module integral_cursor_controller(
+module coeff_controller(
     input clk,
     input reset,
     input btnC,

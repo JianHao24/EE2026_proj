@@ -26,7 +26,7 @@ The updated input value will subsequently used in computations.
 
 In regular is_table_mode, only the up-down buttons will be active which in theory, should allow the user to scroll through input values.
 */
-module polynomial_table_cursor_controller(
+module polytable_select(
     input [6:0] mouse_xpos,
     input [6:0] mouse_ypos,
     input mouse_left,        //used to click

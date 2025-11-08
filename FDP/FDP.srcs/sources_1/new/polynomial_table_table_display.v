@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module polynomial_table_table_display(
+module polytable_display(
     input clk,
     input [12:0] pixel_index,
     input is_table_mode,
@@ -82,7 +82,7 @@ module polynomial_table_table_display(
     reg [31:0] value_to_convert;
     
     // Computation module instance
-    polynomial_computation compute(
+    poly_calc_engine compute(
         .clk(clk),
         .requires_computation(requires_computation),
         .x_value(x_values[comp_row]),
@@ -112,7 +112,7 @@ module polynomial_table_table_display(
     wire y_active;
     
     // String renderers
-    string_renderer_optimized x_renderer(
+    string_renderer render_x(
         .clk(clk),
         .word(x_text),
         .start_x(4),
@@ -123,7 +123,7 @@ module polynomial_table_table_display(
         .active_pixel(x_active)
     );
 
-    string_renderer_optimized y_renderer(
+    string_renderer render_y(
         .clk(clk),
         .word(y_text),
         .start_x(COL_WIDTH + 4),

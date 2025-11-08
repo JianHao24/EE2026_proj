@@ -103,7 +103,7 @@ module polynomial_table_module(
     end
 
     // Cursor controller
-    polynomial_table_cursor_controller cursor_controller(
+    polytable_select table_controller(
         .mouse_xpos(xpos),
         .mouse_ypos(ypos),
         .mouse_left(mouse_left),
@@ -150,7 +150,7 @@ bcd_to_fp_input_system #(
     
     
     // Keypad display
-    polynomial_table_keypad_display keypad_display(
+    polytable_keypad keypad_display(
         .clk(clk_6p25MHz),
         .pixel_index(one_pixel_index),
         .cursor_row(cursor_row),
@@ -162,7 +162,7 @@ bcd_to_fp_input_system #(
     );
 
     // Table display
-    polynomial_table_table_display table_display(
+    polytable_display table_display(
         .clk(clk_6p25MHz),
         .pixel_index(one_pixel_index),
         .is_table_mode(is_table_mode && !is_table_input_mode),
@@ -189,7 +189,7 @@ bcd_to_fp_input_system #(
     );
 
     // Keypad/Table renderer
-    polynomial_table_table_keypad_renderer one_renderer(
+    polytable_keypad keypad(
         .is_table_mode(is_table_mode),
         .is_table_input_mode(is_table_input_mode),
         .keypad_oled_data(keypad_oled_data),

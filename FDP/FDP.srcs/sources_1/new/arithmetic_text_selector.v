@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module arithmetic_text_selector(
+module calculator_text(
     input clk,
     input [12:0] pixel_index,
     input signed [31:0] computed_result,
@@ -38,7 +38,7 @@ module arithmetic_text_selector(
     wire [15:0] output_display_data;
     
     // Instantiate input display module
-    arithmetic_input_display input_inst(
+    calculator_input input_inst(
         .clk(clk),
         .pixel_index(pixel_index),
         .bcd_value(bcd_value),
@@ -49,7 +49,7 @@ module arithmetic_text_selector(
     );
     
     // Instantiate output display module
-    arithmetic_output_display output_inst(
+    calculator_output output_inst(
         .clk(clk),
         .pixel_index(pixel_index),
         .computed_result(computed_result),

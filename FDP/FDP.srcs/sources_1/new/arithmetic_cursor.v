@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module arithmetic_cursor(
+module calculator_select(
     input clk,
     input reset,
     input btnC,
