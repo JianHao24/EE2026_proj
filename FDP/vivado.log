@@ -2,10 +2,10 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sat Nov  8 15:01:35 2025
-# Process ID: 45680
+# Start of session at: Sat Nov  8 16:28:55 2025
+# Process ID: 28020
 # Current directory: C:/GitHub/EE2026_proj/FDP
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent38720 C:\GitHub\EE2026_proj\FDP\FDP.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13648 C:\GitHub\EE2026_proj\FDP\FDP.xpr
 # Log file: C:/GitHub/EE2026_proj/FDP/vivado.log
 # Journal file: C:/GitHub/EE2026_proj/FDP\vivado.jou
 #-----------------------------------------------------------
@@ -13,15 +13,20 @@ start_gui
 open_project C:/GitHub/EE2026_proj/FDP/FDP.xpr
 Scanning sources...
 Finished scanning sources
+WARNING: [Project 1-509] GeneratedRun file for 'impl_1' not found
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
-open_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 813.250 ; gain = 132.516
-reset_run impl_1 -prev_step 
-launch_runs impl_1 -to_step write_bitstream -jobs 8
-[Sat Nov  8 15:02:00 2025] Launched impl_1...
-Run output will be captured here: C:/GitHub/EE2026_proj/FDP/FDP.runs/impl_1/runme.log
 update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -jobs 8
+[Sat Nov  8 16:29:29 2025] Launched synth_1...
+Run output will be captured here: C:/GitHub/EE2026_proj/FDP/FDP.runs/synth_1/runme.log
+[Sat Nov  8 16:29:29 2025] Launched impl_1...
+Run output will be captured here: C:/GitHub/EE2026_proj/FDP/FDP.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+[Sat Nov  8 16:31:55 2025] Launched impl_1...
+Run output will be captured here: C:/GitHub/EE2026_proj/FDP/FDP.runs/impl_1/runme.log
 open_hw
 connect_hw_server
 INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
@@ -33,9 +38,6 @@ INFO: [Labtools 27-2221] Launch Output:
     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
 
-disconnect_hw_server localhost:3121
-connect_hw_server
-INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
 open_hw_target
 INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183714703A
 set_property PROGRAM.FILE {C:/GitHub/EE2026_proj/FDP/FDP.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
@@ -59,97 +61,15 @@ Resolution:
 1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
 2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
 For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 8
-[Sat Nov  8 15:47:49 2025] Launched synth_1...
-Run output will be captured here: C:/GitHub/EE2026_proj/FDP/FDP.runs/synth_1/runme.log
-[Sat Nov  8 15:47:49 2025] Launched impl_1...
-Run output will be captured here: C:/GitHub/EE2026_proj/FDP/FDP.runs/impl_1/runme.log
-open_run impl_1
-INFO: [Common 17-41] Interrupt caught. Command should exit soon.
-INFO: [Netlist 29-17] Analyzing 1715 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-479] Netlist was created with Vivado 2018.2
-INFO: [Common 17-344] 'open_run' was cancelled
-set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property PROGRAM.FILE {C:/GitHub/EE2026_proj/FDP/FDP.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
-program_hw_devices [get_hw_devices xc7a35t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183714703A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183714703A
 INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
 WARNING: [Labtools 27-3361] The debug hub core was not detected.
 Resolution: 
 1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
 2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
 For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 8
-[Sat Nov  8 15:56:54 2025] Launched synth_1...
-Run output will be captured here: C:/GitHub/EE2026_proj/FDP/FDP.runs/synth_1/runme.log
-[Sat Nov  8 15:56:54 2025] Launched impl_1...
-Run output will be captured here: C:/GitHub/EE2026_proj/FDP/FDP.runs/impl_1/runme.log
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 8
-[Sat Nov  8 15:59:31 2025] Launched synth_1...
-Run output will be captured here: C:/GitHub/EE2026_proj/FDP/FDP.runs/synth_1/runme.log
-[Sat Nov  8 15:59:31 2025] Launched impl_1...
-Run output will be captured here: C:/GitHub/EE2026_proj/FDP/FDP.runs/impl_1/runme.log
-open_run impl_1
-INFO: [Netlist 29-17] Analyzing 1708 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-479] Netlist was created with Vivado 2018.2
-INFO: [Device 21-403] Loading part xc7a35tcpg236-1
-INFO: [Common 17-41] Interrupt caught. Command should exit soon.
-INFO: [Common 17-344] 'open_run' was cancelled
-set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property PROGRAM.FILE {C:/GitHub/EE2026_proj/FDP/FDP.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
-program_hw_devices [get_hw_devices xc7a35t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-WARNING: [Labtools 27-3361] The debug hub core was not detected.
-Resolution: 
-1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
-2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
-For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 8
-[Sat Nov  8 16:07:14 2025] Launched synth_1...
-Run output will be captured here: C:/GitHub/EE2026_proj/FDP/FDP.runs/synth_1/runme.log
-[Sat Nov  8 16:07:14 2025] Launched impl_1...
-Run output will be captured here: C:/GitHub/EE2026_proj/FDP/FDP.runs/impl_1/runme.log
-set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property PROGRAM.FILE {C:/GitHub/EE2026_proj/FDP/FDP.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
-program_hw_devices [get_hw_devices xc7a35t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-WARNING: [Labtools 27-3361] The debug hub core was not detected.
-Resolution: 
-1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
-2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
-For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 8
-[Sat Nov  8 16:14:48 2025] Launched synth_1...
-Run output will be captured here: C:/GitHub/EE2026_proj/FDP/FDP.runs/synth_1/runme.log
-[Sat Nov  8 16:14:48 2025] Launched impl_1...
-Run output will be captured here: C:/GitHub/EE2026_proj/FDP/FDP.runs/impl_1/runme.log
-set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property PROGRAM.FILE {C:/GitHub/EE2026_proj/FDP/FDP.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]
-program_hw_devices [get_hw_devices xc7a35t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-WARNING: [Labtools 27-3361] The debug hub core was not detected.
-Resolution: 
-1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
-2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
-For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
 set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
 set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
 set_property PROGRAM.FILE {C:/GitHub/EE2026_proj/FDP/FDP.runs/impl_1/Top_Student.bit} [get_hw_devices xc7a35t_0]

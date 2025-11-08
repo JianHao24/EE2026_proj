@@ -1,4 +1,3 @@
-
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -9,12 +8,12 @@
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
-// Description: Updated - trig button now shows "T" instead of "f"
+// Description: Updated - wider red buttons on right side
 // 
 // Dependencies: 
 // 
 // Revision:
-// Revision 0.02 - Changed trig button label
+// Revision 0.03 - Made right buttons red and wider
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
@@ -51,14 +50,15 @@ module arithmetic_keypad_display(
     
     // Right column split into upper and lower half
     parameter right_col_x = 74;
-    parameter right_col_width = 20; // Adjusted width
+    parameter right_col_width = 22; // Extended to reach screen edge (96-74=22)
     parameter upper_button_end_y = 32;
     parameter lower_button_start_y = 32;
 
-    // Colors - Blue theme
+    // Colors - Blue theme with red accent for right buttons
     parameter white = 16'hFFFF;
     parameter black = 16'h0000;
     parameter blue_bg = 16'h001F;     // Blue background
+    parameter red_bg = 16'hF800;      // Red background for right buttons
     parameter spacing_color = 16'hFFFF; // White color for spacing between buttons
     parameter red = 16'hF800;
     parameter blue_selected = 16'h05BF;  // Lighter blue for selection
@@ -177,7 +177,7 @@ module arithmetic_keypad_display(
                 local_y == 0 || local_y == upper_button_end_y - 1) begin
                 oled_data = black;
             end else begin
-                oled_data = (selected_right && cursor_row < 2) ? white : blue_bg;
+                oled_data = (selected_right && cursor_row < 2) ? white : red_bg;
                 
                 // Center character
                 char_start_x = right_col_x + (right_col_width/2) - 4;
@@ -200,7 +200,7 @@ module arithmetic_keypad_display(
                 local_y == 0 || local_y == (height - lower_button_start_y - 1)) begin
                 oled_data = black;
             end else begin
-                oled_data = (selected_right && cursor_row >= 2) ? white : blue_bg;
+                oled_data = (selected_right && cursor_row >= 2) ? white : red_bg;
                 
                 // Center character
                 char_start_x = right_col_x + (right_col_width/2) - 4;
