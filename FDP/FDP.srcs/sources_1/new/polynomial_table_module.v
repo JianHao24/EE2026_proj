@@ -23,6 +23,7 @@ This module wraps around the polynomial table functionality, requiring only the
 coefficients and is_table_mode to properly function/interface with the rest of the program.
 */
 
+
 module polytable_mode(
     // Clocks
     input clk_6p25MHz,
@@ -31,8 +32,6 @@ module polytable_mode(
     
     // Controls
     input btnC, btnU, btnD, btnL, btnR,
-    input [6:0] xpos, ypos,
-    input use_mouse, mouse_left, mouse_middle,
     input is_table_mode,
 
     // Coefficients
@@ -67,11 +66,6 @@ module polytable_mode(
 
     // Cursor controller
     polytable_select table_controller(
-        .mouse_xpos(xpos),
-        .mouse_ypos(ypos),
-        .mouse_left(mouse_left),
-        .mouse_middle(mouse_middle),
-        .use_mouse(use_mouse),
         .clk_100MHz(clk_100MHz),
         .clk(clk_1kHz),
         .btnC(btnC),
