@@ -19,316 +19,189 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+(* use_dsp = "yes" *)
+module polynomial_computation(
+    input  wire clk,
+    input  wire requires_computation,
+    input  wire signed [31:0] x_value,
+    input  wire signed [31:0] coeff_a,
+    input  wire signed [31:0] coeff_b,
+    input  wire signed [31:0] coeff_c,
+    input  wire signed [31:0] coeff_d,
+    output reg  signed [47:0] y_value,
+    output reg  computation_complete,
+    input  wire is_graph
+);
 
-(* use_dsp = "yes" *) module polynomial_computation(
-    input clk,
-    input requires_computation,
-    input signed [31:0] x_value,
-    input signed [31:0] coeff_a,
-    input signed [31:0] coeff_b,
-    input signed [31:0] coeff_c,
-    input signed [31:0] coeff_d,
-    output reg signed [47:0] y_value,
-    output reg computation_complete,
-    input is_graph
-    );
-    // State machine states
-    reg [3:0] calc_state = 0;
-    
-    // Intermediate calculation values
-    reg signed [47:0] x_squared_val;
-    reg signed [47:0] x_cubed_val;
-    reg signed [47:0] term_a_val;
-    reg signed [47:0] term_b_val;
-    reg signed [47:0] term_c_val;
-    reg signed [47:0] temp_sum;
-    
-    // Shared multiplier registers
-    reg signed [47:0] mult_a, mult_b;
-    reg signed [63:0] mult_result;
-    reg mult_overflow = 0;
-    reg is_overflow = 0;
+    // FSM encoding
+    reg [3:0] state = 0;
 
-    // Computation state machine
+    // Internal registers
+    reg signed [47:0] x2, x3;
+    reg signed [47:0] term_a, term_b, term_c, sum_tmp;
+    reg signed [47:0] mul_in_a, mul_in_b;
+    reg signed [63:0] mul_res;
+    reg overflow_detected;
+    reg local_overflow;
+
+    // Overflow detection utility
+    function automatic overflow_flag;
+        input signed [63:0] val;
+        begin
+            overflow_flag = ((val[63] == 0) && (|val[63:47])) || ((val[63] == 1) && (|(~val[63:47])));
+        end
+    endfunction
+
     always @(posedge clk) begin
         if (requires_computation) begin
             computation_complete <= 0;
 
+            // Fast mode: graph mode skips overflow logic for speed
             if (is_graph) begin
-                case (calc_state)
-                    0: begin // Setup x^2 calculation
-                        mult_a <= x_value;
-                        mult_b <= x_value;
-                        calc_state <= 1;
-                    end
-                
-                    1: begin // Perform x^2 calculation
-                        mult_result <= mult_a * mult_b;
-                        calc_state <= 2;
-                    end
-                
-                    2: begin // Store x^2 result, setup x^3 calculation
-                        x_squared_val <= mult_result >>> 16;
-                        mult_a <= mult_result >>> 16; // x^2
-                        mult_b <= x_value;
-                        calc_state <= 3;
-                    end
-                
-                    3: begin // Perform x^3 calculation
-                        mult_result <= mult_a * mult_b;
-                        calc_state <= 4;
-                    end
-                
-                    4: begin // Store x^3, setup a*x^3 calculation
-                        x_cubed_val <= mult_result >>> 16;
-                        mult_a <= coeff_a;
-                        mult_b <= mult_result >>> 16; 
-                        calc_state <= 5;
-                    end
-                
-                    5: begin // Perform a*x^3 calculation
-                        mult_result <= mult_a * mult_b;
-                        calc_state <= 6;
-                    end
-                
-                    6: begin // Store a*x^3, setup b*x^2
-                        term_a_val <= mult_result >>> 16;
-                        mult_a <= coeff_b;
-                        mult_b <= x_squared_val;
-                        calc_state <= 7;
-                    end
-                
-                    7: begin // Perform b*x^2 calculation
-                        mult_result <= mult_a * mult_b;
-                        calc_state <= 8;
-                    end
-                
-                    8: begin // Store b*x^2, setup c*x
-                        term_b_val <= mult_result >>> 16;
-                        mult_a <= coeff_c;
-                        mult_b <= x_value;
-                        calc_state <= 9;
-                    end
-                
-                    9: begin // Perform c*x calculation
-                        mult_result <= mult_a * mult_b;
-                        calc_state <= 10;
-                    end
-                
-                    10: begin // Store c*x
-                        term_c_val <= mult_result >>> 16;
-                        calc_state <= 11;
-                    end
-                
-                    11: begin // Compute final result
-                        y_value <= term_a_val + term_b_val + term_c_val + coeff_d;
-                        computation_complete <= 1;
-                        calc_state <= 0; // Reset for next computation
-                    end
+                case (state)
+                    0:  begin mul_in_a <= x_value; mul_in_b <= x_value;           state <= 1; end
+                    1:  begin mul_res <= mul_in_a * mul_in_b;                     state <= 2; end
+                    2:  begin x2 <= mul_res >>> 16; mul_in_a <= mul_res >>> 16; mul_in_b <= x_value; state <= 3; end
+                    3:  begin mul_res <= mul_in_a * mul_in_b;                     state <= 4; end
+                    4:  begin x3 <= mul_res >>> 16; mul_in_a <= coeff_a; mul_in_b <= mul_res >>> 16; state <= 5; end
+                    5:  begin mul_res <= mul_in_a * mul_in_b;                     state <= 6; end
+                    6:  begin term_a <= mul_res >>> 16; mul_in_a <= coeff_b; mul_in_b <= x2; state <= 7; end
+                    7:  begin mul_res <= mul_in_a * mul_in_b;                     state <= 8; end
+                    8:  begin term_b <= mul_res >>> 16; mul_in_a <= coeff_c; mul_in_b <= x_value; state <= 9; end
+                    9:  begin mul_res <= mul_in_a * mul_in_b;                     state <= 10; end
+                    10: begin term_c <= mul_res >>> 16;                           state <= 11; end
+                    11: begin y_value <= term_a + term_b + term_c + coeff_d;
+                               computation_complete <= 1; state <= 0; end
                 endcase
-            end
+            end 
             else begin
-                case (calc_state)
-                    0: begin // Setup x^2 calculation
-                        mult_a <= x_value;
-                        mult_b <= x_value;
-                        calc_state <= 1;
-                    end
-                
-                    1: begin // Perform x^2 calculation
-                        mult_result <= mult_a * mult_b;
-                        calc_state <= 2;
-                    end
-                
-                    2: begin // Store x^2 result, setup x^3 calculation
-                        // Check for overflow in x^2 calculation
-                        // mult_overflow = (mult_result[63:32] != {32{mult_result[31]}});
-                        // mult_overflow = |mult_result[63:48];
-                        mult_overflow = ((mult_result[63] == 0) && (|mult_result[63:47])) || ((mult_result[63] == 1) && (|(~mult_result[63:47])));
-
-                        if (mult_overflow && (coeff_b != 0 || coeff_a != 0) && !is_graph) begin
-                            is_overflow <= 1;
-                            // No further computations if overflow
-                            calc_state <= 14;
+                case (state)
+                    // Stage 0: prepare x²
+                    0:  begin
+                            mul_in_a <= x_value;
+                            mul_in_b <= x_value;
+                            state <= 1;
                         end
-                        else begin
-                            x_squared_val <= mult_result >>> 16;
-                            mult_a <= mult_result >>> 16; // x^2
-                            mult_b <= x_value;
-                            calc_state <= 3;
+                    // Stage 1: multiply for x²
+                    1:  begin
+                            mul_res <= mul_in_a * mul_in_b;
+                            state <= 2;
                         end
-                    end
-                
-                    3: begin // Perform x^3 calculation
-                        mult_result <= mult_a * mult_b;
-                        calc_state <= 4;
-                    end
-                
-                    4: begin // Store x^3, setup a*x^3 calculation
-                        // Check for overflow in x^3
-                        // mult_overflow = (mult_result[63:32] != {32{mult_result[31]}});
-                        // mult_overflow = ((mult_result[47] == 0) && (|mult_result[63:47])) || ((mult_result[47] == 1) && (|(~mult_result[63:47])));
-                        // mult_overflow = |mult_result[63:48];
-                        // mult_overflow = ((mult_result[63] == 0) && (|mult_result[63:48])) || ((mult_result[63] == 1) && (|mult_result[62:48]));
-                        mult_overflow = ((mult_result[63] == 0) && (|mult_result[63:47])) || ((mult_result[63] == 1) && (|(~mult_result[63:47])));
-                    
-                        if (mult_overflow && coeff_a != 0 && !is_graph) begin
-                            is_overflow <= 1;
-                            // No further computations if overflow
-                            calc_state <= 14;
+                    // Stage 2: store x² or handle overflow
+                    2:  begin
+                            local_overflow = overflow_flag(mul_res);
+                            if (local_overflow && (coeff_a | coeff_b)) begin
+                                overflow_detected <= 1;
+                                state <= 14;
+                            end else begin
+                                x2 <= mul_res >>> 16;
+                                mul_in_a <= mul_res >>> 16;
+                                mul_in_b <= x_value;
+                                state <= 3;
+                            end
                         end
-                        else begin
-                            x_cubed_val <= mult_result >>> 16;
-                            mult_a <= coeff_a;
-                            mult_b <= mult_result >>> 16; 
-                            calc_state <= 5;
+                    // Stage 3: compute x³
+                    3:  begin mul_res <= mul_in_a * mul_in_b; state <= 4; end
+                    // Stage 4: store x³, setup a*x³
+                    4:  begin
+                            local_overflow = overflow_flag(mul_res);
+                            if (local_overflow && coeff_a != 0) begin
+                                overflow_detected <= 1;
+                                state <= 14;
+                            end else begin
+                                x3 <= mul_res >>> 16;
+                                mul_in_a <= coeff_a;
+                                mul_in_b <= mul_res >>> 16;
+                                state <= 5;
+                            end
                         end
-                    end
-                
-                    5: begin // Perform a*x^3 calculation
-                        mult_result <= mult_a * mult_b;
-                        calc_state <= 6;
-                    end
-                
-                    6: begin // Store a*x^3, setup b*x^2
-                        // Check for overflow in a*x^3
-                        // mult_overflow = (mult_result[63:32] != {32{mult_result[31]}});
-                        // mult_overflow = ((mult_result[47] == 0) && (|mult_result[63:48])) || ((mult_result[47] == 1) && (|(~mult_result[63:48])));
-                        // mult_overflow = |mult_result[63:48];
-                        // mult_overflow = ((mult_result >= 0) && (|mult_result[63:48])) || ((mult_result < 0) && (|(mult_result[63:48] & 16'h8000)));
-                        // mult_overflow = ((mult_result[63] == 0) && (|mult_result[63:48])) || ((mult_result[63] == 1) && (|mult_result[62:48]));
-                        mult_overflow = ((mult_result[63] == 0) && (|mult_result[63:47])) || ((mult_result[63] == 1) && (|(~mult_result[63:47])));
-
-                        if (mult_overflow && coeff_a != 0 && !is_graph) begin
-                            is_overflow <= 1;
-                            // No further computations if overflow
-                            calc_state <= 14;
+                    // Stage 5: a*x³
+                    5:  begin mul_res <= mul_in_a * mul_in_b; state <= 6; end
+                    6:  begin
+                            local_overflow = overflow_flag(mul_res);
+                            if (local_overflow && coeff_a != 0) begin
+                                overflow_detected <= 1;
+                                state <= 14;
+                            end else begin
+                                term_a <= mul_res >>> 16;
+                                mul_in_a <= coeff_b;
+                                mul_in_b <= x2;
+                                state <= 7;
+                            end
                         end
-                        else begin
-                            term_a_val <= mult_result >>> 16;
-                            mult_a <= coeff_b;
-                            mult_b <= x_squared_val;
-                            calc_state <= 7;
+                    // Stage 7: b*x²
+                    7:  begin mul_res <= mul_in_a * mul_in_b; state <= 8; end
+                    8:  begin
+                            local_overflow = overflow_flag(mul_res);
+                            if (local_overflow && coeff_b != 0) begin
+                                overflow_detected <= 1;
+                                state <= 14;
+                            end else begin
+                                term_b <= mul_res >>> 16;
+                                mul_in_a <= coeff_c;
+                                mul_in_b <= x_value;
+                                state <= 9;
+                            end
                         end
-                    end
-                
-                    7: begin // Perform b*x^2 calculation
-                        mult_result <= mult_a * mult_b;
-                        calc_state <= 8;
-                    end
-                
-                    8: begin // Store b*x^2, setup c*x
-                        // mult_overflow = (mult_result[63:32] != {32{mult_result[31]}});
-                        // mult_overflow = ((mult_result[47] == 0) && (|mult_result[63:48])) || ((mult_result[47] == 1) && (|(~mult_result[63:48])));
-                        // mult_overflow = |mult_result[63:48];
-                        // mult_overflow = ((mult_result >= 0) && (|mult_result[63:48])) || ((mult_result < 0) && (|(mult_result[63:48] & 16'h8000)));
-                        // mult_overflow = ((mult_result[63] == 0) && (|mult_result[63:48])) || ((mult_result[63] == 1) && (|mult_result[62:48]));
-                        mult_overflow = ((mult_result[63] == 0) && (|mult_result[63:47])) || ((mult_result[63] == 1) && (|(~mult_result[63:47])));
-
-
-                        if (mult_overflow && coeff_b != 0 && !is_graph) begin
-                            is_overflow <= 1;
-                            // No further computations if overflow
-                            calc_state <= 14;
+                    // Stage 9: c*x
+                    9:  begin mul_res <= mul_in_a * mul_in_b; state <= 10; end
+                    10: begin
+                            local_overflow = overflow_flag(mul_res);
+                            if (local_overflow && coeff_c != 0) begin
+                                overflow_detected <= 1;
+                                state <= 14;
+                            end else begin
+                                term_c <= mul_res >>> 16;
+                                state <= 11;
+                            end
                         end
-                        else begin
-                            term_b_val <= mult_result >>> 16;
-                            mult_a <= coeff_c;
-                            mult_b <= x_value;
-                            calc_state <= 9;
+                    // Summation chain
+                    11: begin
+                            sum_tmp = term_a + term_b;
+                            if (((term_a[31] == term_b[31]) && (sum_tmp[31] != term_a[31]))) begin
+                                overflow_detected <= 1;
+                                state <= 14;
+                            end else begin
+                                term_a <= sum_tmp;
+                                state <= 12;
+                            end
                         end
-                    end
-                
-                    9: begin // Perform c*x calculation
-                        mult_result <= mult_a * mult_b;
-                        calc_state <= 10;
-                    end
-                
-                    10: begin // Store c*x
-                        // mult_overflow = (mult_result[63:32] != {32{mult_result[31]}});
-                        // mult_overflow = ((mult_result[47] == 0) && (|mult_result[63:48])) || ((mult_result[47] == 1) && (|(~mult_result[63:48])));
-                        // mult_overflow = |mult_result[63:48];
-                        // mult_overflow = ((mult_result >= 0) && (|mult_result[63:48])) || ((mult_result < 0) && (|(mult_result[63:48] & 16'h8000)));
-                        // mult_overflow = ((mult_result[63] == 0) && (|mult_result[63:48])) || ((mult_result[63] == 1) && (|mult_result[62:48]));
-                        mult_overflow = ((mult_result[63] == 0) && (|mult_result[63:47])) || ((mult_result[63] == 1) && (|(~mult_result[63:47])));
-
-
-                        if (mult_overflow && coeff_c != 0 && !is_graph) begin
-                            is_overflow <= 1;
-                            // No further computations if overflow
-                            calc_state <= 14;
-                        end
-                        else begin
-                            term_c_val <= mult_result >>> 16;
-                            calc_state <= 11;
-                        end
-                    end
-                
-                    11: begin // Compute final result
-                        // First addition
-                        temp_sum = term_a_val + term_b_val;
-                        
-                        // Check for overflow
-                        if ((term_a_val[31] == 0 && term_b_val[31] == 0 && temp_sum[31] == 1) || 
-                            (term_a_val[31] == 1 && term_b_val[31] == 1 && temp_sum[31] == 0) && !is_graph) begin
-                            is_overflow <= 1;
-                            calc_state <= 14;
-                        end
-                        else begin
-                            term_a_val <= temp_sum;
-                            calc_state <= 12;
-                        end
-                    end
-
                     12: begin
-                        // Second addition
-                        temp_sum = term_a_val + term_c_val;
-
-                        // Check for overflow
-                        if ((term_a_val[31] == 0 && term_c_val[31] == 0 && temp_sum[31] == 1) || 
-                            (term_a_val[31] == 1 && term_c_val[31] == 1 && temp_sum[31] == 0) && !is_graph) begin
-                            is_overflow <= 1;
-                            calc_state <= 14;
+                            sum_tmp = term_a + term_c;
+                            if (((term_a[31] == term_c[31]) && (sum_tmp[31] != term_a[31]))) begin
+                                overflow_detected <= 1;
+                                state <= 14;
+                            end else begin
+                                term_a <= sum_tmp;
+                                state <= 13;
+                            end
                         end
-                        else begin
-                            // Store intermediate result and proceed
-                            term_a_val <= temp_sum; // Reuse term_a_val again
-                            calc_state <= 13;
-                        end
-                    end
-
                     13: begin
-                        // Final addition
-                        // Need to sign-extend coeff_d to match the 48-bit width
-                        temp_sum = term_a_val + coeff_d;
-                    
-                        // Check for overflow
-                        if ((term_a_val[31] == 0 && coeff_d[31] == 0 && temp_sum[31] == 1) || 
-                            (term_a_val[31] == 1 && coeff_d[31] == 1 && temp_sum[31] == 0) && !is_graph) begin
-                            is_overflow <= 1;
-                            y_value <= temp_sum;
+                            sum_tmp = term_a + coeff_d;
+                            if (((term_a[31] == coeff_d[31]) && (sum_tmp[31] != term_a[31]))) begin
+                                overflow_detected <= 1;
+                                y_value <= sum_tmp;
+                            end else begin
+                                y_value <= sum_tmp;
+                            end
+                            state <= 14;
                         end
-                        else begin
-                            y_value <= temp_sum;
-                        end
-                        calc_state <= 14;
-                    end
-
+                    // Finish state
                     14: begin
-                        if (is_overflow) begin
-                            y_value <= 0;
-                            is_overflow <= 0;
+                            if (overflow_detected) begin
+                                y_value <= 0;
+                                overflow_detected <= 0;
+                            end
+                            computation_complete <= 1;
+                            state <= 0;
                         end
-                        calc_state <= 0;
-                        computation_complete <= 1;
-                    end
                 endcase
             end
-        end
-        else begin
-            // Reset when not computing
+        end else begin
             computation_complete <= 0;
-            calc_state <= 0;
+            state <= 0;
         end
     end
 endmodule
+
+
