@@ -38,7 +38,7 @@ module trig_keypad(
     wire [6:0] x = pixel_index % width;
     wire [5:0] y = pixel_index / width;
 
-    // Original button layout: 2x2 grid (restored size)
+    // Button layout: 2x2 grid (same as before)
     parameter button_width = 48;
     parameter button_height = 32;
 
@@ -90,12 +90,12 @@ module trig_keypad(
             str_start_y = (btn_row * button_height) + (button_height / 2) - 6;
             
             // Map button to trig function label
-            // Character encoding: C=17, I=18, N=23, O=24, S=28(34), T=29(35), A=15
+            // Character encoding: C=17, I=18, N=23, O=24, S=28(34), T=29(35), A=15, L=21, G=20
             case({btn_row, btn_col})
                 4'b00_00: display_string = {6'd34, 6'd23, 6'd28};  // "SIN"
                 4'b00_01: display_string = {6'd17, 6'd29, 6'd34};  // "COS"
                 4'b01_00: display_string = {6'd35, 6'd15, 6'd28};  // "TAN"
-                4'b01_01: display_string = {6'd63, 6'd63, 6'd63};  // Empty (spaces)
+                4'b01_01: display_string = {6'd21, 6'd29, 6'd20};  // "LOG"
                 default: display_string = {6'd63, 6'd63, 6'd63};
             endcase
             

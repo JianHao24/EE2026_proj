@@ -2,10 +2,10 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sun Nov  9 00:37:41 2025
-# Process ID: 22204
+# Start of session at: Sun Nov  9 01:43:35 2025
+# Process ID: 26092
 # Current directory: C:/Users/User/Downloads/EE2026_proj/FDP
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent25632 C:\Users\User\Downloads\EE2026_proj\FDP\FDP.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20508 C:\Users\User\Downloads\EE2026_proj\FDP\FDP.xpr
 # Log file: C:/Users/User/Downloads/EE2026_proj/FDP/vivado.log
 # Journal file: C:/Users/User/Downloads/EE2026_proj/FDP\vivado.jou
 #-----------------------------------------------------------
@@ -20,7 +20,6 @@ WARNING: [Project 1-509] GeneratedRun file for 'impl_1' not found
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
-open_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 880.453 ; gain = 163.598
 update_compile_order -fileset sources_1
 exit
-INFO: [Common 17-206] Exiting Vivado at Sun Nov  9 00:38:38 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Nov  9 02:08:08 2025...

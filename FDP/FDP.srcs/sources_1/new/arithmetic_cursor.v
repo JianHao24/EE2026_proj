@@ -36,7 +36,7 @@ module calculator_select(
     output reg [1:0]cursor_row_operand = 0,
     output reg [1:0]cursor_col_operand = 0,
     output reg [1:0]cursor_row_trig = 0,
-    output reg [1:0]cursor_col_trig = 0,
+    output reg [1:0]cursor_col_trig = 0,  // Still 0-1 (2 columns)
     output reg keypad_btn_pressed = 0,
     output reg [3:0]keypad_selected_value = 0,
     output reg operand_btn_pressed = 0,
@@ -114,7 +114,7 @@ module calculator_select(
                 // ===== TRIG SELECTION MODE =====
                 // Layout: 2x2 grid
                 // Row 0: sin  cos
-                // Row 1: tan  (empty)
+                // Row 1: tan  log
                 
                 // Up button handling
                 if (btnU && !prev_btnU && debounce_U == 0) begin
@@ -142,7 +142,7 @@ module calculator_select(
             
                 // Right button handling
                 if (btnR && !prev_btnR && debounce_R == 0) begin
-                    if (cursor_col_trig < 1) begin  
+                    if (cursor_col_trig < 1) begin  // Back to 1 (2 columns)
                         cursor_col_trig <= cursor_col_trig + 1;
                     end
                     debounce_R <= 200;
@@ -153,11 +153,12 @@ module calculator_select(
                     trig_btn_pressed <= 1;
                 
                     // Determine selected trig function based on cursor position
+                    // 2x2 grid mapping
                     case({cursor_row_trig, cursor_col_trig})
                         4'b00_00: trig_selected_value <= 2'd0; // sin
                         4'b00_01: trig_selected_value <= 2'd1; // cos
                         4'b01_00: trig_selected_value <= 2'd2; // tan
-                        4'b01_01: trig_selected_value <= 2'd3; // reserved/empty
+                        4'b01_01: trig_selected_value <= 2'd3; // log2 (replaces empty)
                         default: trig_selected_value <= 2'd0;
                     endcase
                 
@@ -165,7 +166,7 @@ module calculator_select(
                 end
                 
             end else if (waiting_operand) begin
-                // ===== OPERAND SELECTION MODE =====
+                // ===== OPERAND SELECTION MODE ===== (unchanged)
                 // Layout: 2x2 grid
                 // Row 0: +  -
                 // Row 1: *  /
@@ -218,9 +219,9 @@ module calculator_select(
                 end
                 
             end else begin
-                // ===== KEYPAD INPUT MODE =====
+                // ===== KEYPAD INPUT MODE ===== (unchanged)
                 // Layout: 4 rows x 4 columns
-                // Cols 0-2: Number keypad (NOW: 1-2-3 / 4-5-6 / 7-8-9)
+                // Cols 0-2: Number keypad (1-2-3 / 4-5-6 / 7-8-9)
                 // Col 3: Split - upper (operations), lower (trig)
                 
                 if (counter == 0) begin
@@ -229,7 +230,6 @@ module calculator_select(
                         if (cursor_row_keypad > 0 && !on_right_col) begin
                             cursor_row_keypad <= cursor_row_keypad - 1;
                         end else if (on_right_col && cursor_row_keypad > 0) begin
-                            // Allow moving up in right column
                             cursor_row_keypad <= cursor_row_keypad - 1;
                         end
                         debounce_U <= 200;
@@ -240,7 +240,6 @@ module calculator_select(
                         if (cursor_row_keypad < 3 && !on_right_col) begin
                             cursor_row_keypad <= cursor_row_keypad + 1;
                         end else if (on_right_col && cursor_row_keypad < 3) begin
-                            // Allow moving down in right column
                             cursor_row_keypad <= cursor_row_keypad + 1;
                         end
                         debounce_D <= 200;
@@ -249,7 +248,6 @@ module calculator_select(
                     // Left
                     if (btnL && !prev_btnL && debounce_L == 0) begin
                         if (on_right_col) begin
-                            // Moving left from right column goes to the main keypad
                             cursor_col_keypad <= 3'd2;
                         end else if (cursor_col_keypad > 0) begin
                             cursor_col_keypad <= cursor_col_keypad - 1;
@@ -262,7 +260,7 @@ module calculator_select(
                         if (!on_right_col && cursor_col_keypad < 2) begin
                             cursor_col_keypad <= cursor_col_keypad + 1;
                         end else if (!on_right_col && cursor_col_keypad == 2) begin
-                            cursor_col_keypad <= 3'd3;  // Go to right column
+                            cursor_col_keypad <= 3'd3;
                         end
                         debounce_R <= 200;
                     end
@@ -273,23 +271,19 @@ module calculator_select(
                         counter <= 500;
                         
                         if (on_upper_button) begin
-                            // Upper button selected - go to operations mode
-                            keypad_selected_value <= 4'd12;  // Enter for operations
+                            keypad_selected_value <= 4'd12;
                         end else if (on_lower_button) begin
-                            // Lower button selected - go to trig mode
-                            keypad_selected_value <= 4'd13;  // Enter for trig
+                            keypad_selected_value <= 4'd13;
                         end else begin
-                            // Determining selected value based on cursor position in main keypad
-                            // UPDATED MAPPING: Now 1-2-3 / 4-5-6 / 7-8-9
                             case(cursor_row_keypad)
-                                2'd0: keypad_selected_value <= cursor_col_keypad + 4'd1; // 1, 2, 3
-                                2'd1: keypad_selected_value <= cursor_col_keypad + 4'd4; // 4, 5, 6
-                                2'd2: keypad_selected_value <= cursor_col_keypad + 4'd7; // 7, 8, 9
+                                2'd0: keypad_selected_value <= cursor_col_keypad + 4'd1;
+                                2'd1: keypad_selected_value <= cursor_col_keypad + 4'd4;
+                                2'd2: keypad_selected_value <= cursor_col_keypad + 4'd7;
                                 2'd3: begin
                                     case(cursor_col_keypad)
-                                        2'd0: keypad_selected_value <= 4'd0; // 0
-                                        2'd1: keypad_selected_value <= 4'd10; // . decimal
-                                        2'd2: keypad_selected_value <= 4'd11; // x backspace
+                                        2'd0: keypad_selected_value <= 4'd0;
+                                        2'd1: keypad_selected_value <= 4'd10;
+                                        2'd2: keypad_selected_value <= 4'd11;
                                     endcase
                                 end
                             endcase
