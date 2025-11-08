@@ -34,7 +34,7 @@ module arithmetic_module(
     // Control flags
     input reset,
     input is_arithmetic_mode,
-
+    
     // Mouse inputs (for future compatibility)
     input [11:0] xpos,
     input [11:0] ypos,
@@ -169,9 +169,9 @@ module arithmetic_module(
 
             // Latch input when completed or when opening trig menu
             if ((input_complete && !waiting_operand && !waiting_trig) || 
-                (keypad_btn_pressed && keypad_selected_value == 4'd13 && !pending_input)) begin
+                (keypad_btn_pressed && keypad_selected_value == 4'd13)) begin //changed this line to remove !pending_input
                 pending_input <= 1;
-                latched_input <= fp_value;
+                latched_input <= binary_result_valid ? binary_result : fp_value;
             end
             
             // Handle keypad button presses
@@ -207,14 +207,6 @@ module arithmetic_module(
             
             // Handle trig selection
             if (sampled_trig_btn_pressed) begin
-                // Latch placeholder according to selection
-                case (sampled_trig_selected_value)
-                    2'd0: latched_input <= 32'sd65536;   // SIN -> 1.0
-                    2'd1: latched_input <= 32'sd131072;  // COS -> 2.0
-                    2'd2: latched_input <= 32'sd196608;  // TAN -> 3.0
-                    default: latched_input <= latched_input;
-                endcase
-
                 pending_input <= 1;
                 trig_request <= 1'b1;
                 waiting_trig <= 0;

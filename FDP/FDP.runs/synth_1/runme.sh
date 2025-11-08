@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/GitHub/EE2026_proj/FDP/FDP.runs/synth_1'
+HD_PWD='C:/Users/stanl/EE2026_FINAL/FDP/FDP.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
