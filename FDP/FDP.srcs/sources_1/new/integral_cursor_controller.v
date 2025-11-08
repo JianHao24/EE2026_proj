@@ -147,7 +147,7 @@ module integral_cursor_controller(
                                 case(cursor_col)
                                     2'd0: keypad_selected_value <= 4'd0; // 0
                                     2'd1: keypad_selected_value <= 4'd10; // . decimal
-                                    2'd2: keypad_selected_value <= 4'd11; // - negative sign (not backspace)
+                                    2'd2: keypad_selected_value <= 4'd13; 
                                 endcase
                             end
                         endcase
