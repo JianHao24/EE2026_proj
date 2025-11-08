@@ -80,6 +80,27 @@ module polynomial_table_module(
     wire [15:0] keypad_oled_data;
     wire [15:0] table_oled_data;
     wire [15:0] input_oled_data;
+    
+    reg input_system_reset = 0;
+    reg prev_input_complete = 0;
+    
+        always @(posedge clk_1kHz) begin
+        // Default: don't reset input system
+        input_system_reset <= 0;
+        
+        // Detect rising edge of input_complete
+        prev_input_complete <= input_complete;
+        
+        // Reset input system after completion
+        if (input_complete && !prev_input_complete) begin
+            input_system_reset <= 1;
+        end
+        
+        // Also reset when entering input mode
+        if (!is_table_input_mode_outgoing && prev_input_complete) begin
+            input_system_reset <= 1;
+        end
+    end
 
     // Cursor controller
     polynomial_table_cursor_controller cursor_controller(
@@ -111,7 +132,7 @@ bcd_to_fp_input_system #(
     .FIXED_FRAC_BITS(16)
 ) input_builder_table (
     .clk(clk_1kHz),
-    .reset(!is_table_mode),             
+    .reset(input_system_reset || !is_table_mode),             
     .keypad_btn_pressed(keypad_btn_pressed),
     .selected_keypad_value(keypad_selected_value),
     .is_active_mode(is_table_input_mode && is_table_mode), 
